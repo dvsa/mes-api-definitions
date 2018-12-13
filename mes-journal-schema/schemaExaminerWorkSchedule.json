@@ -265,14 +265,7 @@
           "$ref": "#/definitions/application"
         },
         "previousCancellation": {
-          "$id": "#/properties/testSlot/properties/booking/properties/previousCancellation",
-          "description": "The details of any previous test cancellations",
-          "type": "array",
-          "properties": {
-            "initiator": {
-              "$ref": "#/definitions/initiator"
-            }
-          }
+          "$ref": "#/definitions/previousCancellation"
         },
         "business": {
           "$id": "#/properties/testSlot/properties/booking/properties/business",
@@ -299,7 +292,15 @@
           }
         }
       }
-
+    },
+    "previousCancellation": {
+      "description": "The details of any previous test cancellations",
+      "type": "array",
+      "properties": {
+        "initiator": {
+          "$ref": "#/definitions/initiator"
+        }
+      }
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
