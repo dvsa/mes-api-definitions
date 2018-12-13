@@ -253,6 +253,53 @@
         "DSA"
       ],
       "maxLength": 15
+    },
+    "booking": {
+      "description": "If this slot is booked, this contains the details",
+      "type": "object",
+      "properties": {
+        "candidate": {
+          "$ref": "#/definitions/candidate"
+        },
+        "application": {
+          "$ref": "#/definitions/application"
+        },
+        "previousCancellation": {
+          "$id": "#/properties/testSlot/properties/booking/properties/previousCancellation",
+          "description": "The details of any previous test cancellations",
+          "type": "array",
+          "properties": {
+            "initiator": {
+              "$ref": "#/definitions/initiator"
+            }
+          }
+        },
+        "business": {
+          "$id": "#/properties/testSlot/properties/booking/properties/business",
+          "description": "The business details, only for tests that are booked by a business or trainer booker",
+          "type": "object",
+          "properties": {
+            "businessId": {
+              "description": "The business id",
+              "type": "integer"
+            },
+            "businessName": {
+              "description": "The business name",
+              "type": "string",
+              "maxLength": 100
+            },
+            "businessAddress": {
+              "$ref": "#/definitions/address"
+            },
+            "telephone": {
+              "description": "The business telephone number, if any",
+              "type": "string",
+              "maxLength": 20
+            }
+          }
+        }
+      }
+
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
@@ -298,51 +345,7 @@
             "$ref": "#/definitions/testCentre"
           },
           "booking": {
-            "$id": "#/properties/testSlot/properties/booking",
-            "description": "If this slot is booked, this contains the details",
-            "type": "object",
-            "properties": {
-              "candidate": {
-                "$ref": "#/definitions/candidate"
-              },
-              "application": {
-                "$ref": "#/definitions/application"
-              },
-              "previousCancellation": {
-                "$id": "#/properties/testSlot/properties/booking/properties/previousCancellation",
-                "description": "The details of any previous test cancellations",
-                "type": "array",
-                "properties": {
-                  "initiator": {
-                    "$ref": "#/definitions/initiator"
-                  }
-                }
-              },
-              "business": {
-                "$id": "#/properties/testSlot/properties/booking/properties/business",
-                "description": "The business details, only for tests that are booked by a business or trainer booker",
-                "type": "object",
-                "properties": {
-                  "businessId": {
-                    "description": "The business id",
-                    "type": "integer"
-                  },
-                  "businessName": {
-                    "description": "The business name",
-                    "type": "string",
-                    "maxLength": 100
-                  },
-                  "businessAddress": {
-                    "$ref": "#/definitions/address"
-                  },
-                  "telephone": {
-                    "description": "The business telephone number, if any",
-                    "type": "string",
-                    "maxLength": 20
-                  }
-                }
-              }
-            }
+            "$ref": "#/definitions/booking"
           }
         }
       },
