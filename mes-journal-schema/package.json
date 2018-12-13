@@ -2,7 +2,7 @@
   "name": "mes-journal-schema",
   "version": "1.0.0",
   "description": "JSON Schema of examiner journal data sourced from TARS",
-  "main": "Journal.d.ts",
+  "types": "Journal.d.ts",
   "scripts": {
     "generate": "json2ts -i schemaExaminerWorkSchedule.json -o Journal.d.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
