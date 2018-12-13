@@ -303,35 +303,8 @@
           }
         }
       }
-    }
-  },
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "id": "https://example.com/arrays.schema.json",
-  "title": "Examiner Work Schedule",
-  "type": "object",
-  "description": "JSON Schema definition for Examiner Work Schedule",
-  "properties": {
-    "examiner": {
-      "$id": "#/properties/examiner",
-      "description": "The examiner details",
-      "type": "object",
-      "properties": {
-        "staffNumber": {
-          "$id": "#/properties/staffNumber",
-          "description": "The examiner's DSA staff number",
-          "type": "string",
-          "maxLength": 10
-        },
-        "examinerName": {
-          "$ref": "#/definitions/name"
-        },
-        "permTestCentre": {
-          "$ref": "#/definitions/testCentre"
-        }
-      }
     },
     "testSlot": {
-      "$id": "#/properties/testSlot",
       "description": "A test slot, possibly populated with booking data",
       "type": "array",
       "items": {
@@ -466,6 +439,36 @@
           }
         }
       }
+
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "https://example.com/arrays.schema.json",
+  "title": "Examiner Work Schedule",
+  "type": "object",
+  "description": "JSON Schema definition for Examiner Work Schedule",
+  "properties": {
+    "examiner": {
+      "$id": "#/properties/examiner",
+      "description": "The examiner details",
+      "type": "object",
+      "properties": {
+        "staffNumber": {
+          "$id": "#/properties/staffNumber",
+          "description": "The examiner's DSA staff number",
+          "type": "string",
+          "maxLength": 10
+        },
+        "examinerName": {
+          "$ref": "#/definitions/name"
+        },
+        "permTestCentre": {
+          "$ref": "#/definitions/testCentre"
+        }
+      }
+    },
+    "testSlot": {
+      "$ref": "#/definitions/testSlot"
     }
   }
 }
