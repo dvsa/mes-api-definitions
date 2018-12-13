@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "JSON Schema of examiner journal data sourced from TARS",
   "scripts": {
-    "generate": "mkdirp build && json2ts schemaExaminerWorkSchedule.json > build/Journal.d.ts",
+    "generate": "mkdirp build && json2ts -i schemaExaminerWorkSchedule.json -o build/Journal.d.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
