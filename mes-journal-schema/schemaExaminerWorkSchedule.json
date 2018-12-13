@@ -1,5 +1,23 @@
 {
   "definitions": {
+    "examiner": {
+      "description": "The examiner details",
+      "type": "object",
+      "properties": {
+        "staffNumber": {
+          "$id": "#/properties/staffNumber",
+          "description": "The examiner's DSA staff number",
+          "type": "string",
+          "maxLength": 10
+        },
+        "examinerName": {
+          "$ref": "#/definitions/name"
+        },
+        "permTestCentre": {
+          "$ref": "#/definitions/testCentre"
+        }
+      }
+    },
     "testCentre": {
       "description": "Details of the test centre",
       "type": "object",
@@ -449,23 +467,7 @@
   "description": "JSON Schema definition for Examiner Work Schedule",
   "properties": {
     "examiner": {
-      "$id": "#/properties/examiner",
-      "description": "The examiner details",
-      "type": "object",
-      "properties": {
-        "staffNumber": {
-          "$id": "#/properties/staffNumber",
-          "description": "The examiner's DSA staff number",
-          "type": "string",
-          "maxLength": 10
-        },
-        "examinerName": {
-          "$ref": "#/definitions/name"
-        },
-        "permTestCentre": {
-          "$ref": "#/definitions/testCentre"
-        }
-      }
+      "$ref": "#/definitions/examiner"
     },
     "testSlot": {
       "$ref": "#/definitions/testSlot"
