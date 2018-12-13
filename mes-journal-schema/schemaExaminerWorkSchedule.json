@@ -296,9 +296,11 @@
     "previousCancellation": {
       "description": "The details of any previous test cancellations",
       "type": "array",
-      "properties": {
-        "initiator": {
-          "$ref": "#/definitions/initiator"
+      "items": {
+        "properties": {
+          "initiator": {
+            "$ref": "#/definitions/initiator"
+          }
         }
       }
     }
