@@ -2,8 +2,9 @@
   "name": "mes-journal-schema",
   "version": "1.0.0",
   "description": "JSON Schema of examiner journal data sourced from TARS",
+  "main": "Journal.d.ts",
   "scripts": {
-    "generate": "mkdirp build && json2ts -i schemaExaminerWorkSchedule.json -o build/Journal.d.ts",
+    "generate": "json2ts -i schemaExaminerWorkSchedule.json -o Journal.d.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,7 +18,6 @@
   },
   "homepage": "https://github.com/dvsa/mes-api-definitions",
   "devDependencies": {
-    "json-schema-to-typescript": "^6.1.0",
-    "mkdirp": "^0.5.1"
+    "json-schema-to-typescript": "^6.1.0"
   }
 }
