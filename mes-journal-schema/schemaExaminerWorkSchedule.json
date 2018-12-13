@@ -286,28 +286,7 @@
           "$ref": "#/definitions/previousCancellation"
         },
         "business": {
-          "$id": "#/properties/testSlot/properties/booking/properties/business",
-          "description": "The business details, only for tests that are booked by a business or trainer booker",
-          "type": "object",
-          "properties": {
-            "businessId": {
-              "description": "The business id",
-              "type": "integer"
-            },
-            "businessName": {
-              "description": "The business name",
-              "type": "string",
-              "maxLength": 100
-            },
-            "businessAddress": {
-              "$ref": "#/definitions/address"
-            },
-            "telephone": {
-              "description": "The business telephone number, if any",
-              "type": "string",
-              "maxLength": 20
-            }
-          }
+          "$ref": "#/definitions/business"
         }
       }
     },
@@ -455,6 +434,29 @@
               "maxLength": 10
             }
           }
+        }
+      }
+    },
+    "business": {
+      "description": "The business details, only for tests that are booked by a business or trainer booker",
+      "type": "object",
+      "properties": {
+        "businessId": {
+          "description": "The business id",
+          "type": "integer"
+        },
+        "businessName": {
+          "description": "The business name",
+          "type": "string",
+          "maxLength": 100
+        },
+        "businessAddress": {
+          "$ref": "#/definitions/address"
+        },
+        "telephone": {
+          "description": "The business telephone number, if any",
+          "type": "string",
+          "maxLength": 20
         }
       }
 
