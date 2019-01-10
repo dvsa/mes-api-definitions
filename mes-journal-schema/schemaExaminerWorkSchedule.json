@@ -375,6 +375,11 @@
           "type": "string",
           "maxLength": 30
         },
+        "emailAddress": {
+          "description": "The candidate's email address, if any",
+          "type": "string",
+          "maxLength": 100
+        },
         "prn": {
           "description": "The candidate's ADI PRN (potential register number), if an ADI test",
           "type": "integer"
