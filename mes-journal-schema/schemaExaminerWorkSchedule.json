@@ -440,18 +440,6 @@
         }
       }
     },
-    "deployments": {
-      "$id": "#/properties/deployments",
-      "description": "A collection of temporary secondments of the examiner to an alternative test centre",
-      "type": "array",
-      "items": {
-        "properties": {
-          "deployment": {
-            "$ref": "#/definitions/deployment"
-          }
-        }
-      }
-    },
     "business": {
       "description": "The business details, only for tests that are booked by a business or trainer booker",
       "type": "object",
@@ -511,7 +499,12 @@
       }
     },
     "deployments": {
-      "$ref": "#/definitions/deployments"
+      "$id": "#/properties/deployments",
+      "description": "A collection of temporary secondments of the examiner to an alternative test centre",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/deployment"
+      }
     }
   }
 }
