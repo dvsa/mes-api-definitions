@@ -428,18 +428,6 @@
         }
       }
     },
-    "personalCommitments": {
-      "$id": "#/properties/personalCommitments",
-      "description": "A collection of the examiner's personal commitment(s)",
-      "type": "array",
-      "items": {
-        "properties": {
-          "personalCommitment": {
-            "$ref": "#/definitions/personalCommitment"
-          }
-        }
-      }
-    },
     "business": {
       "description": "The business details, only for tests that are booked by a business or trainer booker",
       "type": "object",
@@ -481,7 +469,12 @@
       }
     },
     "personalCommitments": {
-      "$ref": "#/definitions/personalCommitments"
+      "$id": "#/properties/personalCommitments",
+      "description": "A collection of the examiner's personal commitment(s)",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/personalCommitment"
+      }
     },
     "nonTestActivities": {
       "description": "A collection of the examiner's non test activity(s) (associated with a test slot duration)",
