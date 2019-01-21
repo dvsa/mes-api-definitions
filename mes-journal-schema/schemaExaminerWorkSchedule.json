@@ -3,6 +3,7 @@
     "examiner": {
       "description": "The examiner details",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "staffNumber": {
           "$id": "#/properties/staffNumber",
@@ -21,6 +22,7 @@
     "testCentre": {
       "description": "Details of the test centre",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "centreId": {
           "description": "Identifier for the test centre",
@@ -41,6 +43,7 @@
     "testSlot": {
       "description": "Details of the test slot",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "slotDetail": {
           "$ref": "#/definitions/slotDetail"
@@ -61,6 +64,7 @@
     "personalCommitment": {
       "description": "Details of the test slot",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "commitmentId": {
           "description": "The commitment id",
@@ -105,6 +109,7 @@
     "nonTestActivity": {
       "description": "An examiner's non test activity (associated with a test slot duration)",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "slotDetail": {
           "$ref": "#/definitions/slotDetail"
@@ -127,6 +132,7 @@
     "advanceTestSlot": {
       "description": "Details of an examiner's future test slot",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "slotDetail": {
           "$ref": "#/definitions/slotDetail"
@@ -144,6 +150,7 @@
     "deployment": {
       "description": "Temporary secondment of the examiner to an alternative test centre",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "deploymentId": {
           "description": "The deployment id",
@@ -163,6 +170,7 @@
     "slotDetail": {
       "description": "Identifier, start time and duration of the slot",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "slotId": {
           "description": "Unique identifier for the test slot",
@@ -183,6 +191,7 @@
     "name": {
       "description": "Details of the individual's name",
       "type": "object",
+      "additionalProperties": false,
       "required": [
         "title",
         "firstName",
@@ -219,6 +228,7 @@
     "address": {
       "description": "Details of the address",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "addressLine1": {
           "description": "First line of address",
@@ -266,6 +276,7 @@
       "$id": "#/properties/testSlot/properties/booking/properties/application",
       "description": "Details of the test application",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "applicationId": {
           "description": "The application's id",
@@ -335,6 +346,7 @@
       "$id": "#/properties/testSlot/properties/booking/properties/candidate",
       "description": "Details of the candidate booked into the test slot",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "candidateId": {
           "description": "The id of the test candidate",
@@ -402,6 +414,7 @@
     "booking": {
       "description": "If this slot is booked, this contains the details",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "candidate": {
           "$ref": "#/definitions/candidate"
@@ -431,6 +444,7 @@
     "business": {
       "description": "The business details, only for tests that are booked by a business or trainer booker",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "businessId": {
           "description": "The business id",
@@ -456,6 +470,7 @@
   "id": "https://example.com/arrays.schema.json",
   "title": "Examiner Work Schedule",
   "type": "object",
+  "additionalProperties": false,
   "description": "JSON Schema definition for Examiner Work Schedule",
   "properties": {
     "examiner": {
