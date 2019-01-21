@@ -440,18 +440,6 @@
         }
       }
     },
-    "advanceTestSlots": {
-      "$id": "#/properties/advanceTestSlots",
-      "description": "A collection of an examiner's future test slots",
-      "type": "array",
-      "items": {
-        "properties": {
-          "advanceTestSlot": {
-            "$ref": "#/definitions/advanceTestSlot"
-          }
-        }
-      }
-    },
     "deployments": {
       "$id": "#/properties/deployments",
       "description": "A collection of temporary secondments of the examiner to an alternative test centre",
@@ -515,7 +503,12 @@
       }
     },
     "advanceTestSlots": {
-      "$ref": "#/definitions/advanceTestSlots"
+      "$id": "#/properties/advanceTestSlots",
+      "description": "A collection of an examiner's future test slots",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/advanceTestSlot"
+      }
     },
     "deployments": {
       "$ref": "#/definitions/deployments"
