@@ -434,11 +434,7 @@
       "description": "The details of any previous test cancellations",
       "type": "array",
       "items": {
-        "properties": {
-          "initiator": {
-            "$ref": "#/definitions/initiator"
-          }
-        }
+        "$ref": "#/definitions/initiator"
       }
     },
     "business": {
