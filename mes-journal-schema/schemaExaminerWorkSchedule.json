@@ -13,9 +13,6 @@
         },
         "examinerName": {
           "$ref": "#/definitions/name"
-        },
-        "permTestCentre": {
-          "$ref": "#/definitions/testCentre"
         }
       }
     },
@@ -192,11 +189,6 @@
       "description": "Details of the individual's name",
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "title",
-        "firstName",
-        "lastName"
-      ],
       "properties": {
         "title": {
           "description": "The individual's title",
@@ -352,10 +344,6 @@
           "description": "The id of the test candidate",
           "type": "integer"
         },
-        "age": {
-          "description": "The age of the test candidate on the day of the test",
-          "type": "integer"
-        },
         "candidateName": {
           "$ref": "#/definitions/name"
         },
@@ -363,11 +351,6 @@
           "description": "The candidate's driver number if any, typically (though not always) 16 characters if UK, or 8 digits if NI",
           "type": "string",
           "maxLength": 24
-        },
-        "gender": {
-          "description": "The candidate's gender",
-          "type": "string",
-          "maxLength": 255
         },
         "candidateAddress": {
           "$ref": "#/definitions/address"
