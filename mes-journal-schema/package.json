@@ -4,7 +4,7 @@
   "description": "JSON Schema of examiner journal data sourced from TARS",
   "types": "Journal.d.ts",
   "scripts": {
-    "generate": "json2ts -i schemaExaminerWorkSchedule.json -o Journal.d.ts",
+    "generate": "json2ts -i schema-examiner-work-schedule.json -o Journal.d.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
