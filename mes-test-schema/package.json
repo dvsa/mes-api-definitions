@@ -1,5 +1,5 @@
 {
-  "name": "mes-test-schema",
+  "name": "@dvsa/mes-test-schema",
   "version": "1.0.0",
   "description": "Domain model for data associated with tests administered by the Mobile Examiners Service",
   "scripts": {
