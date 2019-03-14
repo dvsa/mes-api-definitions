@@ -1,0 +1,23 @@
+{
+  "name": "mes-journal-schema",
+  "version": "1.0.0",
+  "description": "JSON Schema of examiner journal data sourced from TARS",
+  "types": "Journal.d.ts",
+  "scripts": {
+    "generate": "json2ts -i schema-examiner-work-schedule.json -o Journal.d.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvsa/mes-api-definitions.git"
+  },
+  "author": "DVSA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dvsa/mes-api-definitions/issues"
+  },
+  "homepage": "https://github.com/dvsa/mes-api-definitions",
+  "devDependencies": {
+    "json-schema-to-typescript": "^6.1.0"
+  }
+}
