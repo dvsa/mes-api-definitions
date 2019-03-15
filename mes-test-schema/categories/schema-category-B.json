@@ -5,6 +5,17 @@
     "faults": {
       "type": "object"
     },
+    "testData": {
+      "description": "Data associated with the test",
+      "type": "object",
+      "properties": {
+        "faults": {
+          "description": "Details of any faults recorded",
+          "$ref": "#/definitions/faults"
+        }
+      },
+      "additionalProperties": false
+    },
     "waitingRoom": {
       "type": "object",
       "additionalProperties": false,
@@ -54,20 +65,12 @@
       "type": "string"
     },
     "testData": {
-      "description": "Data associated with the test",
-      "type": "object",
-      "properties": {
-        "faults": {
-          "description": "Details of any faults recorded",
-          "$ref": "#/definitions/faults"
-        }
-      },
-      "additionalProperties": false
+      "$ref": "#/definitions/testData"
     },
     "preTest": {
       "$ref": "#/definitions/preTest"
     }
   },
   "additionalProperties": false,
-  "required": ["category", "id", "preTest"]
+  "required": ["category", "id", "testData", "preTest"]
 }
