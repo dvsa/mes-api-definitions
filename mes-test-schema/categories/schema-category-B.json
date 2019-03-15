@@ -4,11 +4,41 @@
   "definitions": {
     "faults": {
       "type": "object"
+    },
+    "waitingRoom": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "insuranceDeclarationAccepted": {
+          "description": "Whether or not the candidate has declared that their test vehicle has a valid insurance policy",
+          "type": "boolean"
+        },
+        "residencyDeclarationAccepted": {
+          "description": "Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test",
+          "type": "boolean"
+        },
+        "signature": {
+          "description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
+          "type": "string"
+        }
+      },
+      "required": ["insuranceDeclarationAccepted", "residencyDeclarationAccepted", "signature"]
+    },
+    "preTest": {
+      "type": "object",
+      "description": "Data related to the test phase prior to the test report",
+      "additionalProperties": false,
+      "required": ["waitingRoom"],
+      "properties": {
+        "waitingRoom": {
+          "$ref": "#/definitions/waitingRoom"
+        }
+      }
     }
   },
   "properties": {
     "category": {
-      "description": "Category code for the test",
+      "description": "Category code for the test report",
       "type": "string"
     },
     "id": {
@@ -33,8 +63,11 @@
         }
       },
       "additionalProperties": false
+    },
+    "preTest": {
+      "$ref": "#/definitions/preTest"
     }
   },
   "additionalProperties": false,
-  "required": ["category", "id"]
+  "required": ["category", "id", "preTest"]
 }
