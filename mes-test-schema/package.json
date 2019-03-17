@@ -1,6 +1,6 @@
 {
   "name": "@dvsa/mes-test-schema",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Domain model for data associated with tests administered by the Mobile Examiners Service",
   "scripts": {
     "generate-cat-b": "json2ts -i categories/schema-category-B.json -o CatBTest.d.ts",
@@ -19,7 +19,8 @@
     "url": "https://github.com/dvsa/mes-api-definitions/issues"
   },
   "homepage": "https://github.com/dvsa/mes-api-definitions#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "json-schema-to-typescript": "^6.1.3"
   }
 }
