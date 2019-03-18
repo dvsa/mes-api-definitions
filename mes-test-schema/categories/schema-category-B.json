@@ -176,19 +176,14 @@
     "testData": {
       "$ref": "#/definitions/testData"
     },
-<<<<<<< HEAD
     "preTestDeclarations": {
       "$ref": "#/definitions/preTestDeclarations"
-=======
-    "preTest": {
-      "$ref": "#/definitions/preTest"
     },
     "completedTest": {
       "$ref": "#/definitions/completedTest"
     },
     "nonCompletedTest": {
       "$ref": "#/definitions/nonCompletedTest"
->>>>>>> Added completedTest and nonCompletedTest objects
     }
   },
   "additionalProperties": false,
