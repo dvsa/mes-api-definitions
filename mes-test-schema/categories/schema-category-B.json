@@ -16,7 +16,7 @@
       },
       "additionalProperties": false
     },
-    "waitingRoom": {
+    "preTestDeclarations": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -34,17 +34,6 @@
         }
       },
       "required": ["insuranceDeclarationAccepted", "residencyDeclarationAccepted", "signature"]
-    },
-    "preTest": {
-      "type": "object",
-      "description": "Data related to the test phase prior to the test report",
-      "additionalProperties": false,
-      "required": ["waitingRoom"],
-      "properties": {
-        "waitingRoom": {
-          "$ref": "#/definitions/waitingRoom"
-        }
-      }
     }
   },
   "properties": {
@@ -67,10 +56,10 @@
     "testData": {
       "$ref": "#/definitions/testData"
     },
-    "preTest": {
-      "$ref": "#/definitions/preTest"
+    "preTestDeclarations": {
+      "$ref": "#/definitions/preTestDeclarations"
     }
   },
   "additionalProperties": false,
-  "required": ["category", "id", "testData", "preTest"]
+  "required": ["category", "id", "testData", "preTestDeclarations"]
 }
