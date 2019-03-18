@@ -2,6 +2,33 @@
   "title": "Standard Car Test (CAT B) Schema",
   "type": "object",
   "definitions": {
+    "formLanguageCode": {
+      "description": "Code to indicate whether the test was conducted in English or Welsh",
+      "type": "string",
+      "enum": [
+        "E",
+        "W"
+      ]
+    },
+    "applicationReference": {
+      "description": "The full application identifier, including applicationId, bookingSequence and checkDigit",
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "description": "Unique identifier for each test application",
+          "type": "integer"
+        },
+        "bookingSequence": {
+          "description": "Booking sequence number of the test application",
+          "type": "integer"
+        },
+        "checkDigit": {
+          "description": "Reference checksum for the test application",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
     "faults": {
       "type": "object"
     },
@@ -34,6 +61,99 @@
         }
       },
       "required": ["insuranceDeclarationAccepted", "residencyDeclarationAccepted", "signature"]
+    },
+    "preTest": {
+      "type": "object",
+      "description": "Data related to the test phase prior to the test report",
+      "additionalProperties": false,
+      "required": ["waitingRoom"],
+      "properties": {
+        "waitingRoom": {
+          "$ref": "#/definitions/waitingRoom"
+        }
+      }
+    },
+    "completedTest": {
+      "type": "object",
+      "description": "Data required to feed into TARS for completed tests",
+      "additionalProperties": false,
+      "properties": {
+        "formReference": {
+          "description": "??? - seems to be in the format YYMMDD-NNNA-NNN",
+          "type": "string"
+        },
+        "formLanguageCode": {
+          "$ref": "#/definitions/formLanguageCode"
+        },
+        "applicationReference": {
+          "$ref": "#/definitions/applicationReference"
+        },
+        "licenceSurrender": {
+          "description": "Flag to indicate whether the candidate's provisional licence was surrendered after a successful test",
+          "type": "boolean"
+        },
+        "driverNumber": {
+          "description": "Provisional licence number",
+          "type": "string"
+        },
+        "testDate": {
+          "description": "Date that the test took place",
+          "type": "string"
+        },
+        "testCategory": {
+          "description": "Category code for the test",
+          "type": "string"
+        },
+        "testType": {
+          "description": "???",
+          "type": "integer"
+        },
+        "automaticTestInd": {
+          "description": "Flag to indicate an automatic or manual test, true = automatic",
+          "type": "boolean"
+        },
+        "passCertificateNumber": {
+          "description": "Certificate number assigned at the end of a successful test",
+          "type": "string"
+        },
+        "extendedTestInd": {
+          "description": "Flag to indicate an extended test, true = extended",
+          "type": "boolean"
+        },
+        "specialNeedsCode": {
+          "description": "??? - current values 0,1,8",
+          "type": "integer"
+        },
+        "testResult": {
+          "description": "Outcome of a completed test - P = Pass, F = Fail",
+          "type": "string",
+          "enum": [
+            "P",
+            "F"
+          ]
+        }
+      }
+    },
+    "nonCompletedTest": {
+      "type": "object",
+      "description": "Data required to feed into TARS for non-completed tests",
+      "additionalProperties": false,
+      "properties": {
+        "imageReference": {
+          "description": "??? - used to link the NCT record back to a DL25 scanned image - not required???",
+          "type": "string"
+        },
+        "formLanguageCode": {
+          "$ref": "#/definitions/formLanguageCode"
+        },
+        "applicationReference": {
+          "$ref": "#/definitions/applicationReference"
+        },
+        "nonCompletionCode": {
+          "description": "Numeric code relating to the Non Completion Reason",
+          "type": "integer"
+        }
+      }
     }
   },
   "properties": {
@@ -56,8 +176,19 @@
     "testData": {
       "$ref": "#/definitions/testData"
     },
+<<<<<<< HEAD
     "preTestDeclarations": {
       "$ref": "#/definitions/preTestDeclarations"
+=======
+    "preTest": {
+      "$ref": "#/definitions/preTest"
+    },
+    "completedTest": {
+      "$ref": "#/definitions/completedTest"
+    },
+    "nonCompletedTest": {
+      "$ref": "#/definitions/nonCompletedTest"
+>>>>>>> Added completedTest and nonCompletedTest objects
     }
   },
   "additionalProperties": false,
