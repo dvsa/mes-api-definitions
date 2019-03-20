@@ -29,16 +29,671 @@
       },
       "additionalProperties": false
     },
-    "faults": {
-      "type": "object"
+    "testRequirements": {
+      "description": "The test requirements that must be carried out during a test",
+      "type": "object",
+      "properties": {
+        "NormalStart1": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        },
+        "NormalStart2": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        },
+        "AngledStart": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        },
+        "HillStart": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
     },
+    "manoeuvres": {
+      "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
+      "type": "object",
+      "properties": {
+        "selectedReverseLeft": {
+          "description": "Indicates whether or not this manoeuvre was carried out",
+          "type": "boolean"
+        },
+        "outcomeReverseLeftControl": {
+          "description": "Outcome of the manoeuvre - DF/S/D",
+          "type": "string",
+          "enum": [
+            "DF",
+            "S",
+            "D"
+          ]
+        },
+        "outcomeReverseLeftObservation": {
+          "description": "Outcome of the manoeuvre - DF/S/D",
+          "type": "string",
+          "enum": [
+            "DF",
+            "S",
+            "D"
+          ]
+        },
+        "selectedReverseRight": {
+          "description": "Indicates whether or not this manoeuvre was carried out",
+          "type": "boolean"
+        },
+        "outcomeReverseRightControl": {
+          "description": "Outcome of the manoeuvre - DF/S/D",
+          "type": "string",
+          "enum": [
+            "DF",
+            "S",
+            "D"
+          ]
+        },
+        "outcomeReverseRightObservation": {
+          "description": "Outcome of the manoeuvre - DF/S/D",
+          "type": "string",
+          "enum": [
+            "DF",
+            "S",
+            "D"
+          ]
+        },
+        "selectedReverseParkRoad": {
+          "description": "Indicates whether or not this manoeuvre was carried out",
+          "type": "boolean"
+        },
+        "outcomeReverseParkRoadControl": {
+          "description": "Outcome of the manoeuvre - DF/S/D",
+          "type": "string",
+          "enum": [
+            "DF",
+            "S",
+            "D"
+          ]
+        },
+        "outcomeReverseParkRoadObservation": {
+          "description": "Outcome of the manoeuvre - DF/S/D",
+          "type": "string",
+          "enum": [
+            "DF",
+            "S",
+            "D"
+          ]
+        },
+        "selectedReverseParkCarpark": {
+          "description": "Indicates whether or not this manoeuvre was carried out",
+          "type": "boolean"
+        },
+        "outcomeReverseParkCarparkControl": {
+          "description": "Outcome of the manoeuvre - DF/S/D",
+          "type": "string",
+          "enum": [
+            "DF",
+            "S",
+            "D"
+          ]
+        },
+        "outcomeReverseParkCarparkObservation": {
+          "description": "Outcome of the manoeuvre - DF/S/D",
+          "type": "string",
+          "enum": [
+            "DF",
+            "S",
+            "D"
+          ]
+        },
+        "selectedForwardPark": {
+          "description": "Indicates whether or not this manoeuvre was carried out",
+          "type": "boolean"
+        },
+        "outcomeForwardParkControl": {
+          "description": "Outcome of the manoeuvre - DF/S/D",
+          "type": "string",
+          "enum": [
+            "DF",
+            "S",
+            "D"
+          ]
+        },
+        "outcomeForwardParkObservation": {
+          "description": "Outcome of the manoeuvre - DF/S/D",
+          "type": "string",
+          "enum": [
+            "DF",
+            "S",
+            "D"
+          ]
+        },
+        "selectedControlledStop": {
+          "description": "Indicates whether or not this manoeuvre was carried out",
+          "type": "boolean"
+        },
+        "outcomeControlledStop": {
+          "description": "Outcome of the manoeuvre - DF/S/D",
+          "type": "string",
+          "enum": [
+            "DF",
+            "S",
+            "D"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "drivingFaults": {
+      "description": "The driving faults accumulated during the test",
+      "type": "object",
+      "properties": {
+        "controlsAccelerator": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "controlsClutch": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "controlsGears": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "controlsFootbrake": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "controlsParkingBrake": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "controlsSteering": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "precautions": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "ancillaryControls": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "moveOffSafety": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "moveOffControl": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "useOfMirrorsSignalling": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "useOfMirrorsChangeDirection": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "useOfMirrorsChangeSpeed": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "signalsNecessary": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "signalsCorrectly": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "signalsTimed": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "junctionsApproachSpeed": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "junctionsObservation": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "junctionsTurningRight": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "junctionsTurningLeft": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "junctionsCuttingCorners": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "judgementOvertaking": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "judgementMeeting": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "judgementCrossing": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "positioningNormalDriving": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "positioningLaneDiscipline": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "clearance": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "followingDistance": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "useOfSpeed": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "progressAppropriateSpeed": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "progressUndueHesitation": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "responseToSignsTrafficSigns": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "responseToSignsRoadMarkings": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "responseToSignsTrafficLights": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "responseToSignsTrafficControllers": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "responseToSignsOtherRoadUsers": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "pedestrianCrossings": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "positionNormalStops": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        },
+        "awarenessPlanning": {
+          "description": "Count of the number of driving faults recorded against this test element",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "seriousFaults": {
+      "description": "The serious faults accumulated during the test",
+      "type": "object",
+      "properties": {
+        "controlsAccelerator": {
+          "description": "Indicates whether a serious fault was recorded against this test element",
+          "type": "boolean"
+          },
+          "controlsClutch": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "controlsGears": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "controlsFootbrake": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "controlsParkingBrake": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "controlsSteering": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "precautions": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "ancillaryControls": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "moveOffSafety": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "moveOffControl": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "useOfMirrorsSignalling": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "useOfMirrorsChangeDirection": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "useOfMirrorsChangeSpeed": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "signalsNecessary": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "signalsCorrectly": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "signalsTimed": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "junctionsApproachSpeed": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "junctionsObservation": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "junctionsTurningRight": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "junctionsTurningLeft": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "junctionsCuttingCorners": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "judgementOvertaking": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "judgementMeeting": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "judgementCrossing": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "positioningNormalDriving": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "positioningLaneDiscipline": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "clearance": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "followingDistance": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "useOfSpeed": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "progressAppropriateSpeed": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "progressUndueHesitation": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "responseToSignsTrafficSigns": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "responseToSignsRoadMarkings": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "responseToSignsTrafficLights": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "responseToSignsTrafficControllers": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "responseToSignsOtherRoadUsers": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "pedestrianCrossings": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "positionNormalStops": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          },
+          "awarenessPlanning": {
+            "description": "Indicates whether a serious fault was recorded against this test element",
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "dangerousFaults": {
+        "description": "The dangerous faults accumulated during the test",
+        "type": "object",
+        "properties": {
+          "controlsAccelerator": {
+            "description": "Indicates whether a dangerous fault was recorded against this test element",
+            "type": "boolean"
+            },
+            "controlsClutch": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "controlsGears": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "controlsFootbrake": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "controlsParkingBrake": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "controlsSteering": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "precautions": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "ancillaryControls": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "moveOffSafety": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "moveOffControl": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "useOfMirrorsSignalling": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "useOfMirrorsChangeDirection": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "useOfMirrorsChangeSpeed": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "signalsNecessary": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "signalsCorrectly": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "signalsTimed": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "junctionsApproachSpeed": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "junctionsObservation": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "junctionsTurningRight": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "junctionsTurningLeft": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "junctionsCuttingCorners": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "judgementOvertaking": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "judgementMeeting": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "judgementCrossing": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "positioningNormalDriving": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "positioningLaneDiscipline": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "clearance": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "followingDistance": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "useOfSpeed": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "progressAppropriateSpeed": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "progressUndueHesitation": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "responseToSignsTrafficSigns": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "responseToSignsRoadMarkings": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "responseToSignsTrafficLights": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "responseToSignsTrafficControllers": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "responseToSignsOtherRoadUsers": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "pedestrianCrossings": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "positionNormalStops": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            },
+            "awarenessPlanning": {
+              "description": "Indicates whether a dangerous fault was recorded against this test element",
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
     "testData": {
       "description": "Data associated with the test",
       "type": "object",
       "properties": {
-        "faults": {
-          "description": "Details of any faults recorded",
-          "$ref": "#/definitions/faults"
+        "testRequirements": {
+          "description": "The test requirements that must be carried out during a test",
+          "$ref": "#/definitions/testRequirements"
+        },
+        "manoeuvres": {
+          "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
+          "$ref": "#/definitions/manoeuvres"
+        },
+        "drivingFaults": {
+          "description": "The driving faults accumulated during the test",
+          "$ref": "#/definitions/drivingFaults"
+        },
+        "seriousFaults": {
+          "description": "The serious faults accumulated during the test",
+          "$ref": "#/definitions/seriousFaults"
+        },
+        "dangerousFaults": {
+          "description": "The dangerous faults accumulated during the test",
+          "$ref": "#/definitions/dangerousFaults"
         }
       },
       "additionalProperties": false
@@ -79,7 +734,7 @@
       "additionalProperties": false,
       "properties": {
         "formReference": {
-          "description": "??? - seems to be in the format YYMMDD-NNNA-NNN",
+          "description": "??? - seems to be in the format YYMMDD-NNNNA-NNN",
           "type": "string"
         },
         "formLanguageCode": {
@@ -93,11 +748,11 @@
           "type": "boolean"
         },
         "driverNumber": {
-          "description": "Provisional licence number",
+          "description": "Provisional licence identifier",
           "type": "string"
         },
         "testDate": {
-          "description": "Date that the test took place",
+          "description": "Date that the test took place, format DD-MON-YYYY",
           "type": "string"
         },
         "testCategory": {
