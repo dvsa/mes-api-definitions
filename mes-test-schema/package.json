@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "Domain model for data associated with tests administered by the Mobile Examiners Service",
   "scripts": {
-    "generate-cat-b": "json2ts -i categories/schema-category-B.json -o CatBTest.d.ts",
+    "generate-cat-b": "json2ts -i categories/B/index.json -o categories/B/index.d.ts",
     "test": ""
   },
   "repository": {
