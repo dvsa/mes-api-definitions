@@ -1,0 +1,36 @@
+{
+    "definitions": {
+        "name": {
+            "description": "Details of the individual's name",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "description": "The individual's title",
+                    "type": "string",
+                    "maxLength": 7
+                },
+                "firstName": {
+                    "description": "The individual's forename",
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "secondName": {
+                    "description": "The individual's second name",
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "thirdName": {
+                    "description": "The individual's third name",
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "lastName": {
+                    "description": "The individual's surname",
+                    "type": "string",
+                    "maxLength": 50
+                }
+            }
+        }
+    }
+}
