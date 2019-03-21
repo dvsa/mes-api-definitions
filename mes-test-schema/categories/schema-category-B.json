@@ -33,19 +33,19 @@
       "description": "The test requirements that must be carried out during a test",
       "type": "object",
       "properties": {
-        "NormalStart1": {
+        "normalStart1": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         },
-        "NormalStart2": {
+        "normalStart2": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         },
-        "AngledStart": {
+        "angledStart": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         },
-        "HillStart": {
+        "hillStart": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         }
@@ -721,10 +721,10 @@
       "type": "object",
       "description": "Data related to the test phase prior to the test report",
       "additionalProperties": false,
-      "required": ["waitingRoom"],
+      "required": ["preTestDeclarations"],
       "properties": {
-        "waitingRoom": {
-          "$ref": "#/definitions/waitingRoom"
+        "preTestDeclarations": {
+          "$ref": "#/definitions/preTestDeclarations"
         }
       }
     }
@@ -746,6 +746,9 @@
       "description": "Code representing the result of the test",
       "type": "string"
     },
+    "name": {
+      "$ref": "schema-core-definitions.json#/name"
+    },
     "testData": {
       "$ref": "#/definitions/testData"
     },
@@ -760,5 +763,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["category", "id", "testData", "preTestDeclarations"]
+  "required": ["category", "id", "testData", "preTest"]
 }
