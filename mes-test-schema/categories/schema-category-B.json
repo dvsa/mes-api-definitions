@@ -873,12 +873,6 @@
     },
     "preTestDeclarations": {
       "$ref": "#/definitions/preTestDeclarations"
-    },
-    "completedTest": {
-      "$ref": "#/definitions/completedTest"
-    },
-    "nonCompletedTest": {
-      "$ref": "#/definitions/nonCompletedTest"
     }
   },
   "additionalProperties": false,
