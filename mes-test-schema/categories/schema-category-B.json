@@ -747,7 +747,7 @@
       "type": "string"
     },
     "name": {
-      "$ref": "schema-core-definitions.json#/name"
+      "$ref": "schema-core-definitions.json#/definitions/name"
     },
     "testData": {
       "$ref": "#/definitions/testData"
