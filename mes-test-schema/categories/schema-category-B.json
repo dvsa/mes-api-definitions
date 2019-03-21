@@ -171,6 +171,15 @@
       },
       "additionalProperties": false
     },
+    "outcome": {
+      "description": "list of possible fault types",
+      "type": "string",
+      "enum": [
+        "DF",
+        "S",
+        "D"
+      ]
+    },
     "manoeuvres": {
       "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
       "type": "object",
@@ -835,17 +844,6 @@
         }
       },
       "required": ["insuranceDeclarationAccepted", "residencyDeclarationAccepted", "signature"]
-    },
-    "preTest": {
-      "type": "object",
-      "description": "Data related to the test phase prior to the test report",
-      "additionalProperties": false,
-      "required": ["preTestDeclarations"],
-      "properties": {
-        "preTestDeclarations": {
-          "$ref": "#/definitions/preTestDeclarations"
-        }
-      }
     }
   },
   "properties": {
@@ -876,5 +874,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["category", "id", "candidate", "testData", "preTest"]
+  "required": ["category", "id", "candidate", "testData", "preTestDeclarations"]
 }
