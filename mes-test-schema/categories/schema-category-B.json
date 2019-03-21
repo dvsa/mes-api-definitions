@@ -10,6 +10,125 @@
         "W"
       ]
     },
+    "name": {
+      "description": "Details of the individual's name",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "description": "The individual's title",
+          "type": "string",
+          "maxLength": 7
+        },
+        "firstName": {
+          "description": "The individual's forename",
+          "type": "string",
+          "maxLength": 50
+        },
+        "secondName": {
+          "description": "The individual's second name",
+          "type": "string",
+          "maxLength": 50
+        },
+        "thirdName": {
+          "description": "The individual's third name",
+          "type": "string",
+          "maxLength": 50
+        },
+        "lastName": {
+          "description": "The individual's surname",
+          "type": "string",
+          "maxLength": 50
+        }
+      }
+    },
+    "address": {
+      "description": "Details of the address",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "addressLine1": {
+          "description": "First line of address",
+          "type": "string",
+          "maxLength": 255
+        },
+        "addressLine2": {
+          "description": "Second line of address",
+          "type": "string",
+          "maxLength": 100
+        },
+        "addressLine3": {
+          "description": "Third line of address",
+          "type": "string",
+          "maxLength": 100
+        },
+        "addressLine4": {
+          "description": "Fourth line of address",
+          "type": "string",
+          "maxLength": 100
+        },
+        "addressLine5": {
+          "description": "Fifth line of address",
+          "type": "string",
+          "maxLength": 255
+        },
+        "postcode": {
+          "description": "The address postcode",
+          "type": "string",
+          "maxLength": 255
+        }
+      }
+    },
+    "candidate": {
+      "description": "Details of the candidate booked into the test slot",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "candidateId": {
+          "description": "The id of the test candidate",
+          "type": "integer"
+        },
+        "candidateName": {
+          "$ref": "#/definitions/name"
+        },
+        "driverNumber": {
+          "description": "The candidate's driver number if any, typically (though not always) 16 characters if UK, or 8 digits if NI",
+          "type": "string",
+          "maxLength": 24
+        },
+        "candidateAddress": {
+          "$ref": "#/definitions/address"
+        },
+        "primaryTelephone": {
+          "description": "The candidate's primary telephone number, if any (and consent to leave voicemail has been given)",
+          "type": "string",
+          "maxLength": 20
+        },
+        "secondaryTelephone": {
+          "description": "The candidate's secondary telephone number, if any (and consent to leave voicemail has been given)",
+          "type": "string",
+          "maxLength": 20
+        },
+        "mobileTelephone": {
+          "description": "The candidate's mobile telephone number, if any (and consent to leave voicemail has been given)",
+          "type": "string",
+          "maxLength": 30
+        },
+        "emailAddress": {
+          "description": "The candidate's email address, if any",
+          "type": "string",
+          "maxLength": 100
+        },
+        "prn": {
+          "description": "The candidate's ADI PRN (potential register number), if an ADI test",
+          "type": "integer"
+        },
+        "previousADITests": {
+          "description": "The number of previous test attempts, if an ADI test",
+          "type": "integer"
+        }
+      }
+    },
     "applicationReference": {
       "description": "The full application identifier, including applicationId, bookingSequence and checkDigit",
       "type": "object",
@@ -746,8 +865,8 @@
       "description": "Code representing the result of the test",
       "type": "string"
     },
-    "name": {
-      "$ref": "schema-core-definitions.json#/definitions/name"
+    "candidate": {
+      "$ref": "#/definitions/candidate"
     },
     "testData": {
       "$ref": "#/definitions/testData"
@@ -763,5 +882,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["category", "id", "testData", "preTest"]
+  "required": ["category", "id", "candidate", "testData", "preTest"]
 }
