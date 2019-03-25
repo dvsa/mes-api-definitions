@@ -850,9 +850,6 @@
       "description": "Data associated with the test",
       "type": "object",
       "properties": {
-        "eyesightTestResult": {
-          "$ref": "#/definitions/eyesightTestResult"
-        },
         "vehicleChecks": {
           "$ref": "#/definitions/vehicleChecks"
         },
@@ -886,7 +883,6 @@
       },
       "additionalProperties": false,
       "required": [
-        "eyesightTestResult",
         "vehicleChecks",
         "testRequirements",
         "eco",
@@ -1017,6 +1013,9 @@
     "preTestDeclarations": {
       "$ref": "#/definitions/preTestDeclarations"
     },
+    "eyesightTestResult": {
+      "$ref": "#/definitions/eyesightTestResult"
+    },
     "vehicleDetails": {
       "$ref": "#/definitions/vehicleDetails"
     },
@@ -1042,7 +1041,6 @@
     "candidate",
     "applicationReference",
     "preTestDeclarations",
-    "vehicleDetails",
-    "testData"
+    "eyesightTestResult"
   ]
 }
