@@ -5,6 +5,47 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * Outcome of the Eyesight Test
+ */
+export type EyesightTestResult = "P" | "F";
+/**
+ * Code representing the question that was asked
+ */
+export type QuestionCode = string;
+/**
+ * Description of the question that was asked
+ */
+export type QuestionDescription = string;
+/**
+ * Outcome of the question that was asked
+ */
+export type QuestionOutcome = "P" | "DF" | "S" | "D";
+/**
+ * Indicator for a manoeuvre being performed during the test
+ */
+export type ManoeuvreIndicator = boolean;
+/**
+ * The possible outcomes of any manoeuvre performed during the test
+ */
+export type ManoeuvreOutcome = "DF" | "S" | "D";
+/**
+ * The count of the number of driving faults recorded against a test element
+ */
+export type DrivingFaultCount = number;
+/**
+ * Indicator for a serious fault being recorded against a test element
+ */
+export type SeriousFaultIndicator = boolean;
+/**
+ * Indicator for a dangerous fault being recorded against a test element
+ */
+export type DangerousFaultIndicator = boolean;
+/**
+ * Final test result - pass or fail
+ */
+export type TestOutcome = "P" | "F";
+
 export interface StandardCarTestCATBSchema {
   /**
    * Category code for the test report
@@ -17,14 +58,16 @@ export interface StandardCarTestCATBSchema {
   /**
    * Unique identifier for the journal test slot
    */
-  slotId?: number;
+  slotId: number;
   /**
    * Code representing the result of the test
    */
-  activityCode?: string;
+  activityCode: string;
   candidate: Candidate;
-  testData: TestData;
+  applicationReference: ApplicationReference;
   preTestDeclarations: PreTestDeclarations;
+  vehicleDetails: VehicleDetails;
+  testData: TestData;
 }
 /**
  * Details of the candidate booked into the test slot
@@ -120,586 +163,21 @@ export interface Address {
   postcode?: string;
 }
 /**
- * Data associated with the test
+ * The full application identifier, including applicationId, bookingSequence and checkDigit
  */
-export interface TestData {
+export interface ApplicationReference {
   /**
-   * The test requirements that must be carried out during a test
+   * Unique identifier for each test application
    */
-  testRequirements?: {
-    /**
-     * Indicates whether or not this test requirement was carried out
-     */
-    normalStart1?: boolean;
-    /**
-     * Indicates whether or not this test requirement was carried out
-     */
-    normalStart2?: boolean;
-    /**
-     * Indicates whether or not this test requirement was carried out
-     */
-    angledStart?: boolean;
-    /**
-     * Indicates whether or not this test requirement was carried out
-     */
-    hillStart?: boolean;
-  };
+  applicationId: number;
   /**
-   * The manoeuvres that were carried out during the test and any faults recorded against them
+   * Booking sequence number of the test application
    */
-  manoeuvres?: {
-    /**
-     * Indicates whether or not this manoeuvre was carried out
-     */
-    selectedReverseLeft?: boolean;
-    /**
-     * Outcome of the manoeuvre - DF/S/D
-     */
-    outcomeReverseLeftControl?: "DF" | "S" | "D";
-    /**
-     * Outcome of the manoeuvre - DF/S/D
-     */
-    outcomeReverseLeftObservation?: "DF" | "S" | "D";
-    /**
-     * Indicates whether or not this manoeuvre was carried out
-     */
-    selectedReverseRight?: boolean;
-    /**
-     * Outcome of the manoeuvre - DF/S/D
-     */
-    outcomeReverseRightControl?: "DF" | "S" | "D";
-    /**
-     * Outcome of the manoeuvre - DF/S/D
-     */
-    outcomeReverseRightObservation?: "DF" | "S" | "D";
-    /**
-     * Indicates whether or not this manoeuvre was carried out
-     */
-    selectedReverseParkRoad?: boolean;
-    /**
-     * Outcome of the manoeuvre - DF/S/D
-     */
-    outcomeReverseParkRoadControl?: "DF" | "S" | "D";
-    /**
-     * Outcome of the manoeuvre - DF/S/D
-     */
-    outcomeReverseParkRoadObservation?: "DF" | "S" | "D";
-    /**
-     * Indicates whether or not this manoeuvre was carried out
-     */
-    selectedReverseParkCarpark?: boolean;
-    /**
-     * Outcome of the manoeuvre - DF/S/D
-     */
-    outcomeReverseParkCarparkControl?: "DF" | "S" | "D";
-    /**
-     * Outcome of the manoeuvre - DF/S/D
-     */
-    outcomeReverseParkCarparkObservation?: "DF" | "S" | "D";
-    /**
-     * Indicates whether or not this manoeuvre was carried out
-     */
-    selectedForwardPark?: boolean;
-    /**
-     * Outcome of the manoeuvre - DF/S/D
-     */
-    outcomeForwardParkControl?: "DF" | "S" | "D";
-    /**
-     * Outcome of the manoeuvre - DF/S/D
-     */
-    outcomeForwardParkObservation?: "DF" | "S" | "D";
-    /**
-     * Indicates whether or not this manoeuvre was carried out
-     */
-    selectedControlledStop?: boolean;
-    /**
-     * Outcome of the manoeuvre - DF/S/D
-     */
-    outcomeControlledStop?: "DF" | "S" | "D";
-  };
+  bookingSequence: number;
   /**
-   * The driving faults accumulated during the test
+   * Reference checksum for the test application
    */
-  drivingFaults?: {
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    controlsAccelerator?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    controlsClutch?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    controlsGears?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    controlsFootbrake?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    controlsParkingBrake?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    controlsSteering?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    precautions?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    ancillaryControls?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    moveOffSafety?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    moveOffControl?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    useOfMirrorsSignalling?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    useOfMirrorsChangeDirection?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    useOfMirrorsChangeSpeed?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    signalsNecessary?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    signalsCorrectly?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    signalsTimed?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    junctionsApproachSpeed?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    junctionsObservation?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    junctionsTurningRight?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    junctionsTurningLeft?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    junctionsCuttingCorners?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    judgementOvertaking?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    judgementMeeting?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    judgementCrossing?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    positioningNormalDriving?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    positioningLaneDiscipline?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    clearance?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    followingDistance?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    useOfSpeed?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    progressAppropriateSpeed?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    progressUndueHesitation?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    responseToSignsTrafficSigns?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    responseToSignsRoadMarkings?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    responseToSignsTrafficLights?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    responseToSignsTrafficControllers?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    responseToSignsOtherRoadUsers?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    pedestrianCrossings?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    positionNormalStops?: number;
-    /**
-     * Count of the number of driving faults recorded against this test element
-     */
-    awarenessPlanning?: number;
-  };
-  /**
-   * The serious faults accumulated during the test
-   */
-  seriousFaults?: {
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    controlsAccelerator?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    controlsClutch?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    controlsGears?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    controlsFootbrake?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    controlsParkingBrake?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    controlsSteering?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    precautions?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    ancillaryControls?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    moveOffSafety?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    moveOffControl?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    useOfMirrorsSignalling?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    useOfMirrorsChangeDirection?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    useOfMirrorsChangeSpeed?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    signalsNecessary?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    signalsCorrectly?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    signalsTimed?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    junctionsApproachSpeed?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    junctionsObservation?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    junctionsTurningRight?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    junctionsTurningLeft?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    junctionsCuttingCorners?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    judgementOvertaking?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    judgementMeeting?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    judgementCrossing?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    positioningNormalDriving?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    positioningLaneDiscipline?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    clearance?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    followingDistance?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    useOfSpeed?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    progressAppropriateSpeed?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    progressUndueHesitation?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    responseToSignsTrafficSigns?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    responseToSignsRoadMarkings?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    responseToSignsTrafficLights?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    responseToSignsTrafficControllers?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    responseToSignsOtherRoadUsers?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    pedestrianCrossings?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    positionNormalStops?: boolean;
-    /**
-     * Indicates whether a serious fault was recorded against this test element
-     */
-    awarenessPlanning?: boolean;
-  };
-  /**
-   * The dangerous faults accumulated during the test
-   */
-  dangerousFaults?: {
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    controlsAccelerator?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    controlsClutch?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    controlsGears?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    controlsFootbrake?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    controlsParkingBrake?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    controlsSteering?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    precautions?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    ancillaryControls?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    moveOffSafety?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    moveOffControl?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    useOfMirrorsSignalling?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    useOfMirrorsChangeDirection?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    useOfMirrorsChangeSpeed?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    signalsNecessary?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    signalsCorrectly?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    signalsTimed?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    junctionsApproachSpeed?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    junctionsObservation?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    junctionsTurningRight?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    junctionsTurningLeft?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    junctionsCuttingCorners?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    judgementOvertaking?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    judgementMeeting?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    judgementCrossing?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    positioningNormalDriving?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    positioningLaneDiscipline?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    clearance?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    followingDistance?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    useOfSpeed?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    progressAppropriateSpeed?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    progressUndueHesitation?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    responseToSignsTrafficSigns?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    responseToSignsRoadMarkings?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    responseToSignsTrafficLights?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    responseToSignsTrafficControllers?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    responseToSignsOtherRoadUsers?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    pedestrianCrossings?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    positionNormalStops?: boolean;
-    /**
-     * Indicates whether a dangerous fault was recorded against this test element
-     */
-    awarenessPlanning?: boolean;
-  };
+  checkDigit: number;
 }
 export interface PreTestDeclarations {
   /**
@@ -714,4 +192,275 @@ export interface PreTestDeclarations {
    * Base 64 encoded binary data representing a PNG image of the candidates signature
    */
   signature: string;
+}
+/**
+ * Details about the vehicle to be used for the test
+ */
+export interface VehicleDetails {
+  /**
+   * The vehicle registration number
+   */
+  registrationNumber: string;
+  /**
+   * The type of gearbox
+   */
+  gearboxCategory: "Manual" | "Automatic";
+  /**
+   * Indicates whether the vehicle belongs to a driving school
+   */
+  schoolCar?: boolean;
+  /**
+   * Indicates whether or not the vehicle has dual controls fitted
+   */
+  dualControls?: boolean;
+}
+/**
+ * Data associated with the test
+ */
+export interface TestData {
+  eyesightTestResult: EyesightTestResult;
+  vehicleChecks: VehicleChecks;
+  testRequirements: TestRequirements;
+  manoeuvres?: Manoeuvres;
+  drivingFaults?: DrivingFaults;
+  seriousFaults?: SeriousFaults;
+  dangerousFaults?: DangerousFaults;
+  eco: Eco;
+  ETA?: ETA;
+  faultSummary: FaultSummary;
+  testOutcome: TestOutcome;
+}
+/**
+ * Details of the Show Me and Tell Me questions asked during the test
+ */
+export interface VehicleChecks {
+  tellMeQuestionCode: QuestionCode;
+  tellMeQuestionDescription: QuestionDescription;
+  tellMeQuestionOutcome: QuestionOutcome;
+  showMeQuestionCode: QuestionCode;
+  showMeQuestionDescription: QuestionDescription;
+  showMeQuestionOutcome: QuestionOutcome;
+}
+/**
+ * The test requirements that must be carried out during a test
+ */
+export interface TestRequirements {
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  normalStart1: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  normalStart2: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  angledStart: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  hillStart: boolean;
+}
+/**
+ * The manoeuvres that were carried out during the test and any faults recorded against them
+ */
+export interface Manoeuvres {
+  selectedReverseLeft?: ManoeuvreIndicator;
+  outcomeReverseLeftControl?: ManoeuvreOutcome;
+  outcomeReverseLeftObservation?: ManoeuvreOutcome;
+  selectedReverseRight?: ManoeuvreIndicator;
+  outcomeReverseRightControl?: ManoeuvreOutcome;
+  outcomeReverseRightObservation?: ManoeuvreOutcome;
+  selectedReverseParkRoad?: ManoeuvreIndicator;
+  outcomeReverseParkRoadControl?: ManoeuvreOutcome;
+  outcomeReverseParkRoadObservation?: ManoeuvreOutcome;
+  selectedReverseParkCarpark?: ManoeuvreIndicator;
+  outcomeReverseParkCarparkControl?: ManoeuvreOutcome;
+  outcomeReverseParkCarparkObservation?: ManoeuvreOutcome;
+  selectedForwardPark?: ManoeuvreIndicator;
+  outcomeForwardParkControl?: ManoeuvreOutcome;
+  outcomeForwardParkObservation?: ManoeuvreOutcome;
+  selectedControlledStop?: ManoeuvreIndicator;
+  outcomeControlledStop?: ManoeuvreOutcome;
+}
+/**
+ * The driving faults accumulated during the test
+ */
+export interface DrivingFaults {
+  controlsAccelerator?: DrivingFaultCount;
+  controlsClutch?: DrivingFaultCount;
+  controlsGears?: DrivingFaultCount;
+  controlsFootbrake?: DrivingFaultCount;
+  controlsParkingBrake?: DrivingFaultCount;
+  controlsSteering?: DrivingFaultCount;
+  precautions?: DrivingFaultCount;
+  ancillaryControls?: DrivingFaultCount;
+  moveOffSafety?: DrivingFaultCount;
+  moveOffControl?: DrivingFaultCount;
+  useOfMirrorsSignalling?: DrivingFaultCount;
+  useOfMirrorsChangeDirection?: DrivingFaultCount;
+  useOfMirrorsChangeSpeed?: DrivingFaultCount;
+  signalsNecessary?: DrivingFaultCount;
+  signalsCorrectly?: DrivingFaultCount;
+  signalsTimed?: DrivingFaultCount;
+  junctionsApproachSpeed?: DrivingFaultCount;
+  junctionsObservation?: DrivingFaultCount;
+  junctionsTurningRight?: DrivingFaultCount;
+  junctionsTurningLeft?: DrivingFaultCount;
+  junctionsCuttingCorners?: DrivingFaultCount;
+  judgementOvertaking?: DrivingFaultCount;
+  judgementMeeting?: DrivingFaultCount;
+  judgementCrossing?: DrivingFaultCount;
+  positioningNormalDriving?: DrivingFaultCount;
+  positioningLaneDiscipline?: DrivingFaultCount;
+  clearance?: DrivingFaultCount;
+  followingDistance?: DrivingFaultCount;
+  useOfSpeed?: DrivingFaultCount;
+  progressAppropriateSpeed?: DrivingFaultCount;
+  progressUndueHesitation?: DrivingFaultCount;
+  responseToSignsTrafficSigns?: DrivingFaultCount;
+  responseToSignsRoadMarkings?: DrivingFaultCount;
+  responseToSignsTrafficLights?: DrivingFaultCount;
+  responseToSignsTrafficControllers?: DrivingFaultCount;
+  responseToSignsOtherRoadUsers?: DrivingFaultCount;
+  pedestrianCrossings?: DrivingFaultCount;
+  positionNormalStops?: DrivingFaultCount;
+  awarenessPlanning?: DrivingFaultCount;
+}
+/**
+ * The serious faults accumulated during the test
+ */
+export interface SeriousFaults {
+  controlsAccelerator?: SeriousFaultIndicator;
+  controlsClutch?: SeriousFaultIndicator;
+  controlsGears?: SeriousFaultIndicator;
+  controlsFootbrake?: SeriousFaultIndicator;
+  controlsParkingBrake?: SeriousFaultIndicator;
+  controlsSteering?: SeriousFaultIndicator;
+  precautions?: SeriousFaultIndicator;
+  ancillaryControls?: SeriousFaultIndicator;
+  moveOffSafety?: SeriousFaultIndicator;
+  moveOffControl?: SeriousFaultIndicator;
+  useOfMirrorsSignalling?: SeriousFaultIndicator;
+  useOfMirrorsChangeDirection?: SeriousFaultIndicator;
+  useOfMirrorsChangeSpeed?: SeriousFaultIndicator;
+  signalsNecessary?: SeriousFaultIndicator;
+  signalsCorrectly?: SeriousFaultIndicator;
+  signalsTimed?: SeriousFaultIndicator;
+  junctionsApproachSpeed?: SeriousFaultIndicator;
+  junctionsObservation?: SeriousFaultIndicator;
+  junctionsTurningRight?: SeriousFaultIndicator;
+  junctionsTurningLeft?: SeriousFaultIndicator;
+  junctionsCuttingCorners?: SeriousFaultIndicator;
+  judgementOvertaking?: SeriousFaultIndicator;
+  judgementMeeting?: SeriousFaultIndicator;
+  judgementCrossing?: SeriousFaultIndicator;
+  positioningNormalDriving?: SeriousFaultIndicator;
+  positioningLaneDiscipline?: SeriousFaultIndicator;
+  clearance?: SeriousFaultIndicator;
+  followingDistance?: SeriousFaultIndicator;
+  useOfSpeed?: SeriousFaultIndicator;
+  progressAppropriateSpeed?: SeriousFaultIndicator;
+  progressUndueHesitation?: SeriousFaultIndicator;
+  responseToSignsTrafficSigns?: SeriousFaultIndicator;
+  responseToSignsRoadMarkings?: SeriousFaultIndicator;
+  responseToSignsTrafficLights?: SeriousFaultIndicator;
+  responseToSignsTrafficControllers?: SeriousFaultIndicator;
+  responseToSignsOtherRoadUsers?: SeriousFaultIndicator;
+  pedestrianCrossings?: SeriousFaultIndicator;
+  positionNormalStops?: SeriousFaultIndicator;
+  awarenessPlanning?: SeriousFaultIndicator;
+}
+/**
+ * The dangerous faults accumulated during the test
+ */
+export interface DangerousFaults {
+  controlsAccelerator?: DangerousFaultIndicator;
+  controlsClutch?: DangerousFaultIndicator;
+  controlsGears?: DangerousFaultIndicator;
+  controlsFootbrake?: DangerousFaultIndicator;
+  controlsParkingBrake?: DangerousFaultIndicator;
+  controlsSteering?: DangerousFaultIndicator;
+  precautions?: DangerousFaultIndicator;
+  ancillaryControls?: DangerousFaultIndicator;
+  moveOffSafety?: DangerousFaultIndicator;
+  moveOffControl?: DangerousFaultIndicator;
+  useOfMirrorsSignalling?: DangerousFaultIndicator;
+  useOfMirrorsChangeDirection?: DangerousFaultIndicator;
+  useOfMirrorsChangeSpeed?: DangerousFaultIndicator;
+  signalsNecessary?: DangerousFaultIndicator;
+  signalsCorrectly?: DangerousFaultIndicator;
+  signalsTimed?: DangerousFaultIndicator;
+  junctionsApproachSpeed?: DangerousFaultIndicator;
+  junctionsObservation?: DangerousFaultIndicator;
+  junctionsTurningRight?: DangerousFaultIndicator;
+  junctionsTurningLeft?: DangerousFaultIndicator;
+  junctionsCuttingCorners?: DangerousFaultIndicator;
+  judgementOvertaking?: DangerousFaultIndicator;
+  judgementMeeting?: DangerousFaultIndicator;
+  judgementCrossing?: DangerousFaultIndicator;
+  positioningNormalDriving?: DangerousFaultIndicator;
+  positioningLaneDiscipline?: DangerousFaultIndicator;
+  clearance?: DangerousFaultIndicator;
+  followingDistance?: DangerousFaultIndicator;
+  useOfSpeed?: DangerousFaultIndicator;
+  progressAppropriateSpeed?: DangerousFaultIndicator;
+  progressUndueHesitation?: DangerousFaultIndicator;
+  responseToSignsTrafficSigns?: DangerousFaultIndicator;
+  responseToSignsRoadMarkings?: DangerousFaultIndicator;
+  responseToSignsTrafficLights?: DangerousFaultIndicator;
+  responseToSignsTrafficControllers?: DangerousFaultIndicator;
+  responseToSignsOtherRoadUsers?: DangerousFaultIndicator;
+  pedestrianCrossings?: DangerousFaultIndicator;
+  positionNormalStops?: DangerousFaultIndicator;
+  awarenessPlanning?: DangerousFaultIndicator;
+}
+/**
+ * Assessment of the eco friendly manner of driving
+ */
+export interface Eco {
+  /**
+   * Indicates that the eco friendly manner of driving has been assessed
+   */
+  completed?: boolean;
+  /**
+   * Indicates that advice was given on the Control aspect of eco driving
+   */
+  adviceGivenControl?: boolean;
+  /**
+   * Indicates that advice was given on the Planning aspect of eco driving
+   */
+  adviceGivenPlanning?: boolean;
+}
+/**
+ * Indicates whether the examiner had to take physical or verbal action during the test
+ */
+export interface ETA {
+  /**
+   * Indicates that the examiner had to take physical action
+   */
+  physical?: boolean;
+  /**
+   * Indicates that the examiner had to take verbal action
+   */
+  verbal?: boolean;
+}
+/**
+ * Summary of the total number of each type of fault incurred during the test
+ */
+export interface FaultSummary {
+  /**
+   * Count of the total number of driving faults incurred during the test
+   */
+  totalDrivingFaults?: number;
+  /**
+   * Count of the total number of serious faults incurred during the test
+   */
+  totalSeriousFaults?: number;
+  /**
+   * Count of the total number of dangerous faults incurred during the test
+   */
+  totalDangerousFaults?: number;
+  [k: string]: any;
 }
