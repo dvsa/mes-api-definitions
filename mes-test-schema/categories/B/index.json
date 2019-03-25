@@ -149,6 +149,10 @@
         "checkDigit"
       ]
     },
+    "signature": {
+      "description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
+      "type": "string"
+    },
     "preTestDeclarations": {
       "type": "object",
       "additionalProperties": false,
@@ -161,15 +165,14 @@
           "description": "Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test",
           "type": "boolean"
         },
-        "signature": {
-          "description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
-          "type": "string"
+        "preTestSignature": {
+          "$ref": "#/definitions/signature"
         }
       },
       "required": [
         "insuranceDeclarationAccepted",
         "residencyDeclarationAccepted",
-        "signature"
+        "preTestSignature"
       ]
     },
     "eyesightTestResult": {
@@ -394,7 +397,10 @@
           "$ref": "#/definitions/manoeuvreOutcome"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "required": [
+        "selectedControlledStop"
+      ]
     },
     "drivingFaultCount": {
       "description": "The count of the number of driving faults recorded against a test element",
@@ -887,6 +893,102 @@
         "faultSummary",
         "testOutcome"
       ]
+    },
+    "passCompletion": {
+      "description": "Finalisation of a successful test outcome",
+      "type": "object",
+      "properties": {
+        "provisionalLicenceProvided": {
+          "description": "Indicates whether the candidate submitted their provisional driving licence",
+          "type": "boolean"
+        },
+        "passCertificateNumber": {
+          "description": "The PCN issued to the candidate",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "provisionalLicenceProvided",
+        "passCertificateNumber"
+      ]
+    },
+    "postTestDeclarations": {
+      "type": "object",
+      "properties": {        
+        "healthDeclarationAccepted": {
+          "description": "Whether or not the candidate has declared that their health status hasn't changed since their last application",
+          "type": "boolean"
+        },
+        "postTestSignature": {
+          "$ref": "#/definitions/signature"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "healthDeclarationAccepted",
+        "postTestSignature"
+      ]
+    },
+    "weatherConditions": {
+      "description": "Predefined values for the type of weather encountered during the test",
+      "type": "string",
+      "enum": [
+        "Bright / dry roads",
+        "Bright / wet roads",
+        "Raining through test",
+        "Showers",
+        "Foggy / misty",
+        "Dull / wet roads",
+        "Dull / dry roads",
+        "Snowing",
+        "Icy",
+        "Windy"
+      ]
+    },
+    "testSummary": {
+      "description": "Recording of other characteristics of the test",
+      "type": "object",
+      "properties": {
+        "routeNumber": {
+          "description": "Number of the route that was taken during the test",
+          "type": "integer"
+        },
+        "oralExplanationComments": {
+          "description": "Any comments that the DE wants to record about the debrief",
+          "type": "string"
+        },
+        "weatherConditions": {
+          "description": "Description of the type of weather encountered during the test",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/weatherConditions"
+          }
+        },
+        "weatherComments": {
+          "description": "Any additional comments about the weather that aren't covered by the predefined options",
+          "type": "string"
+        },
+        "independentDriving": {
+          "description": "Method chosen to conduct the independent driving section of the test",
+          "type": "string",
+          "enum": [
+            "Sat nav",
+            "Traffic signs"
+          ]
+        },
+        "candidateDescription": {
+          "description": "Physical description of the candidate",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "routeNumber",
+        "weatherConditions",
+        "independentDriving",
+        "candidateDescription"
+      ]
     }
   },
   "properties": {
@@ -920,6 +1022,15 @@
     },
     "testData": {
       "$ref": "#/definitions/testData"
+    },
+    "passCompletion": {
+      "$ref": "#/definitions/passCompletion"
+    },
+    "postTestDeclarations": {
+      "$ref": "#/definitions/postTestDeclarations"
+    },
+    "testSummary": {
+      "$ref": "#/definitions/testSummary"
     }
   },
   "additionalProperties": false,
