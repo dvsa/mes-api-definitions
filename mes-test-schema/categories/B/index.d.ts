@@ -6,6 +6,10 @@
  */
 
 /**
+ * Base 64 encoded binary data representing a PNG image of the candidates signature
+ */
+export type Signature = string;
+/**
  * Outcome of the Eyesight Test
  */
 export type EyesightTestResult = "P" | "F";
@@ -45,6 +49,20 @@ export type DangerousFaultIndicator = boolean;
  * Final test result - pass or fail
  */
 export type TestOutcome = "P" | "F";
+/**
+ * Predefined values for the type of weather encountered during the test
+ */
+export type WeatherConditions =
+  | "Bright / dry roads"
+  | "Bright / wet roads"
+  | "Raining through test"
+  | "Showers"
+  | "Foggy / misty"
+  | "Dull / wet roads"
+  | "Dull / dry roads"
+  | "Snowing"
+  | "Icy"
+  | "Windy";
 
 export interface StandardCarTestCATBSchema {
   /**
@@ -68,6 +86,9 @@ export interface StandardCarTestCATBSchema {
   preTestDeclarations: PreTestDeclarations;
   vehicleDetails: VehicleDetails;
   testData: TestData;
+  passCompletion?: PassCompletion;
+  postTestDeclarations?: PostTestDeclarations;
+  testSummary?: TestSummary;
 }
 /**
  * Details of the candidate booked into the test slot
@@ -188,10 +209,7 @@ export interface PreTestDeclarations {
    * Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test
    */
   residencyDeclarationAccepted: boolean;
-  /**
-   * Base 64 encoded binary data representing a PNG image of the candidates signature
-   */
-  signature: string;
+  preTestSignature: Signature;
 }
 /**
  * Details about the vehicle to be used for the test
@@ -281,7 +299,7 @@ export interface Manoeuvres {
   selectedForwardPark?: ManoeuvreIndicator;
   outcomeForwardParkControl?: ManoeuvreOutcome;
   outcomeForwardParkObservation?: ManoeuvreOutcome;
-  selectedControlledStop?: ManoeuvreIndicator;
+  selectedControlledStop: ManoeuvreIndicator;
   outcomeControlledStop?: ManoeuvreOutcome;
 }
 /**
@@ -463,4 +481,53 @@ export interface FaultSummary {
    */
   totalDangerousFaults?: number;
   [k: string]: any;
+}
+/**
+ * Finalisation of a successful test outcome
+ */
+export interface PassCompletion {
+  /**
+   * Indicates whether the candidate submitted their provisional driving licence
+   */
+  provisionalLicenceProvided: boolean;
+  /**
+   * The PCN issued to the candidate
+   */
+  passCertificateNumber: string;
+}
+export interface PostTestDeclarations {
+  /**
+   * Whether or not the candidate has declared that their health status hasn't changed since their last application
+   */
+  healthDeclarationAccepted: boolean;
+  postTestSignature: Signature;
+}
+/**
+ * Recording of other characteristics of the test
+ */
+export interface TestSummary {
+  /**
+   * Number of the route that was taken during the test
+   */
+  routeNumber: number;
+  /**
+   * Any comments that the DE wants to record about the debrief
+   */
+  oralExplanationComments?: string;
+  /**
+   * Description of the type of weather encountered during the test
+   */
+  weatherConditions: WeatherConditions[];
+  /**
+   * Any additional comments about the weather that aren't covered by the predefined options
+   */
+  weatherComments?: string;
+  /**
+   * Method chosen to conduct the independent driving section of the test
+   */
+  independentDriving: "Sat nav" | "Traffic signs";
+  /**
+   * Physical description of the candidate
+   */
+  candidateDescription: string;
 }
