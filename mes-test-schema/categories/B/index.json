@@ -230,11 +230,7 @@
           "type": "boolean"
         }
       },
-      "additionalProperties": false,
-      "required": [
-        "registrationNumber",
-        "gearboxCategory"
-      ]
+      "additionalProperties": false
     },
     "instructorDetails": {
       "description": "Details about the candidate's driving instructor",
@@ -288,12 +284,7 @@
           "$ref": "#/definitions/questionOutcome"
         }
       },
-      "additionalProperties": false,
-      "required": [
-        "tellMeQuestionCode",
-        "tellMeQuestionDescription",
-        "tellMeQuestionOutcome"
-      ]
+      "additionalProperties": false
     },
     "testRequirements": {
       "description": "The test requirements that must be carried out during a test",
