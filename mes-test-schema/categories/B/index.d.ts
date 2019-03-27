@@ -243,8 +243,8 @@ export interface VehicleDetails {
   /**
    * The vehicle registration number
    */
-  registrationNumber: string;
-  gearboxCategory: GearboxCategory;
+  registrationNumber?: string;
+  gearboxCategory?: GearboxCategory;
   /**
    * Indicates whether the vehicle belongs to a driving school
    */
@@ -281,9 +281,9 @@ export interface TestData {
  * Details of the Show Me and Tell Me questions asked during the test
  */
 export interface VehicleChecks {
-  tellMeQuestionCode: QuestionCode;
-  tellMeQuestionDescription: QuestionDescription;
-  tellMeQuestionOutcome: QuestionOutcome;
+  tellMeQuestionCode?: QuestionCode;
+  tellMeQuestionDescription?: QuestionDescription;
+  tellMeQuestionOutcome?: QuestionOutcome;
   showMeQuestionCode?: QuestionCode;
   showMeQuestionDescription?: QuestionDescription;
   showMeQuestionOutcome?: QuestionOutcome;
