@@ -202,6 +202,14 @@
       },
       "additionalProperties": false
     },
+    "gearboxCategory": {
+      "description": "The type of gearbox",
+      "type": "string",
+      "enum": [
+        "Manual",
+        "Automatic"
+      ]
+    },
     "vehicleDetails": {
       "description": "Details about the vehicle to be used for the test",
       "type": "object",
@@ -211,12 +219,7 @@
           "type": "string"
         },
         "gearboxCategory": {
-          "description": "The type of gearbox",
-          "type": "string",
-          "enum": [
-            "Manual",
-            "Automatic"
-          ]
+          "$ref": "#/definitions/gearboxCategory"
         },
         "schoolCar": {
           "description": "Indicates whether the vehicle belongs to a driving school",

@@ -6,6 +6,10 @@
  */
 
 /**
+ * Whether the test is to be conducted using the welsh language
+ */
+export type WelshTest = boolean;
+/**
  * Base 64 encoded binary data representing a PNG image of the candidates signature
  */
 export type Signature = string;
@@ -13,6 +17,10 @@ export type Signature = string;
  * Outcome of the Eyesight Test
  */
 export type EyesightTestResult = "P" | "F";
+/**
+ * The type of gearbox
+ */
+export type GearboxCategory = "Manual" | "Automatic";
 /**
  * Code representing the question that was asked
  */
@@ -46,10 +54,6 @@ export type SeriousFaultIndicator = boolean;
  */
 export type DangerousFaultIndicator = boolean;
 /**
- * Final test result - pass or fail
- */
-export type TestOutcome = "P" | "F";
-/**
  * Predefined values for the type of weather encountered during the test
  */
 export type WeatherConditions =
@@ -65,6 +69,7 @@ export type WeatherConditions =
   | "Windy";
 
 export interface StandardCarTestCATBSchema {
+  welshTest: WelshTest;
   /**
    * Category code for the test report
    */
@@ -83,9 +88,12 @@ export interface StandardCarTestCATBSchema {
   activityCode: string;
   candidate: Candidate;
   applicationReference: ApplicationReference;
-  preTestDeclarations: PreTestDeclarations;
-  vehicleDetails: VehicleDetails;
-  testData: TestData;
+  preTestDeclarations?: PreTestDeclarations;
+  eyesightTestResult?: EyesightTestResult;
+  accompaniment?: Accompaniment;
+  vehicleDetails?: VehicleDetails;
+  instructorDetails?: InstructorDetails;
+  testData?: TestData;
   passCompletion?: PassCompletion;
   postTestDeclarations?: PostTestDeclarations;
   testSummary?: TestSummary;
@@ -212,6 +220,23 @@ export interface PreTestDeclarations {
   preTestSignature: Signature;
 }
 /**
+ * Indicators for anybody else overseeing the test
+ */
+export interface Accompaniment {
+  /**
+   * Indicates whether the ADI was present during the test
+   */
+  ADI?: boolean;
+  /**
+   * Indicates whether a DVSA supervisor was present during the test
+   */
+  supervisor?: boolean;
+  /**
+   * Indicates whether another individual was present during the test
+   */
+  other?: boolean;
+}
+/**
  * Details about the vehicle to be used for the test
  */
 export interface VehicleDetails {
@@ -219,10 +244,7 @@ export interface VehicleDetails {
    * The vehicle registration number
    */
   registrationNumber: string;
-  /**
-   * The type of gearbox
-   */
-  gearboxCategory: "Manual" | "Automatic";
+  gearboxCategory: GearboxCategory;
   /**
    * Indicates whether the vehicle belongs to a driving school
    */
@@ -233,20 +255,27 @@ export interface VehicleDetails {
   dualControls?: boolean;
 }
 /**
+ * Details about the candidate's driving instructor
+ */
+export interface InstructorDetails {
+  /**
+   * The instructor's registration number
+   */
+  registrationNumber?: number;
+}
+/**
  * Data associated with the test
  */
 export interface TestData {
-  eyesightTestResult: EyesightTestResult;
-  vehicleChecks: VehicleChecks;
-  testRequirements: TestRequirements;
+  vehicleChecks?: VehicleChecks;
+  testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres;
   drivingFaults?: DrivingFaults;
   seriousFaults?: SeriousFaults;
   dangerousFaults?: DangerousFaults;
-  eco: Eco;
+  eco?: Eco;
   ETA?: ETA;
-  faultSummary: FaultSummary;
-  testOutcome: TestOutcome;
+  faultSummary?: FaultSummary;
 }
 /**
  * Details of the Show Me and Tell Me questions asked during the test
@@ -255,9 +284,9 @@ export interface VehicleChecks {
   tellMeQuestionCode: QuestionCode;
   tellMeQuestionDescription: QuestionDescription;
   tellMeQuestionOutcome: QuestionOutcome;
-  showMeQuestionCode: QuestionCode;
-  showMeQuestionDescription: QuestionDescription;
-  showMeQuestionOutcome: QuestionOutcome;
+  showMeQuestionCode?: QuestionCode;
+  showMeQuestionDescription?: QuestionDescription;
+  showMeQuestionOutcome?: QuestionOutcome;
 }
 /**
  * The test requirements that must be carried out during a test
@@ -266,19 +295,19 @@ export interface TestRequirements {
   /**
    * Indicates whether or not this test requirement was carried out
    */
-  normalStart1: boolean;
+  normalStart1?: boolean;
   /**
    * Indicates whether or not this test requirement was carried out
    */
-  normalStart2: boolean;
+  normalStart2?: boolean;
   /**
    * Indicates whether or not this test requirement was carried out
    */
-  angledStart: boolean;
+  angledStart?: boolean;
   /**
    * Indicates whether or not this test requirement was carried out
    */
-  hillStart: boolean;
+  hillStart?: boolean;
 }
 /**
  * The manoeuvres that were carried out during the test and any faults recorded against them
@@ -299,7 +328,7 @@ export interface Manoeuvres {
   selectedForwardPark?: ManoeuvreIndicator;
   outcomeForwardParkControl?: ManoeuvreOutcome;
   outcomeForwardParkObservation?: ManoeuvreOutcome;
-  selectedControlledStop: ManoeuvreIndicator;
+  selectedControlledStop?: ManoeuvreIndicator;
   outcomeControlledStop?: ManoeuvreOutcome;
 }
 /**
@@ -499,8 +528,12 @@ export interface PostTestDeclarations {
   /**
    * Whether or not the candidate has declared that their health status hasn't changed since their last application
    */
-  healthDeclarationAccepted: boolean;
-  postTestSignature: Signature;
+  healthDeclarationAccepted?: boolean;
+  /**
+   * Indicates whether the candidate acknowledges receipt of the PCN
+   */
+  passCertificateNumberReceived?: boolean;
+  postTestSignature?: Signature;
 }
 /**
  * Recording of other characteristics of the test
