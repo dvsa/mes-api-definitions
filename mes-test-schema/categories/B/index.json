@@ -183,7 +183,7 @@
         "F"
       ]
     },
-    "accompaniedBy": {
+    "accompaniment": {
       "description": "Indicators for anybody else overseeing the test",
       "type": "object",
       "properties": {
@@ -240,10 +240,6 @@
         "registrationNumber": {
           "description": "The instructor's registration number",
           "type": "integer"
-        },
-        "certificationNumber": {
-          "description": "The instructor's certification number",
-          "type": "integer"
         }
       },
       "additionalProperties": false
@@ -293,10 +289,7 @@
       "required": [
         "tellMeQuestionCode",
         "tellMeQuestionDescription",
-        "tellMeQuestionOutcome",
-        "showMeQuestionCode",
-        "showMeQuestionDescription",
-        "showMeQuestionOutcome"
+        "tellMeQuestionOutcome"
       ]
     },
     "testRequirements": {
@@ -320,13 +313,7 @@
           "type": "boolean"
         }
       },
-      "additionalProperties": false,
-      "required": [
-        "normalStart1",
-        "normalStart2",
-        "angledStart",
-        "hillStart"
-      ]
+      "additionalProperties": false
     },
     "manoeuvreIndicator": {
       "description": "Indicator for a manoeuvre being performed during the test",
@@ -397,10 +384,7 @@
           "$ref": "#/definitions/manoeuvreOutcome"
         }
       },
-      "additionalProperties": false,
-      "required": [
-        "selectedControlledStop"
-      ]
+      "additionalProperties": false
     },
     "drivingFaultCount": {
       "description": "The count of the number of driving faults recorded against a test element",
@@ -838,14 +822,6 @@
         }
       }
     },
-    "testOutcome": {
-      "description": "Final test result - pass or fail",
-      "type": "string",
-      "enum": [
-        "P",
-        "F"
-      ]
-    },
     "testData": {
       "description": "Data associated with the test",
       "type": "object",
@@ -876,19 +852,9 @@
         },
         "faultSummary": {
           "$ref": "#/definitions/faultSummary"
-        },
-        "testOutcome": {
-          "$ref": "#/definitions/testOutcome"
         }
       },
-      "additionalProperties": false,
-      "required": [
-        "vehicleChecks",
-        "testRequirements",
-        "eco",
-        "faultSummary",
-        "testOutcome"
-      ]
+      "additionalProperties": false
     },
     "passCompletion": {
       "description": "Finalisation of a successful test outcome",
@@ -916,15 +882,15 @@
           "description": "Whether or not the candidate has declared that their health status hasn't changed since their last application",
           "type": "boolean"
         },
+        "passCertificateNumberReceived": {
+          "description": "Indicates whether the candidate acknowledges receipt of the PCN",
+          "type": "boolean"
+        },
         "postTestSignature": {
           "$ref": "#/definitions/signature"
         }
       },
-      "additionalProperties": false,
-      "required": [
-        "healthDeclarationAccepted",
-        "postTestSignature"
-      ]
+      "additionalProperties": false
     },
     "weatherConditions": {
       "description": "Predefined values for the type of weather encountered during the test",
@@ -988,6 +954,9 @@
     }
   },
   "properties": {
+    "welshTest": {
+      "$ref": "#/definitions/welshTest"
+    },
     "category": {
       "description": "Category code for the test report",
       "type": "string"
@@ -1016,8 +985,14 @@
     "eyesightTestResult": {
       "$ref": "#/definitions/eyesightTestResult"
     },
+    "accompaniment": {
+      "$ref": "#/definitions/accompaniment"
+    },
     "vehicleDetails": {
       "$ref": "#/definitions/vehicleDetails"
+    },
+    "instructorDetails": {
+      "$ref": "#/definitions/instructorDetails"
     },
     "testData": {
       "$ref": "#/definitions/testData"
@@ -1034,13 +1009,12 @@
   },
   "additionalProperties": false,
   "required": [
+    "welshTest",
     "category",
     "id",
     "slotId",
     "activityCode",
     "candidate",
-    "applicationReference",
-    "preTestDeclarations",
-    "eyesightTestResult"
+    "applicationReference"
   ]
 }
