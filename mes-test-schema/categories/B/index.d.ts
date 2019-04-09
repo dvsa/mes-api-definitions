@@ -542,25 +542,34 @@ export interface TestSummary {
   /**
    * Number of the route that was taken during the test
    */
-  routeNumber: number;
-  /**
-   * Any comments that the DE wants to record about the debrief
-   */
-  oralExplanationComments?: string;
-  /**
-   * Description of the type of weather encountered during the test
-   */
-  weatherConditions: WeatherConditions[];
-  /**
-   * Any additional comments about the weather that aren't covered by the predefined options
-   */
-  weatherComments?: string;
+  routeNumber?: number;
   /**
    * Method chosen to conduct the independent driving section of the test
    */
-  independentDriving: "Sat nav" | "Traffic signs";
+  independentDriving?: "Sat nav" | "Traffic signs";
   /**
    * Physical description of the candidate
    */
-  candidateDescription: string;
+  candidateDescription?: string;
+  /**
+   * Indicates whether anybody else (e.g. ADI) was present for the debrief
+   */
+  debriefWitnessed?: boolean;
+  /**
+   * Indicates which form of ID was provided by the candidate
+   */
+  identification?: "Licence" | "Passport";
+  /**
+   * Description of the type of weather encountered during the test
+   */
+  weatherConditions?: WeatherConditions[];
+  /**
+   * Indicates whether a D255 form needs to be completed
+   */
+  D255?: boolean;
+  /**
+   * Any comments that the DE wants to record about the test
+   */
+  additionalInformation?: string;
+  [k: string]: any;
 }
