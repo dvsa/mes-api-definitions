@@ -910,21 +910,6 @@
           "description": "Number of the route that was taken during the test",
           "type": "integer"
         },
-        "oralExplanationComments": {
-          "description": "Any comments that the DE wants to record about the debrief",
-          "type": "string"
-        },
-        "weatherConditions": {
-          "description": "Description of the type of weather encountered during the test",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/weatherConditions"
-          }
-        },
-        "weatherComments": {
-          "description": "Any additional comments about the weather that aren't covered by the predefined options",
-          "type": "string"
-        },
         "independentDriving": {
           "description": "Method chosen to conduct the independent driving section of the test",
           "type": "string",
@@ -936,15 +921,35 @@
         "candidateDescription": {
           "description": "Physical description of the candidate",
           "type": "string"
+        },
+        "debriefWitnessed": {
+          "description": "Indicates whether anybody else (e.g. ADI) was present for the debrief",
+          "type": "boolean"
+        },
+        "identification": {
+          "description": "Indicates which form of ID was provided by the candidate",
+          "type": "string",
+          "enum": [
+            "Licence",
+            "Passport"
+          ]
+        },
+        "weatherConditions": {
+          "description": "Description of the type of weather encountered during the test",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/weatherConditions"
+          }
+        },
+        "D255": {
+          "description": "Indicates whether a D255 form needs to be completed",
+          "type": "boolean"
+        },
+        "additionalInformation": {
+          "description": "Any comments that the DE wants to record about the test",
+          "type": "string"
         }
-      },
-      "additionalProperties": false,
-      "required": [
-        "routeNumber",
-        "weatherConditions",
-        "independentDriving",
-        "candidateDescription"
-      ]
+      }
     }
   },
   "properties": {
