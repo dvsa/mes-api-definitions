@@ -2,10 +2,6 @@
   "title": "Standard Car Test (CAT B) Schema",
   "type": "object",
   "definitions": {
-    "welshTest": {
-      "description": "Whether the test is to be conducted using the welsh language",
-      "type": "boolean"
-    },
     "name": {
       "description": "Details of the individual's name",
       "type": "object",
@@ -87,7 +83,7 @@
           "$ref": "#/definitions/name"
         },
         "driverNumber": {
-          "description": "The candidate's driver number if any, typically (though not always) 16 characters if UK, or 8 digits if NI",
+          "description": "The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI",
           "type": "string",
           "maxLength": 24
         },
@@ -147,6 +143,69 @@
         "applicationId",
         "bookingSequence",
         "checkDigit"
+      ]
+    },
+    "journalData": {
+      "description": "Data brought through from the journal",
+      "type": "object",
+      "properties": {
+        "staffNumber": {
+          "description": "The examiner's DSA staff number",
+          "type": "string",
+          "maxLength": 10
+        },
+        "costCode": {
+          "description": "Cost centre code for the test centre",
+          "type": "string",
+          "maxLength": 6
+        },
+        "slotId": {
+          "description": "Unique identifier for the journal test slot",
+          "type": "integer"
+        },
+        "start": {
+          "description": "Start time of the test slot",
+          "type": "string",
+          "minLength": 25,
+          "maxLength": 25
+        },
+        "testCategory": {
+          "description": "The test category reference",
+          "type": "string",
+          "maxLength": 10
+        },
+        "vehicleSlotType": {
+          "description": "A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest",
+          "type": "string",
+          "maxLength": 11
+        },
+        "welshTest": {
+          "description": "Whether the test is to be conducted using the welsh language",
+          "type": "boolean"
+        },
+        "extendedTest": {
+          "description": "Whether this is an extended test",
+          "type": "boolean"
+        },
+        "candidate": {
+          "$ref": "#/definitions/candidate"
+        },
+        "applicationReference": {
+          "$ref": "#/definitions/applicationReference"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "staffNumber",
+        "costCode",
+        "slotId",
+        "start",
+        "testCategory",
+        "vehicleSlotType",
+        "welshTest",
+        "extendedTest",
+        "candidate",
+        "applicationReference"
       ]
     },
     "signature": {
@@ -953,9 +1012,6 @@
     }
   },
   "properties": {
-    "welshTest": {
-      "$ref": "#/definitions/welshTest"
-    },
     "category": {
       "description": "Category code for the test report",
       "type": "string"
@@ -964,19 +1020,12 @@
       "description": "Unique identifier for the test",
       "type": "string"
     },
-    "slotId": {
-      "description": "Unique identifier for the journal test slot",
-      "type": "integer"
+    "journalData": {
+      "$ref": "#/definitions/journalData"
     },
     "activityCode": {
       "description": "Code representing the result of the test",
       "type": "string"
-    },
-    "candidate": {
-      "$ref": "#/definitions/candidate"
-    },
-    "applicationReference": {
-      "$ref": "#/definitions/applicationReference"
     },
     "preTestDeclarations": {
       "$ref": "#/definitions/preTestDeclarations"
@@ -1008,12 +1057,9 @@
   },
   "additionalProperties": false,
   "required": [
-    "welshTest",
     "category",
     "id",
-    "slotId",
-    "activityCode",
-    "candidate",
-    "applicationReference"
+    "journalData",
+    "activityCode"
   ]
 }
