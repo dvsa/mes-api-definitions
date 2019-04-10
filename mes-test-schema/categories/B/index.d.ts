@@ -121,6 +121,10 @@ export interface JournalData {
    */
   welshTest: boolean;
   /**
+   * Whether the candidate has any special needs that require the D255 form to be completed
+   */
+  specialNeeds?: boolean;
+  /**
    * Whether this is an extended test
    */
   extendedTest: boolean;

@@ -183,6 +183,10 @@
           "description": "Whether the test is to be conducted using the welsh language",
           "type": "boolean"
         },
+        "specialNeeds": {
+          "description": "Whether the candidate has any special needs that require the D255 form to be completed",
+          "type": "boolean"
+        },
         "extendedTest": {
           "description": "Whether this is an extended test",
           "type": "boolean"
