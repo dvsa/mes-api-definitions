@@ -2,10 +2,39 @@
   "title": "Standard Car Test (CAT B) Schema",
   "type": "object",
   "definitions": {
+    "examiner": {
+      "description": "The examiner details",
+      "type": "object",
+      "properties": {
+        "staffNumber": {
+          "description": "The examiner's DSA staff number",
+          "type": "string",
+          "maxLength": 10
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "staffNumber"
+      ]
+    },
+    "testCentre": {
+      "description": "Details of the test centre",
+      "type": "object",
+      "properties": {
+        "costCode": {
+          "description": "Cost centre code for the test centre",
+          "type": "string",
+          "maxLength": 6
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "costCode"
+      ]
+    },
     "name": {
       "description": "Details of the individual's name",
       "type": "object",
-      "additionalProperties": false,
       "properties": {
         "title": {
           "description": "The individual's title",
@@ -32,12 +61,12 @@
           "type": "string",
           "maxLength": 50
         }
-      }
+      },
+      "additionalProperties": false
     },
     "address": {
       "description": "Details of the address",
       "type": "object",
-      "additionalProperties": false,
       "properties": {
         "addressLine1": {
           "description": "First line of address",
@@ -69,7 +98,8 @@
           "type": "string",
           "maxLength": 255
         }
-      }
+      },
+      "additionalProperties": false
     },
     "candidate": {
       "description": "Details of the candidate booked into the test slot",
@@ -145,20 +175,10 @@
         "checkDigit"
       ]
     },
-    "journalData": {
-      "description": "Data brought through from the journal",
+    "testSlotAttributes": {
+      "description": "The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.",
       "type": "object",
       "properties": {
-        "staffNumber": {
-          "description": "The examiner's DSA staff number",
-          "type": "string",
-          "maxLength": 10
-        },
-        "costCode": {
-          "description": "Cost centre code for the test centre",
-          "type": "string",
-          "maxLength": 6
-        },
         "slotId": {
           "description": "Unique identifier for the journal test slot",
           "type": "integer"
@@ -168,11 +188,6 @@
           "type": "string",
           "minLength": 25,
           "maxLength": 25
-        },
-        "testCategory": {
-          "description": "The test category reference",
-          "type": "string",
-          "maxLength": 10
         },
         "vehicleSlotType": {
           "description": "A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest",
@@ -190,6 +205,30 @@
         "extendedTest": {
           "description": "Whether this is an extended test",
           "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "slotId",
+        "start",
+        "vehicleSlotType",
+        "welshTest",
+        "specialNeeds",
+        "extendedTest"
+      ]
+    },
+    "journalData": {
+      "description": "Data brought through from the journal",
+      "type": "object",
+      "properties": {
+        "examiner": {
+          "$ref": "#/definitions/examiner"
+        },
+        "testCentre": {
+          "$ref": "#/definitions/testCentre"
+        },
+        "testSlotAttributes": {
+          "$ref": "#/definitions/testSlotAttributes"
         },
         "candidate": {
           "$ref": "#/definitions/candidate"
@@ -200,15 +239,9 @@
       },
       "additionalProperties": false,
       "required": [
-        "staffNumber",
-        "costCode",
-        "slotId",
-        "start",
-        "testCategory",
-        "vehicleSlotType",
-        "welshTest",
-        "specialNeeds",
-        "extendedTest",
+        "examiner",
+        "testCentre",
+        "testSlotAttributes",
         "candidate",
         "applicationReference"
       ]
