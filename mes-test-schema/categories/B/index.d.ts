@@ -6,10 +6,6 @@
  */
 
 /**
- * Whether the test is to be conducted using the welsh language
- */
-export type WelshTest = boolean;
-/**
  * Base 64 encoded binary data representing a PNG image of the candidates signature
  */
 export type Signature = string;
@@ -69,7 +65,6 @@ export type WeatherConditions =
   | "Windy";
 
 export interface StandardCarTestCATBSchema {
-  welshTest: WelshTest;
   /**
    * Category code for the test report
    */
@@ -78,16 +73,11 @@ export interface StandardCarTestCATBSchema {
    * Unique identifier for the test
    */
   id: string;
-  /**
-   * Unique identifier for the journal test slot
-   */
-  slotId: number;
+  journalData: JournalData;
   /**
    * Code representing the result of the test
    */
   activityCode: string;
-  candidate: Candidate;
-  applicationReference: ApplicationReference;
   preTestDeclarations?: PreTestDeclarations;
   eyesightTestResult?: EyesightTestResult;
   accompaniment?: Accompaniment;
@@ -99,6 +89,49 @@ export interface StandardCarTestCATBSchema {
   testSummary?: TestSummary;
 }
 /**
+ * Data brought through from the journal
+ */
+export interface JournalData {
+  /**
+   * The examiner's DSA staff number
+   */
+  staffNumber: string;
+  /**
+   * Cost centre code for the test centre
+   */
+  costCode: string;
+  /**
+   * Unique identifier for the journal test slot
+   */
+  slotId: number;
+  /**
+   * Start time of the test slot
+   */
+  start: string;
+  /**
+   * The test category reference
+   */
+  testCategory: string;
+  /**
+   * A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest
+   */
+  vehicleSlotType: string;
+  /**
+   * Whether the test is to be conducted using the welsh language
+   */
+  welshTest: boolean;
+  /**
+   * Whether the candidate has any special needs that require the D255 form to be completed
+   */
+  specialNeeds?: boolean;
+  /**
+   * Whether this is an extended test
+   */
+  extendedTest: boolean;
+  candidate: Candidate;
+  applicationReference: ApplicationReference;
+}
+/**
  * Details of the candidate booked into the test slot
  */
 export interface Candidate {
@@ -108,7 +141,7 @@ export interface Candidate {
   candidateId?: number;
   candidateName?: Name;
   /**
-   * The candidate's driver number if any, typically (though not always) 16 characters if UK, or 8 digits if NI
+   * The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI
    */
   driverNumber?: string;
   candidateAddress?: Address;
