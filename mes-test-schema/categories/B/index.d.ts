@@ -92,14 +92,34 @@ export interface StandardCarTestCATBSchema {
  * Data brought through from the journal
  */
 export interface JournalData {
+  examiner: Examiner;
+  testCentre: TestCentre;
+  testSlotAttributes: TestSlotAttributes;
+  candidate: Candidate;
+  applicationReference: ApplicationReference;
+}
+/**
+ * The examiner details
+ */
+export interface Examiner {
   /**
    * The examiner's DSA staff number
    */
   staffNumber: string;
+}
+/**
+ * Details of the test centre
+ */
+export interface TestCentre {
   /**
    * Cost centre code for the test centre
    */
   costCode: string;
+}
+/**
+ * The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.
+ */
+export interface TestSlotAttributes {
   /**
    * Unique identifier for the journal test slot
    */
@@ -108,10 +128,6 @@ export interface JournalData {
    * Start time of the test slot
    */
   start: string;
-  /**
-   * The test category reference
-   */
-  testCategory: string;
   /**
    * A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest
    */
@@ -123,13 +139,11 @@ export interface JournalData {
   /**
    * Whether the candidate has any special needs that require the D255 form to be completed
    */
-  specialNeeds?: boolean;
+  specialNeeds: boolean;
   /**
    * Whether this is an extended test
    */
   extendedTest: boolean;
-  candidate: Candidate;
-  applicationReference: ApplicationReference;
 }
 /**
  * Details of the candidate booked into the test slot
