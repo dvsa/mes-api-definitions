@@ -1,0 +1,166 @@
+openapi: 3.0.2
+info:
+  title: DVSA Mobile Examiner Services REST API
+  description: >
+    The REST API for the DVSA Mobile Examiner Services (MES) system, supporting the iPad app used to
+    record practical driving tests. Each API call needs to include a valid JWT token obtained from
+    DVSA Azure Active Directory, for a staff id recorded as an active examiner within the TARS system.
+      
+    Since Open API v3 doesn't support recent JSON Schema, any requests or responses with complex JSON
+    documents reference the _Dummy_ schema type.
+  license:
+    name: MIT License
+    url: https://raw.githubusercontent.com/dvsa/mes-api-definitions/develop/LICENSE
+  version: 0.0.1
+servers:
+- url: https://{env}.mes.dev-dvsacloud.uk
+  variables:
+    env:
+      enum:
+      - dev
+      - perf
+      - uat
+      default: dev
+      description: The environment
+paths:
+  /v1/journals/{staffNumber}/personal:
+    get:
+      description: Get my own Journal
+      operationId: getMyJournal
+      tags:
+      - journal-microservice
+      responses:
+        '200':
+          description: My Journal
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JournalResponse'
+        '400':
+          description: No staff number supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnstructuredErrorResponse'
+        '401':
+          description: Invalid authorisation token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnstructuredErrorResponse'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnstructuredErrorResponse'        
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnstructuredErrorResponse'  
+      parameters:
+      - name: staffNumber
+        in: path
+        description: The Examiner's TARS Staff Number
+        required: true
+        schema:
+          type: integer
+  /v1/logs:
+    post:
+      description: Post log messages
+      operationId: postLogMessages
+      tags:
+      - logs-microservice
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogsRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogsResponse'      
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StructuredErrorResponse'   
+        '403':
+          $ref: '#/components/responses/403'                
+  /v1/configuration/{scope}:
+    get:
+      description: Get application configuration
+      operationId: getConfiguration
+      tags:
+      - configuration-microservice
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigurationResponse'  
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnstructuredErrorResponse' 
+        '403':
+          $ref: '#/components/responses/403'
+      parameters:
+      - name: scope
+        in: path
+        description: The configuration scope
+        required: true
+        schema:
+          type: string    
+components:
+  schemas:
+    JournalResponse:
+      $ref: '#/components/schemas/Dummy'
+    LogsRequest:
+      $ref: '#/components/schemas/Dummy'
+    LogsResponse:
+      type: object
+      properties:
+        message:
+          type: string  
+    ConfigurationResponse:
+      $ref: '#/components/schemas/Dummy'      
+    UnstructuredErrorResponse:
+      type: string            
+    StructuredErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+    # Since Open API v3 doesn't support JSON schema and speccy.io doesn't support conversion,
+    # this is used instead of the real schemas
+    Dummy:
+      type: object
+      properties:
+        message:
+          type: string
+  responses:
+    '403':
+      description: Not authorised
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UnstructuredErrorResponse'
+tags:
+- name: configuration-microservice
+  description: Configuration microservice REST operations
+- name: journal-microservice
+  description: Journal microservice REST operations
+- name: logs-microservice
+  description: Logs microservice REST operations

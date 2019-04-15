@@ -1,0 +1,20 @@
+{
+  "name": "mes-api-definitions",
+  "version": "0.0.1",
+  "description": "DVSA Mobile Examiner Services - Generates API spec and documentation",
+  "devDependencies": {
+    "speccy": "^0.8.7"
+  },
+  "scripts": {
+    "serve": "speccy serve openapi.yaml",
+    "generate": "speccy resolve -v -j -o openapi-full.yaml openapi.yaml",
+    "check": "speccy lint -v -s info-contact -j openapi.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvsa/mes-api-definitions.git"
+  },
+  "author": "DVSA",
+  "license": "MIT",
+  "homepage": "https://github.com/dvsa/mes-api-definitions"
+}
