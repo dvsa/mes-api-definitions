@@ -6,7 +6,7 @@ info:
     record practical driving tests. Each API call needs to include a valid JWT token obtained from
     DVSA Azure Active Directory, for a staff id recorded as an active examiner within the TARS system.
       
-    Since Open API v3 doesn't support recent JSON Schema, any requests or responses with comnplex JSON
+    Since Open API v3 doesn't support recent JSON Schema, any requests or responses with complex JSON
     documents reference the _Dummy_ schema type.
   license:
     name: MIT License
