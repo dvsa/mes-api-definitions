@@ -423,15 +423,6 @@
       "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
       "type": "object",
       "properties": {
-        "selectedReverseLeft": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        },
-        "outcomeReverseLeftControl": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "outcomeReverseLeftObservation": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
         "selectedReverseRight": {
           "$ref": "#/definitions/manoeuvreIndicator"
         },
