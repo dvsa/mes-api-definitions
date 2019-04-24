@@ -423,46 +423,72 @@
       "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
       "type": "object",
       "properties": {
-        "selectedReverseRight": {
+        "reverseRight": {
+          "type": "object",
+          "properties": {
+            "selected": {
+              "$ref": "#/definitions/manoeuvreIndicator"
+            },
+            "controlFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "observationFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            }
+          }
+        },
+        "reverseParkRoad": {
+          "type": "object",
+          "properties": {
+            "selected": {
+              "$ref": "#/definitions/manoeuvreIndicator"
+            },
+            "controlFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "observationFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            }
+          }
+        },
+        "reverseParkCarpark": {
+          "type": "object",
+          "properties": {
+            "selected": {
+              "$ref": "#/definitions/manoeuvreIndicator"
+            },
+            "controlFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "observationFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            }
+          }
+        },
+        "forwardPark": {
+          "type": "object",
+          "properties": {
+            "selected": {
+              "$ref": "#/definitions/manoeuvreIndicator"
+            },
+            "controlFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "observationFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "controlledStop": {
+      "type": "object",
+      "properties": {
+        "selected": {
           "$ref": "#/definitions/manoeuvreIndicator"
         },
-        "outcomeReverseRightControl": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "outcomeReverseRightObservation": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "selectedReverseParkRoad": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        },
-        "outcomeReverseParkRoadControl": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "outcomeReverseParkRoadObservation": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "selectedReverseParkCarpark": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        },
-        "outcomeReverseParkCarparkControl": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "outcomeReverseParkCarparkObservation": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "selectedForwardPark": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        },
-        "outcomeForwardParkControl": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "outcomeForwardParkObservation": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "selectedControlledStop": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        },
-        "outcomeControlledStop": {
+        "fault": {
           "$ref": "#/definitions/manoeuvreOutcome"
         }
       },
@@ -1257,7 +1283,8 @@
           "description": "Count of the total number of dangerous faults incurred during the test",
           "type": "integer"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "testData": {
       "description": "Data associated with the test",
@@ -1271,6 +1298,9 @@
         },
         "manoeuvres": {
           "$ref": "#/definitions/manoeuvres"
+        },
+        "controlledStop": {
+          "$ref": "#/definitions/controlledStop"
         },
         "drivingFaults": {
           "$ref": "#/definitions/drivingFaults"
