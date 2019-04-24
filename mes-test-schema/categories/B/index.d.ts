@@ -54,6 +54,14 @@ export type SeriousFaultIndicator = boolean;
  */
 export type DangerousFaultIndicator = boolean;
 /**
+ * Method chosen to conduct the independent driving section of the test
+ */
+export type IndependentDriving = "Sat nav" | "Traffic signs";
+/**
+ * Indicates which form of ID was provided by the candidate
+ */
+export type Identification = "Licence" | "Passport";
+/**
  * Predefined values for the type of weather encountered during the test
  */
 export type WeatherConditions =
@@ -711,10 +719,7 @@ export interface TestSummary {
    * Number of the route that was taken during the test
    */
   routeNumber?: number;
-  /**
-   * Method chosen to conduct the independent driving section of the test
-   */
-  independentDriving?: "Sat nav" | "Traffic signs";
+  independentDriving?: IndependentDriving;
   /**
    * Physical description of the candidate
    */
@@ -723,10 +728,7 @@ export interface TestSummary {
    * Indicates whether anybody else (e.g. ADI) was present for the debrief
    */
   debriefWitnessed?: boolean;
-  /**
-   * Indicates which form of ID was provided by the candidate
-   */
-  identification?: "Licence" | "Passport";
+  identification?: Identification;
   /**
    * Description of the type of weather encountered during the test
    */
