@@ -377,25 +377,21 @@ export interface Manoeuvres {
     selected?: ManoeuvreIndicator;
     controlFault?: ManoeuvreOutcome;
     observationFault?: ManoeuvreOutcome;
-    [k: string]: any;
   };
   reverseParkRoad?: {
     selected?: ManoeuvreIndicator;
     controlFault?: ManoeuvreOutcome;
     observationFault?: ManoeuvreOutcome;
-    [k: string]: any;
   };
   reverseParkCarpark?: {
     selected?: ManoeuvreIndicator;
     controlFault?: ManoeuvreOutcome;
     observationFault?: ManoeuvreOutcome;
-    [k: string]: any;
   };
   forwardPark?: {
     selected?: ManoeuvreIndicator;
     controlFault?: ManoeuvreOutcome;
     observationFault?: ManoeuvreOutcome;
-    [k: string]: any;
   };
 }
 export interface ControlledStop {

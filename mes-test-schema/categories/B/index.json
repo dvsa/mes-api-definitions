@@ -435,7 +435,8 @@
             "observationFault": {
               "$ref": "#/definitions/manoeuvreOutcome"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "reverseParkRoad": {
           "type": "object",
@@ -449,7 +450,8 @@
             "observationFault": {
               "$ref": "#/definitions/manoeuvreOutcome"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "reverseParkCarpark": {
           "type": "object",
@@ -463,7 +465,8 @@
             "observationFault": {
               "$ref": "#/definitions/manoeuvreOutcome"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "forwardPark": {
           "type": "object",
@@ -477,7 +480,8 @@
             "observationFault": {
               "$ref": "#/definitions/manoeuvreOutcome"
             }
-          }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
@@ -1344,7 +1348,7 @@
     },
     "postTestDeclarations": {
       "type": "object",
-      "properties": {        
+      "properties": {
         "healthDeclarationAccepted": {
           "description": "Whether or not the candidate has declared that their health status hasn't changed since their last application",
           "type": "boolean"
