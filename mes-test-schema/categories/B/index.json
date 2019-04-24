@@ -1354,6 +1354,22 @@
         "Windy"
       ]
     },
+    "independentDriving": {
+      "description": "Method chosen to conduct the independent driving section of the test",
+      "type": "string",
+      "enum": [
+        "Sat nav",
+        "Traffic signs"
+      ]
+    },
+    "identification": {
+      "description": "Indicates which form of ID was provided by the candidate",
+      "type": "string",
+      "enum": [
+        "Licence",
+        "Passport"
+      ]
+    },
     "testSummary": {
       "description": "Recording of other characteristics of the test",
       "type": "object",
@@ -1363,12 +1379,7 @@
           "type": "integer"
         },
         "independentDriving": {
-          "description": "Method chosen to conduct the independent driving section of the test",
-          "type": "string",
-          "enum": [
-            "Sat nav",
-            "Traffic signs"
-          ]
+          "$ref": "#/definitions/independentDriving"
         },
         "candidateDescription": {
           "description": "Physical description of the candidate",
@@ -1379,12 +1390,7 @@
           "type": "boolean"
         },
         "identification": {
-          "description": "Indicates which form of ID was provided by the candidate",
-          "type": "string",
-          "enum": [
-            "Licence",
-            "Passport"
-          ]
+          "$ref": "#/definitions/identification"
         },
         "weatherConditions": {
           "description": "Description of the type of weather encountered during the test",
