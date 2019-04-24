@@ -329,6 +329,7 @@ export interface TestData {
   vehicleChecks?: VehicleChecks;
   testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres;
+  controlledStop?: ControlledStop;
   drivingFaults?: DrivingFaults;
   seriousFaults?: SeriousFaults;
   dangerousFaults?: DangerousFaults;
@@ -372,23 +373,34 @@ export interface TestRequirements {
  * The manoeuvres that were carried out during the test and any faults recorded against them
  */
 export interface Manoeuvres {
-  selectedReverseLeft?: ManoeuvreIndicator;
-  outcomeReverseLeftControl?: ManoeuvreOutcome;
-  outcomeReverseLeftObservation?: ManoeuvreOutcome;
-  selectedReverseRight?: ManoeuvreIndicator;
-  outcomeReverseRightControl?: ManoeuvreOutcome;
-  outcomeReverseRightObservation?: ManoeuvreOutcome;
-  selectedReverseParkRoad?: ManoeuvreIndicator;
-  outcomeReverseParkRoadControl?: ManoeuvreOutcome;
-  outcomeReverseParkRoadObservation?: ManoeuvreOutcome;
-  selectedReverseParkCarpark?: ManoeuvreIndicator;
-  outcomeReverseParkCarparkControl?: ManoeuvreOutcome;
-  outcomeReverseParkCarparkObservation?: ManoeuvreOutcome;
-  selectedForwardPark?: ManoeuvreIndicator;
-  outcomeForwardParkControl?: ManoeuvreOutcome;
-  outcomeForwardParkObservation?: ManoeuvreOutcome;
-  selectedControlledStop?: ManoeuvreIndicator;
-  outcomeControlledStop?: ManoeuvreOutcome;
+  reverseRight?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+    [k: string]: any;
+  };
+  reverseParkRoad?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+    [k: string]: any;
+  };
+  reverseParkCarpark?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+    [k: string]: any;
+  };
+  forwardPark?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+    [k: string]: any;
+  };
+}
+export interface ControlledStop {
+  selected?: ManoeuvreIndicator;
+  fault?: ManoeuvreOutcome;
 }
 /**
  * The driving faults accumulated during the test
@@ -685,7 +697,6 @@ export interface FaultSummary {
    * Count of the total number of dangerous faults incurred during the test
    */
   totalDangerousFaults?: number;
-  [k: string]: any;
 }
 /**
  * Finalisation of a successful test outcome
