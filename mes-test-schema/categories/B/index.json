@@ -423,55 +423,76 @@
       "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
       "type": "object",
       "properties": {
-        "selectedReverseLeft": {
+        "reverseRight": {
+          "type": "object",
+          "properties": {
+            "selected": {
+              "$ref": "#/definitions/manoeuvreIndicator"
+            },
+            "controlFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "observationFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            }
+          },
+          "additionalProperties": false
+        },
+        "reverseParkRoad": {
+          "type": "object",
+          "properties": {
+            "selected": {
+              "$ref": "#/definitions/manoeuvreIndicator"
+            },
+            "controlFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "observationFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            }
+          },
+          "additionalProperties": false
+        },
+        "reverseParkCarpark": {
+          "type": "object",
+          "properties": {
+            "selected": {
+              "$ref": "#/definitions/manoeuvreIndicator"
+            },
+            "controlFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "observationFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            }
+          },
+          "additionalProperties": false
+        },
+        "forwardPark": {
+          "type": "object",
+          "properties": {
+            "selected": {
+              "$ref": "#/definitions/manoeuvreIndicator"
+            },
+            "controlFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "observationFault": {
+              "$ref": "#/definitions/manoeuvreOutcome"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "controlledStop": {
+      "type": "object",
+      "properties": {
+        "selected": {
           "$ref": "#/definitions/manoeuvreIndicator"
         },
-        "outcomeReverseLeftControl": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "outcomeReverseLeftObservation": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "selectedReverseRight": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        },
-        "outcomeReverseRightControl": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "outcomeReverseRightObservation": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "selectedReverseParkRoad": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        },
-        "outcomeReverseParkRoadControl": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "outcomeReverseParkRoadObservation": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "selectedReverseParkCarpark": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        },
-        "outcomeReverseParkCarparkControl": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "outcomeReverseParkCarparkObservation": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "selectedForwardPark": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        },
-        "outcomeForwardParkControl": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "outcomeForwardParkObservation": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "selectedControlledStop": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        },
-        "outcomeControlledStop": {
+        "fault": {
           "$ref": "#/definitions/manoeuvreOutcome"
         }
       },
@@ -1266,7 +1287,8 @@
           "description": "Count of the total number of dangerous faults incurred during the test",
           "type": "integer"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "testData": {
       "description": "Data associated with the test",
@@ -1280,6 +1302,9 @@
         },
         "manoeuvres": {
           "$ref": "#/definitions/manoeuvres"
+        },
+        "controlledStop": {
+          "$ref": "#/definitions/controlledStop"
         },
         "drivingFaults": {
           "$ref": "#/definitions/drivingFaults"
@@ -1323,7 +1348,7 @@
     },
     "postTestDeclarations": {
       "type": "object",
-      "properties": {        
+      "properties": {
         "healthDeclarationAccepted": {
           "description": "Whether or not the candidate has declared that their health status hasn't changed since their last application",
           "type": "boolean"
@@ -1354,6 +1379,22 @@
         "Windy"
       ]
     },
+    "independentDriving": {
+      "description": "Method chosen to conduct the independent driving section of the test",
+      "type": "string",
+      "enum": [
+        "Sat nav",
+        "Traffic signs"
+      ]
+    },
+    "identification": {
+      "description": "Indicates which form of ID was provided by the candidate",
+      "type": "string",
+      "enum": [
+        "Licence",
+        "Passport"
+      ]
+    },
     "testSummary": {
       "description": "Recording of other characteristics of the test",
       "type": "object",
@@ -1363,12 +1404,7 @@
           "type": "integer"
         },
         "independentDriving": {
-          "description": "Method chosen to conduct the independent driving section of the test",
-          "type": "string",
-          "enum": [
-            "Sat nav",
-            "Traffic signs"
-          ]
+          "$ref": "#/definitions/independentDriving"
         },
         "candidateDescription": {
           "description": "Physical description of the candidate",
@@ -1379,12 +1415,7 @@
           "type": "boolean"
         },
         "identification": {
-          "description": "Indicates which form of ID was provided by the candidate",
-          "type": "string",
-          "enum": [
-            "Licence",
-            "Passport"
-          ]
+          "$ref": "#/definitions/identification"
         },
         "weatherConditions": {
           "description": "Description of the type of weather encountered during the test",

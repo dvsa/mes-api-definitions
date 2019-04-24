@@ -54,6 +54,14 @@ export type SeriousFaultIndicator = boolean;
  */
 export type DangerousFaultIndicator = boolean;
 /**
+ * Method chosen to conduct the independent driving section of the test
+ */
+export type IndependentDriving = "Sat nav" | "Traffic signs";
+/**
+ * Indicates which form of ID was provided by the candidate
+ */
+export type Identification = "Licence" | "Passport";
+/**
  * Predefined values for the type of weather encountered during the test
  */
 export type WeatherConditions =
@@ -321,6 +329,7 @@ export interface TestData {
   vehicleChecks?: VehicleChecks;
   testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres;
+  controlledStop?: ControlledStop;
   drivingFaults?: DrivingFaults;
   seriousFaults?: SeriousFaults;
   dangerousFaults?: DangerousFaults;
@@ -364,23 +373,30 @@ export interface TestRequirements {
  * The manoeuvres that were carried out during the test and any faults recorded against them
  */
 export interface Manoeuvres {
-  selectedReverseLeft?: ManoeuvreIndicator;
-  outcomeReverseLeftControl?: ManoeuvreOutcome;
-  outcomeReverseLeftObservation?: ManoeuvreOutcome;
-  selectedReverseRight?: ManoeuvreIndicator;
-  outcomeReverseRightControl?: ManoeuvreOutcome;
-  outcomeReverseRightObservation?: ManoeuvreOutcome;
-  selectedReverseParkRoad?: ManoeuvreIndicator;
-  outcomeReverseParkRoadControl?: ManoeuvreOutcome;
-  outcomeReverseParkRoadObservation?: ManoeuvreOutcome;
-  selectedReverseParkCarpark?: ManoeuvreIndicator;
-  outcomeReverseParkCarparkControl?: ManoeuvreOutcome;
-  outcomeReverseParkCarparkObservation?: ManoeuvreOutcome;
-  selectedForwardPark?: ManoeuvreIndicator;
-  outcomeForwardParkControl?: ManoeuvreOutcome;
-  outcomeForwardParkObservation?: ManoeuvreOutcome;
-  selectedControlledStop?: ManoeuvreIndicator;
-  outcomeControlledStop?: ManoeuvreOutcome;
+  reverseRight?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+  };
+  reverseParkRoad?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+  };
+  reverseParkCarpark?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+  };
+  forwardPark?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+  };
+}
+export interface ControlledStop {
+  selected?: ManoeuvreIndicator;
+  fault?: ManoeuvreOutcome;
 }
 /**
  * The driving faults accumulated during the test
@@ -677,7 +693,6 @@ export interface FaultSummary {
    * Count of the total number of dangerous faults incurred during the test
    */
   totalDangerousFaults?: number;
-  [k: string]: any;
 }
 /**
  * Finalisation of a successful test outcome
@@ -711,10 +726,7 @@ export interface TestSummary {
    * Number of the route that was taken during the test
    */
   routeNumber?: number;
-  /**
-   * Method chosen to conduct the independent driving section of the test
-   */
-  independentDriving?: "Sat nav" | "Traffic signs";
+  independentDriving?: IndependentDriving;
   /**
    * Physical description of the candidate
    */
@@ -723,10 +735,7 @@ export interface TestSummary {
    * Indicates whether anybody else (e.g. ADI) was present for the debrief
    */
   debriefWitnessed?: boolean;
-  /**
-   * Indicates which form of ID was provided by the candidate
-   */
-  identification?: "Licence" | "Passport";
+  identification?: Identification;
   /**
    * Description of the type of weather encountered during the test
    */
