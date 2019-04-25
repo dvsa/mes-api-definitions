@@ -341,12 +341,16 @@ export interface TestData {
  * Details of the Show Me and Tell Me questions asked during the test
  */
 export interface VehicleChecks {
-  tellMeQuestionCode?: QuestionCode;
-  tellMeQuestionDescription?: QuestionDescription;
-  tellMeQuestionOutcome?: QuestionOutcome;
-  showMeQuestionCode?: QuestionCode;
-  showMeQuestionDescription?: QuestionDescription;
-  showMeQuestionOutcome?: QuestionOutcome;
+  tellMeQuestion?: {
+    code?: QuestionCode;
+    description?: QuestionDescription;
+    outcome?: QuestionOutcome;
+  },
+  showMeQuestion?: {
+    code?: QuestionCode;
+    description?: QuestionDescription;
+    outcome?: QuestionOutcome;
+  }
 }
 /**
  * The test requirements that must be carried out during a test

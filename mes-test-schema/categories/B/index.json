@@ -362,23 +362,35 @@
       "description": "Details of the Show Me and Tell Me questions asked during the test",
       "type": "object",
       "properties": {
-        "tellMeQuestionCode": {
-          "$ref": "#/definitions/questionCode"
+        "tellMeQuestion": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "$ref": "#/definitions/questionCode"
+            },
+            "description": {
+              "$ref": "#/definitions/questionDescription"
+            },
+            "outcome": {
+              "$ref": "#/definitions/questionOutcome"
+            }
+          },
+          "additionalProperties": false
         },
-        "tellMeQuestionDescription": {
-          "$ref": "#/definitions/questionDescription"
-        },
-        "tellMeQuestionOutcome": {
-          "$ref": "#/definitions/questionOutcome"
-        },
-        "showMeQuestionCode": {
-          "$ref": "#/definitions/questionCode"
-        },
-        "showMeQuestionDescription": {
-          "$ref": "#/definitions/questionDescription"
-        },
-        "showMeQuestionOutcome": {
-          "$ref": "#/definitions/questionOutcome"
+        "showMeQuestion": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "$ref": "#/definitions/questionCode"
+            },
+            "description": {
+              "$ref": "#/definitions/questionDescription"
+            },
+            "outcome": {
+              "$ref": "#/definitions/questionOutcome"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
