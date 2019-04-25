@@ -5,9 +5,6 @@ info:
     The REST API for the DVSA Mobile Examiner Services (MES) system, supporting the iPad app used to
     record practical driving tests. Each API call needs to include a valid JWT token obtained from
     DVSA Azure Active Directory, for a staff id recorded as an active examiner within the TARS system.
-      
-    Since Open API v3 doesn't support recent JSON Schema, any requests or responses with complex JSON
-    documents reference the _Dummy_ schema type.
   license:
     name: MIT License
     url: https://raw.githubusercontent.com/dvsa/mes-api-definitions/develop/LICENSE
@@ -43,15 +40,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/UnstructuredErrorResponse'
         '401':
-          description: Invalid authorisation token
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnstructuredErrorResponse'
+          $ref: '#/components/responses/401'
         '403':
           $ref: '#/components/responses/403'
         '404':
-          description: Not found
+          description: No journal found for staff number
           content:
             application/json:
               schema:
@@ -93,6 +86,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/StructuredErrorResponse'   
+        '401':
+          $ref: '#/components/responses/401'                
         '403':
           $ref: '#/components/responses/403'                
   /v1/configuration/{scope}:
@@ -114,6 +109,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UnstructuredErrorResponse' 
+        '401':
+          $ref: '#/components/responses/401'
         '403':
           $ref: '#/components/responses/403'
       parameters:
@@ -126,16 +123,18 @@ paths:
 components:
   schemas:
     JournalResponse:
-      $ref: '#/components/schemas/Dummy'
+      type: string
+      format: byte
+      description: The compressed Journal JSON, as byte 64 encoding.
     LogsRequest:
-      $ref: '#/components/schemas/Dummy'
+      $ref: '#/components/schemas/AnyValue'
     LogsResponse:
       type: object
       properties:
         message:
           type: string  
     ConfigurationResponse:
-      $ref: '#/components/schemas/Dummy'      
+      $ref: '#/components/schemas/AnyValue'      
     UnstructuredErrorResponse:
       type: string            
     StructuredErrorResponse:
@@ -143,14 +142,14 @@ components:
       properties:
         message:
           type: string
-    # Since Open API v3 doesn't support JSON schema and speccy.io doesn't support conversion,
-    # this is used instead of the real schemas
-    Dummy:
-      type: object
-      properties:
-        message:
-          type: string
+    AnyValue: {}
   responses:
+    '401':
+      description: Not authenticated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StructuredErrorResponse'  
     '403':
       description: Not authorised
       content:
