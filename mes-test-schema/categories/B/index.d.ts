@@ -42,6 +42,10 @@ export type ManoeuvreOutcome = "DF" | "S" | "D";
  */
 export type DrivingFaultCount = number;
 /**
+ * Comments recorded against a fault
+ */
+export type FaultComments = string;
+/**
  * Indicator for a serious fault being recorded against a test element
  */
 export type SeriousFaultIndicator = boolean;
@@ -49,6 +53,14 @@ export type SeriousFaultIndicator = boolean;
  * Indicator for a dangerous fault being recorded against a test element
  */
 export type DangerousFaultIndicator = boolean;
+/**
+ * Method chosen to conduct the independent driving section of the test
+ */
+export type IndependentDriving = "Sat nav" | "Traffic signs";
+/**
+ * Indicates which form of ID was provided by the candidate
+ */
+export type Identification = "Licence" | "Passport";
 /**
  * Predefined values for the type of weather encountered during the test
  */
@@ -317,6 +329,7 @@ export interface TestData {
   vehicleChecks?: VehicleChecks;
   testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres;
+  controlledStop?: ControlledStop;
   drivingFaults?: DrivingFaults;
   seriousFaults?: SeriousFaults;
   dangerousFaults?: DangerousFaults;
@@ -360,155 +373,279 @@ export interface TestRequirements {
  * The manoeuvres that were carried out during the test and any faults recorded against them
  */
 export interface Manoeuvres {
-  selectedReverseLeft?: ManoeuvreIndicator;
-  outcomeReverseLeftControl?: ManoeuvreOutcome;
-  outcomeReverseLeftObservation?: ManoeuvreOutcome;
-  selectedReverseRight?: ManoeuvreIndicator;
-  outcomeReverseRightControl?: ManoeuvreOutcome;
-  outcomeReverseRightObservation?: ManoeuvreOutcome;
-  selectedReverseParkRoad?: ManoeuvreIndicator;
-  outcomeReverseParkRoadControl?: ManoeuvreOutcome;
-  outcomeReverseParkRoadObservation?: ManoeuvreOutcome;
-  selectedReverseParkCarpark?: ManoeuvreIndicator;
-  outcomeReverseParkCarparkControl?: ManoeuvreOutcome;
-  outcomeReverseParkCarparkObservation?: ManoeuvreOutcome;
-  selectedForwardPark?: ManoeuvreIndicator;
-  outcomeForwardParkControl?: ManoeuvreOutcome;
-  outcomeForwardParkObservation?: ManoeuvreOutcome;
-  selectedControlledStop?: ManoeuvreIndicator;
-  outcomeControlledStop?: ManoeuvreOutcome;
+  reverseRight?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+  };
+  reverseParkRoad?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+  };
+  reverseParkCarpark?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+  };
+  forwardPark?: {
+    selected?: ManoeuvreIndicator;
+    controlFault?: ManoeuvreOutcome;
+    observationFault?: ManoeuvreOutcome;
+  };
+}
+export interface ControlledStop {
+  selected?: ManoeuvreIndicator;
+  fault?: ManoeuvreOutcome;
 }
 /**
  * The driving faults accumulated during the test
  */
 export interface DrivingFaults {
   controlsAccelerator?: DrivingFaultCount;
+  controlsAcceleratorComments?: FaultComments;
   controlsClutch?: DrivingFaultCount;
+  controlsClutchComments?: FaultComments;
   controlsGears?: DrivingFaultCount;
+  controlsGearsComments?: FaultComments;
   controlsFootbrake?: DrivingFaultCount;
+  controlsFootbrakeComments?: FaultComments;
   controlsParkingBrake?: DrivingFaultCount;
+  controlsParkingBrakeComments?: FaultComments;
   controlsSteering?: DrivingFaultCount;
+  controlsSteeringComments?: FaultComments;
   precautions?: DrivingFaultCount;
+  precautionsComments?: FaultComments;
   ancillaryControls?: DrivingFaultCount;
+  ancillaryControlsComments?: FaultComments;
   moveOffSafety?: DrivingFaultCount;
+  moveOffSafetyComments?: FaultComments;
   moveOffControl?: DrivingFaultCount;
+  moveOffControlComments?: FaultComments;
   useOfMirrorsSignalling?: DrivingFaultCount;
+  useOfMirrorsSignallingComments?: FaultComments;
   useOfMirrorsChangeDirection?: DrivingFaultCount;
+  useOfMirrorsChangeDirectionComments?: FaultComments;
   useOfMirrorsChangeSpeed?: DrivingFaultCount;
+  useOfMirrorsChangeSpeedComments?: FaultComments;
   signalsNecessary?: DrivingFaultCount;
+  signalsNecessaryComments?: FaultComments;
   signalsCorrectly?: DrivingFaultCount;
+  signalsCorrectlyComments?: FaultComments;
   signalsTimed?: DrivingFaultCount;
+  signalsTimedComments?: FaultComments;
   junctionsApproachSpeed?: DrivingFaultCount;
+  junctionsApproachSpeedComments?: FaultComments;
   junctionsObservation?: DrivingFaultCount;
+  junctionsObservationComments?: FaultComments;
   junctionsTurningRight?: DrivingFaultCount;
+  junctionsTurningRightComments?: FaultComments;
   junctionsTurningLeft?: DrivingFaultCount;
+  junctionsTurningLeftComments?: FaultComments;
   junctionsCuttingCorners?: DrivingFaultCount;
+  junctionsCuttingCornersComments?: FaultComments;
   judgementOvertaking?: DrivingFaultCount;
+  judgementOvertakingComments?: FaultComments;
   judgementMeeting?: DrivingFaultCount;
+  judgementMeetingComments?: FaultComments;
   judgementCrossing?: DrivingFaultCount;
+  judgementCrossingComments?: FaultComments;
   positioningNormalDriving?: DrivingFaultCount;
+  positioningNormalDrivingComments?: FaultComments;
   positioningLaneDiscipline?: DrivingFaultCount;
+  positioningLaneDisciplineComments?: FaultComments;
   clearance?: DrivingFaultCount;
+  clearanceComments?: FaultComments;
   followingDistance?: DrivingFaultCount;
+  followingDistanceComments?: FaultComments;
   useOfSpeed?: DrivingFaultCount;
+  useOfSpeedComments?: FaultComments;
   progressAppropriateSpeed?: DrivingFaultCount;
+  progressAppropriateSpeedComments?: FaultComments;
   progressUndueHesitation?: DrivingFaultCount;
+  progressUndueHesitationComments?: FaultComments;
   responseToSignsTrafficSigns?: DrivingFaultCount;
+  responseToSignsTrafficSignsComments?: FaultComments;
   responseToSignsRoadMarkings?: DrivingFaultCount;
+  responseToSignsRoadMarkingsComments?: FaultComments;
   responseToSignsTrafficLights?: DrivingFaultCount;
+  responseToSignsTrafficLightsComments?: FaultComments;
   responseToSignsTrafficControllers?: DrivingFaultCount;
+  responseToSignsTrafficControllersComments?: FaultComments;
   responseToSignsOtherRoadUsers?: DrivingFaultCount;
+  responseToSignsOtherRoadUsersComments?: FaultComments;
   pedestrianCrossings?: DrivingFaultCount;
+  pedestrianCrossingsComments?: FaultComments;
   positionNormalStops?: DrivingFaultCount;
+  positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: DrivingFaultCount;
+  awarenessPlanningComments?: FaultComments;
 }
 /**
  * The serious faults accumulated during the test
  */
 export interface SeriousFaults {
   controlsAccelerator?: SeriousFaultIndicator;
+  controlsAcceleratorComments?: FaultComments;
   controlsClutch?: SeriousFaultIndicator;
+  controlsClutchComments?: FaultComments;
   controlsGears?: SeriousFaultIndicator;
+  controlsGearsComments?: FaultComments;
   controlsFootbrake?: SeriousFaultIndicator;
+  controlsFootbrakeComments?: FaultComments;
   controlsParkingBrake?: SeriousFaultIndicator;
+  controlsParkingBrakeComments?: FaultComments;
   controlsSteering?: SeriousFaultIndicator;
+  controlsSteeringComments?: FaultComments;
   precautions?: SeriousFaultIndicator;
+  precautionsComments?: FaultComments;
   ancillaryControls?: SeriousFaultIndicator;
+  ancillaryControlsComments?: FaultComments;
   moveOffSafety?: SeriousFaultIndicator;
+  moveOffSafetyComments?: FaultComments;
   moveOffControl?: SeriousFaultIndicator;
+  moveOffControlComments?: FaultComments;
   useOfMirrorsSignalling?: SeriousFaultIndicator;
+  useOfMirrorsSignallingComments?: FaultComments;
   useOfMirrorsChangeDirection?: SeriousFaultIndicator;
+  useOfMirrorsChangeDirectionComments?: FaultComments;
   useOfMirrorsChangeSpeed?: SeriousFaultIndicator;
+  useOfMirrorsChangeSpeedComments?: FaultComments;
   signalsNecessary?: SeriousFaultIndicator;
+  signalsNecessaryComments?: FaultComments;
   signalsCorrectly?: SeriousFaultIndicator;
+  signalsCorrectlyComments?: FaultComments;
   signalsTimed?: SeriousFaultIndicator;
+  signalsTimedComments?: FaultComments;
   junctionsApproachSpeed?: SeriousFaultIndicator;
+  junctionsApproachSpeedComments?: FaultComments;
   junctionsObservation?: SeriousFaultIndicator;
+  junctionsObservationComments?: FaultComments;
   junctionsTurningRight?: SeriousFaultIndicator;
+  junctionsTurningRightComments?: FaultComments;
   junctionsTurningLeft?: SeriousFaultIndicator;
+  junctionsTurningLeftComments?: FaultComments;
   junctionsCuttingCorners?: SeriousFaultIndicator;
+  junctionsCuttingCornersComments?: FaultComments;
   judgementOvertaking?: SeriousFaultIndicator;
+  judgementOvertakingComments?: FaultComments;
   judgementMeeting?: SeriousFaultIndicator;
+  judgementMeetingComments?: FaultComments;
   judgementCrossing?: SeriousFaultIndicator;
+  judgementCrossingComments?: FaultComments;
   positioningNormalDriving?: SeriousFaultIndicator;
+  positioningNormalDrivingComments?: FaultComments;
   positioningLaneDiscipline?: SeriousFaultIndicator;
+  positioningLaneDisciplineComments?: FaultComments;
   clearance?: SeriousFaultIndicator;
+  clearanceComments?: FaultComments;
   followingDistance?: SeriousFaultIndicator;
+  followingDistanceComments?: FaultComments;
   useOfSpeed?: SeriousFaultIndicator;
+  useOfSpeedComments?: FaultComments;
   progressAppropriateSpeed?: SeriousFaultIndicator;
+  progressAppropriateSpeedComments?: FaultComments;
   progressUndueHesitation?: SeriousFaultIndicator;
+  progressUndueHesitationComments?: FaultComments;
   responseToSignsTrafficSigns?: SeriousFaultIndicator;
+  responseToSignsTrafficSignsComments?: FaultComments;
   responseToSignsRoadMarkings?: SeriousFaultIndicator;
+  responseToSignsRoadMarkingsComments?: FaultComments;
   responseToSignsTrafficLights?: SeriousFaultIndicator;
+  responseToSignsTrafficLightsComments?: FaultComments;
   responseToSignsTrafficControllers?: SeriousFaultIndicator;
+  responseToSignsTrafficControllersComments?: FaultComments;
   responseToSignsOtherRoadUsers?: SeriousFaultIndicator;
+  responseToSignsOtherRoadUsersComments?: FaultComments;
   pedestrianCrossings?: SeriousFaultIndicator;
+  pedestrianCrossingsComments?: FaultComments;
   positionNormalStops?: SeriousFaultIndicator;
+  positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: SeriousFaultIndicator;
+  awarenessPlanningComments?: FaultComments;
 }
 /**
  * The dangerous faults accumulated during the test
  */
 export interface DangerousFaults {
   controlsAccelerator?: DangerousFaultIndicator;
+  controlsAcceleratorComments?: FaultComments;
   controlsClutch?: DangerousFaultIndicator;
+  controlsClutchComments?: FaultComments;
   controlsGears?: DangerousFaultIndicator;
+  controlsGearsComments?: FaultComments;
   controlsFootbrake?: DangerousFaultIndicator;
+  controlsFootbrakeComments?: FaultComments;
   controlsParkingBrake?: DangerousFaultIndicator;
+  controlsParkingBrakeComments?: FaultComments;
   controlsSteering?: DangerousFaultIndicator;
+  controlsSteeringComments?: FaultComments;
   precautions?: DangerousFaultIndicator;
+  precautionsComments?: FaultComments;
   ancillaryControls?: DangerousFaultIndicator;
+  ancillaryControlsComments?: FaultComments;
   moveOffSafety?: DangerousFaultIndicator;
+  moveOffSafetyComments?: FaultComments;
   moveOffControl?: DangerousFaultIndicator;
+  moveOffControlComments?: FaultComments;
   useOfMirrorsSignalling?: DangerousFaultIndicator;
+  useOfMirrorsSignallingComments?: FaultComments;
   useOfMirrorsChangeDirection?: DangerousFaultIndicator;
+  useOfMirrorsChangeDirectionComments?: FaultComments;
   useOfMirrorsChangeSpeed?: DangerousFaultIndicator;
+  useOfMirrorsChangeSpeedComments?: FaultComments;
   signalsNecessary?: DangerousFaultIndicator;
+  signalsNecessaryComments?: FaultComments;
   signalsCorrectly?: DangerousFaultIndicator;
+  signalsCorrectlyComments?: FaultComments;
   signalsTimed?: DangerousFaultIndicator;
+  signalsTimedComments?: FaultComments;
   junctionsApproachSpeed?: DangerousFaultIndicator;
+  junctionsApproachSpeedComments?: FaultComments;
   junctionsObservation?: DangerousFaultIndicator;
+  junctionsObservationComments?: FaultComments;
   junctionsTurningRight?: DangerousFaultIndicator;
+  junctionsTurningRightComments?: FaultComments;
   junctionsTurningLeft?: DangerousFaultIndicator;
+  junctionsTurningLeftComments?: FaultComments;
   junctionsCuttingCorners?: DangerousFaultIndicator;
+  junctionsCuttingCornersComments?: FaultComments;
   judgementOvertaking?: DangerousFaultIndicator;
+  judgementOvertakingComments?: FaultComments;
   judgementMeeting?: DangerousFaultIndicator;
+  judgementMeetingComments?: FaultComments;
   judgementCrossing?: DangerousFaultIndicator;
+  judgementCrossingComments?: FaultComments;
   positioningNormalDriving?: DangerousFaultIndicator;
+  positioningNormalDrivingComments?: FaultComments;
   positioningLaneDiscipline?: DangerousFaultIndicator;
+  positioningLaneDisciplineComments?: FaultComments;
   clearance?: DangerousFaultIndicator;
+  clearanceComments?: FaultComments;
   followingDistance?: DangerousFaultIndicator;
+  followingDistanceComments?: FaultComments;
   useOfSpeed?: DangerousFaultIndicator;
+  useOfSpeedComments?: FaultComments;
   progressAppropriateSpeed?: DangerousFaultIndicator;
+  progressAppropriateSpeedComments?: FaultComments;
   progressUndueHesitation?: DangerousFaultIndicator;
+  progressUndueHesitationComments?: FaultComments;
   responseToSignsTrafficSigns?: DangerousFaultIndicator;
+  responseToSignsTrafficSignsComments?: FaultComments;
   responseToSignsRoadMarkings?: DangerousFaultIndicator;
+  responseToSignsRoadMarkingsComments?: FaultComments;
   responseToSignsTrafficLights?: DangerousFaultIndicator;
+  responseToSignsTrafficLightsComments?: FaultComments;
   responseToSignsTrafficControllers?: DangerousFaultIndicator;
+  responseToSignsTrafficControllersComments?: FaultComments;
   responseToSignsOtherRoadUsers?: DangerousFaultIndicator;
+  responseToSignsOtherRoadUsersComments?: FaultComments;
   pedestrianCrossings?: DangerousFaultIndicator;
+  pedestrianCrossingsComments?: FaultComments;
   positionNormalStops?: DangerousFaultIndicator;
+  positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: DangerousFaultIndicator;
+  awarenessPlanningComments?: FaultComments;
 }
 /**
  * Assessment of the eco friendly manner of driving
@@ -556,7 +693,6 @@ export interface FaultSummary {
    * Count of the total number of dangerous faults incurred during the test
    */
   totalDangerousFaults?: number;
-  [k: string]: any;
 }
 /**
  * Finalisation of a successful test outcome
@@ -590,10 +726,7 @@ export interface TestSummary {
    * Number of the route that was taken during the test
    */
   routeNumber?: number;
-  /**
-   * Method chosen to conduct the independent driving section of the test
-   */
-  independentDriving?: "Sat nav" | "Traffic signs";
+  independentDriving?: IndependentDriving;
   /**
    * Physical description of the candidate
    */
@@ -602,10 +735,7 @@ export interface TestSummary {
    * Indicates whether anybody else (e.g. ADI) was present for the debrief
    */
   debriefWitnessed?: boolean;
-  /**
-   * Indicates which form of ID was provided by the candidate
-   */
-  identification?: "Licence" | "Passport";
+  identification?: Identification;
   /**
    * Description of the type of weather encountered during the test
    */
