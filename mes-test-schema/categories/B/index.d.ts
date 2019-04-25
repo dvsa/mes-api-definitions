@@ -345,12 +345,12 @@ export interface VehicleChecks {
     code?: QuestionCode;
     description?: QuestionDescription;
     outcome?: QuestionOutcome;
-  },
+  };
   showMeQuestion?: {
     code?: QuestionCode;
     description?: QuestionDescription;
     outcome?: QuestionOutcome;
-  }
+  };
 }
 /**
  * The test requirements that must be carried out during a test
