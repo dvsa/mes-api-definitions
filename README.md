@@ -1,6 +1,9 @@
 # mes-api-definitions
 
-These are the REST API definitions (Swagger/OpenAPI and JSON Schema) for the Mobile Examiner Services project, for our backend microservices to implement, and our frontend mobile app to consume.
+These are the REST API definitions (OpenAPI and JSON Schema) for the Mobile Examiner Services project, for our backend microservices to implement, and our frontend mobile app to consume.
+
+# API Docs
+See [OpenAPI Definition](https://combinatronics.com/dvsa/mes-api-definitions/MES-768/redoc-static.html).
 
 # Usage
 
