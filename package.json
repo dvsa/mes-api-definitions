@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "description": "DVSA Mobile Examiner Services - Generates API spec and documentation",
   "devDependencies": {
+    "redoc-cli": "^0.8.3",
     "speccy": "^0.8.7"
   },
   "scripts": {
-    "serve": "speccy serve openapi.yaml",
-    "generate": "speccy resolve -v -j -o openapi-full.yaml openapi.yaml",
-    "check": "speccy lint -v -s info-contact -j openapi.yaml"
+    "docs": "redoc-cli bundle openapi.yaml",
+    "test": "speccy lint -v -s info-contact -j openapi.yaml"
   },
   "repository": {
     "type": "git",
