@@ -38,13 +38,13 @@ export type ManoeuvreIndicator = boolean;
  */
 export type ManoeuvreOutcome = "DF" | "S" | "D";
 /**
- * The count of the number of driving faults recorded against a test element
- */
-export type DrivingFaultCount = number;
-/**
  * Comments recorded against a fault
  */
 export type FaultComments = string;
+/**
+ * The count of the number of driving faults recorded against a test element
+ */
+export type DrivingFaultCount = number;
 /**
  * Indicator for a serious fault being recorded against a test element
  */
@@ -381,26 +381,35 @@ export interface Manoeuvres {
     selected?: ManoeuvreIndicator;
     controlFault?: ManoeuvreOutcome;
     observationFault?: ManoeuvreOutcome;
+    controlFaultComments?: FaultComments;
+    observationFaultComments?: FaultComments;
   };
   reverseParkRoad?: {
     selected?: ManoeuvreIndicator;
     controlFault?: ManoeuvreOutcome;
     observationFault?: ManoeuvreOutcome;
+    controlFaultComments?: FaultComments;
+    observationFaultComments?: FaultComments;
   };
   reverseParkCarpark?: {
     selected?: ManoeuvreIndicator;
     controlFault?: ManoeuvreOutcome;
     observationFault?: ManoeuvreOutcome;
+    controlFaultComments?: FaultComments;
+    observationFaultComments?: FaultComments;
   };
   forwardPark?: {
     selected?: ManoeuvreIndicator;
     controlFault?: ManoeuvreOutcome;
     observationFault?: ManoeuvreOutcome;
+    controlFaultComments?: FaultComments;
+    observationFaultComments?: FaultComments;
   };
 }
 export interface ControlledStop {
   selected?: ManoeuvreIndicator;
   fault?: ManoeuvreOutcome;
+  faultComments?: FaultComments;
 }
 /**
  * The driving faults accumulated during the test

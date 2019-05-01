@@ -446,6 +446,12 @@
             },
             "observationFault": {
               "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "controlFaultComments": {
+              "$ref": "#/definitions/faultComments"
+            },
+            "observationFaultComments": {
+              "$ref": "#/definitions/faultComments"
             }
           },
           "additionalProperties": false
@@ -461,6 +467,12 @@
             },
             "observationFault": {
               "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "controlFaultComments": {
+              "$ref": "#/definitions/faultComments"
+            },
+            "observationFaultComments": {
+              "$ref": "#/definitions/faultComments"
             }
           },
           "additionalProperties": false
@@ -476,6 +488,12 @@
             },
             "observationFault": {
               "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "controlFaultComments": {
+              "$ref": "#/definitions/faultComments"
+            },
+            "observationFaultComments": {
+              "$ref": "#/definitions/faultComments"
             }
           },
           "additionalProperties": false
@@ -491,6 +509,12 @@
             },
             "observationFault": {
               "$ref": "#/definitions/manoeuvreOutcome"
+            },
+            "controlFaultComments": {
+              "$ref": "#/definitions/faultComments"
+            },
+            "observationFaultComments": {
+              "$ref": "#/definitions/faultComments"
             }
           },
           "additionalProperties": false
@@ -506,6 +530,9 @@
         },
         "fault": {
           "$ref": "#/definitions/manoeuvreOutcome"
+        },
+        "faultComments": {
+          "$ref": "#/definitions/faultComments"
         }
       },
       "additionalProperties": false
