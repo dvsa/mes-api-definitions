@@ -1,36 +1,261 @@
 {
-    "definitions": {
-        "name": {
-            "description": "Details of the individual's name",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "title": {
-                    "description": "The individual's title",
-                    "type": "string",
-                    "maxLength": 7
-                },
-                "firstName": {
-                    "description": "The individual's forename",
-                    "type": "string",
-                    "maxLength": 50
-                },
-                "secondName": {
-                    "description": "The individual's second name",
-                    "type": "string",
-                    "maxLength": 50
-                },
-                "thirdName": {
-                    "description": "The individual's third name",
-                    "type": "string",
-                    "maxLength": 50
-                },
-                "lastName": {
-                    "description": "The individual's surname",
-                    "type": "string",
-                    "maxLength": 50
-                }
-            }
-        }
-    }
+  "$id": "https://github.com/dvsa/mes-api-definitions/tree/develop/mes-test-schema/categories/schema-core-definitions.json#",
+  "definitions": {
+      "examiner": {
+        "description": "The examiner details",
+        "type": "object",
+        "properties": {
+          "staffNumber": {
+            "description": "The examiner's DSA staff number",
+            "type": "string",
+            "maxLength": 10
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "staffNumber"
+        ]
+      },
+      "testCentre": {
+        "description": "Details of the test centre",
+        "type": "object",
+        "properties": {
+          "costCode": {
+            "description": "Cost centre code for the test centre",
+            "type": "string",
+            "maxLength": 6
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "costCode"
+        ]
+      },
+      "name": {
+          "description": "Details of the individual's name",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+              "title": {
+                  "description": "The individual's title",
+                  "type": "string",
+                  "maxLength": 7
+              },
+              "firstName": {
+                  "description": "The individual's forename",
+                  "type": "string",
+                  "maxLength": 50
+              },
+              "secondName": {
+                  "description": "The individual's second name",
+                  "type": "string",
+                  "maxLength": 50
+              },
+              "thirdName": {
+                  "description": "The individual's third name",
+                  "type": "string",
+                  "maxLength": 50
+              },
+              "lastName": {
+                  "description": "The individual's surname",
+                  "type": "string",
+                  "maxLength": 50
+              }
+          }
+      },
+      "address": {
+        "description": "Details of the address",
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "description": "First line of address",
+            "type": "string",
+            "maxLength": 255
+          },
+          "addressLine2": {
+            "description": "Second line of address",
+            "type": "string",
+            "maxLength": 100
+          },
+          "addressLine3": {
+            "description": "Third line of address",
+            "type": "string",
+            "maxLength": 100
+          },
+          "addressLine4": {
+            "description": "Fourth line of address",
+            "type": "string",
+            "maxLength": 100
+          },
+          "addressLine5": {
+            "description": "Fifth line of address",
+            "type": "string",
+            "maxLength": 255
+          },
+          "postcode": {
+            "description": "The address postcode",
+            "type": "string",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false
+      },
+      "candidate": {
+        "description": "Details of the candidate booked into the test slot",
+        "type": "object",
+        "properties": {
+          "candidateId": {
+            "description": "The id of the test candidate",
+            "type": "integer"
+          },
+          "candidateName": {
+            "$ref": "#/definitions/name"
+          },
+          "driverNumber": {
+            "description": "The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI",
+            "type": "string",
+            "maxLength": 24
+          },
+          "candidateAddress": {
+            "$ref": "#/definitions/address"
+          },
+          "primaryTelephone": {
+            "description": "The candidate's primary telephone number, if any (and consent to leave voicemail has been given)",
+            "type": "string",
+            "maxLength": 20
+          },
+          "secondaryTelephone": {
+            "description": "The candidate's secondary telephone number, if any (and consent to leave voicemail has been given)",
+            "type": "string",
+            "maxLength": 20
+          },
+          "mobileTelephone": {
+            "description": "The candidate's mobile telephone number, if any (and consent to leave voicemail has been given)",
+            "type": "string",
+            "maxLength": 30
+          },
+          "emailAddress": {
+            "description": "The candidate's email address, if any",
+            "type": "string",
+            "maxLength": 100
+          },
+          "prn": {
+            "description": "The candidate's ADI PRN (potential register number), if an ADI test",
+            "type": "integer"
+          },
+          "previousADITests": {
+            "description": "The number of previous test attempts, if an ADI test",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "applicationReference": {
+        "description": "The full application identifier, including applicationId, bookingSequence and checkDigit",
+        "type": "object",
+        "properties": {
+          "applicationId": {
+            "description": "Unique identifier for each test application",
+            "type": "integer"
+          },
+          "bookingSequence": {
+            "description": "Booking sequence number of the test application",
+            "type": "integer"
+          },
+          "checkDigit": {
+            "description": "Reference checksum for the test application",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationId",
+          "bookingSequence",
+          "checkDigit"
+        ]
+      },
+      "testSlotAttributes": {
+        "description": "The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.",
+        "type": "object",
+        "properties": {
+          "slotId": {
+            "description": "Unique identifier for the journal test slot",
+            "type": "integer"
+          },
+          "start": {
+            "description": "Start time of the test slot",
+            "type": "string",
+            "minLength": 25,
+            "maxLength": 25
+          },
+          "vehicleSlotType": {
+            "description": "A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest",
+            "type": "string",
+            "maxLength": 11
+          },
+          "welshTest": {
+            "description": "Whether the test is to be conducted using the welsh language",
+            "type": "boolean"
+          },
+          "specialNeeds": {
+            "description": "Whether the candidate has any special needs that require the D255 form to be completed",
+            "type": "boolean"
+          },
+          "extendedTest": {
+            "description": "Whether this is an extended test",
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slotId",
+          "start",
+          "vehicleSlotType",
+          "welshTest",
+          "specialNeeds",
+          "extendedTest"
+        ]
+      },
+      "journalData": {
+        "description": "Data brought through from the journal",
+        "type": "object",
+        "properties": {
+          "examiner": {
+            "$ref": "#/definitions/examiner"
+          },
+          "testCentre": {
+            "$ref": "#/definitions/testCentre"
+          },
+          "testSlotAttributes": {
+            "$ref": "#/definitions/testSlotAttributes"
+          },
+          "candidate": {
+            "$ref": "#/definitions/candidate"
+          },
+          "applicationReference": {
+            "$ref": "#/definitions/applicationReference"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "examiner",
+          "testCentre",
+          "testSlotAttributes",
+          "candidate",
+          "applicationReference"
+        ]
+      },
+      "category": {
+        "description": "Category code for the test report",
+        "type": "string"
+      },
+      "signature": {
+        "description": "Base 64 encoded binary data representing a PNG image of a signature",
+        "type": "string"
+      },
+      "activityCode": {
+        "description": "Code representing the result of the test",
+        "type": "string"
+      }
+  }
 }
