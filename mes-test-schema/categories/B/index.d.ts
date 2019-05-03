@@ -6,59 +6,6 @@
  */
 
 /**
- * Code representing the result of the test
- */
-export type ActivityCode =
-  | "1"
-  | "2"
-  | "3"
-  | "4"
-  | "5"
-  | "11"
-  | "20"
-  | "21"
-  | "22"
-  | "23"
-  | "24"
-  | "25"
-  | "26"
-  | "27"
-  | "28"
-  | "32"
-  | "33"
-  | "34"
-  | "35"
-  | "36"
-  | "37"
-  | "38"
-  | "40"
-  | "41"
-  | "51"
-  | "52"
-  | "55"
-  | "58"
-  | "59"
-  | "60"
-  | "61"
-  | "62"
-  | "63"
-  | "64"
-  | "66"
-  | "67"
-  | "68"
-  | "69"
-  | "70"
-  | "71"
-  | "73"
-  | "74"
-  | "75"
-  | "82"
-  | "83";
-/**
- * Base 64 encoded binary data representing a PNG image of the candidates signature
- */
-export type Signature = string;
-/**
  * Outcome of the Eyesight Test
  */
 export type EyesightTestResult = "P" | "F";
@@ -134,8 +81,215 @@ export interface StandardCarTestCATBSchema {
    * Unique identifier for the test
    */
   id: string;
-  journalData: JournalData;
-  activityCode: ActivityCode;
+  /**
+   * Data brought through from the journal
+   */
+  journalData: {
+    /**
+     * The examiner details
+     */
+    examiner: {
+      /**
+       * The examiner's DSA staff number
+       */
+      staffNumber: string;
+    };
+    /**
+     * Details of the test centre
+     */
+    testCentre: {
+      /**
+       * Cost centre code for the test centre
+       */
+      costCode: string;
+    };
+    /**
+     * The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.
+     */
+    testSlotAttributes: {
+      /**
+       * Unique identifier for the journal test slot
+       */
+      slotId: number;
+      /**
+       * Start time of the test slot
+       */
+      start: string;
+      /**
+       * A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest
+       */
+      vehicleSlotType: string;
+      /**
+       * Whether the test is to be conducted using the welsh language
+       */
+      welshTest: boolean;
+      /**
+       * Whether the candidate has any special needs that require the D255 form to be completed
+       */
+      specialNeeds: boolean;
+      /**
+       * Whether this is an extended test
+       */
+      extendedTest: boolean;
+    };
+    /**
+     * Details of the candidate booked into the test slot
+     */
+    candidate: {
+      /**
+       * The id of the test candidate
+       */
+      candidateId?: number;
+      /**
+       * Details of the individual's name
+       */
+      candidateName?: {
+        /**
+         * The individual's title
+         */
+        title?: string;
+        /**
+         * The individual's forename
+         */
+        firstName?: string;
+        /**
+         * The individual's second name
+         */
+        secondName?: string;
+        /**
+         * The individual's third name
+         */
+        thirdName?: string;
+        /**
+         * The individual's surname
+         */
+        lastName?: string;
+      };
+      /**
+       * The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI
+       */
+      driverNumber?: string;
+      /**
+       * Details of the address
+       */
+      candidateAddress?: {
+        /**
+         * First line of address
+         */
+        addressLine1?: string;
+        /**
+         * Second line of address
+         */
+        addressLine2?: string;
+        /**
+         * Third line of address
+         */
+        addressLine3?: string;
+        /**
+         * Fourth line of address
+         */
+        addressLine4?: string;
+        /**
+         * Fifth line of address
+         */
+        addressLine5?: string;
+        /**
+         * The address postcode
+         */
+        postcode?: string;
+      };
+      /**
+       * The candidate's primary telephone number, if any (and consent to leave voicemail has been given)
+       */
+      primaryTelephone?: string;
+      /**
+       * The candidate's secondary telephone number, if any (and consent to leave voicemail has been given)
+       */
+      secondaryTelephone?: string;
+      /**
+       * The candidate's mobile telephone number, if any (and consent to leave voicemail has been given)
+       */
+      mobileTelephone?: string;
+      /**
+       * The candidate's email address, if any
+       */
+      emailAddress?: string;
+      /**
+       * The candidate's ADI PRN (potential register number), if an ADI test
+       */
+      prn?: number;
+      /**
+       * The number of previous test attempts, if an ADI test
+       */
+      previousADITests?: number;
+    };
+    /**
+     * The full application identifier, including applicationId, bookingSequence and checkDigit
+     */
+    applicationReference: {
+      /**
+       * Unique identifier for each test application
+       */
+      applicationId: number;
+      /**
+       * Booking sequence number of the test application
+       */
+      bookingSequence: number;
+      /**
+       * Reference checksum for the test application
+       */
+      checkDigit: number;
+    };
+  };
+  /**
+   * Code representing the result of the test
+   */
+  activityCode:
+    | "1"
+    | "2"
+    | "3"
+    | "4"
+    | "5"
+    | "11"
+    | "20"
+    | "21"
+    | "22"
+    | "23"
+    | "24"
+    | "25"
+    | "26"
+    | "27"
+    | "28"
+    | "32"
+    | "33"
+    | "34"
+    | "35"
+    | "36"
+    | "37"
+    | "38"
+    | "40"
+    | "41"
+    | "51"
+    | "52"
+    | "55"
+    | "58"
+    | "59"
+    | "60"
+    | "61"
+    | "62"
+    | "63"
+    | "64"
+    | "66"
+    | "67"
+    | "68"
+    | "69"
+    | "70"
+    | "71"
+    | "73"
+    | "74"
+    | "75"
+    | "82"
+    | "83";
   preTestDeclarations?: PreTestDeclarations;
   eyesightTestResult?: EyesightTestResult;
   accompaniment?: Accompaniment;
@@ -146,173 +300,6 @@ export interface StandardCarTestCATBSchema {
   postTestDeclarations?: PostTestDeclarations;
   testSummary?: TestSummary;
 }
-/**
- * Data brought through from the journal
- */
-export interface JournalData {
-  examiner: Examiner;
-  testCentre: TestCentre;
-  testSlotAttributes: TestSlotAttributes;
-  candidate: Candidate;
-  applicationReference: ApplicationReference;
-}
-/**
- * The examiner details
- */
-export interface Examiner {
-  /**
-   * The examiner's DSA staff number
-   */
-  staffNumber: string;
-}
-/**
- * Details of the test centre
- */
-export interface TestCentre {
-  /**
-   * Cost centre code for the test centre
-   */
-  costCode: string;
-}
-/**
- * The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.
- */
-export interface TestSlotAttributes {
-  /**
-   * Unique identifier for the journal test slot
-   */
-  slotId: number;
-  /**
-   * Start time of the test slot
-   */
-  start: string;
-  /**
-   * A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest
-   */
-  vehicleSlotType: string;
-  /**
-   * Whether the test is to be conducted using the welsh language
-   */
-  welshTest: boolean;
-  /**
-   * Whether the candidate has any special needs that require the D255 form to be completed
-   */
-  specialNeeds: boolean;
-  /**
-   * Whether this is an extended test
-   */
-  extendedTest: boolean;
-}
-/**
- * Details of the candidate booked into the test slot
- */
-export interface Candidate {
-  /**
-   * The id of the test candidate
-   */
-  candidateId?: number;
-  candidateName?: Name;
-  /**
-   * The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI
-   */
-  driverNumber?: string;
-  candidateAddress?: Address;
-  /**
-   * The candidate's primary telephone number, if any (and consent to leave voicemail has been given)
-   */
-  primaryTelephone?: string;
-  /**
-   * The candidate's secondary telephone number, if any (and consent to leave voicemail has been given)
-   */
-  secondaryTelephone?: string;
-  /**
-   * The candidate's mobile telephone number, if any (and consent to leave voicemail has been given)
-   */
-  mobileTelephone?: string;
-  /**
-   * The candidate's email address, if any
-   */
-  emailAddress?: string;
-  /**
-   * The candidate's ADI PRN (potential register number), if an ADI test
-   */
-  prn?: number;
-  /**
-   * The number of previous test attempts, if an ADI test
-   */
-  previousADITests?: number;
-}
-/**
- * Details of the individual's name
- */
-export interface Name {
-  /**
-   * The individual's title
-   */
-  title?: string;
-  /**
-   * The individual's forename
-   */
-  firstName?: string;
-  /**
-   * The individual's second name
-   */
-  secondName?: string;
-  /**
-   * The individual's third name
-   */
-  thirdName?: string;
-  /**
-   * The individual's surname
-   */
-  lastName?: string;
-}
-/**
- * Details of the address
- */
-export interface Address {
-  /**
-   * First line of address
-   */
-  addressLine1?: string;
-  /**
-   * Second line of address
-   */
-  addressLine2?: string;
-  /**
-   * Third line of address
-   */
-  addressLine3?: string;
-  /**
-   * Fourth line of address
-   */
-  addressLine4?: string;
-  /**
-   * Fifth line of address
-   */
-  addressLine5?: string;
-  /**
-   * The address postcode
-   */
-  postcode?: string;
-}
-/**
- * The full application identifier, including applicationId, bookingSequence and checkDigit
- */
-export interface ApplicationReference {
-  /**
-   * Unique identifier for each test application
-   */
-  applicationId: number;
-  /**
-   * Booking sequence number of the test application
-   */
-  bookingSequence: number;
-  /**
-   * Reference checksum for the test application
-   */
-  checkDigit: number;
-}
 export interface PreTestDeclarations {
   /**
    * Whether or not the candidate has declared that their test vehicle has a valid insurance policy
@@ -322,7 +309,10 @@ export interface PreTestDeclarations {
    * Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test
    */
   residencyDeclarationAccepted: boolean;
-  preTestSignature: Signature;
+  /**
+   * Base 64 encoded binary data representing a PNG image of a signature
+   */
+  preTestSignature: string;
 }
 /**
  * Indicators for anybody else overseeing the test
@@ -775,7 +765,10 @@ export interface PostTestDeclarations {
    * Indicates whether the candidate acknowledges receipt of the PCN
    */
   passCertificateNumberReceived?: boolean;
-  postTestSignature?: Signature;
+  /**
+   * Base 64 encoded binary data representing a PNG image of a signature
+   */
+  postTestSignature?: string;
 }
 /**
  * Recording of other characteristics of the test
