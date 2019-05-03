@@ -6,6 +6,55 @@
  */
 
 /**
+ * Code representing the result of the test
+ */
+export type ActivityCode =
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "11"
+  | "20"
+  | "21"
+  | "22"
+  | "23"
+  | "24"
+  | "25"
+  | "26"
+  | "27"
+  | "28"
+  | "32"
+  | "33"
+  | "34"
+  | "35"
+  | "36"
+  | "37"
+  | "38"
+  | "40"
+  | "41"
+  | "51"
+  | "52"
+  | "55"
+  | "58"
+  | "59"
+  | "60"
+  | "61"
+  | "62"
+  | "63"
+  | "64"
+  | "66"
+  | "67"
+  | "68"
+  | "69"
+  | "70"
+  | "71"
+  | "73"
+  | "74"
+  | "75"
+  | "82"
+  | "83";
+/**
  * Base 64 encoded binary data representing a PNG image of the candidates signature
  */
 export type Signature = string;
@@ -86,10 +135,7 @@ export interface StandardCarTestCATBSchema {
    */
   id: string;
   journalData: JournalData;
-  /**
-   * Code representing the result of the test
-   */
-  activityCode: string;
+  activityCode: ActivityCode;
   preTestDeclarations?: PreTestDeclarations;
   eyesightTestResult?: EyesightTestResult;
   accompaniment?: Accompaniment;
