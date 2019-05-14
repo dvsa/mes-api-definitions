@@ -55,6 +55,10 @@ export type ActivityCode =
   | "82"
   | "83";
 /**
+ * The method of communication by which the candidate agrees to receive their results
+ */
+export type CommunicationMethod = "Email" | "Post" | "Support Centre";
+/**
  * Base 64 encoded binary data representing a PNG image of the candidates signature
  */
 export type Signature = string;
@@ -136,6 +140,7 @@ export interface StandardCarTestCATBSchema {
   id: string;
   journalData: JournalData;
   activityCode: ActivityCode;
+  communicationPreferences?: CommunicationPreferences;
   preTestDeclarations?: PreTestDeclarations;
   eyesightTestResult?: EyesightTestResult;
   accompaniment?: Accompaniment;
@@ -312,6 +317,13 @@ export interface ApplicationReference {
    * Reference checksum for the test application
    */
   checkDigit: number;
+}
+export interface CommunicationPreferences {
+  /**
+   * The email address that the candidate agrees their results can be sent to
+   */
+  updatedEmail: string;
+  communicationMethod: CommunicationMethod;
 }
 export interface PreTestDeclarations {
   /**
