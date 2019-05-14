@@ -250,6 +250,33 @@
       "description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
       "type": "string"
     },
+    "communicationMethod": {
+      "description": "The method of communication by which the candidate agrees to receive their results",
+      "type": "string",
+      "enum": [
+        "Email",
+        "Post",
+        "Support Centre"
+      ]
+    },
+    "communicationPreferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "updatedEmail": {
+          "description": "The email address that the candidate agrees their results can be sent to",
+          "type": "string",
+          "maxLength": 100
+        },
+        "communicationMethod": {
+          "$ref": "#/definitions/communicationMethod"
+        }
+      },
+      "required": [
+        "updatedEmail",
+        "communicationMethod"
+      ]
+    },
     "preTestDeclarations": {
       "type": "object",
       "additionalProperties": false,
@@ -1539,6 +1566,9 @@
     },
     "activityCode": {
       "$ref": "#/definitions/activityCode"
+    },
+    "communicationPreferences": {
+      "$ref": "#/definitions/communicationPreferences"
     },
     "preTestDeclarations": {
       "$ref": "#/definitions/preTestDeclarations"
