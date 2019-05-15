@@ -52,8 +52,7 @@
         },
         "vehicleSlotTypeCode": {
           "description": "A numeric code representing the Vehicle Slot Type",
-          "type": "integer",
-          "maxLength": 11
+          "type": "integer"
         },
         "testCentre": {
           "$ref": "#/definitions/testCentre"
