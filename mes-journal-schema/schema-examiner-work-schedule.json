@@ -308,6 +308,20 @@
           "type": "string",
           "maxLength": 512
         },
+        "specialNeedsExtendedTest": {
+          "description": "Whether the slot is booked for an extended test",
+          "type": "boolean"
+        },
+        "specialNeedsCode": {
+          "description": "The type of special needs test can be YES, NONE or EXTRA",
+          "type": "string",
+          "maxLength": 20,
+          "enum": [
+            "NONE",
+            "YES",
+            "EXTRA"
+          ]
+        },
         "entitlementCheck": {
           "description": "Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)",
           "type": "boolean"
