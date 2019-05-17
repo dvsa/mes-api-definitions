@@ -1450,7 +1450,8 @@
       "type": "string",
       "enum": [
         "Sat nav",
-        "Traffic signs"
+        "Traffic signs",
+        "N/A"
       ]
     },
     "identification": {
