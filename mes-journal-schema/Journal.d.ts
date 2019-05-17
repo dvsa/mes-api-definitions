@@ -6,6 +6,10 @@
  */
 
 /**
+ * The type of special needs test can be YES, NONE or EXTRA
+ */
+export type SpecialNeedsCode = "NONE" | "YES" | "EXTRA";
+/**
  * The type of vehicle gearbox, if captured
  */
 export type VehicleGearbox = "Manual" | "Semi-Automatic" | "Automatic";
@@ -242,6 +246,11 @@ export interface Application {
    *  The candidate's special test needs, if any
    */
   specialNeeds?: string;
+  /**
+   * Whether the slot is booked for an extended test
+   */
+  specialNeedsExtendedTest?: boolean;
+  specialNeedsCode?: SpecialNeedsCode;
   /**
    * Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)
    */

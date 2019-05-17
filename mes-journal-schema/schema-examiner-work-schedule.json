@@ -268,6 +268,16 @@
       ],
       "maxLength": 14
     },
+    "specialNeedsCode": {
+      "description": "The type of special needs test can be YES, NONE or EXTRA",
+      "type": "string",
+      "maxLength": 20,
+      "enum": [
+        "NONE",
+        "YES",
+        "EXTRA"
+      ]
+    },
     "application": {
       "$id": "#/properties/testSlot/properties/booking/properties/application",
       "description": "Details of the test application",
@@ -313,14 +323,7 @@
           "type": "boolean"
         },
         "specialNeedsCode": {
-          "description": "The type of special needs test can be YES, NONE or EXTRA",
-          "type": "string",
-          "maxLength": 20,
-          "enum": [
-            "NONE",
-            "YES",
-            "EXTRA"
-          ]
+          "$ref": "#/definitions/specialNeedsCode"
         },
         "entitlementCheck": {
           "description": "Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)",
