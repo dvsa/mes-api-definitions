@@ -109,7 +109,7 @@ export type DangerousFaultIndicator = boolean;
 /**
  * Method chosen to conduct the independent driving section of the test
  */
-export type IndependentDriving = "Sat nav" | "Traffic signs";
+export type IndependentDriving = "Sat nav" | "Traffic signs" | "N/A";
 /**
  * Indicates which form of ID was provided by the candidate
  */
