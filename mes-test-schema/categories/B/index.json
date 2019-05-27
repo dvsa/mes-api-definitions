@@ -259,6 +259,14 @@
         "Support Centre"
       ]
     },
+     "conductedLanguage": {
+         "description": "The language in which a candidate agrees to perform a test",
+         "type": "string",
+         "enum": [
+             "English",
+             "Cymraeg"
+         ]
+     },
     "communicationPreferences": {
       "type": "object",
       "additionalProperties": false,
@@ -270,11 +278,15 @@
         },
         "communicationMethod": {
           "$ref": "#/definitions/communicationMethod"
+        },
+        "conductedLanguage": {
+          "$ref": "#/definitions/conductedLanguage"
         }
       },
       "required": [
         "updatedEmail",
-        "communicationMethod"
+        "communicationMethod",
+        "conductedLanguage"
       ]
     },
     "preTestDeclarations": {
