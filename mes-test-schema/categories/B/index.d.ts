@@ -59,6 +59,10 @@ export type ActivityCode =
  */
 export type CommunicationMethod = "Email" | "Post" | "Support Centre";
 /**
+ * The language in which a candidate agrees to perform a test
+ */
+export type ConductedLanguage = "English" | "Cymraeg";
+/**
  * Base 64 encoded binary data representing a PNG image of the candidates signature
  */
 export type Signature = string;
@@ -324,6 +328,7 @@ export interface CommunicationPreferences {
    */
   updatedEmail: string;
   communicationMethod: CommunicationMethod;
+  conductedLanguage: ConductedLanguage;
 }
 export interface PreTestDeclarations {
   /**
