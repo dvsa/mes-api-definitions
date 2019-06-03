@@ -21,6 +21,10 @@
       "description": "Details of the test centre",
       "type": "object",
       "properties": {
+        "centreId": {
+          "description": "Identifer for the test centre",
+          "type": "integer"
+        },
         "costCode": {
           "description": "Cost centre code for the test centre",
           "type": "string",
@@ -29,6 +33,7 @@
       },
       "additionalProperties": false,
       "required": [
+        "centreId",
         "costCode"
       ]
     },
@@ -259,14 +264,14 @@
         "Support Centre"
       ]
     },
-     "conductedLanguage": {
-         "description": "The language in which a candidate agrees to perform a test",
-         "type": "string",
-         "enum": [
-             "English",
-             "Cymraeg"
-         ]
-     },
+    "conductedLanguage": {
+      "description": "The language in which a candidate agrees to perform a test",
+      "type": "string",
+      "enum": [
+        "English",
+        "Cymraeg"
+      ]
+    },
     "communicationPreferences": {
       "type": "object",
       "additionalProperties": false,

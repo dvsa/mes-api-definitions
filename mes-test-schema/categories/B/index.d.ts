@@ -179,6 +179,10 @@ export interface Examiner {
  */
 export interface TestCentre {
   /**
+   * Identifer for the test centre
+   */
+  centreId: number;
+  /**
    * Cost centre code for the test centre
    */
   costCode: string;
