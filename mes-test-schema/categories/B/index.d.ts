@@ -87,6 +87,10 @@ export type QuestionDescription = string;
  */
 export type QuestionOutcome = "P" | "DF" | "S" | "D";
 /**
+ * Comments recorded against a fault
+ */
+export type FaultComments = string;
+/**
  * Indicator for a manoeuvre being performed during the test
  */
 export type ManoeuvreIndicator = boolean;
@@ -94,10 +98,6 @@ export type ManoeuvreIndicator = boolean;
  * The possible outcomes of any manoeuvre performed during the test
  */
 export type ManoeuvreOutcome = "DF" | "S" | "D";
-/**
- * Comments recorded against a fault
- */
-export type FaultComments = string;
 /**
  * The count of the number of driving faults recorded against a test element
  */
@@ -418,6 +418,7 @@ export interface VehicleChecks {
     description?: QuestionDescription;
     outcome?: QuestionOutcome;
   };
+  showMeTellMeComments?: FaultComments;
 }
 /**
  * The test requirements that must be carried out during a test
