@@ -138,10 +138,6 @@ export interface StandardCarTestCATBSchema {
    * Category code for the test report
    */
   category: string;
-  /**
-   * Unique identifier for the test
-   */
-  id: string;
   journalData: JournalData;
   activityCode: ActivityCode;
   communicationPreferences?: CommunicationPreferences;

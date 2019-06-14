@@ -1578,10 +1578,6 @@
       "description": "Category code for the test report",
       "type": "string"
     },
-    "id": {
-      "description": "Unique identifier for the test",
-      "type": "string"
-    },
     "journalData": {
       "$ref": "#/definitions/journalData"
     },
