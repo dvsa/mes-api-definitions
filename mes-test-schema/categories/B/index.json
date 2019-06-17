@@ -191,8 +191,8 @@
         "start": {
           "description": "Start time of the test slot",
           "type": "string",
-          "minLength": 25,
-          "maxLength": 25
+          "minLength": 19,
+          "maxLength": 19
         },
         "vehicleSlotType": {
           "description": "A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest",
