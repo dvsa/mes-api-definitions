@@ -1618,7 +1618,6 @@
   "additionalProperties": false,
   "required": [
     "category",
-    "id",
     "journalData",
     "activityCode"
   ]
