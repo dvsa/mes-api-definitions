@@ -80,8 +80,8 @@
         "startTime": {
           "description": "The start time of the personal commitment, if any (in practice this will always be populated)",
           "type": "string",
-          "minLength": 14,
-          "maxLength": 14
+          "minLength": 8,
+          "maxLength": 8
         },
         "endDate": {
           "description": "The end date of the personal commitment",
@@ -92,8 +92,8 @@
         "endTime": {
           "description": "The end time of the personal commitment, if any(in practice this will always be populated)",
           "type": "string",
-          "minLength": 14,
-          "maxLength": 14
+          "minLength": 8,
+          "maxLength": 8
         },
         "activityCode": {
           "description": "The personal commitment activity code",
