@@ -10,6 +10,10 @@
           "description": "The examiner's DSA staff number",
           "type": "string",
           "maxLength": 10
+        },
+        "individualId": {
+          "description": "The individual ID of the examiner",
+          "type": "number"
         }
       },
       "additionalProperties": false,
@@ -122,6 +126,15 @@
           "type": "string",
           "maxLength": 24
         },
+        "dateOfBirth": {
+          "description": "The candidate's date of birth, formatted as an ISO 8601 date (YYYY-MM-DD)",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 10
+        },
+        "gender": {
+          "$ref": "#/definitions/gender"
+        },
         "candidateAddress": {
           "$ref": "#/definitions/address"
         },
@@ -152,6 +165,10 @@
         "previousADITests": {
           "description": "The number of previous test attempts, if an ADI test",
           "type": "integer"
+        },
+        "ethnicOriginCode": {
+          "description": "A number defining a candidate's ethnic origin, based on TARS master data",
+          "type": "number"
         }
       },
       "additionalProperties": false
@@ -209,6 +226,10 @@
         },
         "extendedTest": {
           "description": "Whether this is an extended test",
+          "type": "boolean"
+        },
+        "examinerVisiting": {
+          "description": "Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre",
           "type": "boolean"
         }
       },
@@ -334,6 +355,10 @@
         },
         "supervisor": {
           "description": "Indicates whether a DVSA supervisor was present during the test",
+          "type": "boolean"
+        },
+        "interpreter": {
+          "description": "Indicates whether an interpreter was present during the test",
           "type": "boolean"
         },
         "other": {
@@ -1570,6 +1595,14 @@
         "75",
         "82",
         "83"
+      ]
+    },
+    "gender": {
+      "description": "The gender of an individual, limited to 'M' or 'F' as per TARS master data",
+      "type": "string",
+      "enum": [
+        "M",
+        "F"
       ]
     }
   },
