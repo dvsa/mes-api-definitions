@@ -64,8 +64,8 @@
         "booking": {
           "$ref": "#/definitions/booking"
         },
-        "isExaminerHomeTestCentre": {
-          "description": "Whether the test slot is at the examiner's home test centre",
+        "examinerVisiting": {
+          "description": "Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre",
           "type": "boolean"
         }
       }

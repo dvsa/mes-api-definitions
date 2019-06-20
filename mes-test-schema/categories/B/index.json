@@ -228,8 +228,8 @@
           "description": "Whether this is an extended test",
           "type": "boolean"
         },
-        "isExaminerHomeTestCentre": {
-          "description": "Whether the test slot is at the examiner's home test centre",
+        "examinerVisiting": {
+          "description": "Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre",
           "type": "boolean"
         }
       },
@@ -355,6 +355,10 @@
         },
         "supervisor": {
           "description": "Indicates whether a DVSA supervisor was present during the test",
+          "type": "boolean"
+        },
+        "interpreter": {
+          "description": "Indicates whether an interpreter was present during the test",
           "type": "boolean"
         },
         "other": {

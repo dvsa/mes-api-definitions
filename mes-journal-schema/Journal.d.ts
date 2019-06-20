@@ -107,9 +107,9 @@ export interface TestSlot {
   testCentre?: TestCentre;
   booking?: Booking;
   /**
-   * Whether the test slot is at the examiner's home test centre
+   * Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre
    */
-  isExaminerHomeTestCentre?: boolean;
+  examinerVisiting?: boolean;
 }
 /**
  * Identifier, start time and duration of the slot

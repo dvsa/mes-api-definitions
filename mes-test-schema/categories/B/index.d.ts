@@ -220,9 +220,9 @@ export interface TestSlotAttributes {
    */
   extendedTest: boolean;
   /**
-   * Whether the test slot is at the examiner's home test centre
+   * Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre
    */
-  isExaminerHomeTestCentre?: boolean;
+  examinerVisiting?: boolean;
 }
 /**
  * Details of the candidate booked into the test slot
@@ -374,6 +374,10 @@ export interface Accompaniment {
    * Indicates whether a DVSA supervisor was present during the test
    */
   supervisor?: boolean;
+  /**
+   * Indicates whether an interpreter was present during the test
+   */
+  interpreter?: boolean;
   /**
    * Indicates whether another individual was present during the test
    */
