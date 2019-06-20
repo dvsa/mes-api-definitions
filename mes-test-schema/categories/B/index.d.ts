@@ -6,6 +6,10 @@
  */
 
 /**
+ * The gender of an individual, limited to 'M' or 'F' as per TARS master data
+ */
+export type Gender = "M" | "F";
+/**
  * Code representing the result of the test
  */
 export type ActivityCode =
@@ -169,6 +173,10 @@ export interface Examiner {
    * The examiner's DSA staff number
    */
   staffNumber: string;
+  /**
+   * The individual ID of the examiner
+   */
+  individualId?: number;
 }
 /**
  * Details of the test centre
@@ -211,6 +219,10 @@ export interface TestSlotAttributes {
    * Whether this is an extended test
    */
   extendedTest: boolean;
+  /**
+   * Whether the test slot is at the examiner's home test centre
+   */
+  isExaminerHomeTestCentre?: boolean;
 }
 /**
  * Details of the candidate booked into the test slot
@@ -225,6 +237,11 @@ export interface Candidate {
    * The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI
    */
   driverNumber?: string;
+  /**
+   * The candidate's date of birth, formatted as an ISO 8601 date (YYYY-MM-DD)
+   */
+  dateOfBirth?: string;
+  gender?: Gender;
   candidateAddress?: Address;
   /**
    * The candidate's primary telephone number, if any (and consent to leave voicemail has been given)
@@ -250,6 +267,10 @@ export interface Candidate {
    * The number of previous test attempts, if an ADI test
    */
   previousADITests?: number;
+  /**
+   * A number defining a candidate's ethnic origin, based on TARS master data
+   */
+  ethnicOriginCode?: number;
 }
 /**
  * Details of the individual's name

@@ -6,6 +6,10 @@
  */
 
 /**
+ * The gender of an individual, limited to 'M' or 'F' as per TARS master data
+ */
+export type Gender = "M" | "F";
+/**
  * The type of special needs test can be YES, NONE or EXTRA
  */
 export type SpecialNeedsCode = "NONE" | "YES" | "EXTRA";
@@ -56,6 +60,10 @@ export interface Examiner {
    * The examiner's DSA staff number
    */
   staffNumber?: string;
+  /**
+   * The individual ID of the examiner
+   */
+  individualId?: number;
   examinerName?: Name;
 }
 /**
@@ -98,6 +106,10 @@ export interface TestSlot {
   vehicleSlotTypeCode?: number;
   testCentre?: TestCentre;
   booking?: Booking;
+  /**
+   * Whether the test slot is at the examiner's home test centre
+   */
+  isExaminerHomeTestCentre?: boolean;
 }
 /**
  * Identifier, start time and duration of the slot
@@ -155,6 +167,11 @@ export interface Candidate {
    * The candidate's driver number if any, typically (though not always) 16 characters if UK, or 8 digits if NI
    */
   driverNumber?: string;
+  /**
+   * The candidate's date of birth, formatted as an ISO 8601 date (YYYY-MM-DD)
+   */
+  dateOfBirth?: string;
+  gender?: Gender;
   candidateAddress?: Address;
   /**
    * The candidate's primary telephone number, if any (and consent to leave voicemail has been given)
@@ -180,6 +197,10 @@ export interface Candidate {
    * The number of previous test attempts, if an ADI test
    */
   previousADITests?: number;
+  /**
+   * A number defining a candidate's ethnic origin, based on TARS master data
+   */
+  ethnicOriginCode?: number;
 }
 /**
  * Details of the address
