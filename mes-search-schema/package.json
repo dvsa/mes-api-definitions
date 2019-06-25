@@ -1,0 +1,26 @@
+{
+  "name": "@dvsa/mes-search-schema",
+  "version": "1",
+  "description": "Domain model for data returned by the results search API",
+  "scripts": {
+    "generate-cat-b": "json2ts -i index.json -o index.d.ts",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvsa/mes-api-definitions.git"
+  },
+  "keywords": [
+    "dvsa"
+  ],
+  "author": "DVSA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dvsa/mes-api-definitions/issues"
+  },
+  "homepage": "https://github.com/dvsa/mes-api-definitions#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "json-schema-to-typescript": "^6.1.3"
+  }
+}
