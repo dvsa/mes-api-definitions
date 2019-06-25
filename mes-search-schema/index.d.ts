@@ -1,4 +1,4 @@
-import { Name, ActivityCode } from "../../../mes-test-schema/categories/B";
+import { Name, ActivityCode } from "../mes-test-schema/categories/B";
 
 /* tslint:disable */
 /**
@@ -7,7 +7,7 @@ import { Name, ActivityCode } from "../../../mes-test-schema/categories/B";
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface SearchResultTestCATBSchema {
+export interface SearchResultTestSchema {
   /**
    * Search result schema
    */
