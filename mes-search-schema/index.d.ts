@@ -13,7 +13,7 @@ export interface SearchResultTestSchema {
    */
   costCode: string;
   testDate: Date;
-  staffNumber: string;
+  driverNumber: string;
   candidateName: Name;
   applicationReference: string;
   category: string;

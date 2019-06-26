@@ -10,10 +10,10 @@
       "description": "The date and time of the test",
       "type": "date"
     },
-    "staffNumber": {
-      "description": "The examiner's DSA staff number",
+    "driverNumber": {
+      "description": "The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI",
       "type": "string",
-      "maxLength": 10
+      "maxLength": 24
     },
     "candidateName": {
       "description": "Details of the individual's name",
