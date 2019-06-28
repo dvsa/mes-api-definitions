@@ -12,7 +12,7 @@ export interface SearchResultTestSchema {
    * Search result schema
    */
   costCode: string;
-  testDate: Date;
+  testDate: string;
   driverNumber: string;
   candidateName: Name;
   applicationReference: string;

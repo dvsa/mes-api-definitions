@@ -8,7 +8,7 @@
     },
     "testDate": {
       "description": "The date and time of the test",
-      "type": "date"
+      "type": "string"
     },
     "driverNumber": {
       "description": "The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI",

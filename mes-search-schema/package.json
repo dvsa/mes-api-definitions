@@ -1,9 +1,9 @@
 {
   "name": "@dvsa/mes-search-schema",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Domain model for data returned by the results search API",
   "scripts": {
-    "generate-cat-b": "json2ts -i index.json -o index.d.ts",
+    "generate-ts-interface": "json2ts -i index.json -o index.d.ts",
     "test": ""
   },
   "repository": {
