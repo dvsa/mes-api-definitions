@@ -154,6 +154,10 @@ export interface StandardCarTestCATBSchema {
   passCompletion?: PassCompletion;
   postTestDeclarations?: PostTestDeclarations;
   testSummary?: TestSummary;
+  /**
+   * Whether the test was rekeyed or not
+   */
+  rekey: boolean;
 }
 /**
  * Data brought through from the journal

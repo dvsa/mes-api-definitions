@@ -1646,12 +1646,17 @@
     },
     "testSummary": {
       "$ref": "#/definitions/testSummary"
+    },
+    "rekey": {
+      "description": "Whether the test was rekeyed or not",
+      "type": "boolean"
     }
   },
   "additionalProperties": false,
   "required": [
     "category",
     "journalData",
-    "activityCode"
+    "activityCode",
+    "rekey"
   ]
 }
