@@ -14,6 +14,10 @@ export type VehicleTypeCode = "L" | "C" | "A2" | "A3" | "V4" | "B1" | "B2" | "O"
  */
 export type Gender = "M" | "F";
 /**
+ * A character between A and G representing different categories of ethnicity
+ */
+export type EthnicityCode = "A" | "B" | "C" | "D" | "E" | "F" | "G";
+/**
  * Code representing the result of the test
  */
 export type ActivityCode =
@@ -272,10 +276,7 @@ export interface Candidate {
    * The number of previous test attempts, if an ADI test
    */
   previousADITests?: number;
-  /**
-   * A number defining a candidate's ethnic origin, based on TARS master data
-   */
-  ethnicOriginCode?: number;
+  ethnicityCode?: EthnicityCode;
 }
 /**
  * Details of the individual's name
