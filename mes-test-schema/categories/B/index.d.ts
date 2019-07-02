@@ -6,6 +6,10 @@
  */
 
 /**
+ * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
+ */
+export type VehicleTypeCode = "L" | "C" | "A2" | "A3" | "V4" | "B1" | "B2" | "O" | "SC";
+/**
  * The gender of an individual, limited to 'M' or 'F' as per TARS master data
  */
 export type Gender = "M" | "F";
@@ -207,10 +211,7 @@ export interface TestSlotAttributes {
    * Start time of the test slot
    */
   start: string;
-  /**
-   * A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest
-   */
-  vehicleSlotType: string;
+  vehicleTypeCode: VehicleTypeCode;
   /**
    * Whether the test is to be conducted using the welsh language
    */

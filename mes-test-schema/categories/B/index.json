@@ -211,10 +211,8 @@
           "minLength": 19,
           "maxLength": 19
         },
-        "vehicleSlotType": {
-          "description": "A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest",
-          "type": "string",
-          "maxLength": 11
+        "vehicleTypeCode": {
+          "$ref": "#/definitions/vehicleTypeCode"
         },
         "welshTest": {
           "description": "Whether the test is to be conducted using the welsh language",
@@ -237,7 +235,7 @@
       "required": [
         "slotId",
         "start",
-        "vehicleSlotType",
+        "vehicleTypeCode",
         "welshTest",
         "specialNeeds",
         "extendedTest"
@@ -1603,6 +1601,21 @@
       "enum": [
         "M",
         "F"
+      ]
+    },
+    "vehicleTypeCode": {
+      "description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
+      "type": "string",
+      "enum": [
+        "L",
+        "C",
+        "A2",
+        "A3",
+        "V4",
+        "B1",
+        "B2",
+        "O",
+        "SC"
       ]
     }
   },
