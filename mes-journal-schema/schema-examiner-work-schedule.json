@@ -49,10 +49,8 @@
         "slotDetail": {
           "$ref": "#/definitions/slotDetail"
         },
-        "vehicleSlotType": {
-          "description": "A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest, if any",
-          "type": "string",
-          "maxLength": 11
+        "vehicleTypeCode": {
+          "$ref": "#/definitions/vehicleTypeCode"
         },
         "vehicleSlotTypeCode": {
           "description": "A numeric code representing the Vehicle Slot Type",
@@ -149,10 +147,8 @@
         "testCentre": {
           "$ref": "#/definitions/testCentre"
         },
-        "vehicleSlotType": {
-          "description": "A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest, if any",
-          "type": "string",
-          "maxLength": 11
+        "vehicleTypeCode": {
+          "$ref": "#/definitions/vehicleTypeCode"
         }
       }
     },
@@ -492,6 +488,21 @@
       "enum": [
         "M",
         "F"
+      ]
+    },
+    "vehicleTypeCode": {
+      "description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
+      "type": "string",
+      "enum": [
+        "L",
+        "C",
+        "A2",
+        "A3",
+        "V4",
+        "B1",
+        "B2",
+        "O",
+        "SC"
       ]
     }
   },
