@@ -6,17 +6,9 @@
  */
 
 /**
- * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
- */
-export type VehicleTypeCode = "L" | "C" | "A2" | "A3" | "V4" | "B1" | "B2" | "O" | "SC";
-/**
  * The gender of an individual, limited to 'M' or 'F' as per TARS master data
  */
 export type Gender = "M" | "F";
-/**
- * A character between A and G representing different categories of ethnicity
- */
-export type EthnicityCode = "A" | "B" | "C" | "D" | "E" | "F" | "G";
 /**
  * Code representing the result of the test
  */
@@ -215,7 +207,10 @@ export interface TestSlotAttributes {
    * Start time of the test slot
    */
   start: string;
-  vehicleTypeCode: VehicleTypeCode;
+  /**
+   * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
+   */
+  vehicleTypeCode: string;
   /**
    * Whether the test is to be conducted using the welsh language
    */
@@ -276,7 +271,10 @@ export interface Candidate {
    * The number of previous test attempts, if an ADI test
    */
   previousADITests?: number;
-  ethnicityCode?: EthnicityCode;
+  /**
+   * A character between A and G representing different categories of ethnicity
+   */
+  ethnicityCode?: string;
 }
 /**
  * Details of the individual's name

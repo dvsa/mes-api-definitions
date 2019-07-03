@@ -50,7 +50,8 @@
           "$ref": "#/definitions/slotDetail"
         },
         "vehicleTypeCode": {
-          "$ref": "#/definitions/vehicleTypeCode"
+          "description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
+          "type": "string"
         },
         "vehicleSlotTypeCode": {
           "description": "A numeric code representing the Vehicle Slot Type",
@@ -148,7 +149,8 @@
           "$ref": "#/definitions/testCentre"
         },
         "vehicleTypeCode": {
-          "$ref": "#/definitions/vehicleTypeCode"
+          "description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
+          "type": "string"
         }
       }
     },
@@ -418,7 +420,8 @@
           "type": "integer"
         },
         "ethnicityCode": {
-          "$ref": "#/definitions/ethnicityCode"
+          "description": "A character between A and G representing different categories of ethnicity",
+          "type": "string"
         }
       }
     },
@@ -487,34 +490,6 @@
       "enum": [
         "M",
         "F"
-      ]
-    },
-    "vehicleTypeCode": {
-      "description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
-      "type": "string",
-      "enum": [
-        "L",
-        "C",
-        "A2",
-        "A3",
-        "V4",
-        "B1",
-        "B2",
-        "O",
-        "SC"
-      ]
-    },
-    "ethnicityCode": {
-      "description": "A character between A and G representing different categories of ethnicity",
-      "type": "string",
-      "enum": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G"
       ]
     }
   },

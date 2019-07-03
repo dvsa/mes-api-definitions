@@ -6,17 +6,9 @@
  */
 
 /**
- * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
- */
-export type VehicleTypeCode = "L" | "C" | "A2" | "A3" | "V4" | "B1" | "B2" | "O" | "SC";
-/**
  * The gender of an individual, limited to 'M' or 'F' as per TARS master data
  */
 export type Gender = "M" | "F";
-/**
- * A character between A and G representing different categories of ethnicity
- */
-export type EthnicityCode = "A" | "B" | "C" | "D" | "E" | "F" | "G";
 /**
  * The type of special needs test can be YES, NONE or EXTRA
  */
@@ -104,7 +96,10 @@ export interface Name {
  */
 export interface TestSlot {
   slotDetail?: SlotDetail;
-  vehicleTypeCode?: VehicleTypeCode;
+  /**
+   * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
+   */
+  vehicleTypeCode?: string;
   /**
    * A numeric code representing the Vehicle Slot Type
    */
@@ -202,7 +197,10 @@ export interface Candidate {
    * The number of previous test attempts, if an ADI test
    */
   previousADITests?: number;
-  ethnicityCode?: EthnicityCode;
+  /**
+   * A character between A and G representing different categories of ethnicity
+   */
+  ethnicityCode?: string;
 }
 /**
  * Details of the address
@@ -372,7 +370,10 @@ export interface NonTestActivity {
 export interface AdvanceTestSlot {
   slotDetail?: SlotDetail;
   testCentre?: TestCentre;
-  vehicleTypeCode?: VehicleTypeCode;
+  /**
+   * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
+   */
+  vehicleTypeCode?: string;
 }
 /**
  * Temporary secondment of the examiner to an alternative test centre
