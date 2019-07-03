@@ -51,7 +51,9 @@
         },
         "vehicleTypeCode": {
           "description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2
         },
         "vehicleSlotTypeCode": {
           "description": "A numeric code representing the Vehicle Slot Type",
@@ -150,7 +152,9 @@
         },
         "vehicleTypeCode": {
           "description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2
         }
       }
     },
@@ -421,7 +425,9 @@
         },
         "ethnicityCode": {
           "description": "A character between A and G representing different categories of ethnicity",
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1
         }
       }
     },
