@@ -166,9 +166,11 @@
           "description": "The number of previous test attempts, if an ADI test",
           "type": "integer"
         },
-        "ethnicOriginCode": {
-          "description": "A number defining a candidate's ethnic origin, based on TARS master data",
-          "type": "number"
+        "ethnicityCode": {
+          "description": "A character between A and G representing different categories of ethnicity",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1
         }
       },
       "additionalProperties": false
@@ -211,10 +213,11 @@
           "minLength": 19,
           "maxLength": 19
         },
-        "vehicleSlotType": {
-          "description": "A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest",
+        "vehicleTypeCode": {
+          "description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
           "type": "string",
-          "maxLength": 11
+          "minLength": 1,
+          "maxLength": 2
         },
         "welshTest": {
           "description": "Whether the test is to be conducted using the welsh language",
@@ -237,7 +240,7 @@
       "required": [
         "slotId",
         "start",
-        "vehicleSlotType",
+        "vehicleTypeCode",
         "welshTest",
         "specialNeeds",
         "extendedTest"

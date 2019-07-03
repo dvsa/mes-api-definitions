@@ -49,10 +49,11 @@
         "slotDetail": {
           "$ref": "#/definitions/slotDetail"
         },
-        "vehicleSlotType": {
-          "description": "A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest, if any",
+        "vehicleTypeCode": {
+          "description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
           "type": "string",
-          "maxLength": 11
+          "minLength": 1,
+          "maxLength": 2
         },
         "vehicleSlotTypeCode": {
           "description": "A numeric code representing the Vehicle Slot Type",
@@ -149,10 +150,11 @@
         "testCentre": {
           "$ref": "#/definitions/testCentre"
         },
-        "vehicleSlotType": {
-          "description": "A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest, if any",
+        "vehicleTypeCode": {
+          "description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
           "type": "string",
-          "maxLength": 11
+          "minLength": 1,
+          "maxLength": 2
         }
       }
     },
@@ -421,9 +423,11 @@
           "description": "The number of previous test attempts, if an ADI test",
           "type": "integer"
         },
-        "ethnicOriginCode": {
-          "description": "A number defining a candidate's ethnic origin, based on TARS master data",
-          "type": "number"
+        "ethnicityCode": {
+          "description": "A character between A and G representing different categories of ethnicity",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1
         }
       }
     },

@@ -208,9 +208,9 @@ export interface TestSlotAttributes {
    */
   start: string;
   /**
-   * A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest
+   * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
    */
-  vehicleSlotType: string;
+  vehicleTypeCode: string;
   /**
    * Whether the test is to be conducted using the welsh language
    */
@@ -272,9 +272,9 @@ export interface Candidate {
    */
   previousADITests?: number;
   /**
-   * A number defining a candidate's ethnic origin, based on TARS master data
+   * A character between A and G representing different categories of ethnicity
    */
-  ethnicOriginCode?: number;
+  ethnicityCode?: string;
 }
 /**
  * Details of the individual's name

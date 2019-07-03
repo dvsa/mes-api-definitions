@@ -97,9 +97,9 @@ export interface Name {
 export interface TestSlot {
   slotDetail?: SlotDetail;
   /**
-   * A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest, if any
+   * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
    */
-  vehicleSlotType?: string;
+  vehicleTypeCode?: string;
   /**
    * A numeric code representing the Vehicle Slot Type
    */
@@ -198,9 +198,9 @@ export interface Candidate {
    */
   previousADITests?: number;
   /**
-   * A number defining a candidate's ethnic origin, based on TARS master data
+   * A character between A and G representing different categories of ethnicity
    */
-  ethnicOriginCode?: number;
+  ethnicityCode?: string;
 }
 /**
  * Details of the address
@@ -371,9 +371,9 @@ export interface AdvanceTestSlot {
   slotDetail?: SlotDetail;
   testCentre?: TestCentre;
   /**
-   * A short description of the Vehicle Slot Type, e.g. B57mins, Voc90mins, Hometest, if any
+   * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
    */
-  vehicleSlotType?: string;
+  vehicleTypeCode?: string;
 }
 /**
  * Temporary secondment of the examiner to an alternative test centre
