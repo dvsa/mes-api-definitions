@@ -618,7 +618,8 @@
     },
     "faultComments": {
       "description": "Comments recorded against a fault",
-      "type": "string"
+      "type": "string",
+      "maxLength": 1000
     },
     "drivingFaults": {
       "description": "The driving faults accumulated during the test",
@@ -1523,7 +1524,8 @@
         },
         "candidateDescription": {
           "description": "Physical description of the candidate",
-          "type": "string"
+          "type": "string",
+          "maxLength": 1000
         },
         "debriefWitnessed": {
           "description": "Indicates whether anybody else (e.g. ADI) was present for the debrief",
