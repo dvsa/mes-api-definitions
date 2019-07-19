@@ -374,14 +374,6 @@
         "preTestSignature"
       ]
     },
-    "eyesightTestResult": {
-      "description": "Outcome of the Eyesight Test",
-      "type": "string",
-      "enum": [
-        "P",
-        "F"
-      ]
-    },
     "accompaniment": {
       "description": "Indicators for anybody else overseeing the test",
       "type": "object",
@@ -1137,6 +1129,12 @@
         },
         "awarenessPlanningComments": {
           "$ref": "#/definitions/faultComments"
+        },
+        "eyesightTest": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "eyesightTestComments": {
+          "$ref": "#/definitions/faultComments"
         }
       },
       "additionalProperties": false
@@ -1662,9 +1660,6 @@
     },
     "preTestDeclarations": {
       "$ref": "#/definitions/preTestDeclarations"
-    },
-    "eyesightTestResult": {
-      "$ref": "#/definitions/eyesightTestResult"
     },
     "accompaniment": {
       "$ref": "#/definitions/accompaniment"

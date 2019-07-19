@@ -75,10 +75,6 @@ export type ConductedLanguage = "English" | "Cymraeg";
  */
 export type Signature = string;
 /**
- * Outcome of the Eyesight Test
- */
-export type EyesightTestResult = "P" | "F";
-/**
  * The type of gearbox
  */
 export type GearboxCategory = "Manual" | "Automatic";
@@ -150,7 +146,6 @@ export interface StandardCarTestCATBSchema {
   activityCode: ActivityCode;
   communicationPreferences?: CommunicationPreferences;
   preTestDeclarations?: PreTestDeclarations;
-  eyesightTestResult?: EyesightTestResult;
   accompaniment?: Accompaniment;
   vehicleDetails?: VehicleDetails;
   instructorDetails?: InstructorDetails;
@@ -689,6 +684,8 @@ export interface SeriousFaults {
   positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: SeriousFaultIndicator;
   awarenessPlanningComments?: FaultComments;
+  eyesightTest?: SeriousFaultIndicator;
+  eyesightTestComments?: FaultComments;
 }
 /**
  * The dangerous faults accumulated during the test
