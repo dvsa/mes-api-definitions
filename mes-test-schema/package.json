@@ -1,6 +1,6 @@
 {
   "name": "@dvsa/mes-test-schema",
-  "version": "1.0.24",
+  "version": "1.0.26",
   "description": "Domain model for data associated with tests administered by the Mobile Examiners Service",
   "scripts": {
     "generate-cat-b": "json2ts -i categories/B/index.json -o categories/B/index.d.ts",
