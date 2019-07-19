@@ -146,6 +146,10 @@ export interface StandardCarTestCATBSchema {
   activityCode: ActivityCode;
   communicationPreferences?: CommunicationPreferences;
   preTestDeclarations?: PreTestDeclarations;
+  /**
+   * Whether the eyesight test has been conducted
+   */
+  eyesightTestComplete?: boolean;
   accompaniment?: Accompaniment;
   vehicleDetails?: VehicleDetails;
   instructorDetails?: InstructorDetails;

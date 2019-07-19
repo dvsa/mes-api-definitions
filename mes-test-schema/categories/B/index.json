@@ -1665,6 +1665,10 @@
     "preTestDeclarations": {
       "$ref": "#/definitions/preTestDeclarations"
     },
+    "eyesightTestComplete": {
+      "description": "Whether the eyesight test has been conducted",
+      "type": "boolean"
+    },
     "accompaniment": {
       "$ref": "#/definitions/accompaniment"
     },
