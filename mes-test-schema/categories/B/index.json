@@ -1452,7 +1452,8 @@
         },
         "passCertificateNumber": {
           "description": "The PCN issued to the candidate",
-          "type": "string"
+          "type": "string",
+          "maxLength": 8
         }
       },
       "additionalProperties": false,
