@@ -638,6 +638,10 @@
       },
       "additionalProperties": false
     },
+    "eyesightTestComplete": {
+      "description": "Indicates that the eyesight test was conducted",
+      "type": "boolean"
+    },
     "drivingFaultCount": {
       "description": "The count of the number of driving faults recorded against a test element",
       "type": "integer"
