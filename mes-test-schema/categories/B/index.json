@@ -374,6 +374,10 @@
         "preTestSignature"
       ]
     },
+    "eyesightTestComplete": {
+      "description": "Indicates that the eyesight test was conducted",
+      "type": "boolean"
+    },
     "accompaniment": {
       "description": "Indicators for anybody else overseeing the test",
       "type": "object",
@@ -637,10 +641,6 @@
         }
       },
       "additionalProperties": false
-    },
-    "eyesightTestComplete": {
-      "description": "Indicates that the eyesight test was conducted",
-      "type": "boolean"
     },
     "drivingFaultCount": {
       "description": "The count of the number of driving faults recorded against a test element",

@@ -157,10 +157,6 @@ export interface StandardCarTestCATBSchema {
    * Whether the test was rekeyed or not
    */
   rekey: boolean;
-  /**
-   * Whether the eyesight test was conducted
-   */
-  eyesightTestComplete: boolean;
 }
 /**
  * Data brought through from the journal
