@@ -374,10 +374,6 @@
         "preTestSignature"
       ]
     },
-    "eyesightTestComplete": {
-      "description": "Indicates that the eyesight test was conducted",
-      "type": "boolean"
-    },
     "accompaniment": {
       "description": "Indicators for anybody else overseeing the test",
       "type": "object",
@@ -638,6 +634,22 @@
         },
         "faultComments": {
           "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
+    "eyesightTest": {
+      "type": "object",
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "seriousFault": {
+          "description": "Whether the candidate has failed the eyesight test",
+          "type": "boolean"
+        },
+        "faultComments": {
+          "type": "#/definitions/faultComments"
         }
       },
       "additionalProperties": false
@@ -1133,12 +1145,6 @@
         },
         "awarenessPlanningComments": {
           "$ref": "#/definitions/faultComments"
-        },
-        "eyesightTest": {
-          "$ref": "#/definitions/seriousFaultIndicator"
-        },
-        "eyesightTestComments": {
-          "$ref": "#/definitions/faultComments"
         }
       },
       "additionalProperties": false
@@ -1474,6 +1480,9 @@
         },
         "faultSummary": {
           "$ref": "#/definitions/faultSummary"
+        },
+        "eyesightTest": {
+          "$ref": "#/definitions/eyesightTest"
         }
       },
       "additionalProperties": false
@@ -1664,10 +1673,6 @@
     },
     "preTestDeclarations": {
       "$ref": "#/definitions/preTestDeclarations"
-    },
-    "eyesightTestComplete": {
-      "description": "Whether the eyesight test has been conducted",
-      "type": "boolean"
     },
     "accompaniment": {
       "$ref": "#/definitions/accompaniment"

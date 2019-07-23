@@ -146,10 +146,6 @@ export interface StandardCarTestCATBSchema {
   activityCode: ActivityCode;
   communicationPreferences?: CommunicationPreferences;
   preTestDeclarations?: PreTestDeclarations;
-  /**
-   * Whether the eyesight test has been conducted
-   */
-  eyesightTestComplete?: boolean;
   accompaniment?: Accompaniment;
   vehicleDetails?: VehicleDetails;
   instructorDetails?: InstructorDetails;
@@ -447,6 +443,7 @@ export interface TestData {
   eco?: Eco;
   ETA?: ETA;
   faultSummary?: FaultSummary;
+  eyesightTest?: EyesightTest;
 }
 /**
  * Details of the Show Me and Tell Me questions asked during the test
@@ -688,8 +685,6 @@ export interface SeriousFaults {
   positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: SeriousFaultIndicator;
   awarenessPlanningComments?: FaultComments;
-  eyesightTest?: SeriousFaultIndicator;
-  eyesightTestComments?: FaultComments;
 }
 /**
  * The dangerous faults accumulated during the test
@@ -820,6 +815,16 @@ export interface FaultSummary {
    * Count of the total number of dangerous faults incurred during the test
    */
   totalDangerousFaults?: number;
+}
+export interface EyesightTest {
+  complete?: boolean;
+  /**
+   * Whether the candidate has failed the eyesight test
+   */
+  seriousFault?: boolean;
+  faultComments?: {
+    [k: string]: any;
+  };
 }
 /**
  * Finalisation of a successful test outcome
