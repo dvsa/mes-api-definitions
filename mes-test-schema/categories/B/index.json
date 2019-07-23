@@ -649,7 +649,7 @@
           "type": "boolean"
         },
         "faultComments": {
-          "type": "#/definitions/faultComments"
+          "$ref": "#/definitions/faultComments"
         }
       },
       "additionalProperties": false

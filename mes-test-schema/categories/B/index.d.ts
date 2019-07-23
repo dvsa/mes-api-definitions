@@ -822,9 +822,7 @@ export interface EyesightTest {
    * Whether the candidate has failed the eyesight test
    */
   seriousFault?: boolean;
-  faultComments?: {
-    [k: string]: any;
-  };
+  faultComments?: FaultComments;
 }
 /**
  * Finalisation of a successful test outcome
