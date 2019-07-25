@@ -33,6 +33,11 @@
           "description": "Cost centre code for the test centre",
           "type": "string",
           "maxLength": 6
+        },
+        "centreName": {
+          "description": "Name of the test centre",
+          "type": "string",
+          "maxLength": 50
         }
       },
       "additionalProperties": false,
@@ -199,6 +204,15 @@
         "checkDigit"
       ]
     },
+    "initiator": {
+      "description": "The reason for the previous test cancellation",
+      "type": "string",
+      "enum": [
+        "Act of nature",
+        "DSA"
+      ],
+      "maxLength": 15
+    },
     "testSlotAttributes": {
       "description": "The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.",
       "type": "object",
@@ -223,6 +237,15 @@
           "description": "Whether the test is to be conducted using the welsh language",
           "type": "boolean"
         },
+        "specialNeedsCode": {
+          "description": "Special needs code",
+          "type": "string",
+          "enum": [
+            "None",
+            "Yes",
+            "Extra"
+          ]
+        },
         "specialNeeds": {
           "description": "Whether the candidate has any special needs that require the D255 form to be completed",
           "type": "boolean"
@@ -234,6 +257,17 @@
         "examinerVisiting": {
           "description": "Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre",
           "type": "boolean"
+        },
+        "entitlementCheck": {
+          "description": "Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)",
+          "type": "boolean"
+        },
+        "previousCancellation": {
+          "description": "The details of any previous test cancellations",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/initiator"
+          }
         }
       },
       "additionalProperties": false,

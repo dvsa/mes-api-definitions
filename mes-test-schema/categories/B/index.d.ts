@@ -6,6 +6,10 @@
  */
 
 /**
+ * The reason for the previous test cancellation
+ */
+export type Initiator = "Act of nature" | "DSA";
+/**
  * The gender of an individual, limited to 'M' or 'F' as per TARS master data
  */
 export type Gender = "M" | "F";
@@ -194,6 +198,10 @@ export interface TestCentre {
    * Cost centre code for the test centre
    */
   costCode: string;
+  /**
+   * Name of the test centre
+   */
+  centreName?: string;
 }
 /**
  * The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.
@@ -216,6 +224,10 @@ export interface TestSlotAttributes {
    */
   welshTest: boolean;
   /**
+   * Special needs code
+   */
+  specialNeedsCode?: "None" | "Yes" | "Extra";
+  /**
    * Whether the candidate has any special needs that require the D255 form to be completed
    */
   specialNeeds: boolean;
@@ -227,6 +239,14 @@ export interface TestSlotAttributes {
    * Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre
    */
   examinerVisiting?: boolean;
+  /**
+   * Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)
+   */
+  entitlementCheck?: boolean;
+  /**
+   * The details of any previous test cancellations
+   */
+  previousCancellation?: Initiator[];
 }
 /**
  * Details of the candidate booked into the test slot

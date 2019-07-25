@@ -1,6 +1,6 @@
 {
   "name": "mes-api-definitions",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "DVSA Mobile Examiner Services - Generates API spec and documentation",
   "devDependencies": {
     "redoc-cli": "^0.8.3",
