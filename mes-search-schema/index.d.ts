@@ -15,7 +15,7 @@ export interface SearchResultTestSchema {
   testDate: string;
   driverNumber: string;
   candidateName: Name;
-  applicationReference: string;
+  applicationReference: number;
   category: string;
   activityCode: ActivityCode;
 }
