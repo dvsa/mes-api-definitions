@@ -221,7 +221,7 @@ export interface TestSlotAttributes {
   /**
    * Special needs code
    */
-  specialNeedsCode?: "None" | "Yes" | "Extra";
+  specialNeedsCode?: "NONE" | "YES" | "EXTRA";
   /**
    * Whether the candidate has any special needs that require the D255 form to be completed
    */
