@@ -241,9 +241,9 @@
           "description": "Special needs code",
           "type": "string",
           "enum": [
-            "None",
-            "Yes",
-            "Extra"
+            "NONE",
+            "YES",
+            "EXTRA"
           ]
         },
         "specialNeeds": {

@@ -49,7 +49,7 @@
     },
     "applicationReference": {
       "description": "The application ID",
-      "type": "string"
+      "type": "integer"
     },
     "category": {
       "description": "Category code for the test report",
