@@ -75,10 +75,6 @@ export type ConductedLanguage = "English" | "Cymraeg";
  */
 export type Signature = string;
 /**
- * Outcome of the Eyesight Test
- */
-export type EyesightTestResult = "P" | "F";
-/**
  * The type of gearbox
  */
 export type GearboxCategory = "Manual" | "Automatic";
@@ -150,7 +146,6 @@ export interface StandardCarTestCATBSchema {
   activityCode: ActivityCode;
   communicationPreferences?: CommunicationPreferences;
   preTestDeclarations?: PreTestDeclarations;
-  eyesightTestResult?: EyesightTestResult;
   accompaniment?: Accompaniment;
   vehicleDetails?: VehicleDetails;
   instructorDetails?: InstructorDetails;
@@ -448,6 +443,7 @@ export interface TestData {
   eco?: Eco;
   ETA?: ETA;
   faultSummary?: FaultSummary;
+  eyesightTest?: EyesightTest;
 }
 /**
  * Details of the Show Me and Tell Me questions asked during the test
@@ -819,6 +815,14 @@ export interface FaultSummary {
    * Count of the total number of dangerous faults incurred during the test
    */
   totalDangerousFaults?: number;
+}
+export interface EyesightTest {
+  complete?: boolean;
+  /**
+   * Whether the candidate has failed the eyesight test
+   */
+  seriousFault?: boolean;
+  faultComments?: FaultComments;
 }
 /**
  * Finalisation of a successful test outcome

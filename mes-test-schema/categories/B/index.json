@@ -374,14 +374,6 @@
         "preTestSignature"
       ]
     },
-    "eyesightTestResult": {
-      "description": "Outcome of the Eyesight Test",
-      "type": "string",
-      "enum": [
-        "P",
-        "F"
-      ]
-    },
     "accompaniment": {
       "description": "Indicators for anybody else overseeing the test",
       "type": "object",
@@ -639,6 +631,22 @@
         },
         "fault": {
           "$ref": "#/definitions/manoeuvreOutcome"
+        },
+        "faultComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
+    "eyesightTest": {
+      "type": "object",
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "seriousFault": {
+          "description": "Whether the candidate has failed the eyesight test",
+          "type": "boolean"
         },
         "faultComments": {
           "$ref": "#/definitions/faultComments"
@@ -1472,6 +1480,9 @@
         },
         "faultSummary": {
           "$ref": "#/definitions/faultSummary"
+        },
+        "eyesightTest": {
+          "$ref": "#/definitions/eyesightTest"
         }
       },
       "additionalProperties": false
@@ -1662,9 +1673,6 @@
     },
     "preTestDeclarations": {
       "$ref": "#/definitions/preTestDeclarations"
-    },
-    "eyesightTestResult": {
-      "$ref": "#/definitions/eyesightTestResult"
     },
     "accompaniment": {
       "$ref": "#/definitions/accompaniment"
