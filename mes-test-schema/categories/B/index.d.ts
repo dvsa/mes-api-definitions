@@ -227,6 +227,10 @@ export interface TestSlotAttributes {
    */
   specialNeeds: boolean;
   /**
+   * The special needs
+   */
+  specialNeedsArray?: any[];
+  /**
    * Whether this is an extended test
    */
   extendedTest: boolean;
@@ -242,6 +246,10 @@ export interface TestSlotAttributes {
    * The details of any previous test cancellations
    */
   previousCancellation?: Initiator[];
+  /**
+   * The type of the slot
+   */
+  slotType?: string;
 }
 /**
  * Details of the candidate booked into the test slot
