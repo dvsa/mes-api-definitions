@@ -247,7 +247,7 @@ export interface TestSlotAttributes {
    */
   previousCancellation?: Initiator[];
   /**
-   * The type of the slot
+   * A description of the types of test intended to be conducted in this slot (e.g. Standard Test / Extended Special Needs Test)
    */
   slotType?: string;
 }

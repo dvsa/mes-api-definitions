@@ -275,7 +275,7 @@
           }
         },
         "slotType": {
-          "description": "The type of the slot",
+          "description": "A description of the types of test intended to be conducted in this slot (e.g. Standard Test / Extended Special Needs Test)",
           "type": "string"
         }
       },
