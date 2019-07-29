@@ -250,6 +250,13 @@
           "description": "Whether the candidate has any special needs that require the D255 form to be completed",
           "type": "boolean"
         },
+        "specialNeedsArray": {
+          "description": "The special needs",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "extendedTest": {
           "description": "Whether this is an extended test",
           "type": "boolean"
@@ -268,6 +275,10 @@
           "items": {
             "$ref": "#/definitions/initiator"
           }
+        },
+        "slotType": {
+          "description": "A description of the types of test intended to be conducted in this slot (e.g. Standard Test / Extended Special Needs Test)",
+          "type": "string"
         }
       },
       "additionalProperties": false,
