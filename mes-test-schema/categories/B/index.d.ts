@@ -229,7 +229,7 @@ export interface TestSlotAttributes {
   /**
    * The special needs
    */
-  specialNeedsArray?: any[];
+  specialNeedsArray?: string[];
   /**
    * Whether this is an extended test
    */

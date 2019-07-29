@@ -253,7 +253,9 @@
         "specialNeedsArray": {
           "description": "The special needs",
           "type": "array",
-          "items": "string"
+          "items": {
+            "type": "string"
+          }
         },
         "extendedTest": {
           "description": "Whether this is an extended test",
