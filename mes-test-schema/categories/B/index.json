@@ -422,7 +422,8 @@
       "properties": {
         "registrationNumber": {
           "description": "The vehicle registration number",
-          "type": "string"
+          "type": "string",
+          "maxLength": 7
         },
         "gearboxCategory": {
           "$ref": "#/definitions/gearboxCategory"
@@ -444,7 +445,8 @@
       "properties": {
         "registrationNumber": {
           "description": "The instructor's registration number",
-          "type": "integer"
+          "type": "integer",
+          "maxLength": 7
         }
       },
       "additionalProperties": false
