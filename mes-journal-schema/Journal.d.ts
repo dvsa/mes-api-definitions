@@ -325,21 +325,9 @@ export interface PersonalCommitment {
    */
   commitmentId?: number;
   /**
-   * The start date of the personal commitment
+   * Unique identifier for the test slot
    */
-  startDate?: string;
-  /**
-   * The start time of the personal commitment, if any (in practice this will always be populated)
-   */
-  startTime?: string;
-  /**
-   * The end date of the personal commitment
-   */
-  endDate?: string;
-  /**
-   * The end time of the personal commitment, if any(in practice this will always be populated)
-   */
-  endTime?: string;
+  slotId?: number;
   /**
    * The personal commitment activity code
    */
