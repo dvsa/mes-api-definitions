@@ -446,7 +446,8 @@
         "registrationNumber": {
           "description": "The instructor's registration number",
           "type": "integer",
-          "maxLength": 7
+          "maximum": 9999999,
+          "minimum": 0
         }
       },
       "additionalProperties": false
