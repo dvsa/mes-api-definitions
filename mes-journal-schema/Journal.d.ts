@@ -238,15 +238,15 @@ export interface Application {
   /**
    * The application's id
    */
-  applicationId?: number;
+  applicationId: number;
   /**
    * The application's booking sequence number
    */
-  bookingSequence?: number;
+  bookingSequence: number;
   /**
    * The application's reference checksum
    */
-  checkDigit?: number;
+  checkDigit: number;
   /**
    * Whether the test is to be conducted using the welsh language
    */

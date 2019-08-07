@@ -367,7 +367,12 @@
         "vehicleGearbox": {
           "$ref": "#/definitions/vehicleGearbox"
         }
-      }
+      },
+      "required": [
+        "applicationId",
+        "bookingSequence",
+        "checkDigit"
+      ]
     },
     "candidate": {
       "$id": "#/properties/testSlot/properties/booking/properties/candidate",
