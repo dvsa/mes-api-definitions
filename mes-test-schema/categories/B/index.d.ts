@@ -153,10 +153,15 @@ export interface StandardCarTestCATBSchema {
   passCompletion?: PassCompletion;
   postTestDeclarations?: PostTestDeclarations;
   testSummary?: TestSummary;
+  rekeyReason?: RekeyReason;
   /**
    * Whether the test was rekeyed or not
    */
   rekey: boolean;
+  /**
+   * Date the test was rekeyed
+   */
+  rekeyDate?: string;
   /**
    * Whether the test was conducted by another examiner
    */
@@ -173,7 +178,6 @@ export interface StandardCarTestCATBSchema {
    * The examiner who keyed the test into the iPad
    */
   examinerKeyed: boolean;
-  rekeyReason?: RekeyReason;
 }
 /**
  * Data brought through from the journal
