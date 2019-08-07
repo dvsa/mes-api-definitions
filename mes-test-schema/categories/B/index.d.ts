@@ -157,6 +157,23 @@ export interface StandardCarTestCATBSchema {
    * Whether the test was rekeyed or not
    */
   rekey: boolean;
+  /**
+   * Whether the test was conducted by another examiner
+   */
+  changeMarker: boolean;
+  /**
+   * The examiner who the test was booked to
+   */
+  examinerBooked: number;
+  /**
+   * The examiner who conducted the test
+   */
+  examinerConducted: number;
+  /**
+   * The examiner who keyed the test into the iPad
+   */
+  examinerKeyed: boolean;
+  rekeyReason?: RekeyReason;
 }
 /**
  * Data brought through from the journal
@@ -887,4 +904,59 @@ export interface TestSummary {
    */
   additionalInformation?: string;
   [k: string]: any;
+}
+/**
+ * Recording of the rekey reason
+ */
+export interface RekeyReason {
+  transfer?: Transfer;
+  ipadIssue?: IpadIssue;
+  other?: Other;
+}
+/**
+ * Recording of if a rekey was due to a transfer
+ */
+export interface Transfer {
+  /**
+   * If this option was selected
+   */
+  selected?: boolean;
+}
+/**
+ * Recording of if a rekey was due to a iPad issue
+ */
+export interface IpadIssue {
+  /**
+   * If this option was selected
+   */
+  selected?: boolean;
+  /**
+   * If the iPad was not used due to a technical fault
+   */
+  technicalFault?: boolean;
+  /**
+   * If the iPad was not used as it has been lost
+   */
+  lost?: boolean;
+  /**
+   * If the iPad was not used as it has been stolen
+   */
+  stolen?: boolean;
+  /**
+   * If the iPad was not used as it is broken
+   */
+  broken?: boolean;
+}
+/**
+ * Recording of if a rekey was due to a different reason
+ */
+export interface Other {
+  /**
+   * If this option was selected
+   */
+  selected?: boolean;
+  /**
+   * The reason this option was selected
+   */
+  reason?: string;
 }

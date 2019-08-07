@@ -1669,6 +1669,75 @@
         "M",
         "F"
       ]
+    },
+    "rekeyReason": {
+      "description": "Recording of the rekey reason",
+      "type": "object",
+      "properties": {
+        "transfer": {
+          "$ref": "#/definitions/transfer"
+        },
+        "ipadIssue": {
+          "$ref": "#/definitions/ipadIssue"
+        },
+        "other": {
+          "$ref": "#/definitions/other"
+        }
+      },
+      "additionalProperties": false
+    },
+    "transfer": {
+      "description": "Recording of if a rekey was due to a transfer",
+      "type": "object",
+      "properties": {
+        "selected": {
+          "description": "If this option was selected",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ipadIssue": {
+      "description": "Recording of if a rekey was due to a iPad issue",
+      "type": "object",
+      "properties": {
+        "selected": {
+          "description": "If this option was selected",
+          "type": "boolean"
+        },
+        "technicalFault": {
+          "description": "If the iPad was not used due to a technical fault",
+          "type": "boolean"
+        },
+        "lost": {
+          "description": "If the iPad was not used as it has been lost",
+          "type": "boolean"
+        },
+        "stolen": {
+          "description": "If the iPad was not used as it has been stolen",
+          "type": "boolean"
+        },
+        "broken": {
+          "description": "If the iPad was not used as it is broken",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "other": {
+      "description": "Recording of if a rekey was due to a different reason",
+      "type": "object",
+      "properties": {
+        "selected": {
+          "description": "If this option was selected",
+          "type": "boolean"
+        },
+        "reason": {
+          "description": "The reason this option was selected",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "properties": {
@@ -1712,6 +1781,25 @@
     "rekey": {
       "description": "Whether the test was rekeyed or not",
       "type": "boolean"
+    },
+    "changeMarker": {
+      "description": "Whether the test was conducted by another examiner",
+      "type": "boolean"
+    },
+    "examinerBooked": {
+      "description": "The examiner who the test was booked to",
+      "type": "number"
+    },
+    "examinerConducted": {
+      "description": "The examiner who conducted the test",
+      "type": "number"
+    },
+    "examinerKeyed": {
+      "description": "The examiner who keyed the test into the iPad",
+      "type": "boolean"
+    },
+    "rekeyReason": {
+      "$ref": "#/definitions/rekeyReason"
     }
   },
   "additionalProperties": false,
@@ -1719,6 +1807,10 @@
     "category",
     "journalData",
     "activityCode",
-    "rekey"
+    "rekey",
+    "changeMarker",
+    "examinerBooked",
+    "examinerConducted",
+    "examinerKeyed"
   ]
 }
