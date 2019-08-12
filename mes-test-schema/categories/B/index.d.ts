@@ -177,7 +177,7 @@ export interface StandardCarTestCATBSchema {
   /**
    * The examiner who keyed the test into the iPad
    */
-  examinerKeyed: boolean;
+  examinerKeyed: number;
 }
 /**
  * Data brought through from the journal

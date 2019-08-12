@@ -1803,7 +1803,7 @@
     },
     "examinerKeyed": {
       "description": "The examiner who keyed the test into the iPad",
-      "type": "boolean"
+      "type": "number"
     }
   },
   "additionalProperties": false,
