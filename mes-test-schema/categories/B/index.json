@@ -339,7 +339,8 @@
       "type": "string",
       "enum": [
         "English",
-        "Cymraeg"
+        "Cymraeg",
+        "Not provided"
       ]
     },
     "communicationPreferences": {

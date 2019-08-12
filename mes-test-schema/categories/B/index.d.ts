@@ -69,7 +69,7 @@ export type CommunicationMethod = "Email" | "Post" | "Support Centre" | "Not pro
 /**
  * The language in which a candidate agrees to perform a test
  */
-export type ConductedLanguage = "English" | "Cymraeg";
+export type ConductedLanguage = "English" | "Cymraeg" | "Not provided";
 /**
  * Base 64 encoded binary data representing a PNG image of the candidates signature
  */
