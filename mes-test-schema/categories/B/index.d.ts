@@ -65,7 +65,7 @@ export type ActivityCode =
 /**
  * The method of communication by which the candidate agrees to receive their results
  */
-export type CommunicationMethod = "Email" | "Post" | "Support Centre";
+export type CommunicationMethod = "Email" | "Post" | "Support Centre" | "Not provided";
 /**
  * The language in which a candidate agrees to perform a test
  */
