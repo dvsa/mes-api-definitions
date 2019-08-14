@@ -65,11 +65,11 @@ export type ActivityCode =
 /**
  * The method of communication by which the candidate agrees to receive their results
  */
-export type CommunicationMethod = "Email" | "Post" | "Support Centre";
+export type CommunicationMethod = "Email" | "Post" | "Support Centre" | "Not provided";
 /**
  * The language in which a candidate agrees to perform a test
  */
-export type ConductedLanguage = "English" | "Cymraeg";
+export type ConductedLanguage = "English" | "Cymraeg" | "Not provided";
 /**
  * Base 64 encoded binary data representing a PNG image of the candidates signature
  */
