@@ -330,7 +330,8 @@
       "enum": [
         "Email",
         "Post",
-        "Support Centre"
+        "Support Centre",
+        "Not provided"
       ]
     },
     "conductedLanguage": {
@@ -338,7 +339,8 @@
       "type": "string",
       "enum": [
         "English",
-        "Cymraeg"
+        "Cymraeg",
+        "Not provided"
       ]
     },
     "communicationPreferences": {
