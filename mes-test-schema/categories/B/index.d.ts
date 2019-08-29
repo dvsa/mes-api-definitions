@@ -925,6 +925,10 @@ export interface Transfer {
    * If this option was selected
    */
   selected?: boolean;
+  /**
+   * The examiner's DSA staff number
+   */
+  staffNumber?: number;
 }
 /**
  * Recording of if a rekey was due to a iPad issue

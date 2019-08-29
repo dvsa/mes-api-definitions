@@ -1695,6 +1695,10 @@
         "selected": {
           "description": "If this option was selected",
           "type": "boolean"
+        },
+        "staffNumber": {
+          "description": "The examiner's DSA staff number",
+          "type": "number"
         }
       },
       "additionalProperties": false
