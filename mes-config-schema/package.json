@@ -1,0 +1,19 @@
+{
+  "name": "mes-config-schema",
+  "version": "1.0.0",
+  "description": "JSON Schema of the configuration for the App",
+  "scripts": {
+    "generate-app-config": "json2ts -i app-config.json -o app-config.d.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvsa/mes-api-definitions.git"
+  },
+  "author": "DVSA",
+  "license": "MIT",
+  "devDependencies": {
+    "json-schema-to-typescript": "^7.1.0"
+  }
+}

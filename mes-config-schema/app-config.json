@@ -1,0 +1,206 @@
+{
+  "definitions": {
+    "testPermisssionPeriod": {
+      "description": "",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "description": "",
+          "type": "string"
+        },
+        "from": {
+          "description": "",
+          "type": "string"
+        },
+        "to": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "from"
+      ]
+    },
+    "journal": {
+      "description": "",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "journalUrl": {
+          "description": "",
+          "type": "string"
+        },
+        "searchBookingUrl": {
+          "description": "",
+          "type": "string"
+        },
+        "autoRefreshInterval": {
+          "description": "",
+          "type": "number"
+        },
+        "numberOfDaysToView": {
+          "description": "",
+          "type": "number"
+        },
+        "allowTests": {
+          "description": "",
+          "type": "boolean"
+        },
+        "allowedTestCategories": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "description": "",
+            "type": "string"
+          }
+        },
+        "testPermissionPeriods": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "description": "",
+            "$ref": "#/definitions/testPermisssionPeriod"
+          }
+        },
+        "enableTestReportPracticeMode": {
+          "description": "",
+          "type": "boolean"
+        },
+        "enableEndToEndPracticeMode": {
+          "description": "",
+          "type": "boolean"
+        },
+        "enableLogoutButton": {
+          "description": "",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "journalUrl",
+        "searchBookingUrl",
+        "autoRefreshInterval",
+        "numberOfDaysToView",
+        "allowTests",
+        "allowedTestCategories",
+        "testPermissionPeriods",
+        "enableTestReportPracticeMode",
+        "enableEndToEndPracticeMode",
+        "enableLogoutButton"
+      ]
+    },
+    "tests": {
+      "description": "",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "testSubmissionUrl": {
+          "description": "",
+          "type": "string"
+        },
+        "autoSendInterval": {
+          "description": "",
+          "type": "number"
+        }
+      },
+      "required": [
+        "testSubmissionUrl",
+        "autoSendInterval"
+      ]
+    },
+    "logs": {
+      "description": "",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "description": "",
+          "type": "string"
+        },
+        "autoSendInterval": {
+          "description": "",
+          "type": "number"
+        }
+      },
+      "required": [
+        "url",
+        "autoSendInterval"
+      ]
+    },
+    "user": {
+      "description": "",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "findUserUrl": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "findUserUrl"
+      ]
+    }
+  },
+  "title": "App Config",
+  "type": "object", 
+  "additionalProperties": "false",
+  "description": "JSON Schema definition for application configuration",
+  "properties": {
+    "googleAnalyticsId": {
+      "description": "",
+      "type": "string"
+    },
+    "approvedDeviceIdentifiers": {
+      "description": "",
+      "type": "array",
+      "items": {
+        "description": "",
+        "type": "string"
+      }
+    },
+    "timeTravelDate": {
+      "description": "",
+      "type": "string"
+    },
+    "role": {
+      "description": "",
+      "type": "string",
+      "enum": [
+        "LDTM",
+        "DE"
+      ]
+    },
+    "journal": {
+      "description": "",
+      "$ref": "#/definitions/journal"
+    },
+    "tests": {
+      "description": "",
+      "$ref": "#/definitions/tests"
+    },
+    "logs": {
+      "description": "",
+      "$ref": "#/definitions/logs"
+    },
+    "user": {
+      "description": "",
+      "$ref": "#/definitions/user"
+    },
+    "requestTimeout": {
+      "description": "",
+      "type": "number"
+    }
+  },
+  "required": [
+    "googleAnalyticsId",
+    "approvedDeviceIdentifiers",
+    "role",
+    "journal",
+    "tests",
+    "logs",
+    "user",
+    "requestTimeout"
+  ]
+}
