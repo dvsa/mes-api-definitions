@@ -1,5 +1,5 @@
 {
-  "name": "mes-config-schema",
+  "name": "@dvsa/mes-config-schema",
   "version": "1.0.0",
   "description": "JSON Schema of the configuration for the App",
   "scripts": {
@@ -13,6 +13,10 @@
   },
   "author": "DVSA",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dvsa/mes-api-definitions/issues"
+  },
+  "homepage": "https://github.com/dvsa/mes-api-definitions",
   "devDependencies": {
     "json-schema-to-typescript": "^7.1.0"
   }
