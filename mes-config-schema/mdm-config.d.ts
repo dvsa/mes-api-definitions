@@ -6,17 +6,44 @@
  */
 
 /**
- * JSON Schema definition for application configuration
+ * JSON Schema definition for MDM configuration
  */
-export interface AppConfig {
+export interface MdmConfig {
+  /**
+   * Flag to define if the app should use the remote config instead
+   */
   isRemote?: boolean;
+  /**
+   * Remote config url
+   */
   configUrl?: string;
+  /**
+   * A number of days that the Journal data is cached
+   */
   daysToCacheJournalData?: number;
+  /**
+   * A number of days that the logs are cached
+   */
   daysToCacheLogs?: number;
+  /**
+   * Flag to enable dev tools
+   */
   enableDevTools?: boolean;
+  /**
+   * Flag whether the logout clears test presistence or no
+   */
   logoutClearsTestPersistence?: boolean;
+  /**
+   * Api key for logs post
+   */
   logsPostApiKey?: string;
+  /**
+   * Url for the logs api
+   */
   logsApiUrl?: string;
+  /**
+   * Time in milliseconds which sets the interval that the logs are sent up
+   */
   logsAutoSendInterval?: number;
   authentication?: Authentication;
 }
@@ -24,10 +51,28 @@ export interface AppConfig {
  * Journal related configuration properties
  */
 export interface Authentication {
+  /**
+   * Authentication context
+   */
   context?: string;
+  /**
+   * Resource Url
+   */
   resourceUrl?: string;
+  /**
+   * Client Id
+   */
   clientId?: string;
+  /**
+   * Redirect Url
+   */
   redirectUrl?: string;
+  /**
+   * Logout Url
+   */
   logoutUrl?: string;
+  /**
+   * Key for the employee Id
+   */
   employeeIdKey?: string;
 }

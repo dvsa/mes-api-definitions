@@ -11,9 +11,9 @@
 export type ExaminerRole = "LDTM" | "DE";
 
 /**
- * JSON Schema definition for application configuration
+ * JSON Schema definition for remote application configuration
  */
-export interface AppConfig {
+export interface RemoteConfig {
   /**
    * Google analytics id must be included in your tracking code to tell Analytics which account and property to send data to
    */

@@ -6,27 +6,27 @@
       "additionalProperties": false,
       "properties": {
         "context": {
-          "description": "",
+          "description": "Authentication context",
           "type": "string"
         },
         "resourceUrl": {
-          "description": "",
+          "description": "Resource Url",
           "type": "string"
         },
         "clientId": {
-          "description": "",
+          "description": "Client Id",
           "type": "string"
         },
         "redirectUrl": {
-          "description": "",
+          "description": "Redirect Url",
           "type": "string"
         },
         "logoutUrl": {
-          "description": "",
+          "description": "Logout Url",
           "type": "string"
         },
         "employeeIdKey": {
-          "description": "",
+          "description": "Key for the employee Id",
           "type": "string"
         }
       }
@@ -34,45 +34,45 @@
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
   "id": "https://example.com/arrays.schema.json",
-  "title": "App Config",
+  "title": "Mdm Config",
   "type": "object", 
   "additionalProperties": false,
-  "description": "JSON Schema definition for application configuration",
+  "description": "JSON Schema definition for MDM configuration",
   "properties": {
     "isRemote": {
-      "description": "",
+      "description": "Flag to define if the app should use the remote config instead",
       "type": "boolean"
     },
     "configUrl": {
-      "description": "",
+      "description": "Remote config url",
       "type": "string"
     },
     "daysToCacheJournalData": {
-      "description": "",
+      "description": "A number of days that the Journal data is cached",
       "type": "number"
     },
     "daysToCacheLogs": {
-      "description": "",
+      "description": "A number of days that the logs are cached",
       "type": "number"
     },
     "enableDevTools": {
-      "description": "",
+      "description": "Flag to enable dev tools",
       "type": "boolean"
     },
     "logoutClearsTestPersistence": {
-      "description": "",
+      "description": "Flag whether the logout clears test presistence or no",
       "type": "boolean"
     },
     "logsPostApiKey": {
-      "description": "",
+      "description": "Api key for logs post",
       "type": "string"
     },
     "logsApiUrl": {
-      "description": "",
+      "description": "Url for the logs api",
       "type": "string"
     },
     "logsAutoSendInterval": {
-      "description": "",
+      "description": "Time in milliseconds which sets the interval that the logs are sent up",
       "type": "number"
     },
     "authentication": {
