@@ -1,0 +1,212 @@
+{
+  "definitions": {
+    "examinerRole": {
+      "description": "Role of the user who uses the the App",
+      "type": "string",
+      "enum": [
+        "LDTM",
+        "DE"
+      ]
+    },
+    "examinerRoleDescription": {
+      "description": "Description of the Role of the user who uses the the App",
+      "type": "string",
+      "enum": [
+        "Local Driving Test Manager",
+        "Driving Examiner"
+      ]
+    },
+    "testPermisssionPeriod": {
+      "description": "Indicates the categories that the user can start in a time period",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "description": "Test category on which this permission applies",
+          "type": "string"
+        },
+        "from": {
+          "description": "Date when the permission is active from",
+          "type": "string"
+        },
+        "to": {
+          "description": "Date till the permission is active",
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "from"
+      ]
+    },
+    "journal": {
+      "description": "Journal related configuration properties",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "journalUrl": {
+          "description": "Url for getting the journal",
+          "type": "string"
+        },
+        "searchBookingUrl": {
+          "description": "Url for getting a booked test from the journal",
+          "type": "string"
+        },
+        "autoRefreshInterval": {
+          "description": "A time interval in milliseconds that triggers an automatic journal refresh",
+          "type": "number"
+        },
+        "numberOfDaysToView": {
+          "description": "The number of days that the user can see in the journal",
+          "type": "number"
+        },
+        "allowTests": {
+          "description": "Allow tests to get started",
+          "type": "boolean"
+        },
+        "allowedTestCategories": {
+          "description": "Collection of test ",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "testPermissionPeriods": {
+          "description": "A collection of test permissions",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/testPermisssionPeriod"
+          }
+        },
+        "enableTestReportPracticeMode": {
+          "description": "Flag which enables test report practice mode",
+          "type": "boolean"
+        },
+        "enableEndToEndPracticeMode": {
+          "description": "Flag which enables end to end practice mode",
+          "type": "boolean"
+        },
+        "enableLogoutButton": {
+          "description": "Flag which enables logout button",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "journalUrl",
+        "searchBookingUrl",
+        "autoRefreshInterval",
+        "numberOfDaysToView",
+        "allowTests",
+        "allowedTestCategories",
+        "testPermissionPeriods",
+        "enableTestReportPracticeMode",
+        "enableEndToEndPracticeMode",
+        "enableLogoutButton"
+      ]
+    },
+    "tests": {
+      "description": "Test related configuration properties",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "testSubmissionUrl": {
+          "description": "Url for submitting a test",
+          "type": "string"
+        },
+        "autoSendInterval": {
+          "description": "A time interval in milliseconds that the test submission retries",
+          "type": "number"
+        }
+      },
+      "required": [
+        "testSubmissionUrl",
+        "autoSendInterval"
+      ]
+    },
+    "logs": {
+      "description": "Logs related configuration properties",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "description": "Url which is used for the logs API",
+          "type": "string"
+        },
+        "autoSendInterval": {
+          "description": "A time interval that the logs should be sent up to the back-end",
+          "type": "number"
+        }
+      },
+      "required": [
+        "url",
+        "autoSendInterval"
+      ]
+    },
+    "user": {
+      "description": "User related configuration properties",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "findUserUrl": {
+          "description": "Url which is used for finding a user",
+          "type": "string"
+        }
+      },
+      "required": [
+        "findUserUrl"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "https://example.com/arrays.schema.json",
+  "title": "App Config",
+  "type": "object", 
+  "additionalProperties": false,
+  "description": "JSON Schema definition for application configuration",
+  "properties": {
+    "googleAnalyticsId": {
+      "description": "Google analytics id must be included in your tracking code to tell Analytics which account and property to send data to",
+      "type": "string"
+    },
+    "approvedDeviceIdentifiers": {
+      "description": "A collection of device ids that the App can be used on",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "timeTravelDate": {
+      "description": "A property which can be set to simulate a different date in the app as today",
+      "type": "string"
+    },
+    "role": {
+      "$ref": "#/definitions/examinerRole"
+    },
+    "journal": {
+      "$ref": "#/definitions/journal"
+    },
+    "tests": {
+      "$ref": "#/definitions/tests"
+    },
+    "logs": {
+      "$ref": "#/definitions/logs"
+    },
+    "user": {
+      "$ref": "#/definitions/user"
+    },
+    "requestTimeout": {
+      "description": "The number of milliseconds that we wait before a request times out in the App",
+      "type": "number"
+    }
+  },
+  "required": [
+    "googleAnalyticsId",
+    "approvedDeviceIdentifiers",
+    "role",
+    "journal",
+    "tests",
+    "logs",
+    "user",
+    "requestTimeout"
+  ]
+}
