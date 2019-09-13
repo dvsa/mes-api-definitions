@@ -4,6 +4,7 @@
   "description": "JSON Schema of the configuration for the App",
   "scripts": {
     "generate-app-config": "json2ts -i app-config.json -o app-config.d.ts",
+    "generate-mdm-config": "json2ts -i mdm-config.json -o mdm-config.d.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },

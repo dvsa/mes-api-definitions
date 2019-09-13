@@ -1,0 +1,82 @@
+{
+  "definitions": {
+    "authentication": {
+      "description": "Journal related configuration properties",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "context": {
+          "description": "",
+          "type": "string"
+        },
+        "resourceUrl": {
+          "description": "",
+          "type": "string"
+        },
+        "clientId": {
+          "description": "",
+          "type": "string"
+        },
+        "redirectUrl": {
+          "description": "",
+          "type": "string"
+        },
+        "logoutUrl": {
+          "description": "",
+          "type": "string"
+        },
+        "employeeIdKey": {
+          "description": "",
+          "type": "string"
+        }
+      }
+    }  
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "https://example.com/arrays.schema.json",
+  "title": "App Config",
+  "type": "object", 
+  "additionalProperties": false,
+  "description": "JSON Schema definition for application configuration",
+  "properties": {
+    "isRemote": {
+      "description": "",
+      "type": "boolean"
+    },
+    "configUrl": {
+      "description": "",
+      "type": "string"
+    },
+    "daysToCacheJournalData": {
+      "description": "",
+      "type": "number"
+    },
+    "daysToCacheLogs": {
+      "description": "",
+      "type": "number"
+    },
+    "enableDevTools": {
+      "description": "",
+      "type": "boolean"
+    },
+    "logoutClearsTestPersistence": {
+      "description": "",
+      "type": "boolean"
+    },
+    "logsPostApiKey": {
+      "description": "",
+      "type": "string"
+    },
+    "logsApiUrl": {
+      "description": "",
+      "type": "string"
+    },
+    "logsAutoSendInterval": {
+      "description": "",
+      "type": "number"
+    },
+    "authentication": {
+      "$ref": "#/definitions/authentication"
+    }
+  }
+}
