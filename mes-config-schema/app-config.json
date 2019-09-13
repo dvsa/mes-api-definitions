@@ -9,7 +9,7 @@
       ]
     },
     "examinerRoleDescription": {
-      "description": "Description of theRole of the user who uses the the App",
+      "description": "Description of the Role of the user who uses the the App",
       "type": "string",
       "enum": [
         "Local Driving Test Manager",
