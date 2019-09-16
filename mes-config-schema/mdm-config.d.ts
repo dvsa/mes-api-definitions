@@ -12,15 +12,11 @@ export interface MdmConfig {
   /**
    * Flag to define if the app should use the remote config instead
    */
-  isRemote: boolean;
+  isRemote?: boolean;
   /**
    * Remote config url
    */
   configUrl: string;
-  /**
-   * A number of days that the Journal data is cached
-   */
-  daysToCacheJournalData: number;
   /**
    * A number of days that the logs are cached
    */
@@ -28,11 +24,11 @@ export interface MdmConfig {
   /**
    * Flag to enable dev tools
    */
-  enableDevTools: boolean;
+  enableDevTools?: boolean;
   /**
    * Flag whether the logout clears test presistence or no
    */
-  logoutClearsTestPersistence: boolean;
+  logoutClearsTestPersistence?: boolean;
   /**
    * Api key for logs post
    */
@@ -48,7 +44,7 @@ export interface MdmConfig {
   authentication: Authentication;
 }
 /**
- * Journal related configuration properties
+ * Authentication related configuration properties
  */
 export interface Authentication {
   /**

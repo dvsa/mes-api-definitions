@@ -60,6 +60,10 @@
           "description": "The number of days that the user can see in the journal",
           "type": "number"
         },
+        "daysToCacheJournalData": {
+          "description": "The number of days that the journal data will be cached in the app",
+          "type": "number"
+        },
         "allowTests": {
           "description": "Allow tests to get started",
           "type": "boolean"
@@ -96,6 +100,7 @@
         "searchBookingUrl",
         "autoRefreshInterval",
         "numberOfDaysToView",
+        "daysToCacheJournalData",
         "allowTests",
         "allowedTestCategories",
         "testPermissionPeriods",
@@ -120,25 +125,6 @@
       },
       "required": [
         "testSubmissionUrl",
-        "autoSendInterval"
-      ]
-    },
-    "logs": {
-      "description": "Logs related configuration properties",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "url": {
-          "description": "Url which is used for the logs API",
-          "type": "string"
-        },
-        "autoSendInterval": {
-          "description": "A time interval that the logs should be sent up to the back-end",
-          "type": "number"
-        }
-      },
-      "required": [
-        "url",
         "autoSendInterval"
       ]
     },
@@ -187,9 +173,6 @@
     },
     "tests": {
       "$ref": "#/definitions/tests"
-    },
-    "logs": {
-      "$ref": "#/definitions/logs"
     },
     "user": {
       "$ref": "#/definitions/user"

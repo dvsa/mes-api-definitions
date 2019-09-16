@@ -29,7 +29,6 @@ export interface RemoteConfig {
   role: ExaminerRole;
   journal: Journal;
   tests: Tests;
-  logs: Logs;
   user: User;
   /**
    * The number of milliseconds that we wait before a request times out in the App
@@ -56,6 +55,10 @@ export interface Journal {
    * The number of days that the user can see in the journal
    */
   numberOfDaysToView: number;
+  /**
+   * The number of days that the journal data will be cached in the app
+   */
+  daysToCacheJournalData: number;
   /**
    * Allow tests to get started
    */
@@ -108,19 +111,6 @@ export interface Tests {
   testSubmissionUrl: string;
   /**
    * A time interval in milliseconds that the test submission retries
-   */
-  autoSendInterval: number;
-}
-/**
- * Logs related configuration properties
- */
-export interface Logs {
-  /**
-   * Url which is used for the logs API
-   */
-  url: string;
-  /**
-   * A time interval that the logs should be sent up to the back-end
    */
   autoSendInterval: number;
 }
