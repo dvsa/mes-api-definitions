@@ -56,6 +56,10 @@ export interface Journal {
    */
   numberOfDaysToView: number;
   /**
+   * The number of days that the journal data will be cached in the app
+   */
+  daysToCacheJournalData: number;
+  /**
    * Allow tests to get started
    */
   allowTests: boolean;
