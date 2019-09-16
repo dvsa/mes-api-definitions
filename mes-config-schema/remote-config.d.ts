@@ -70,7 +70,7 @@ export interface Journal {
   /**
    * A collection of test permissions
    */
-  testPermissionPeriods: TestPermisssionPeriod[];
+  testPermissionPeriods: TestPermissionPeriod[];
   /**
    * Flag which enables test report practice mode
    */
@@ -87,7 +87,7 @@ export interface Journal {
 /**
  * Indicates the categories that the user can start in a time period
  */
-export interface TestPermisssionPeriod {
+export interface TestPermissionPeriod {
   /**
    * Test category on which this permission applies
    */

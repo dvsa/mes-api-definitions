@@ -16,7 +16,7 @@
         "Driving Examiner"
       ]
     },
-    "testPermisssionPeriod": {
+    "testPermissionPeriod": {
       "description": "Indicates the categories that the user can start in a time period",
       "type": "object",
       "additionalProperties": false,
@@ -79,7 +79,7 @@
           "description": "A collection of test permissions",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/testPermisssionPeriod"
+            "$ref": "#/definitions/testPermissionPeriod"
           }
         },
         "enableTestReportPracticeMode": {
