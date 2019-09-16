@@ -1,0 +1,102 @@
+{
+  "definitions": {
+    "authentication": {
+      "description": "Journal related configuration properties",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "context": {
+          "description": "Authentication context",
+          "type": "string"
+        },
+        "resourceUrl": {
+          "description": "Resource Url",
+          "type": "string"
+        },
+        "clientId": {
+          "description": "Client Id",
+          "type": "string"
+        },
+        "redirectUrl": {
+          "description": "Redirect Url",
+          "type": "string"
+        },
+        "logoutUrl": {
+          "description": "Logout Url",
+          "type": "string"
+        },
+        "employeeIdKey": {
+          "description": "Key for the employee Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "context",
+        "resourceUrl",
+        "clientId",
+        "redirectUrl",
+        "logoutUrl",
+        "employeeIdKey"
+      ]
+    }  
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "https://example.com/arrays.schema.json",
+  "title": "Mdm Config",
+  "type": "object", 
+  "additionalProperties": false,
+  "description": "JSON Schema definition for MDM configuration",
+  "properties": {
+    "isRemote": {
+      "description": "Flag to define if the app should use the remote config instead",
+      "type": "boolean"
+    },
+    "configUrl": {
+      "description": "Remote config url",
+      "type": "string"
+    },
+    "daysToCacheJournalData": {
+      "description": "A number of days that the Journal data is cached",
+      "type": "number"
+    },
+    "daysToCacheLogs": {
+      "description": "A number of days that the logs are cached",
+      "type": "number"
+    },
+    "enableDevTools": {
+      "description": "Flag to enable dev tools",
+      "type": "boolean"
+    },
+    "logoutClearsTestPersistence": {
+      "description": "Flag whether the logout clears test presistence or no",
+      "type": "boolean"
+    },
+    "logsPostApiKey": {
+      "description": "Api key for logs post",
+      "type": "string"
+    },
+    "logsApiUrl": {
+      "description": "Url for the logs api",
+      "type": "string"
+    },
+    "logsAutoSendInterval": {
+      "description": "Time in milliseconds which sets the interval that the logs are sent up",
+      "type": "number"
+    },
+    "authentication": {
+      "$ref": "#/definitions/authentication"
+    }
+  },
+  "required": [
+    "isRemote",
+    "configUrl",
+    "daysToCacheJournalData",
+    "daysToCacheLogs",
+    "enableDevTools",
+    "logoutClearsTestPersistence",
+    "logsPostApiKey",
+    "logsApiUrl",
+    "logsAutoSendInterval",
+    "authentication"
+  ]
+}
