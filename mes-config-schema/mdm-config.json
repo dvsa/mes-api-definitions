@@ -1,7 +1,7 @@
 {
   "definitions": {
     "authentication": {
-      "description": "Journal related configuration properties",
+      "description": "Authentication related configuration properties",
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -55,10 +55,6 @@
       "description": "Remote config url",
       "type": "string"
     },
-    "daysToCacheJournalData": {
-      "description": "A number of days that the Journal data is cached",
-      "type": "number"
-    },
     "daysToCacheLogs": {
       "description": "A number of days that the logs are cached",
       "type": "number"
@@ -88,12 +84,9 @@
     }
   },
   "required": [
-    "isRemote",
     "configUrl",
     "daysToCacheJournalData",
     "daysToCacheLogs",
-    "enableDevTools",
-    "logoutClearsTestPersistence",
     "logsPostApiKey",
     "logsApiUrl",
     "logsAutoSendInterval",

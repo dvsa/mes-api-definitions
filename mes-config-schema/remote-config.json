@@ -123,25 +123,6 @@
         "autoSendInterval"
       ]
     },
-    "logs": {
-      "description": "Logs related configuration properties",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "url": {
-          "description": "Url which is used for the logs API",
-          "type": "string"
-        },
-        "autoSendInterval": {
-          "description": "A time interval that the logs should be sent up to the back-end",
-          "type": "number"
-        }
-      },
-      "required": [
-        "url",
-        "autoSendInterval"
-      ]
-    },
     "user": {
       "description": "User related configuration properties",
       "type": "object",
@@ -187,9 +168,6 @@
     },
     "tests": {
       "$ref": "#/definitions/tests"
-    },
-    "logs": {
-      "$ref": "#/definitions/logs"
     },
     "user": {
       "$ref": "#/definitions/user"
