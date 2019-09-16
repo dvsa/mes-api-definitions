@@ -29,7 +29,15 @@
           "description": "Key for the employee Id",
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "context",
+        "resourceUrl",
+        "clientId",
+        "redirectUrl",
+        "logoutUrl",
+        "employeeIdKey"
+      ]
     }  
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
@@ -78,5 +86,17 @@
     "authentication": {
       "$ref": "#/definitions/authentication"
     }
-  }
+  },
+  "required": [
+    "isRemote",
+    "configUrl",
+    "daysToCacheJournalData",
+    "daysToCacheLogs",
+    "enableDevTools",
+    "logoutClearsTestPersistence",
+    "logsPostApiKey",
+    "logsApiUrl",
+    "logsAutoSendInterval",
+    "authentication"
+  ]
 }

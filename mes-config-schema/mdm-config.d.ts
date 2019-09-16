@@ -12,40 +12,40 @@ export interface MdmConfig {
   /**
    * Flag to define if the app should use the remote config instead
    */
-  isRemote?: boolean;
+  isRemote: boolean;
   /**
    * Remote config url
    */
-  configUrl?: string;
+  configUrl: string;
   /**
    * A number of days that the Journal data is cached
    */
-  daysToCacheJournalData?: number;
+  daysToCacheJournalData: number;
   /**
    * A number of days that the logs are cached
    */
-  daysToCacheLogs?: number;
+  daysToCacheLogs: number;
   /**
    * Flag to enable dev tools
    */
-  enableDevTools?: boolean;
+  enableDevTools: boolean;
   /**
    * Flag whether the logout clears test presistence or no
    */
-  logoutClearsTestPersistence?: boolean;
+  logoutClearsTestPersistence: boolean;
   /**
    * Api key for logs post
    */
-  logsPostApiKey?: string;
+  logsPostApiKey: string;
   /**
    * Url for the logs api
    */
-  logsApiUrl?: string;
+  logsApiUrl: string;
   /**
    * Time in milliseconds which sets the interval that the logs are sent up
    */
-  logsAutoSendInterval?: number;
-  authentication?: Authentication;
+  logsAutoSendInterval: number;
+  authentication: Authentication;
 }
 /**
  * Journal related configuration properties
@@ -54,25 +54,25 @@ export interface Authentication {
   /**
    * Authentication context
    */
-  context?: string;
+  context: string;
   /**
    * Resource Url
    */
-  resourceUrl?: string;
+  resourceUrl: string;
   /**
    * Client Id
    */
-  clientId?: string;
+  clientId: string;
   /**
    * Redirect Url
    */
-  redirectUrl?: string;
+  redirectUrl: string;
   /**
    * Logout Url
    */
-  logoutUrl?: string;
+  logoutUrl: string;
   /**
    * Key for the employee Id
    */
-  employeeIdKey?: string;
+  employeeIdKey: string;
 }
