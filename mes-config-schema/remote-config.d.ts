@@ -99,7 +99,7 @@ export interface TestPermissionPeriod {
   /**
    * Date till the permission is active
    */
-  to?: string;
+  to: null | string;
 }
 /**
  * Test related configuration properties
