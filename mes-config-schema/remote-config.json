@@ -31,12 +31,16 @@
         },
         "to": {
           "description": "Date till the permission is active",
-          "type": "string"
+          "type": [
+            "null",
+            "string"
+          ]
         }
       },
       "required": [
         "category",
-        "from"
+        "from",
+        "to"
       ]
     },
     "journal": {
