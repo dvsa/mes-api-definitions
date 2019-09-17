@@ -21,7 +21,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "category": {
+        "testCategory": {
           "description": "Test category on which this permission applies",
           "type": "string"
         },
@@ -38,7 +38,7 @@
         }
       },
       "required": [
-        "category",
+        "testCategory",
         "from",
         "to"
       ]
