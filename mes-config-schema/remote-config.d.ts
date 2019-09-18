@@ -91,7 +91,7 @@ export interface TestPermissionPeriod {
   /**
    * Test category on which this permission applies
    */
-  category: string;
+  testCategory: string;
   /**
    * Date when the permission is active from
    */
