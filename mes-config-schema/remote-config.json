@@ -165,6 +165,10 @@
         "type": "string"
       }
     },
+    "employeeNameKey": {
+      "description": "Key for the employee name",
+      "type": "string"
+    },
     "timeTravelDate": {
       "description": "A property which can be set to simulate a different date in the app as today",
       "type": "string"

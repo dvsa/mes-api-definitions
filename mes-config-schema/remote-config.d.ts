@@ -23,6 +23,10 @@ export interface RemoteConfig {
    */
   approvedDeviceIdentifiers: string[];
   /**
+   * Key for the employee name
+   */
+  employeeNameKey?: string;
+  /**
    * A property which can be set to simulate a different date in the app as today
    */
   timeTravelDate?: string;
