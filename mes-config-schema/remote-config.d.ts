@@ -25,7 +25,7 @@ export interface RemoteConfig {
   /**
    * Key for the employee name
    */
-  employeeNameKey?: string;
+  employeeNameKey: string;
   /**
    * A property which can be set to simulate a different date in the app as today
    */
