@@ -178,6 +178,10 @@ export interface StandardCarTestCATBSchema {
    * The examiner who keyed the test into the iPad
    */
   examinerKeyed: number;
+  /**
+   * Whether the test was autosaved or not
+   */
+  autosaved?: boolean;
 }
 /**
  * Data brought through from the journal

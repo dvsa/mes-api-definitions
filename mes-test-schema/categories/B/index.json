@@ -1807,6 +1807,10 @@
     "examinerKeyed": {
       "description": "The examiner who keyed the test into the iPad",
       "type": "number"
+    },
+    "autosaved": {
+      "description": "Whether the test was autosaved or not",
+      "type": "boolean"
     }
   },
   "additionalProperties": false,
