@@ -139,6 +139,10 @@ export type WeatherConditions =
 
 export interface StandardCarTestCATBSchema {
   /**
+   * Version number
+   */
+  version: string;
+  /**
    * Category code for the test report
    */
   category: string;

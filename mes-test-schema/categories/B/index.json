@@ -1744,6 +1744,10 @@
     }
   },
   "properties": {
+    "version": {
+      "description": "Version number",
+      "type": "string"
+    },
     "category": {
       "description": "Category code for the test report",
       "type": "string"
@@ -1811,6 +1815,7 @@
   },
   "additionalProperties": false,
   "required": [
+    "version",
     "category",
     "journalData",
     "activityCode",
