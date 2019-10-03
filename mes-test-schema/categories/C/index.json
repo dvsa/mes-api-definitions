@@ -522,15 +522,15 @@
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         },
-        "upHill": {
+        "angledStartControlledStop": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         },
-        "downnHill": {
+        "upHillStart": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         },
-        "angledStart": {
+        "downnHillStart": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         }
