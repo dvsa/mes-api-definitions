@@ -1,5 +1,5 @@
 {
-  "title": "Standard Lorry Test (CAT C) Schema",
+  "title": "Large lorries test (CAT C) Schema",
   "type": "object",
   "definitions": {
     "examiner": {
@@ -530,7 +530,7 @@
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         },
-        "downnHillStart": {
+        "downHillStart": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         }
@@ -574,21 +574,6 @@
             }
           },
           "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
-    },
-    "controlledStop": {
-      "type": "object",
-      "properties": {
-        "selected": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        },
-        "fault": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "faultComments": {
-          "$ref": "#/definitions/faultComments"
         }
       },
       "additionalProperties": false
