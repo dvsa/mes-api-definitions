@@ -867,7 +867,7 @@ export interface PassCompletion {
   /**
    * Indicate presence of code 78 (automatic) on candidates license
    */
-  code78Present?: boolean;
+  code78Present: boolean;
 }
 export interface PostTestDeclarations {
   /**

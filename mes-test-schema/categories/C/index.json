@@ -1436,7 +1436,8 @@
       "additionalProperties": false,
       "required": [
         "provisionalLicenceProvided",
-        "passCertificateNumber"
+        "passCertificateNumber",
+        "code78Present"
       ]
     },
     "postTestDeclarations": {
