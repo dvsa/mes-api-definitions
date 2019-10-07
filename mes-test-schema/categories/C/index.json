@@ -188,6 +188,7 @@
           "maxLength": 20
         },
         "businessAddress":{
+          "description": "Address of the business the candidate relates to",
           "$ref": "#/definitions/address"
         }
       },
@@ -442,6 +443,14 @@
         },
         "gearboxCategory": {
           "$ref": "#/definitions/gearboxCategory"
+        },
+        "vehicleHeight": {
+          "description": "Indicates the height of the vehicle",
+          "type": "number"
+        },
+        "vehicleWidth": {
+          "description": "Indicates the width of the vehicle",
+          "type": "number"
         }
       },
       "additionalProperties": false
@@ -1383,9 +1392,6 @@
         },
         "manoeuvres": {
           "$ref": "#/definitions/manoeuvres"
-        },
-        "controlledStop": {
-          "$ref": "#/definitions/controlledStop"
         },
         "drivingFaults": {
           "$ref": "#/definitions/drivingFaults"

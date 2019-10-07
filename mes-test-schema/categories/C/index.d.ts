@@ -137,7 +137,7 @@ export type WeatherConditions =
   | "Icy"
   | "Windy";
 
-export interface StandardLorryTestCATCSchema {
+export interface LargeLorriesTestCATCSchema {
   /**
    * Version number
    */
@@ -330,7 +330,35 @@ export interface Candidate {
    * Telephone number of the business the candidate relates to
    */
   businessTelephone?: string;
-  businessAddress?: Address;
+  /**
+   * Address of the business the candidate relates to
+   */
+  businessAddress?: {
+    /**
+     * First line of address
+     */
+    addressLine1?: string;
+    /**
+     * Second line of address
+     */
+    addressLine2?: string;
+    /**
+     * Third line of address
+     */
+    addressLine3?: string;
+    /**
+     * Fourth line of address
+     */
+    addressLine4?: string;
+    /**
+     * Fifth line of address
+     */
+    addressLine5?: string;
+    /**
+     * The address postcode
+     */
+    postcode?: string;
+  };
 }
 /**
  * Details of the individual's name
@@ -452,6 +480,14 @@ export interface VehicleDetails {
    */
   registrationNumber?: string;
   gearboxCategory?: GearboxCategory;
+  /**
+   * Indicates the height of the vehicle
+   */
+  vehicleHeight?: number;
+  /**
+   * Indicates the width of the vehicle
+   */
+  vehicleWidth?: number;
 }
 /**
  * Data associated with the test
@@ -460,7 +496,6 @@ export interface TestData {
   vehicleChecks?: VehicleChecks;
   testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres;
-  controlledStop?: ControlledStop;
   drivingFaults?: DrivingFaults;
   seriousFaults?: SeriousFaults;
   dangerousFaults?: DangerousFaults;
@@ -499,15 +534,15 @@ export interface TestRequirements {
   /**
    * Indicates whether or not this test requirement was carried out
    */
-  upHill?: boolean;
+  angledStartControlledStop?: boolean;
   /**
    * Indicates whether or not this test requirement was carried out
    */
-  downnHill?: boolean;
+  upHillStart?: boolean;
   /**
    * Indicates whether or not this test requirement was carried out
    */
-  angledStart?: boolean;
+  downHillStart?: boolean;
 }
 /**
  * The manoeuvres that were carried out during the test and any faults recorded against them
@@ -520,11 +555,6 @@ export interface Manoeuvres {
     controlFaultComments?: FaultComments;
     observationFaultComments?: FaultComments;
   };
-}
-export interface ControlledStop {
-  selected?: ManoeuvreIndicator;
-  fault?: ManoeuvreOutcome;
-  faultComments?: FaultComments;
 }
 /**
  * The driving faults accumulated during the test
@@ -834,6 +864,10 @@ export interface PassCompletion {
    * The PCN issued to the candidate
    */
   passCertificateNumber: string;
+  /**
+   * Indicate presence of code 78 (automatic) on candidates license
+   */
+  code78Present?: boolean;
 }
 export interface PostTestDeclarations {
   /**
