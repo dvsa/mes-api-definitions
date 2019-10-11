@@ -6,6 +6,7 @@
     "generate-cat-b": "json2ts -i categories/B/index.json -o categories/B/index.d.ts",
     "generate-cat-be": "json2ts -i categories/BE/index.json -o categories/BE/index.d.ts",
     "generate-cat-c": "json2ts -i categories/C/index.json -o categories/C/index.d.ts",
+    "generate": "json2ts -i categories/index.json -o categories/index.d.ts",
     "test": ""
   },
   "repository": {

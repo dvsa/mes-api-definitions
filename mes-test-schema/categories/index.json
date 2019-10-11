@@ -1,0 +1,47 @@
+{
+  "title": "Test Schema",
+  "type": "object",
+  "definitions": {
+    "B": {
+      "description": "Category B Schema",
+      "type": "object",
+      "$ref": "categories/B/index.json",
+      "additionalProperties": false
+    },
+    "BE": {
+      "description": "Category BE Schema",
+      "type": "object",
+      "$ref": "categories/BE/index.json",
+      "additionalProperties": false
+    },
+    "C": {
+      "description": "Category C Schema",
+      "type": "object",
+      "$ref": "categories/C/index.json",
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "B": {
+      "$ref": "#/definitions/B"
+    },
+    "BE": {
+      "$ref": "#/definitions/BE"
+    },
+    "C": {
+      "$ref": "#/definitions/C"
+    }
+  },
+  "additionalProperties": false,
+  "oneOf": [
+    {
+      "$ref": "#/definitions/B"
+    },
+    {
+      "$ref": "#/definitions/BE"
+    },
+    {
+      "$ref": "#/definitions/C"
+    }
+  ]
+}
