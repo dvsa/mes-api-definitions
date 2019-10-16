@@ -3,10 +3,9 @@
   "version": "3.1.1",
   "description": "Domain model for data associated with tests administered by the Mobile Examiners Service",
   "scripts": {
-    "generate-cat-b": "json2ts -i categories/B/index.json -o categories/B/index.d.ts",
-    "generate-cat-be": "json2ts -i categories/BE/index.json -o categories/BE/index.d.ts",
-    "generate-cat-c": "json2ts -i categories/C/index.json -o categories/C/index.d.ts",
-    "test": ""
+    "generate": "ts-node generateSchemas.ts generate",
+    "clean": "ts-node generateSchemas.ts clean",
+    "test": "ts-node generateSchemas.ts test"
   },
   "repository": {
     "type": "git",
@@ -21,8 +20,13 @@
     "url": "https://github.com/dvsa/mes-api-definitions/issues"
   },
   "homepage": "https://github.com/dvsa/mes-api-definitions#readme",
-  "dependencies": {},
+  "dependencies": {
+    "deepmerge": "^4.1.1"
+  },
   "devDependencies": {
-    "json-schema-to-typescript": "^6.1.3"
+    "json-schema-to-typescript": "^6.1.3",
+    "pretty-js": "^0.2.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
   }
 }

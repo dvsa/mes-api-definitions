@@ -137,7 +137,7 @@ export type WeatherConditions =
   | "Icy"
   | "Windy";
 
-export interface StandardCarTestCATBSchema {
+export interface PartialStandardCarTestCATBSchema {
   /**
    * Version number
    */

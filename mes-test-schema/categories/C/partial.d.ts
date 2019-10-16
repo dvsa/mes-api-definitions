@@ -137,7 +137,7 @@ export type WeatherConditions =
   | "Icy"
   | "Windy";
 
-export interface StandardTrailerTestCATBESchema {
+export interface PartialLargeLorriesTestCATCSchema {
   /**
    * Version number
    */
@@ -330,7 +330,35 @@ export interface Candidate {
    * Telephone number of the business the candidate relates to
    */
   businessTelephone?: string;
-  businessAddress?: Address;
+  /**
+   * Address of the business the candidate relates to
+   */
+  businessAddress?: {
+    /**
+     * First line of address
+     */
+    addressLine1?: string;
+    /**
+     * Second line of address
+     */
+    addressLine2?: string;
+    /**
+     * Third line of address
+     */
+    addressLine3?: string;
+    /**
+     * Fourth line of address
+     */
+    addressLine4?: string;
+    /**
+     * Fifth line of address
+     */
+    addressLine5?: string;
+    /**
+     * The address postcode
+     */
+    postcode?: string;
+  };
 }
 /**
  * Details of the individual's name
@@ -453,14 +481,6 @@ export interface VehicleDetails {
   registrationNumber?: string;
   gearboxCategory?: GearboxCategory;
   /**
-   * Indicates whether the vehicle belongs to a driving school
-   */
-  schoolCar?: boolean;
-  /**
-   * Indicates whether or not the vehicle has dual controls fitted
-   */
-  dualControls?: boolean;
-  /**
    * Indicates the height of the vehicle
    */
   vehicleHeight?: number;
@@ -476,14 +496,12 @@ export interface TestData {
   vehicleChecks?: VehicleChecks;
   testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres;
-  uncoupleRecouple?: UncoupleRecouple;
   drivingFaults?: DrivingFaults;
   seriousFaults?: SeriousFaults;
   dangerousFaults?: DangerousFaults;
   eco?: Eco;
   ETA?: ETA;
   faultSummary?: FaultSummary;
-  eyesightTest?: EyesightTest;
 }
 /**
  * Details of the Show Me and Tell Me questions asked during the test
@@ -520,11 +538,11 @@ export interface TestRequirements {
   /**
    * Indicates whether or not this test requirement was carried out
    */
-  uphillStart?: boolean;
+  upHillStart?: boolean;
   /**
    * Indicates whether or not this test requirement was carried out
    */
-  downhillStart?: boolean;
+  downHillStart?: boolean;
 }
 /**
  * The manoeuvres that were carried out during the test and any faults recorded against them
@@ -537,11 +555,6 @@ export interface Manoeuvres {
     controlFaultComments?: FaultComments;
     observationFaultComments?: FaultComments;
   };
-}
-export interface UncoupleRecouple {
-  selected?: ManoeuvreIndicator;
-  fault?: ManoeuvreOutcome;
-  faultComments?: FaultComments;
 }
 /**
  * The driving faults accumulated during the test
@@ -838,14 +851,6 @@ export interface FaultSummary {
    * Count of the total number of dangerous faults incurred during the test
    */
   totalDangerousFaults?: number;
-}
-export interface EyesightTest {
-  complete?: boolean;
-  /**
-   * Whether the candidate has failed the eyesight test
-   */
-  seriousFault?: boolean;
-  faultComments?: FaultComments;
 }
 /**
  * Finalisation of a successful test outcome
