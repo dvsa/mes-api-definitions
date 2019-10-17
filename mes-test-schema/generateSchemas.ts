@@ -42,6 +42,7 @@ if (cliArgument === 'generate') {
 
     // Generate typescript files
     generateTypescriptInterfaces(partialSchema);
+    // generateTypescriptInterfaces(combinedSchema);
   }
   console.log('All categories have been generated');
 }
@@ -49,11 +50,15 @@ if (cliArgument === 'generate') {
 function generateCombinedSchema(partialSchemaLocation: string, combinedSchemaLocation: string) {
   const currentCategoryJson = require(partialSchemaLocation);
   currentCategoryJson['title'] = currentCategoryJson['title'].replace('Partial ', '');
-  fs.writeFileSync(combinedSchemaLocation, prettyJs(JSON.stringify(merge(common, currentCategoryJson)), options));
+  let combinedJsonString = JSON.stringify(merge(common, currentCategoryJson));
+  combinedJsonString = combinedJsonString.replace(/..\/Common\/index.json/g, '');
+  fs.writeFileSync(combinedSchemaLocation, prettyJs(combinedJsonString, options));
 }
 
 function generateTypescriptInterfaces(schemaLocation: string) {
-  json2ts.compileFromFile(schemaLocation)
+  json2ts.compileFromFile(schemaLocation, {
+    unreachableDefinitions: true
+  })
     .then(ts => fs.writeFileSync(schemaLocation.replace('.json', '.d.ts'), ts))
 }
 
