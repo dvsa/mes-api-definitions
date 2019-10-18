@@ -2,6 +2,22 @@
   "title": "Partial Standard Car Test (CAT B) Schema",
   "type": "object",
   "definitions": {
+	"eyesightTest": {
+		"type": "object",
+		"properties": {
+		  "complete": {
+			"type": "boolean"
+		  },
+		  "seriousFault": {
+			"description": "Whether the candidate has failed the eyesight test",
+			"type": "boolean"
+		  },
+		  "faultComments": {
+			"$ref": "#/definitions/faultComments"
+		  }
+		},
+		"additionalProperties": false
+	},
     "controlledStop": {
       "additionalProperties": false,
       "properties": {
@@ -138,7 +154,7 @@
           "$ref": "../Common/index.json#/definitions/ETA"
         },
         "eyesightTest": {
-          "$ref": "../Common/index.json#/definitions/eyesightTest"
+          "$ref": "#/definitions/eyesightTest"
         },
         "faultSummary": {
           "$ref": "../Common/index.json#/definitions/faultSummary"
