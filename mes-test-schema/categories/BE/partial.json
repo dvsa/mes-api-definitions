@@ -125,7 +125,23 @@
         }
       },
       "type": "object"
-    },
+	},
+	"eyesightTest": {
+		"type": "object",
+		"properties": {
+		  "complete": {
+			"type": "boolean"
+		  },
+		  "seriousFault": {
+			"description": "Whether the candidate has failed the eyesight test",
+			"type": "boolean"
+		  },
+		  "faultComments": {
+			"$ref": "#/definitions/faultComments"
+		  }
+		},
+		"additionalProperties": false
+	},
     "testData": {
       "description": "Data associated with the test",
       "type": "object",
@@ -140,7 +156,7 @@
           "$ref": "../Common/index.json#/definitions/vehicleChecks"
         },
         "testRequirements": {
-          "$ref": "../Common/index.json#/definitions/testRequirements"
+          "$ref": "#/definitions/testRequirements"
         },
         "drivingFaults": {
           "$ref": "../Common/index.json#/definitions/drivingFaults"
