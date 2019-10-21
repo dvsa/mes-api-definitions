@@ -9,3 +9,11 @@ See [OpenAPI Definition](https://combinatronics.com/dvsa/mes-api-definitions/dev
 
 Example category B schema usage:  
 `import { StandardCarTestCATBSchema } from '@dvsa/mes-test-schema/categories/B';`
+
+# Generating schemas for mes-test-schema
+
+To clean current schemas, run the command:
+`npm run clean`
+
+To generate new schemas, (Combining the partials and common schema), run the command:
+`npm run generate`
