@@ -4,10 +4,10 @@ import { PartialTestResultCatCSchema } from "./C/partial";
 import { TestResultCommonSchema } from "./Common/index";
 
 export type TestResultSchemasUnion =
-  | StandardCarTestCATBSchema
-  | StandardTrailerTestCATBESchema
-  | LargeLorriesTestCATCSchema;
+  | StandardTestResultCatBSchema
+  | StandardTestResultCatBESchema
+  | StandardTestResultCatCSchema;
 
-export type StandardCarTestCATBSchema = PartialTestResultCatBSchema & TestResultCommonSchema;
-export type StandardTrailerTestCATBESchema = PartialTestResultCatBESchema & TestResultCommonSchema;
-export type LargeLorriesTestCATCSchema = PartialTestResultCatCSchema & TestResultCommonSchema;
+export type StandardTestResultCatBSchema = PartialTestResultCatBSchema & TestResultCommonSchema;
+export type StandardTestResultCatBESchema = PartialTestResultCatBESchema & TestResultCommonSchema;
+export type StandardTestResultCatCSchema = PartialTestResultCatCSchema & TestResultCommonSchema;
