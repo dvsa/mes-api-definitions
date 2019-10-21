@@ -8,19 +8,19 @@
 /**
  * Comments recorded against a fault
  *
- * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
  * via the `definition` "faultComments".
  */
 export type FaultComments = string;
 
-export interface PartialStandardTrailerTestCATBESchema {
+export interface PartialTestResultCatBESchema {
   passCompletion?: PassCompletion;
   testData?: TestData;
 }
 /**
  * Finalisation of a successful test outcome
  *
- * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
  * via the `definition` "passCompletion".
  */
 export interface PassCompletion {
@@ -32,7 +32,7 @@ export interface PassCompletion {
 /**
  * Data associated with the test
  *
- * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
  * via the `definition` "testData".
  */
 export interface TestData {
@@ -1041,7 +1041,7 @@ export interface TestData {
   eyesightTest?: EyesightTest;
 }
 /**
- * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
  * via the `definition` "uncoupleRecouple".
  */
 export interface UncoupleRecouple {
@@ -1059,7 +1059,7 @@ export interface UncoupleRecouple {
   selected?: boolean;
 }
 /**
- * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
  * via the `definition` "manoeuvres".
  */
 export interface Manoeuvres {
@@ -1090,7 +1090,7 @@ export interface Manoeuvres {
 /**
  * Details of the Show Me and Tell Me questions asked during the test
  *
- * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
  * via the `definition` "vehicleChecks".
  */
 export interface VehicleChecks {
@@ -1127,7 +1127,7 @@ export interface VehicleChecks {
 /**
  * The test requirements that must be carried out during a test
  *
- * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
  * via the `definition` "testRequirements".
  */
 export interface TestRequirements {
@@ -1145,7 +1145,7 @@ export interface TestRequirements {
   uphillStart?: boolean;
 }
 /**
- * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
  * via the `definition` "eyesightTest".
  */
 export interface EyesightTest {
@@ -1160,7 +1160,7 @@ export interface EyesightTest {
   faultComments?: string;
 }
 /**
- * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
  * via the `definition` "vehicleDetails".
  */
 export interface VehicleDetails {
@@ -1183,7 +1183,7 @@ export interface VehicleDetails {
   [k: string]: any;
 }
 /**
- * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
  * via the `definition` "candidate".
  */
 export interface Candidate {

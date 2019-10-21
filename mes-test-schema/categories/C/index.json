@@ -1,5 +1,5 @@
 {
-	"title": "Large lorries test (CAT C) Schema",
+	"title": "Test Result Cat C Schema",
 	"type": "object",
 	"definitions": {
 		"testData": {

@@ -1,5 +1,5 @@
 {
-  "title": "Partial Large lorries test (CAT C) Schema",
+  "title": "Partial Test Result Cat C Schema",
   "type": "object",
   "definitions": {
     "candidate": {

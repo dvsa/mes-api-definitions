@@ -8,18 +8,18 @@
 /**
  * Comments recorded against a fault
  *
- * This interface was referenced by `PartialStandardCarTestCATBSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "faultComments".
  */
 export type FaultComments = string;
 
-export interface PartialStandardCarTestCATBSchema {
+export interface PartialTestResultCatBSchema {
   instructorDetails?: InstructorDetails;
 }
 /**
  * Details about the candidate's driving instructor
  *
- * This interface was referenced by `PartialStandardCarTestCATBSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "instructorDetails".
  */
 export interface InstructorDetails {
@@ -29,7 +29,7 @@ export interface InstructorDetails {
   registrationNumber?: number;
 }
 /**
- * This interface was referenced by `PartialStandardCarTestCATBSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "eyesightTest".
  */
 export interface EyesightTest {
@@ -41,7 +41,7 @@ export interface EyesightTest {
   faultComments?: FaultComments;
 }
 /**
- * This interface was referenced by `PartialStandardCarTestCATBSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "controlledStop".
  */
 export interface ControlledStop {
@@ -59,7 +59,7 @@ export interface ControlledStop {
   selected?: boolean;
 }
 /**
- * This interface was referenced by `PartialStandardCarTestCATBSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "manoeuvres".
  */
 export interface Manoeuvres {
@@ -154,7 +154,7 @@ export interface Manoeuvres {
   [k: string]: any;
 }
 /**
- * This interface was referenced by `PartialStandardCarTestCATBSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "testData".
  */
 export interface TestData {
@@ -1181,7 +1181,7 @@ export interface TestData {
 /**
  * Details of the Show Me and Tell Me questions asked during the test
  *
- * This interface was referenced by `PartialStandardCarTestCATBSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "vehicleChecks".
  */
 export interface VehicleChecks {
@@ -1219,7 +1219,7 @@ export interface VehicleChecks {
   };
 }
 /**
- * This interface was referenced by `PartialStandardCarTestCATBSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "testRequirements".
  */
 export interface TestRequirements {
@@ -1234,7 +1234,7 @@ export interface TestRequirements {
   [k: string]: any;
 }
 /**
- * This interface was referenced by `PartialStandardCarTestCATBSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "vehicleDetails".
  */
 export interface VehicleDetails {

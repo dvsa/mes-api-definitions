@@ -5,9 +5,9 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface PartialLargeLorriesTestCATCSchema {}
+export interface PartialTestResultCatCSchema {}
 /**
- * This interface was referenced by `PartialLargeLorriesTestCATCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
  * via the `definition` "candidate".
  */
 export interface Candidate {
@@ -51,7 +51,7 @@ export interface Candidate {
   [k: string]: any;
 }
 /**
- * This interface was referenced by `PartialLargeLorriesTestCATCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
  * via the `definition` "testData".
  */
 export interface TestData {
@@ -1061,7 +1061,7 @@ export interface TestData {
 /**
  * The manoeuvres that were carried out during the test and any faults recorded against them
  *
- * This interface was referenced by `PartialLargeLorriesTestCATCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
  * via the `definition` "manoeuvres".
  */
 export interface Manoeuvres {
@@ -1091,7 +1091,7 @@ export interface Manoeuvres {
 /**
  * The test requirements that must be carried out during a test
  *
- * This interface was referenced by `PartialLargeLorriesTestCATCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
  * via the `definition` "testRequirements".
  */
 export interface TestRequirements {
@@ -1119,7 +1119,7 @@ export interface TestRequirements {
 /**
  * Details of the Show Me and Tell Me questions asked during the test
  *
- * This interface was referenced by `PartialLargeLorriesTestCATCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
  * via the `definition` "vehicleChecks".
  */
 export interface VehicleChecks {
@@ -1157,7 +1157,7 @@ export interface VehicleChecks {
   }[];
 }
 /**
- * This interface was referenced by `PartialLargeLorriesTestCATCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
  * via the `definition` "passCompletion".
  */
 export interface PassCompletion {
@@ -1170,7 +1170,7 @@ export interface PassCompletion {
 /**
  * Details about the vehicle to be used for the test
  *
- * This interface was referenced by `PartialLargeLorriesTestCATCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
  * via the `definition` "vehicleDetails".
  */
 export interface VehicleDetails {

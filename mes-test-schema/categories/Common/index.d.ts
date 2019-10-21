@@ -8,21 +8,21 @@
 /**
  * The reason for the previous test cancellation
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "initiator".
  */
 export type Initiator = "Act of nature" | "DSA";
 /**
  * The gender of an individual, limited to 'M' or 'F' as per TARS master data
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "gender".
  */
 export type Gender = "M" | "F";
 /**
  * Code representing the result of the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "activityCode".
  */
 export type ActivityCode =
@@ -74,42 +74,42 @@ export type ActivityCode =
 /**
  * The method of communication by which the candidate agrees to receive their results
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "communicationMethod".
  */
 export type CommunicationMethod = "Email" | "Post" | "Support Centre" | "Not provided";
 /**
  * The language in which a candidate agrees to perform a test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "conductedLanguage".
  */
 export type ConductedLanguage = "English" | "Cymraeg" | "Not provided";
 /**
  * Base 64 encoded binary data representing a PNG image of the candidates signature
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "signature".
  */
 export type Signature = string;
 /**
  * Method chosen to conduct the independent driving section of the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "independentDriving".
  */
 export type IndependentDriving = "Sat nav" | "Traffic signs" | "N/A";
 /**
  * Indicates which form of ID was provided by the candidate
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "identification".
  */
 export type Identification = "Licence" | "Passport";
 /**
  * Predefined values for the type of weather encountered during the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "weatherConditions".
  */
 export type WeatherConditions =
@@ -126,89 +126,89 @@ export type WeatherConditions =
 /**
  * The type of gearbox
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "gearboxCategory".
  */
 export type GearboxCategory = "Manual" | "Automatic";
 /**
  * Name of the business the candidate relates to
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "businessName".
  */
 export type BusinessName = string;
 /**
  * Telephone number of the business the candidate relates to
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "businessTelephone".
  */
 export type BusinessTelephone = string;
 /**
  * The possible outcomes of any manoeuvre performed during the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "manoeuvreOutcome".
  */
 export type ManoeuvreOutcome = "DF" | "S" | "D";
 /**
  * Code representing the question that was asked
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "questionCode".
  */
 export type QuestionCode = string;
 /**
  * Description of the question that was asked
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "questionDescription".
  */
 export type QuestionDescription = string;
 /**
  * Outcome of the question that was asked
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "questionOutcome".
  */
 export type QuestionOutcome = "P" | "DF" | "S" | "D";
 /**
  * Indicator for a manoeuvre being performed during the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "manoeuvreIndicator".
  */
 export type ManoeuvreIndicator = boolean;
 /**
  * The count of the number of driving faults recorded against a test element
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "drivingFaultCount".
  */
 export type DrivingFaultCount = number;
 /**
  * Comments recorded against a fault
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "faultComments".
  */
 export type FaultComments = string;
 /**
  * Indicator for a serious fault being recorded against a test element
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "seriousFaultIndicator".
  */
 export type SeriousFaultIndicator = boolean;
 /**
  * Indicator for a dangerous fault being recorded against a test element
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "dangerousFaultIndicator".
  */
 export type DangerousFaultIndicator = boolean;
 
-export interface CommonTestSchema {
+export interface TestResultCommonSchema {
   /**
    * Version number
    */
@@ -256,7 +256,7 @@ export interface CommonTestSchema {
 /**
  * Data brought through from the journal
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "journalData".
  */
 export interface JournalData {
@@ -269,7 +269,7 @@ export interface JournalData {
 /**
  * The examiner details
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "examiner".
  */
 export interface Examiner {
@@ -285,7 +285,7 @@ export interface Examiner {
 /**
  * Details of the test centre
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "testCentre".
  */
 export interface TestCentre {
@@ -305,7 +305,7 @@ export interface TestCentre {
 /**
  * The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "testSlotAttributes".
  */
 export interface TestSlotAttributes {
@@ -361,7 +361,7 @@ export interface TestSlotAttributes {
 /**
  * Details of the candidate booked into the test slot
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "candidate".
  */
 export interface Candidate {
@@ -412,7 +412,7 @@ export interface Candidate {
 /**
  * Details of the individual's name
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "name".
  */
 export interface Name {
@@ -440,7 +440,7 @@ export interface Name {
 /**
  * Details of the address
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "address".
  */
 export interface Address {
@@ -472,7 +472,7 @@ export interface Address {
 /**
  * The full application identifier, including applicationId, bookingSequence and checkDigit
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "applicationReference".
  */
 export interface ApplicationReference {
@@ -490,7 +490,7 @@ export interface ApplicationReference {
   checkDigit: number;
 }
 /**
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "communicationPreferences".
  */
 export interface CommunicationPreferences {
@@ -502,7 +502,7 @@ export interface CommunicationPreferences {
   conductedLanguage: ConductedLanguage;
 }
 /**
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "preTestDeclarations".
  */
 export interface PreTestDeclarations {
@@ -519,7 +519,7 @@ export interface PreTestDeclarations {
 /**
  * Indicators for anybody else overseeing the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "accompaniment".
  */
 export interface Accompaniment {
@@ -541,7 +541,7 @@ export interface Accompaniment {
   other?: boolean;
 }
 /**
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "postTestDeclarations".
  */
 export interface PostTestDeclarations {
@@ -558,7 +558,7 @@ export interface PostTestDeclarations {
 /**
  * Recording of other characteristics of the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "testSummary".
  */
 export interface TestSummary {
@@ -593,7 +593,7 @@ export interface TestSummary {
 /**
  * Recording of the rekey reason
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "rekeyReason".
  */
 export interface RekeyReason {
@@ -604,7 +604,7 @@ export interface RekeyReason {
 /**
  * Recording of if a rekey was due to a transfer
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "transfer".
  */
 export interface Transfer {
@@ -616,7 +616,7 @@ export interface Transfer {
 /**
  * Recording of if a rekey was due to a iPad issue
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "ipadIssue".
  */
 export interface IpadIssue {
@@ -644,7 +644,7 @@ export interface IpadIssue {
 /**
  * Recording of if a rekey was due to a different reason
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "other".
  */
 export interface Other {
@@ -660,7 +660,7 @@ export interface Other {
 /**
  * Finalisation of a successful test outcome
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "passCompletion".
  */
 export interface PassCompletion {
@@ -676,7 +676,7 @@ export interface PassCompletion {
 /**
  * Details about the vehicle to be used for the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "vehicleDetails".
  */
 export interface VehicleDetails {
@@ -689,14 +689,14 @@ export interface VehicleDetails {
 /**
  * Data associated with the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "testData".
  */
 export interface TestData {}
 /**
  * Address of the business the candidate relates to
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "businessAddress".
  */
 export interface BusinessAddress {
@@ -728,7 +728,7 @@ export interface BusinessAddress {
 /**
  * The driving faults accumulated during the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "drivingFaults".
  */
 export interface DrivingFaults {
@@ -814,7 +814,7 @@ export interface DrivingFaults {
 /**
  * The serious faults accumulated during the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "seriousFaults".
  */
 export interface SeriousFaults {
@@ -900,7 +900,7 @@ export interface SeriousFaults {
 /**
  * The dangerous faults accumulated during the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "dangerousFaults".
  */
 export interface DangerousFaults {
@@ -986,7 +986,7 @@ export interface DangerousFaults {
 /**
  * Assessment of the eco friendly manner of driving
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "eco".
  */
 export interface Eco {
@@ -1006,7 +1006,7 @@ export interface Eco {
 /**
  * Indicates whether the examiner had to take physical or verbal action during the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "ETA".
  */
 export interface ETA {
@@ -1022,7 +1022,7 @@ export interface ETA {
 /**
  * Summary of the total number of each type of fault incurred during the test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "faultSummary".
  */
 export interface FaultSummary {
@@ -1042,14 +1042,14 @@ export interface FaultSummary {
 /**
  * The manoeuvres that were carried out during the test and any faults recorded against them
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "manoeuvres".
  */
 export interface Manoeuvres {}
 /**
  * The test requirements that must be carried out during a test
  *
- * This interface was referenced by `CommonTestSchema`'s JSON-Schema
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "testRequirements".
  */
 export interface TestRequirements {

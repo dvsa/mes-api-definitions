@@ -1,5 +1,5 @@
 {
-  "title": "Partial Standard Trailer Test (CAT B+E) Schema",
+  "title": "Partial Test Result Cat BE Schema",
   "type": "object",
   "definitions": {
     "faultComments": {

@@ -1,5 +1,5 @@
 {
-	"title": "Standard Car Test (CAT B) Schema",
+	"title": "Test Result Cat B Schema",
 	"type": "object",
 	"definitions": {
 		"testData": {

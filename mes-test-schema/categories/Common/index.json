@@ -1,5 +1,5 @@
 {
-  "title": "Common test schema",
+  "title": "Test Result Common Schema",
   "type": "object",
   "definitions": {
     "testData": {

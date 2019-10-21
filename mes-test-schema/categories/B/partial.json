@@ -1,5 +1,5 @@
 {
-  "title": "Partial Standard Car Test (CAT B) Schema",
+  "title": "Partial Test Result Cat B Schema",
   "type": "object",
   "definitions": {
     "faultComments": {
