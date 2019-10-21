@@ -1501,6 +1501,82 @@
 				}
 			}
 		},
+		"testRequirements": {
+			"description": "The test requirements that must be carried out during a test",
+			"type": "object",
+			"properties": {
+				"normalStart1": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				},
+				"normalStart2": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				},
+				"angledStartControlledStop": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				},
+				"downhillStart": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				},
+				"uphillStart": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"vehicleDetails": {
+			"description": "Details about the vehicle to be used for the test",
+			"type": "object",
+			"properties": {
+				"registrationNumber": {
+					"description": "The vehicle registration number",
+					"type": "string",
+					"maxLength": 7
+				},
+				"gearboxCategory": {
+					"$ref": "#/definitions/gearboxCategory"
+				},
+				"vehicleHeight": {
+					"description": "Indicates the height of the vehicle",
+					"type": "number"
+				},
+				"vehicleWidth": {
+					"description": "Indicates the width of the vehicle",
+					"type": "number"
+				}
+			},
+			"additionalProperties": false
+		},
+		"passCompletion": {
+			"description": "Finalisation of a successful test outcome",
+			"type": "object",
+			"properties": {
+				"provisionalLicenceProvided": {
+					"description": "Indicates whether the candidate submitted their provisional driving licence",
+					"type": "boolean"
+				},
+				"passCertificateNumber": {
+					"description": "The PCN issued to the candidate",
+					"type": "string",
+					"maxLength": 8,
+					"minLength": 8
+				},
+				"code78Present": {
+					"description": "Indicate presence of code 78 (automatic) on candidates license",
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false,
+			"required": [
+				"provisionalLicenceProvided",
+				"passCertificateNumber",
+				"code78Present"
+			]
+		},
 		"eyesightTest": {
 			"type": "object",
 			"properties": {
@@ -1516,18 +1592,6 @@
 				}
 			},
 			"additionalProperties": false
-		},
-		"vehicleDetails": {
-			"properties": {
-				"vehicleHeight": {
-					"description": "Indicates the height of the vehicle",
-					"type": "number"
-				},
-				"vehicleWidth": {
-					"description": "Indicates the width of the vehicle",
-					"type": "number"
-				}
-			}
 		},
 		"vehicleChecks": {
 			"properties": {
@@ -1568,20 +1632,6 @@
 					"type": "array"
 				}
 			}
-		},
-		"passCompletion": {
-			"description": "Finalisation of a successful test outcome",
-			"type": "object",
-			"properties": {
-				"code78Present": {
-					"description": "Indicate presence of code 78 (automatic) on candidates license",
-					"type": "boolean"
-				}
-			},
-			"additionalProperties": false,
-			"required": [
-				"code78Present"
-			]
 		},
 		"uncoupleRecouple": {
 			"additionalProperties": false,
@@ -1637,25 +1687,6 @@
 				}
 			},
 			"additionalProperties": false
-		},
-		"testRequirements": {
-			"additionalProperties": false,
-			"description": "The test requirements that must be carried out during a test",
-			"properties": {
-				"angledStartControlledStop": {
-					"description": "Indicates whether or not this test requirement was carried out",
-					"type": "boolean"
-				},
-				"downhillStart": {
-					"description": "Indicates whether or not this test requirement was carried out",
-					"type": "boolean"
-				},
-				"uphillStart": {
-					"description": "Indicates whether or not this test requirement was carried out",
-					"type": "boolean"
-				}
-			},
-			"type": "object"
 		}
 	},
 	"properties": {

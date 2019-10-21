@@ -2,22 +2,27 @@
   "title": "Partial Standard Car Test (CAT B) Schema",
   "type": "object",
   "definitions": {
-	"eyesightTest": {
-		"type": "object",
-		"properties": {
-		  "complete": {
-			"type": "boolean"
-		  },
-		  "seriousFault": {
-			"description": "Whether the candidate has failed the eyesight test",
-			"type": "boolean"
-		  },
-		  "faultComments": {
-			"$ref": "#/definitions/faultComments"
-		  }
-		},
-		"additionalProperties": false
-	},
+    "faultComments": {
+      "description": "Comments recorded against a fault",
+      "type": "string",
+      "maxLength": 1000
+    },
+    "eyesightTest": {
+      "type": "object",
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "seriousFault": {
+          "description": "Whether the candidate has failed the eyesight test",
+          "type": "boolean"
+        },
+        "faultComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
     "controlledStop": {
       "additionalProperties": false,
       "properties": {
@@ -135,8 +140,6 @@
       }
     },
     "testData": {
-      "additionalProperties": false,
-      "description": "Data associated with the test",
       "properties": {
         "controlledStop": {
           "$ref": "#/definitions/controlledStop"
@@ -169,10 +172,9 @@
           "$ref": "../Common/index.json#/definitions/testRequirements"
         },
         "vehicleChecks": {
-          "$ref": "../Common/index.json#/definitions/vehicleChecks"
+          "$ref": "#/definitions/vehicleChecks"
         }
-      },
-      "type": "object"
+      }
     },
     "testRequirements": {
       "properties": {
@@ -187,6 +189,8 @@
       }
     },
     "vehicleChecks": {
+      "additionalProperties": false,
+      "description": "Details of the Show Me and Tell Me questions asked during the test",
       "properties": {
         "showMeQuestion": {
           "additionalProperties": false,
@@ -221,15 +225,25 @@
           },
           "type": "object"
         }
+      },
+      "type": "object"
+    },
+    "vehicleDetails": {
+      "properties": {
+        "schoolCar": {
+          "description": "Indicates whether the vehicle belongs to a driving school",
+          "type": "boolean"
+        },
+        "dualControls": {
+          "description": "Indicates whether or not the vehicle has dual controls fitted",
+          "type": "boolean"
+        }
       }
     }
   },
   "properties": {
     "instructorDetails": {
       "$ref": "#/definitions/instructorDetails"
-    },
-    "testData": {
-      "$ref": "#/definitions/testData"
     }
   },
   "additionalProperties": false,
