@@ -8,7 +8,7 @@ const prettyJs = require('pretty-js');
 const json2ts = require('json-schema-to-typescript');
 const _ = require("lodash");
 
-const categories = ['C'];
+const categories = ['B', 'BE', 'C'];
 
 // Json styling config
 const options = {
