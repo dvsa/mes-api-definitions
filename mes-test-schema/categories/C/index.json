@@ -1,31 +1,16 @@
 {
-	"title": "Standard Trailer Test (CAT B+E) Schema",
+	"title": "Large lorries test (CAT C) Schema",
 	"type": "object",
 	"definitions": {
 		"testData": {
 			"additionalProperties": false,
 			"description": "Data associated with the test",
 			"properties": {
-				"uncoupleRecouple": {
-					"$ref": "#/definitions/uncoupleRecouple"
-				},
-				"manoeuvres": {
-					"$ref": "#/definitions/manoeuvres"
-				},
-				"vehicleChecks": {
-					"$ref": "#/definitions/vehicleChecks"
-				},
-				"testRequirements": {
-					"$ref": "#/definitions/testRequirements"
+				"dangerousFaults": {
+					"$ref": "#/definitions/dangerousFaults"
 				},
 				"drivingFaults": {
 					"$ref": "#/definitions/drivingFaults"
-				},
-				"seriousFaults": {
-					"$ref": "#/definitions/seriousFaults"
-				},
-				"dangerousFaults": {
-					"$ref": "#/definitions/dangerousFaults"
 				},
 				"eco": {
 					"$ref": "#/definitions/eco"
@@ -36,8 +21,17 @@
 				"faultSummary": {
 					"$ref": "#/definitions/faultSummary"
 				},
-				"eyesightTest": {
-					"$ref": "#/definitions/eyesightTest"
+				"manoeuvres": {
+					"$ref": "#/definitions/manoeuvres"
+				},
+				"seriousFaults": {
+					"$ref": "#/definitions/seriousFaults"
+				},
+				"testRequirements": {
+					"$ref": "#/definitions/testRequirements"
+				},
+				"vehicleChecks": {
+					"$ref": "#/definitions/vehicleChecks"
 				}
 			},
 			"type": "object"
@@ -241,17 +235,13 @@
 					"maxLength": 1
 				},
 				"businessAddress": {
-					"$ref": "#/definitions/address"
+					"$ref": "#/definitions/businessAddress"
 				},
 				"businessName": {
-					"description": "Name of the business the candidate relates to",
-					"maxLength": 100,
-					"type": "string"
+					"$ref": "#/definitions/businessName"
 				},
 				"businessTelephone": {
-					"description": "Telephone number of the business the candidate relates to",
-					"maxLength": 20,
-					"type": "string"
+					"$ref": "#/definitions/businessTelephone"
 				}
 			},
 			"additionalProperties": false
@@ -1571,11 +1561,11 @@
 					"description": "Indicates whether or not this test requirement was carried out",
 					"type": "boolean"
 				},
-				"downhillStart": {
+				"downHillStart": {
 					"description": "Indicates whether or not this test requirement was carried out",
 					"type": "boolean"
 				},
-				"uphillStart": {
+				"upHillStart": {
 					"description": "Indicates whether or not this test requirement was carried out",
 					"type": "boolean"
 				}
@@ -1593,14 +1583,6 @@
 				},
 				"gearboxCategory": {
 					"$ref": "#/definitions/gearboxCategory"
-				},
-				"schoolCar": {
-					"description": "Indicates whether the vehicle belongs to a driving school",
-					"type": "boolean"
-				},
-				"dualControls": {
-					"description": "Indicates whether or not the vehicle has dual controls fitted",
-					"type": "boolean"
 				},
 				"vehicleHeight": {
 					"description": "Indicates the height of the vehicle",
@@ -1638,22 +1620,6 @@
 				"passCertificateNumber",
 				"code78Present"
 			]
-		},
-		"eyesightTest": {
-			"type": "object",
-			"properties": {
-				"complete": {
-					"type": "boolean"
-				},
-				"seriousFault": {
-					"description": "Whether the candidate has failed the eyesight test",
-					"type": "boolean"
-				},
-				"faultComments": {
-					"$ref": "#/definitions/faultComments"
-				}
-			},
-			"additionalProperties": false
 		},
 		"vehicleChecks": {
 			"additionalProperties": false,
@@ -1697,21 +1663,6 @@
 						"type": "object"
 					},
 					"type": "array"
-				}
-			},
-			"type": "object"
-		},
-		"uncoupleRecouple": {
-			"additionalProperties": false,
-			"properties": {
-				"fault": {
-					"$ref": "#/definitions/manoeuvreOutcome"
-				},
-				"faultComments": {
-					"$ref": "#/definitions/faultComments"
-				},
-				"selected": {
-					"$ref": "#/definitions/manoeuvreIndicator"
 				}
 			},
 			"type": "object"

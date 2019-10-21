@@ -13,7 +13,7 @@
 			"type": "boolean"
 			},
 			"faultComments": {
-			"$ref": "#/definitions/faultComments"
+			"$ref": "../Common/index.json#/definitions/faultComments"
 			}
 		},
 		"additionalProperties": false
@@ -43,19 +43,9 @@
         }
       }
     },
-    "vehicleDetails": {
-      "properties": {
-        "vehicleHeight": {
-          "description": "Indicates the height of the vehicle",
-          "type": "number"
-        },
-        "vehicleWidth": {
-          "description": "Indicates the width of the vehicle",
-          "type": "number"
-        }
-      }
-    },
     "vehicleChecks": {
+	  "additionalProperties": false,
+	  "description": "Details of the Show Me and Tell Me questions asked during the test",
       "properties": {
         "showMeQuestion": {
           "items": {
@@ -74,7 +64,10 @@
             "type": "object"
           },
           "type": "array"
-        },
+		},
+		"showMeTellMeComments": {
+			"$ref": "#/definitions/faultComments"
+		},
         "tellMeQuestions": {
           "items": {
             "additionalProperties": false,
@@ -93,8 +86,29 @@
           },
           "type": "array"
         }
-      }
-    },
+	  },
+	  "type": "object"
+	},
+	"vehicleDetails": {
+		"properties": {
+			"schoolCar": {
+				"description": "Indicates whether the vehicle belongs to a driving school",
+				"type": "boolean"
+			},
+			"dualControls": {
+				"description": "Indicates whether or not the vehicle has dual controls fitted",
+				"type": "boolean"
+			},
+			"vehicleHeight": {
+				"description": "Indicates the height of the vehicle",
+				"type": "number"
+			},
+			"vehicleWidth": {
+				"description": "Indicates the width of the vehicle",
+				"type": "number"
+			}
+		}
+	},
     "candidate": {
       "properties": {
         "businessAddress": {
@@ -142,22 +156,6 @@
       },
       "type": "object"
 	},
-	"eyesightTest": {
-		"type": "object",
-		"properties": {
-		  "complete": {
-			"type": "boolean"
-		  },
-		  "seriousFault": {
-			"description": "Whether the candidate has failed the eyesight test",
-			"type": "boolean"
-		  },
-		  "faultComments": {
-			"$ref": "#/definitions/faultComments"
-		  }
-		},
-		"additionalProperties": false
-	},
     "testData": {
       "description": "Data associated with the test",
       "type": "object",
@@ -169,7 +167,7 @@
           "$ref": "#/definitions/manoeuvres"
         },
         "vehicleChecks": {
-          "$ref": "../Common/index.json#/definitions/vehicleChecks"
+          "$ref": "#/definitions/vehicleChecks"
         },
         "testRequirements": {
           "$ref": "#/definitions/testRequirements"
@@ -193,7 +191,7 @@
           "$ref": "../Common/index.json#/definitions/faultSummary"
         },
         "eyesightTest": {
-          "$ref": "../Common/index.json#/definitions/eyesightTest"
+          "$ref": "#/definitions/eyesightTest"
         }
       },
       "additionalProperties": false
