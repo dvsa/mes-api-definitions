@@ -1,13 +1,13 @@
-import { PartialStandardCarTestCATBSchema } from "./B/partial";
-import { PartialStandardTrailerTestCATBESchema } from "./BE/partial";
-import { PartialLargeLorriesTestCATCSchema } from "./C/partial";
-import { CommonTestSchema } from "./Common/index";
+import { PartialTestResultCatBSchema } from "./B/partial";
+import { PartialTestResultCatBESchema } from "./BE/partial";
+import { PartialTestResultCatCSchema } from "./C/partial";
+import { TestResultCommonSchema } from "./Common/index";
 
-export type TestCategoryUnion =
+export type TestResultSchemasUnion =
   | StandardCarTestCATBSchema
   | StandardTrailerTestCATBESchema
   | LargeLorriesTestCATCSchema;
 
-export type StandardCarTestCATBSchema = PartialStandardCarTestCATBSchema & CommonTestSchema;
-export type StandardTrailerTestCATBESchema = PartialStandardTrailerTestCATBESchema & CommonTestSchema;
-export type LargeLorriesTestCATCSchema = PartialLargeLorriesTestCATCSchema & CommonTestSchema;
+export type StandardCarTestCATBSchema = PartialTestResultCatBSchema & TestResultCommonSchema;
+export type StandardTrailerTestCATBESchema = PartialTestResultCatBESchema & TestResultCommonSchema;
+export type LargeLorriesTestCATCSchema = PartialTestResultCatCSchema & TestResultCommonSchema;
