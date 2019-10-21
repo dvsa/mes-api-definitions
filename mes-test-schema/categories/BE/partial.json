@@ -2,22 +2,27 @@
   "title": "Partial Standard Trailer Test (CAT B+E) Schema",
   "type": "object",
   "definitions": {
-	"eyesightTest": {
-		"type": "object",
-		"properties": {
-			"complete": {
-			"type": "boolean"
-			},
-			"seriousFault": {
-			"description": "Whether the candidate has failed the eyesight test",
-			"type": "boolean"
-			},
-			"faultComments": {
-			"$ref": "../Common/index.json#/definitions/faultComments"
-			}
-		},
-		"additionalProperties": false
-	},
+    "faultComments": {
+      "description": "Comments recorded against a fault",
+      "type": "string",
+      "maxLength": 1000
+    },
+    "eyesightTest": {
+      "type": "object",
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "seriousFault": {
+          "description": "Whether the candidate has failed the eyesight test",
+          "type": "boolean"
+        },
+        "faultComments": {
+          "$ref": "../Common/index.json#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
     "manoeuvres": {
       "properties": {
         "reverseLeft": {
@@ -44,8 +49,8 @@
       }
     },
     "vehicleChecks": {
-	  "additionalProperties": false,
-	  "description": "Details of the Show Me and Tell Me questions asked during the test",
+      "additionalProperties": false,
+      "description": "Details of the Show Me and Tell Me questions asked during the test",
       "properties": {
         "showMeQuestion": {
           "items": {
@@ -64,10 +69,10 @@
             "type": "object"
           },
           "type": "array"
-		},
-		"showMeTellMeComments": {
-			"$ref": "#/definitions/faultComments"
-		},
+        },
+        "showMeTellMeComments": {
+          "$ref": "#/definitions/faultComments"
+        },
         "tellMeQuestions": {
           "items": {
             "additionalProperties": false,
@@ -86,43 +91,39 @@
           },
           "type": "array"
         }
-	  },
-	  "type": "object"
-	},
-	"vehicleDetails": {
-		"properties": {
-			"schoolCar": {
-				"description": "Indicates whether the vehicle belongs to a driving school",
-				"type": "boolean"
-			},
-			"dualControls": {
-				"description": "Indicates whether or not the vehicle has dual controls fitted",
-				"type": "boolean"
-			},
-			"vehicleHeight": {
-				"description": "Indicates the height of the vehicle",
-				"type": "number"
-			},
-			"vehicleWidth": {
-				"description": "Indicates the width of the vehicle",
-				"type": "number"
-			}
-		}
-	},
+      },
+      "type": "object"
+    },
+    "vehicleDetails": {
+      "properties": {
+        "schoolCar": {
+          "description": "Indicates whether the vehicle belongs to a driving school",
+          "type": "boolean"
+        },
+        "dualControls": {
+          "description": "Indicates whether or not the vehicle has dual controls fitted",
+          "type": "boolean"
+        },
+        "vehicleHeight": {
+          "description": "Indicates the height of the vehicle",
+          "type": "number"
+        },
+        "vehicleWidth": {
+          "description": "Indicates the width of the vehicle",
+          "type": "number"
+        }
+      }
+    },
     "candidate": {
       "properties": {
         "businessAddress": {
-          "$ref": "../Common/index.json#/definitions/address"
+          "$ref": "../Common/index.json#/definitions/businessAddress"
         },
         "businessName": {
-          "description": "Name of the business the candidate relates to",
-          "maxLength": 100,
-          "type": "string"
+          "$ref": "../Common/index.json#/definitions/businessName"
         },
         "businessTelephone": {
-          "description": "Telephone number of the business the candidate relates to",
-          "maxLength": 20,
-          "type": "string"
+          "$ref": "../Common/index.json#/definitions/businessTelephone"
         }
       },
       "type": "object"
@@ -155,7 +156,7 @@
         }
       },
       "type": "object"
-	},
+    },
     "testData": {
       "description": "Data associated with the test",
       "type": "object",

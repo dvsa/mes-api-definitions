@@ -5,6 +5,14 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * Comments recorded against a fault
+ *
+ * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
+ * via the `definition` "faultComments".
+ */
+export type FaultComments = string;
+
 export interface PartialStandardTrailerTestCATBESchema {
   passCompletion?: PassCompletion;
   testData?: TestData;
@@ -1080,6 +1088,8 @@ export interface Manoeuvres {
   [k: string]: any;
 }
 /**
+ * Details of the Show Me and Tell Me questions asked during the test
+ *
  * This interface was referenced by `PartialStandardTrailerTestCATBESchema`'s JSON-Schema
  * via the `definition` "vehicleChecks".
  */
@@ -1098,6 +1108,7 @@ export interface VehicleChecks {
      */
     outcome?: "P" | "DF" | "S" | "D";
   }[];
+  showMeTellMeComments?: FaultComments;
   tellMeQuestions?: {
     /**
      * Code representing the question that was asked
@@ -1112,7 +1123,6 @@ export interface VehicleChecks {
      */
     outcome?: "P" | "DF" | "S" | "D";
   }[];
-  [k: string]: any;
 }
 /**
  * The test requirements that must be carried out during a test
@@ -1178,7 +1188,7 @@ export interface VehicleDetails {
  */
 export interface Candidate {
   /**
-   * Details of the address
+   * Address of the business the candidate relates to
    */
   businessAddress?: {
     /**

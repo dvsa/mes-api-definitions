@@ -241,17 +241,13 @@
 					"maxLength": 1
 				},
 				"businessAddress": {
-					"$ref": "#/definitions/address"
+					"$ref": "#/definitions/businessAddress"
 				},
 				"businessName": {
-					"description": "Name of the business the candidate relates to",
-					"maxLength": 100,
-					"type": "string"
+					"$ref": "#/definitions/businessName"
 				},
 				"businessTelephone": {
-					"description": "Telephone number of the business the candidate relates to",
-					"maxLength": 20,
-					"type": "string"
+					"$ref": "#/definitions/businessTelephone"
 				}
 			},
 			"additionalProperties": false
