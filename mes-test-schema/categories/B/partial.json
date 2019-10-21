@@ -1,0 +1,251 @@
+{
+  "title": "Partial Test Result Cat B Schema",
+  "type": "object",
+  "definitions": {
+    "faultComments": {
+      "description": "Comments recorded against a fault",
+      "type": "string",
+      "maxLength": 1000
+    },
+    "eyesightTest": {
+      "type": "object",
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "seriousFault": {
+          "description": "Whether the candidate has failed the eyesight test",
+          "type": "boolean"
+        },
+        "faultComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
+    "controlledStop": {
+      "additionalProperties": false,
+      "properties": {
+        "fault": {
+          "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+        },
+        "faultComments": {
+          "$ref": "../Common/index.json#/definitions/faultComments"
+        },
+        "selected": {
+          "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+        }
+      },
+      "type": "object"
+    },
+    "instructorDetails": {
+      "additionalProperties": false,
+      "description": "Details about the candidate's driving instructor",
+      "properties": {
+        "registrationNumber": {
+          "description": "The instructor's registration number",
+          "maximum": 9999999,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "manoeuvres": {
+      "properties": {
+        "forwardPark": {
+          "additionalProperties": false,
+          "properties": {
+            "controlFault": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+            },
+            "controlFaultComments": {
+              "$ref": "../Common/index.json#/definitions/faultComments"
+            },
+            "observationFault": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+            },
+            "observationFaultComments": {
+              "$ref": "../Common/index.json#/definitions/faultComments"
+            },
+            "selected": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+            }
+          },
+          "type": "object"
+        },
+        "reverseParkCarpark": {
+          "additionalProperties": false,
+          "properties": {
+            "controlFault": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+            },
+            "controlFaultComments": {
+              "$ref": "../Common/index.json#/definitions/faultComments"
+            },
+            "observationFault": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+            },
+            "observationFaultComments": {
+              "$ref": "../Common/index.json#/definitions/faultComments"
+            },
+            "selected": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+            }
+          },
+          "type": "object"
+        },
+        "reverseParkRoad": {
+          "additionalProperties": false,
+          "properties": {
+            "controlFault": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+            },
+            "controlFaultComments": {
+              "$ref": "../Common/index.json#/definitions/faultComments"
+            },
+            "observationFault": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+            },
+            "observationFaultComments": {
+              "$ref": "../Common/index.json#/definitions/faultComments"
+            },
+            "selected": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+            }
+          },
+          "type": "object"
+        },
+        "reverseRight": {
+          "additionalProperties": false,
+          "properties": {
+            "controlFault": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+            },
+            "controlFaultComments": {
+              "$ref": "../Common/index.json#/definitions/faultComments"
+            },
+            "observationFault": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+            },
+            "observationFaultComments": {
+              "$ref": "../Common/index.json#/definitions/faultComments"
+            },
+            "selected": {
+              "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+            }
+          },
+          "type": "object"
+        }
+      }
+    },
+    "testData": {
+      "properties": {
+        "controlledStop": {
+          "$ref": "#/definitions/controlledStop"
+        },
+        "dangerousFaults": {
+          "$ref": "../Common/index.json#/definitions/dangerousFaults"
+        },
+        "drivingFaults": {
+          "$ref": "../Common/index.json#/definitions/drivingFaults"
+        },
+        "eco": {
+          "$ref": "../Common/index.json#/definitions/eco"
+        },
+        "ETA": {
+          "$ref": "../Common/index.json#/definitions/ETA"
+        },
+        "eyesightTest": {
+          "$ref": "#/definitions/eyesightTest"
+        },
+        "faultSummary": {
+          "$ref": "../Common/index.json#/definitions/faultSummary"
+        },
+        "manoeuvres": {
+          "$ref": "../Common/index.json#/definitions/manoeuvres"
+        },
+        "seriousFaults": {
+          "$ref": "../Common/index.json#/definitions/seriousFaults"
+        },
+        "testRequirements": {
+          "$ref": "../Common/index.json#/definitions/testRequirements"
+        },
+        "vehicleChecks": {
+          "$ref": "#/definitions/vehicleChecks"
+        }
+      }
+    },
+    "testRequirements": {
+      "properties": {
+        "angledStart": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        },
+        "hillStart": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        }
+      }
+    },
+    "vehicleChecks": {
+      "additionalProperties": false,
+      "description": "Details of the Show Me and Tell Me questions asked during the test",
+      "properties": {
+        "showMeQuestion": {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "$ref": "../Common/index.json#/definitions/questionCode"
+            },
+            "description": {
+              "$ref": "../Common/index.json#/definitions/questionDescription"
+            },
+            "outcome": {
+              "$ref": "../Common/index.json#/definitions/questionOutcome"
+            }
+          },
+          "type": "object"
+        },
+        "showMeTellMeComments": {
+          "$ref": "../Common/index.json#/definitions/faultComments"
+        },
+        "tellMeQuestion": {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "$ref": "../Common/index.json#/definitions/questionCode"
+            },
+            "description": {
+              "$ref": "../Common/index.json#/definitions/questionDescription"
+            },
+            "outcome": {
+              "$ref": "../Common/index.json#/definitions/questionOutcome"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "vehicleDetails": {
+      "properties": {
+        "schoolCar": {
+          "description": "Indicates whether the vehicle belongs to a driving school",
+          "type": "boolean"
+        },
+        "dualControls": {
+          "description": "Indicates whether or not the vehicle has dual controls fitted",
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "properties": {
+    "instructorDetails": {
+      "$ref": "#/definitions/instructorDetails"
+    }
+  },
+  "additionalProperties": false,
+  "required": []
+}

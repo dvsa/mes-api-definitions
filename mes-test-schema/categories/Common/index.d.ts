@@ -7,14 +7,23 @@
 
 /**
  * The reason for the previous test cancellation
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "initiator".
  */
 export type Initiator = "Act of nature" | "DSA";
 /**
  * The gender of an individual, limited to 'M' or 'F' as per TARS master data
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "gender".
  */
 export type Gender = "M" | "F";
 /**
  * Code representing the result of the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "activityCode".
  */
 export type ActivityCode =
   | "1"
@@ -64,66 +73,44 @@ export type ActivityCode =
   | "83";
 /**
  * The method of communication by which the candidate agrees to receive their results
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "communicationMethod".
  */
 export type CommunicationMethod = "Email" | "Post" | "Support Centre" | "Not provided";
 /**
  * The language in which a candidate agrees to perform a test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "conductedLanguage".
  */
 export type ConductedLanguage = "English" | "Cymraeg" | "Not provided";
 /**
  * Base 64 encoded binary data representing a PNG image of the candidates signature
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "signature".
  */
 export type Signature = string;
 /**
- * The type of gearbox
- */
-export type GearboxCategory = "Manual" | "Automatic";
-/**
- * Code representing the question that was asked
- */
-export type QuestionCode = string;
-/**
- * Description of the question that was asked
- */
-export type QuestionDescription = string;
-/**
- * Outcome of the question that was asked
- */
-export type QuestionOutcome = "P" | "DF" | "S" | "D";
-/**
- * Comments recorded against a fault
- */
-export type FaultComments = string;
-/**
- * Indicator for a manoeuvre being performed during the test
- */
-export type ManoeuvreIndicator = boolean;
-/**
- * The possible outcomes of any manoeuvre performed during the test
- */
-export type ManoeuvreOutcome = "DF" | "S" | "D";
-/**
- * The count of the number of driving faults recorded against a test element
- */
-export type DrivingFaultCount = number;
-/**
- * Indicator for a serious fault being recorded against a test element
- */
-export type SeriousFaultIndicator = boolean;
-/**
- * Indicator for a dangerous fault being recorded against a test element
- */
-export type DangerousFaultIndicator = boolean;
-/**
  * Method chosen to conduct the independent driving section of the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "independentDriving".
  */
 export type IndependentDriving = "Sat nav" | "Traffic signs" | "N/A";
 /**
  * Indicates which form of ID was provided by the candidate
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "identification".
  */
 export type Identification = "Licence" | "Passport";
 /**
  * Predefined values for the type of weather encountered during the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "weatherConditions".
  */
 export type WeatherConditions =
   | "Bright / dry roads"
@@ -136,8 +123,92 @@ export type WeatherConditions =
   | "Snowing"
   | "Icy"
   | "Windy";
+/**
+ * The type of gearbox
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "gearboxCategory".
+ */
+export type GearboxCategory = "Manual" | "Automatic";
+/**
+ * Name of the business the candidate relates to
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "businessName".
+ */
+export type BusinessName = string;
+/**
+ * Telephone number of the business the candidate relates to
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "businessTelephone".
+ */
+export type BusinessTelephone = string;
+/**
+ * The possible outcomes of any manoeuvre performed during the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "manoeuvreOutcome".
+ */
+export type ManoeuvreOutcome = "DF" | "S" | "D";
+/**
+ * Code representing the question that was asked
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "questionCode".
+ */
+export type QuestionCode = string;
+/**
+ * Description of the question that was asked
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "questionDescription".
+ */
+export type QuestionDescription = string;
+/**
+ * Outcome of the question that was asked
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "questionOutcome".
+ */
+export type QuestionOutcome = "P" | "DF" | "S" | "D";
+/**
+ * Indicator for a manoeuvre being performed during the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "manoeuvreIndicator".
+ */
+export type ManoeuvreIndicator = boolean;
+/**
+ * The count of the number of driving faults recorded against a test element
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "drivingFaultCount".
+ */
+export type DrivingFaultCount = number;
+/**
+ * Comments recorded against a fault
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "faultComments".
+ */
+export type FaultComments = string;
+/**
+ * Indicator for a serious fault being recorded against a test element
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "seriousFaultIndicator".
+ */
+export type SeriousFaultIndicator = boolean;
+/**
+ * Indicator for a dangerous fault being recorded against a test element
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "dangerousFaultIndicator".
+ */
+export type DangerousFaultIndicator = boolean;
 
-export interface StandardTrailerTestCATBESchema {
+export interface TestResultCommonSchema {
   /**
    * Version number
    */
@@ -151,9 +222,6 @@ export interface StandardTrailerTestCATBESchema {
   communicationPreferences?: CommunicationPreferences;
   preTestDeclarations?: PreTestDeclarations;
   accompaniment?: Accompaniment;
-  vehicleDetails?: VehicleDetails;
-  testData?: TestData;
-  passCompletion?: PassCompletion;
   postTestDeclarations?: PostTestDeclarations;
   testSummary?: TestSummary;
   rekeyReason?: RekeyReason;
@@ -181,9 +249,15 @@ export interface StandardTrailerTestCATBESchema {
    * The examiner who keyed the test into the iPad
    */
   examinerKeyed: number;
+  passCompletion?: PassCompletion;
+  vehicleDetails?: VehicleDetails;
+  testData?: TestData;
 }
 /**
  * Data brought through from the journal
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "journalData".
  */
 export interface JournalData {
   examiner: Examiner;
@@ -194,6 +268,9 @@ export interface JournalData {
 }
 /**
  * The examiner details
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "examiner".
  */
 export interface Examiner {
   /**
@@ -207,6 +284,9 @@ export interface Examiner {
 }
 /**
  * Details of the test centre
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "testCentre".
  */
 export interface TestCentre {
   /**
@@ -224,6 +304,9 @@ export interface TestCentre {
 }
 /**
  * The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "testSlotAttributes".
  */
 export interface TestSlotAttributes {
   /**
@@ -277,6 +360,9 @@ export interface TestSlotAttributes {
 }
 /**
  * Details of the candidate booked into the test slot
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "candidate".
  */
 export interface Candidate {
   /**
@@ -322,18 +408,12 @@ export interface Candidate {
    * A character between A and G representing different categories of ethnicity
    */
   ethnicityCode?: string;
-  /**
-   * Name of the business the candidate relates to
-   */
-  businessName?: string;
-  /**
-   * Telephone number of the business the candidate relates to
-   */
-  businessTelephone?: string;
-  businessAddress?: Address;
 }
 /**
  * Details of the individual's name
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "name".
  */
 export interface Name {
   /**
@@ -359,6 +439,9 @@ export interface Name {
 }
 /**
  * Details of the address
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "address".
  */
 export interface Address {
   /**
@@ -388,6 +471,9 @@ export interface Address {
 }
 /**
  * The full application identifier, including applicationId, bookingSequence and checkDigit
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "applicationReference".
  */
 export interface ApplicationReference {
   /**
@@ -403,6 +489,10 @@ export interface ApplicationReference {
    */
   checkDigit: number;
 }
+/**
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "communicationPreferences".
+ */
 export interface CommunicationPreferences {
   /**
    * The email address that the candidate agrees their results can be sent to
@@ -411,6 +501,10 @@ export interface CommunicationPreferences {
   communicationMethod: CommunicationMethod;
   conductedLanguage: ConductedLanguage;
 }
+/**
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "preTestDeclarations".
+ */
 export interface PreTestDeclarations {
   /**
    * Whether or not the candidate has declared that their test vehicle has a valid insurance policy
@@ -424,6 +518,9 @@ export interface PreTestDeclarations {
 }
 /**
  * Indicators for anybody else overseeing the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "accompaniment".
  */
 export interface Accompaniment {
   /**
@@ -444,7 +541,143 @@ export interface Accompaniment {
   other?: boolean;
 }
 /**
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "postTestDeclarations".
+ */
+export interface PostTestDeclarations {
+  /**
+   * Whether or not the candidate has declared that their health status hasn't changed since their last application
+   */
+  healthDeclarationAccepted?: boolean;
+  /**
+   * Indicates whether the candidate acknowledges receipt of the PCN
+   */
+  passCertificateNumberReceived?: boolean;
+  postTestSignature?: Signature;
+}
+/**
+ * Recording of other characteristics of the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "testSummary".
+ */
+export interface TestSummary {
+  /**
+   * Number of the route that was taken during the test
+   */
+  routeNumber?: number;
+  independentDriving?: IndependentDriving;
+  /**
+   * Physical description of the candidate
+   */
+  candidateDescription?: string;
+  /**
+   * Indicates whether anybody else (e.g. ADI) was present for the debrief
+   */
+  debriefWitnessed?: boolean;
+  identification?: Identification;
+  /**
+   * Description of the type of weather encountered during the test
+   */
+  weatherConditions?: WeatherConditions[];
+  /**
+   * Indicates whether a D255 form needs to be completed
+   */
+  D255?: boolean;
+  /**
+   * Any comments that the DE wants to record about the test
+   */
+  additionalInformation?: string;
+  [k: string]: any;
+}
+/**
+ * Recording of the rekey reason
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "rekeyReason".
+ */
+export interface RekeyReason {
+  transfer?: Transfer;
+  ipadIssue?: IpadIssue;
+  other?: Other;
+}
+/**
+ * Recording of if a rekey was due to a transfer
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "transfer".
+ */
+export interface Transfer {
+  /**
+   * If this option was selected
+   */
+  selected?: boolean;
+}
+/**
+ * Recording of if a rekey was due to a iPad issue
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "ipadIssue".
+ */
+export interface IpadIssue {
+  /**
+   * If this option was selected
+   */
+  selected?: boolean;
+  /**
+   * If the iPad was not used due to a technical fault
+   */
+  technicalFault?: boolean;
+  /**
+   * If the iPad was not used as it has been lost
+   */
+  lost?: boolean;
+  /**
+   * If the iPad was not used as it has been stolen
+   */
+  stolen?: boolean;
+  /**
+   * If the iPad was not used as it is broken
+   */
+  broken?: boolean;
+}
+/**
+ * Recording of if a rekey was due to a different reason
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "other".
+ */
+export interface Other {
+  /**
+   * If this option was selected
+   */
+  selected?: boolean;
+  /**
+   * The reason this option was selected
+   */
+  reason?: string;
+}
+/**
+ * Finalisation of a successful test outcome
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "passCompletion".
+ */
+export interface PassCompletion {
+  /**
+   * Indicates whether the candidate submitted their provisional driving licence
+   */
+  provisionalLicenceProvided: boolean;
+  /**
+   * The PCN issued to the candidate
+   */
+  passCertificateNumber: string;
+}
+/**
  * Details about the vehicle to be used for the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "vehicleDetails".
  */
 export interface VehicleDetails {
   /**
@@ -452,99 +685,51 @@ export interface VehicleDetails {
    */
   registrationNumber?: string;
   gearboxCategory?: GearboxCategory;
-  /**
-   * Indicates whether the vehicle belongs to a driving school
-   */
-  schoolCar?: boolean;
-  /**
-   * Indicates whether or not the vehicle has dual controls fitted
-   */
-  dualControls?: boolean;
-  /**
-   * Indicates the height of the vehicle
-   */
-  vehicleHeight?: number;
-  /**
-   * Indicates the width of the vehicle
-   */
-  vehicleWidth?: number;
 }
 /**
  * Data associated with the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "testData".
  */
-export interface TestData {
-  vehicleChecks?: VehicleChecks;
-  testRequirements?: TestRequirements;
-  manoeuvres?: Manoeuvres;
-  uncoupleRecouple?: UncoupleRecouple;
-  drivingFaults?: DrivingFaults;
-  seriousFaults?: SeriousFaults;
-  dangerousFaults?: DangerousFaults;
-  eco?: Eco;
-  ETA?: ETA;
-  faultSummary?: FaultSummary;
-  eyesightTest?: EyesightTest;
-}
+export interface TestData {}
 /**
- * Details of the Show Me and Tell Me questions asked during the test
+ * Address of the business the candidate relates to
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "businessAddress".
  */
-export interface VehicleChecks {
-  tellMeQuestions?: {
-    code?: QuestionCode;
-    description?: QuestionDescription;
-    outcome?: QuestionOutcome;
-  }[];
-  showMeQuestion?: {
-    code?: QuestionCode;
-    description?: QuestionDescription;
-    outcome?: QuestionOutcome;
-  }[];
-  showMeTellMeComments?: FaultComments;
-}
-/**
- * The test requirements that must be carried out during a test
- */
-export interface TestRequirements {
+export interface BusinessAddress {
   /**
-   * Indicates whether or not this test requirement was carried out
+   * First line of address
    */
-  normalStart1?: boolean;
+  addressLine1?: string;
   /**
-   * Indicates whether or not this test requirement was carried out
+   * Second line of address
    */
-  normalStart2?: boolean;
+  addressLine2?: string;
   /**
-   * Indicates whether or not this test requirement was carried out
+   * Third line of address
    */
-  angledStartControlledStop?: boolean;
+  addressLine3?: string;
   /**
-   * Indicates whether or not this test requirement was carried out
+   * Fourth line of address
    */
-  uphillStart?: boolean;
+  addressLine4?: string;
   /**
-   * Indicates whether or not this test requirement was carried out
+   * Fifth line of address
    */
-  downhillStart?: boolean;
-}
-/**
- * The manoeuvres that were carried out during the test and any faults recorded against them
- */
-export interface Manoeuvres {
-  reverseLeft?: {
-    selected?: ManoeuvreIndicator;
-    controlFault?: ManoeuvreOutcome;
-    observationFault?: ManoeuvreOutcome;
-    controlFaultComments?: FaultComments;
-    observationFaultComments?: FaultComments;
-  };
-}
-export interface UncoupleRecouple {
-  selected?: ManoeuvreIndicator;
-  fault?: ManoeuvreOutcome;
-  faultComments?: FaultComments;
+  addressLine5?: string;
+  /**
+   * The address postcode
+   */
+  postcode?: string;
 }
 /**
  * The driving faults accumulated during the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "drivingFaults".
  */
 export interface DrivingFaults {
   controlsAccelerator?: DrivingFaultCount;
@@ -628,6 +813,9 @@ export interface DrivingFaults {
 }
 /**
  * The serious faults accumulated during the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "seriousFaults".
  */
 export interface SeriousFaults {
   controlsAccelerator?: SeriousFaultIndicator;
@@ -711,6 +899,9 @@ export interface SeriousFaults {
 }
 /**
  * The dangerous faults accumulated during the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "dangerousFaults".
  */
 export interface DangerousFaults {
   controlsAccelerator?: DangerousFaultIndicator;
@@ -794,6 +985,9 @@ export interface DangerousFaults {
 }
 /**
  * Assessment of the eco friendly manner of driving
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "eco".
  */
 export interface Eco {
   /**
@@ -811,6 +1005,9 @@ export interface Eco {
 }
 /**
  * Indicates whether the examiner had to take physical or verbal action during the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "ETA".
  */
 export interface ETA {
   /**
@@ -824,6 +1021,9 @@ export interface ETA {
 }
 /**
  * Summary of the total number of each type of fault incurred during the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "faultSummary".
  */
 export interface FaultSummary {
   /**
@@ -839,126 +1039,26 @@ export interface FaultSummary {
    */
   totalDangerousFaults?: number;
 }
-export interface EyesightTest {
-  complete?: boolean;
-  /**
-   * Whether the candidate has failed the eyesight test
-   */
-  seriousFault?: boolean;
-  faultComments?: FaultComments;
-}
 /**
- * Finalisation of a successful test outcome
+ * The manoeuvres that were carried out during the test and any faults recorded against them
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "manoeuvres".
  */
-export interface PassCompletion {
-  /**
-   * Indicates whether the candidate submitted their provisional driving licence
-   */
-  provisionalLicenceProvided: boolean;
-  /**
-   * The PCN issued to the candidate
-   */
-  passCertificateNumber: string;
-  /**
-   * Indicate presence of code 78 (automatic) on candidates license
-   */
-  code78Present: boolean;
-}
-export interface PostTestDeclarations {
-  /**
-   * Whether or not the candidate has declared that their health status hasn't changed since their last application
-   */
-  healthDeclarationAccepted?: boolean;
-  /**
-   * Indicates whether the candidate acknowledges receipt of the PCN
-   */
-  passCertificateNumberReceived?: boolean;
-  postTestSignature?: Signature;
-}
+export interface Manoeuvres {}
 /**
- * Recording of other characteristics of the test
+ * The test requirements that must be carried out during a test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "testRequirements".
  */
-export interface TestSummary {
+export interface TestRequirements {
   /**
-   * Number of the route that was taken during the test
+   * Indicates whether or not this test requirement was carried out
    */
-  routeNumber?: number;
-  independentDriving?: IndependentDriving;
+  normalStart1?: boolean;
   /**
-   * Physical description of the candidate
+   * Indicates whether or not this test requirement was carried out
    */
-  candidateDescription?: string;
-  /**
-   * Indicates whether anybody else (e.g. ADI) was present for the debrief
-   */
-  debriefWitnessed?: boolean;
-  identification?: Identification;
-  /**
-   * Description of the type of weather encountered during the test
-   */
-  weatherConditions?: WeatherConditions[];
-  /**
-   * Indicates whether a D255 form needs to be completed
-   */
-  D255?: boolean;
-  /**
-   * Any comments that the DE wants to record about the test
-   */
-  additionalInformation?: string;
-  [k: string]: any;
-}
-/**
- * Recording of the rekey reason
- */
-export interface RekeyReason {
-  transfer?: Transfer;
-  ipadIssue?: IpadIssue;
-  other?: Other;
-}
-/**
- * Recording of if a rekey was due to a transfer
- */
-export interface Transfer {
-  /**
-   * If this option was selected
-   */
-  selected?: boolean;
-}
-/**
- * Recording of if a rekey was due to a iPad issue
- */
-export interface IpadIssue {
-  /**
-   * If this option was selected
-   */
-  selected?: boolean;
-  /**
-   * If the iPad was not used due to a technical fault
-   */
-  technicalFault?: boolean;
-  /**
-   * If the iPad was not used as it has been lost
-   */
-  lost?: boolean;
-  /**
-   * If the iPad was not used as it has been stolen
-   */
-  stolen?: boolean;
-  /**
-   * If the iPad was not used as it is broken
-   */
-  broken?: boolean;
-}
-/**
- * Recording of if a rekey was due to a different reason
- */
-export interface Other {
-  /**
-   * If this option was selected
-   */
-  selected?: boolean;
-  /**
-   * The reason this option was selected
-   */
-  reason?: string;
+  normalStart2?: boolean;
 }
