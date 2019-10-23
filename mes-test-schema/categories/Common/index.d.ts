@@ -131,6 +131,34 @@ export type WeatherConditions =
  */
 export type GearboxCategory = "Manual" | "Automatic";
 /**
+ * Comments recorded against a fault
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "faultComments".
+ */
+export type FaultComments = string;
+/**
+ * The count of the number of driving faults recorded against a test element
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "drivingFaultCount".
+ */
+export type DrivingFaultCount = number;
+/**
+ * Indicator for a serious fault being recorded against a test element
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "seriousFaultIndicator".
+ */
+export type SeriousFaultIndicator = boolean;
+/**
+ * Indicator for a dangerous fault being recorded against a test element
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "dangerousFaultIndicator".
+ */
+export type DangerousFaultIndicator = boolean;
+/**
  * Name of the business the candidate relates to
  *
  * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
@@ -179,34 +207,6 @@ export type QuestionOutcome = "P" | "DF" | "S" | "D";
  * via the `definition` "manoeuvreIndicator".
  */
 export type ManoeuvreIndicator = boolean;
-/**
- * The count of the number of driving faults recorded against a test element
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "drivingFaultCount".
- */
-export type DrivingFaultCount = number;
-/**
- * Comments recorded against a fault
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "faultComments".
- */
-export type FaultComments = string;
-/**
- * Indicator for a serious fault being recorded against a test element
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "seriousFaultIndicator".
- */
-export type SeriousFaultIndicator = boolean;
-/**
- * Indicator for a dangerous fault being recorded against a test element
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "dangerousFaultIndicator".
- */
-export type DangerousFaultIndicator = boolean;
 
 export interface TestResultCommonSchema {
   /**
@@ -692,38 +692,26 @@ export interface VehicleDetails {
  * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "testData".
  */
-export interface TestData {}
+export interface TestData {
+  eyesightTest?: EyesightTest;
+  drivingFaults?: DrivingFaults;
+  seriousFaults?: SeriousFaults;
+  dangerousFaults?: DangerousFaults;
+  eco?: Eco;
+  ETA?: ETA;
+  faultSummary?: FaultSummary;
+}
 /**
- * Address of the business the candidate relates to
- *
  * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "businessAddress".
+ * via the `definition` "eyesightTest".
  */
-export interface BusinessAddress {
+export interface EyesightTest {
+  complete?: boolean;
   /**
-   * First line of address
+   * Whether the candidate has failed the eyesight test
    */
-  addressLine1?: string;
-  /**
-   * Second line of address
-   */
-  addressLine2?: string;
-  /**
-   * Third line of address
-   */
-  addressLine3?: string;
-  /**
-   * Fourth line of address
-   */
-  addressLine4?: string;
-  /**
-   * Fifth line of address
-   */
-  addressLine5?: string;
-  /**
-   * The address postcode
-   */
-  postcode?: string;
+  seriousFault?: boolean;
+  faultComments?: FaultComments;
 }
 /**
  * The driving faults accumulated during the test
@@ -1040,12 +1028,37 @@ export interface FaultSummary {
   totalDangerousFaults?: number;
 }
 /**
- * The manoeuvres that were carried out during the test and any faults recorded against them
+ * Address of the business the candidate relates to
  *
  * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "manoeuvres".
+ * via the `definition` "businessAddress".
  */
-export interface Manoeuvres {}
+export interface BusinessAddress {
+  /**
+   * First line of address
+   */
+  addressLine1?: string;
+  /**
+   * Second line of address
+   */
+  addressLine2?: string;
+  /**
+   * Third line of address
+   */
+  addressLine3?: string;
+  /**
+   * Fourth line of address
+   */
+  addressLine4?: string;
+  /**
+   * Fifth line of address
+   */
+  addressLine5?: string;
+  /**
+   * The address postcode
+   */
+  postcode?: string;
+}
 /**
  * The test requirements that must be carried out during a test
  *

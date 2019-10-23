@@ -5,7 +5,29 @@
     "testData": {
       "additionalProperties": false,
       "description": "Data associated with the test",
-      "properties": {},
+      "properties": {
+        "eyesightTest": {
+          "$ref": "#/definitions/eyesightTest"
+        },
+        "drivingFaults": {
+          "$ref": "#/definitions/drivingFaults"
+        },
+        "seriousFaults": {
+          "$ref": "#/definitions/seriousFaults"
+        },
+        "dangerousFaults": {
+          "$ref": "#/definitions/dangerousFaults"
+        },
+        "eco": {
+          "$ref": "#/definitions/eco"
+        },
+        "ETA": {
+          "$ref": "#/definitions/ETA"
+        },
+        "faultSummary": {
+          "$ref": "#/definitions/faultSummary"
+        }
+      },
       "type": "object"
     },
     "businessName": {
@@ -17,10 +39,6 @@
       "description": "Telephone number of the business the candidate relates to",
       "type": "string",
       "maxLength": 20
-    },
-    "businessAddress": {
-      "description": "Address of the business the candidate relates to",
-      "$ref": "#/definitions/address"
     },
     "manoeuvreOutcome": {
       "description": "The possible outcomes of any manoeuvre performed during the test",
@@ -348,6 +366,22 @@
         "candidate",
         "applicationReference"
       ]
+    },
+    "eyesightTest": {
+      "type": "object",
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "seriousFault": {
+          "description": "Whether the candidate has failed the eyesight test",
+          "type": "boolean"
+        },
+        "faultComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
     },
     "signature": {
       "description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
@@ -1479,11 +1513,6 @@
         }
       },
       "additionalProperties": false
-    },
-    "manoeuvres": {
-      "additionalProperties": false,
-      "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
-      "type": "object"
     },
     "testRequirements": {
       "description": "The test requirements that must be carried out during a test",
