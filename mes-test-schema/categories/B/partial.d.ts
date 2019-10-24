@@ -98,6 +98,8 @@ export interface TestRequirements {
   hillStart?: boolean;
 }
 /**
+ * The manoeuvres that were carried out during the test and any faults recorded against them
+ *
  * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "manoeuvres".
  */

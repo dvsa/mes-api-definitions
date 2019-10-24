@@ -42,18 +42,6 @@
 			},
 			"type": "object"
 		},
-		"businessName": {
-			"description": "Name of the business the candidate relates to",
-			"type": "string",
-			"maxLength": 100,
-			"$ref": "../common/index.json#/definitions/businessName"
-		},
-		"businessTelephone": {
-			"description": "Telephone number of the business the candidate relates to",
-			"type": "string",
-			"maxLength": 20,
-			"$ref": "../common/index.json#/definitions/businessTelephone"
-		},
 		"manoeuvreOutcome": {
 			"description": "The possible outcomes of any manoeuvre performed during the test",
 			"enum": [
@@ -61,8 +49,7 @@
 				"S",
 				"D"
 			],
-			"type": "string",
-			"$ref": "../common/index.json#/definitions/manoeuvreOutcome"
+			"type": "string"
 		},
 		"examiner": {
 			"description": "The examiner details",
@@ -240,7 +227,7 @@
 					"maxLength": 1
 				},
 				"businessAddress": {
-					"$ref": "#/definitions/businessAddress"
+					"$ref": "#/definitions/address"
 				},
 				"businessName": {
 					"$ref": "#/definitions/businessName"
@@ -507,13 +494,11 @@
 		},
 		"questionCode": {
 			"description": "Code representing the question that was asked",
-			"type": "string",
-			"$ref": "../common/index.json#/definitions/questionCode"
+			"type": "string"
 		},
 		"questionDescription": {
 			"description": "Description of the question that was asked",
-			"type": "string",
-			"$ref": "../common/index.json#/definitions/questionDescription"
+			"type": "string"
 		},
 		"questionOutcome": {
 			"description": "Outcome of the question that was asked",
@@ -523,13 +508,11 @@
 				"DF",
 				"S",
 				"D"
-			],
-			"$ref": "../common/index.json#/definitions/questionOutcome"
+			]
 		},
 		"manoeuvreIndicator": {
 			"description": "Indicator for a manoeuvre being performed during the test",
-			"type": "boolean",
-			"$ref": "../common/index.json#/definitions/manoeuvreIndicator"
+			"type": "boolean"
 		},
 		"drivingFaultCount": {
 			"description": "The count of the number of driving faults recorded against a test element",
@@ -538,8 +521,7 @@
 		"faultComments": {
 			"description": "Comments recorded against a fault",
 			"type": "string",
-			"maxLength": 1000,
-			"$ref": "../common/index.json#/definitions/faultComments"
+			"maxLength": 1000
 		},
 		"drivingFaults": {
 			"description": "The driving faults accumulated during the test",
@@ -1701,8 +1683,15 @@
 			},
 			"type": "object"
 		},
-		"businessAddress": {
-			"$ref": "../common/index.json#/definitions/address"
+		"businessName": {
+			"description": "Name of the business the candidate relates to",
+			"type": "string",
+			"maxLength": 100
+		},
+		"businessTelephone": {
+			"description": "Telephone number of the business the candidate relates to",
+			"type": "string",
+			"maxLength": 20
 		},
 		"uncoupleRecouple": {
 			"additionalProperties": false,

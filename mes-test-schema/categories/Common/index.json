@@ -30,16 +30,6 @@
       },
       "type": "object"
     },
-    "businessName": {
-      "description": "Name of the business the candidate relates to",
-      "type": "string",
-      "maxLength": 100
-    },
-    "businessTelephone": {
-      "description": "Telephone number of the business the candidate relates to",
-      "type": "string",
-      "maxLength": 20
-    },
     "manoeuvreOutcome": {
       "description": "The possible outcomes of any manoeuvre performed during the test",
       "enum": [

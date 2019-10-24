@@ -116,19 +116,23 @@
       },
       "additionalProperties": false
     },
-    "businessAddress": {
+    "address": {
       "$ref": "../common/index.json#/definitions/address"
     },
     "businessName": {
-      "$ref": "../common/index.json#/definitions/businessName"
+      "description": "Name of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 100
     },
     "businessTelephone": {
-      "$ref": "../common/index.json#/definitions/businessTelephone"
+      "description": "Telephone number of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 20
     },
     "candidate": {
       "properties": {
         "businessAddress": {
-          "$ref": "#/definitions/businessAddress"
+          "$ref": "#/definitions/address"
         },
         "businessName": {
           "$ref": "#/definitions/businessName"

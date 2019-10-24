@@ -166,7 +166,7 @@ export interface JournalData {
  * via the `definition` "candidate".
  */
 export interface Candidate {
-  businessAddress?: BusinessAddress;
+  businessAddress?: Address;
   businessName?: BusinessName;
   businessTelephone?: BusinessTelephone;
 }
@@ -174,9 +174,9 @@ export interface Candidate {
  * Details of the address
  *
  * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
- * via the `definition` "businessAddress".
+ * via the `definition` "address".
  */
-export interface BusinessAddress {
+export interface Address {
   /**
    * First line of address
    */

@@ -6,7 +6,6 @@ const common = require("./categories/Common/index.json")
 const fs = require('fs');
 const prettyJs = require('pretty-js');
 const json2ts = require('json-schema-to-typescript');
-const _ = require("lodash");
 
 const categories = ['B', 'BE'];
 
@@ -50,8 +49,9 @@ if (cliArgument === 'generate') {
 function generateCombinedSchema(partialSchemaLocation: string, combinedSchemaLocation: string) {
   const currentCategoryJson = require(partialSchemaLocation);
   currentCategoryJson['title'] = currentCategoryJson['title'].replace('Partial ', '');
-  let combinedJsonString = JSON.stringify(merge(common, currentCategoryJson));
-  combinedJsonString = combinedJsonString.replace(/..\/Common\/index.json/g, '');
+  const combinedJsonObject = removeRefs(merge(common, currentCategoryJson));
+  let combinedJsonString = JSON.stringify(combinedJsonObject);
+  combinedJsonString = combinedJsonString.replace(/..\/common\/index.json/g, '');
   fs.writeFileSync(combinedSchemaLocation, prettyJs(combinedJsonString, options));
 }
 
@@ -68,3 +68,14 @@ function deleteFileIfExists(fileLocation: string) {
   } catch (e) { }
 }
 
+function removeRefs(obj: any): any {
+  const removeRefsFields = (obj: any) => {
+    Object.keys(obj).forEach((key) => {
+      const value = obj[key];
+      if (key === '$ref' && Object.keys(obj).length > 1) delete obj[key];
+      if (typeof value === 'object') removeRefsFields(value);
+    });
+    return obj;
+  };
+  return removeRefsFields(obj);
+}

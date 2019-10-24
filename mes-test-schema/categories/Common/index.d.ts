@@ -159,20 +159,6 @@ export type SeriousFaultIndicator = boolean;
  */
 export type DangerousFaultIndicator = boolean;
 /**
- * Name of the business the candidate relates to
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "businessName".
- */
-export type BusinessName = string;
-/**
- * Telephone number of the business the candidate relates to
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "businessTelephone".
- */
-export type BusinessTelephone = string;
-/**
  * The possible outcomes of any manoeuvre performed during the test
  *
  * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema

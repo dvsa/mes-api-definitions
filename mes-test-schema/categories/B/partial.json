@@ -42,6 +42,7 @@
     "manoeuvres": {
       "additionalProperties": false,
       "type": "object",
+      "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
       "properties": {
         "forwardPark": {
           "additionalProperties": false,

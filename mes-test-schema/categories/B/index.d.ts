@@ -17,7 +17,7 @@ import { Manoeuvres as PartialCatBManoeuvres } from './partial';
 
 import { VehicleChecks as PartialCatBVehicleChecks } from './partial';
 
-export declare namespace CatBUnique {
+export declare namespace CatBUniqueType {
   type TestResult = PartialTestResultCatBSchema & TestResultCommonSchema;
 
   type InstructorDetails = PartialCatBInstructorDetails;
