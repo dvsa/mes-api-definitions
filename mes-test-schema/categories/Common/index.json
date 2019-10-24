@@ -24,7 +24,7 @@
         "ETA": {
           "$ref": "#/definitions/ETA"
         },
-        "TestRequirements": {
+        "testRequirements": {
           "$ref": "#/definitions/testRequirements"
         }
       },
