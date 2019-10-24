@@ -6,9 +6,8 @@ const common = require("./categories/Common/index.json")
 const fs = require('fs');
 const prettyJs = require('pretty-js');
 const json2ts = require('json-schema-to-typescript');
-const _ = require("lodash");
 
-const categories = ['B', 'BE', 'C'];
+const categories = ['B', 'BE'];
 
 // Json styling config
 const options = {
@@ -21,7 +20,7 @@ const cliArgument = process.argv[2];
 
 // Clears and cleans the generated schemas/typescripts
 if (cliArgument === 'clean') {
-  deleteFileIfExists(`./categories/Common/index.d.ts`);
+  deleteFileIfExists(`./categories/common/index.d.ts`);
   for (let category of categories) {
     deleteFileIfExists(`./categories/${category}/index.json`);
     deleteFileIfExists(`./categories/${category}/partial.d.ts`);
@@ -32,7 +31,7 @@ if (cliArgument === 'clean') {
 
 if (cliArgument === 'generate') {
   // Generate common typescript file
-  generateTypescriptInterfaces(`./categories/Common/index.json`);
+  generateTypescriptInterfaces(`./categories/common/index.json`);
   for (let category of categories) {
     const partialSchema = `./categories/${category}/partial.json`;
     const combinedSchema = `./categories/${category}/index.json`;
@@ -50,8 +49,9 @@ if (cliArgument === 'generate') {
 function generateCombinedSchema(partialSchemaLocation: string, combinedSchemaLocation: string) {
   const currentCategoryJson = require(partialSchemaLocation);
   currentCategoryJson['title'] = currentCategoryJson['title'].replace('Partial ', '');
-  let combinedJsonString = JSON.stringify(merge(common, currentCategoryJson));
-  combinedJsonString = combinedJsonString.replace(/..\/Common\/index.json/g, '');
+  const combinedJsonObject = removeRefs(merge(common, currentCategoryJson));
+  let combinedJsonString = JSON.stringify(combinedJsonObject);
+  combinedJsonString = combinedJsonString.replace(/..\/common\/index.json/g, '');
   fs.writeFileSync(combinedSchemaLocation, prettyJs(combinedJsonString, options));
 }
 
@@ -68,3 +68,15 @@ function deleteFileIfExists(fileLocation: string) {
   } catch (e) { }
 }
 
+// Remove all $ref if they have siblings
+function removeRefs(obj: any): any {
+  const removeRefsFields = (obj: any) => {
+    Object.keys(obj).forEach((key) => {
+      const value = obj[key];
+      if (key === '$ref' && Object.keys(obj).length > 1) delete obj[key];
+      if (typeof value === 'object') removeRefsFields(value);
+    });
+    return obj;
+  };
+  return removeRefsFields(obj);
+}

@@ -3,50 +3,50 @@
   "type": "object",
   "definitions": {
     "faultComments": {
-      "description": "Comments recorded against a fault",
-      "type": "string",
-      "maxLength": 1000
+      "$ref": "../common/index.json#/definitions/faultComments"
     },
-    "eyesightTest": {
-      "type": "object",
-      "properties": {
-        "complete": {
-          "type": "boolean"
-        },
-        "seriousFault": {
-          "description": "Whether the candidate has failed the eyesight test",
-          "type": "boolean"
-        },
-        "faultComments": {
-          "$ref": "../Common/index.json#/definitions/faultComments"
-        }
-      },
-      "additionalProperties": false
+    "manoeuvreOutcome": {
+      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
+    },
+    "manoeuvreIndicator": {
+      "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
     },
     "manoeuvres": {
+      "additionalProperties": false,
+      "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
+      "type": "object",
       "properties": {
         "reverseLeft": {
           "additionalProperties": false,
           "properties": {
             "controlFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+              "$ref": "#/definitions/manoeuvreOutcome"
             },
             "controlFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
+              "$ref": "#/definitions/faultComments"
             },
             "observationFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+              "$ref": "#/definitions/manoeuvreOutcome"
             },
             "observationFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
+              "$ref": "#/definitions/faultComments"
             },
             "selected": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+              "$ref": "#/definitions/manoeuvreIndicator"
             }
           },
           "type": "object"
         }
       }
+    },
+    "questionCode": {
+      "$ref": "../common/index.json#/definitions/questionCode"
+    },
+    "questionDescription": {
+      "$ref": "../common/index.json#/definitions/questionDescription"
+    },
+    "questionOutcome": {
+      "$ref": "../common/index.json#/definitions/questionOutcome"
     },
     "vehicleChecks": {
       "additionalProperties": false,
@@ -57,13 +57,13 @@
             "additionalProperties": false,
             "properties": {
               "code": {
-                "$ref": "../Common/index.json#/definitions/questionCode"
+                "$ref": "#/definitions/questionCode"
               },
               "description": {
-                "$ref": "../Common/index.json#/definitions/questionDescription"
+                "$ref": "#/definitions/questionDescription"
               },
               "outcome": {
-                "$ref": "../Common/index.json#/definitions/questionOutcome"
+                "$ref": "#/definitions/questionOutcome"
               }
             },
             "type": "object"
@@ -78,13 +78,13 @@
             "additionalProperties": false,
             "properties": {
               "code": {
-                "$ref": "../Common/index.json#/definitions/questionCode"
+                "$ref": "#/definitions/questionCode"
               },
               "description": {
-                "$ref": "../Common/index.json#/definitions/questionDescription"
+                "$ref": "#/definitions/questionDescription"
               },
               "outcome": {
-                "$ref": "../Common/index.json#/definitions/questionOutcome"
+                "$ref": "#/definitions/questionOutcome"
               }
             },
             "type": "object"
@@ -95,15 +95,9 @@
       "type": "object"
     },
     "vehicleDetails": {
+      "additionalProperties": false,
+      "type": "object",
       "properties": {
-        "schoolCar": {
-          "description": "Indicates whether the vehicle belongs to a driving school",
-          "type": "boolean"
-        },
-        "dualControls": {
-          "description": "Indicates whether or not the vehicle has dual controls fitted",
-          "type": "boolean"
-        },
         "vehicleHeight": {
           "description": "Indicates the height of the vehicle",
           "type": "number"
@@ -114,19 +108,41 @@
         }
       }
     },
+    "journalData": {
+      "properties": {
+        "candidate": {
+          "$ref": "#/definitions/candidate"
+        }
+      },
+      "additionalProperties": false
+    },
+    "address": {
+      "$ref": "../common/index.json#/definitions/address"
+    },
+    "businessName": {
+      "description": "Name of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 100
+    },
+    "businessTelephone": {
+      "description": "Telephone number of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 20
+    },
     "candidate": {
       "properties": {
         "businessAddress": {
-          "$ref": "../Common/index.json#/definitions/businessAddress"
+          "$ref": "#/definitions/address"
         },
         "businessName": {
-          "$ref": "../Common/index.json#/definitions/businessName"
+          "$ref": "#/definitions/businessName"
         },
         "businessTelephone": {
-          "$ref": "../Common/index.json#/definitions/businessTelephone"
+          "$ref": "#/definitions/businessTelephone"
         }
       },
-      "type": "object"
+      "type": "object",
+      "additionalProperties": false
     },
     "passCompletion": {
       "description": "Finalisation of a successful test outcome",
@@ -146,13 +162,13 @@
       "additionalProperties": false,
       "properties": {
         "fault": {
-          "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+          "$ref": "#/definitions/manoeuvreOutcome"
         },
         "faultComments": {
-          "$ref": "../Common/index.json#/definitions/faultComments"
+          "$ref": "#/definitions/faultComments"
         },
         "selected": {
-          "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+          "$ref": "#/definitions/manoeuvreIndicator"
         }
       },
       "type": "object"
@@ -164,35 +180,14 @@
         "uncoupleRecouple": {
           "$ref": "#/definitions/uncoupleRecouple"
         },
+        "testRequirements": {
+          "$ref": "#/definitions/testRequirements"
+        },
         "manoeuvres": {
           "$ref": "#/definitions/manoeuvres"
         },
         "vehicleChecks": {
           "$ref": "#/definitions/vehicleChecks"
-        },
-        "testRequirements": {
-          "$ref": "#/definitions/testRequirements"
-        },
-        "drivingFaults": {
-          "$ref": "../Common/index.json#/definitions/drivingFaults"
-        },
-        "seriousFaults": {
-          "$ref": "../Common/index.json#/definitions/seriousFaults"
-        },
-        "dangerousFaults": {
-          "$ref": "../Common/index.json#/definitions/dangerousFaults"
-        },
-        "eco": {
-          "$ref": "../Common/index.json#/definitions/eco"
-        },
-        "ETA": {
-          "$ref": "../Common/index.json#/definitions/ETA"
-        },
-        "faultSummary": {
-          "$ref": "../Common/index.json#/definitions/faultSummary"
-        },
-        "eyesightTest": {
-          "$ref": "#/definitions/eyesightTest"
         }
       },
       "additionalProperties": false
@@ -223,6 +218,9 @@
     },
     "testData": {
       "$ref": "#/definitions/testData"
+    },
+    "journalData": {
+      "$ref": "#/definitions/journalData"
     }
   },
   "additionalProperties": false

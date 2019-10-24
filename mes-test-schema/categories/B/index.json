@@ -6,14 +6,17 @@
 			"additionalProperties": false,
 			"description": "Data associated with the test",
 			"properties": {
-				"controlledStop": {
-					"$ref": "#/definitions/controlledStop"
-				},
-				"dangerousFaults": {
-					"$ref": "#/definitions/dangerousFaults"
+				"eyesightTest": {
+					"$ref": "#/definitions/eyesightTest"
 				},
 				"drivingFaults": {
 					"$ref": "#/definitions/drivingFaults"
+				},
+				"seriousFaults": {
+					"$ref": "#/definitions/seriousFaults"
+				},
+				"dangerousFaults": {
+					"$ref": "#/definitions/dangerousFaults"
 				},
 				"eco": {
 					"$ref": "#/definitions/eco"
@@ -21,40 +24,23 @@
 				"ETA": {
 					"$ref": "#/definitions/ETA"
 				},
-				"eyesightTest": {
-					"$ref": "#/definitions/eyesightTest"
-				},
 				"faultSummary": {
 					"$ref": "#/definitions/faultSummary"
 				},
-				"manoeuvres": {
-					"$ref": "#/definitions/manoeuvres"
-				},
-				"seriousFaults": {
-					"$ref": "#/definitions/seriousFaults"
+				"controlledStop": {
+					"$ref": "#/definitions/controlledStop"
 				},
 				"testRequirements": {
 					"$ref": "#/definitions/testRequirements"
+				},
+				"manoeuvres": {
+					"$ref": "#/definitions/manoeuvres"
 				},
 				"vehicleChecks": {
 					"$ref": "#/definitions/vehicleChecks"
 				}
 			},
 			"type": "object"
-		},
-		"businessName": {
-			"description": "Name of the business the candidate relates to",
-			"type": "string",
-			"maxLength": 100
-		},
-		"businessTelephone": {
-			"description": "Telephone number of the business the candidate relates to",
-			"type": "string",
-			"maxLength": 20
-		},
-		"businessAddress": {
-			"description": "Address of the business the candidate relates to",
-			"$ref": "#/definitions/address"
 		},
 		"manoeuvreOutcome": {
 			"description": "The possible outcomes of any manoeuvre performed during the test",
@@ -382,6 +368,22 @@
 				"candidate",
 				"applicationReference"
 			]
+		},
+		"eyesightTest": {
+			"type": "object",
+			"properties": {
+				"complete": {
+					"type": "boolean"
+				},
+				"seriousFault": {
+					"description": "Whether the candidate has failed the eyesight test",
+					"type": "boolean"
+				},
+				"faultComments": {
+					"$ref": "#/definitions/faultComments"
+				}
+			},
+			"additionalProperties": false
 		},
 		"signature": {
 			"description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
@@ -1514,10 +1516,105 @@
 			},
 			"additionalProperties": false
 		},
+		"testRequirements": {
+			"description": "The test requirements that must be carried out during a test",
+			"type": "object",
+			"properties": {
+				"normalStart1": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				},
+				"normalStart2": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				},
+				"angledStart": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				},
+				"hillStart": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"vehicleDetails": {
+			"description": "Details about the vehicle to be used for the test",
+			"type": "object",
+			"properties": {
+				"registrationNumber": {
+					"description": "The vehicle registration number",
+					"type": "string",
+					"maxLength": 7
+				},
+				"gearboxCategory": {
+					"$ref": "#/definitions/gearboxCategory"
+				},
+				"schoolCar": {
+					"description": "Indicates whether the vehicle belongs to a driving school",
+					"type": "boolean"
+				},
+				"dualControls": {
+					"description": "Indicates whether or not the vehicle has dual controls fitted",
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"passCompletion": {
+			"description": "Finalisation of a successful test outcome",
+			"type": "object",
+			"properties": {
+				"provisionalLicenceProvided": {
+					"description": "Indicates whether the candidate submitted their provisional driving licence",
+					"type": "boolean"
+				},
+				"passCertificateNumber": {
+					"description": "The PCN issued to the candidate",
+					"type": "string",
+					"maxLength": 8,
+					"minLength": 8
+				}
+			},
+			"additionalProperties": false,
+			"required": [
+				"provisionalLicenceProvided",
+				"passCertificateNumber"
+			]
+		},
+		"controlledStop": {
+			"additionalProperties": false,
+			"properties": {
+				"fault": {
+					"$ref": "#/definitions/manoeuvreOutcome"
+				},
+				"faultComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"selected": {
+					"$ref": "#/definitions/manoeuvreIndicator"
+				}
+			},
+			"type": "object"
+		},
+		"instructorDetails": {
+			"additionalProperties": false,
+			"description": "Details about the candidate's driving instructor",
+			"properties": {
+				"registrationNumber": {
+					"description": "The instructor's registration number",
+					"maximum": 9999999,
+					"minimum": 0,
+					"type": "integer"
+				}
+			},
+			"type": "object"
+		},
 		"manoeuvres": {
 			"additionalProperties": false,
-			"description": "The manoeuvres that were carried out during the test and any faults recorded against them",
 			"type": "object",
+			"description": "The manoeuvres that were carried out during the test and any faults recorded against them",
 			"properties": {
 				"forwardPark": {
 					"additionalProperties": false,
@@ -1604,117 +1701,6 @@
 					"type": "object"
 				}
 			}
-		},
-		"testRequirements": {
-			"description": "The test requirements that must be carried out during a test",
-			"type": "object",
-			"properties": {
-				"normalStart1": {
-					"description": "Indicates whether or not this test requirement was carried out",
-					"type": "boolean"
-				},
-				"normalStart2": {
-					"description": "Indicates whether or not this test requirement was carried out",
-					"type": "boolean"
-				},
-				"angledStart": {
-					"description": "Indicates whether or not this test requirement was carried out",
-					"type": "boolean"
-				},
-				"hillStart": {
-					"description": "Indicates whether or not this test requirement was carried out",
-					"type": "boolean"
-				}
-			},
-			"additionalProperties": false
-		},
-		"vehicleDetails": {
-			"description": "Details about the vehicle to be used for the test",
-			"type": "object",
-			"properties": {
-				"registrationNumber": {
-					"description": "The vehicle registration number",
-					"type": "string",
-					"maxLength": 7
-				},
-				"gearboxCategory": {
-					"$ref": "#/definitions/gearboxCategory"
-				},
-				"schoolCar": {
-					"description": "Indicates whether the vehicle belongs to a driving school",
-					"type": "boolean"
-				},
-				"dualControls": {
-					"description": "Indicates whether or not the vehicle has dual controls fitted",
-					"type": "boolean"
-				}
-			},
-			"additionalProperties": false
-		},
-		"passCompletion": {
-			"description": "Finalisation of a successful test outcome",
-			"type": "object",
-			"properties": {
-				"provisionalLicenceProvided": {
-					"description": "Indicates whether the candidate submitted their provisional driving licence",
-					"type": "boolean"
-				},
-				"passCertificateNumber": {
-					"description": "The PCN issued to the candidate",
-					"type": "string",
-					"maxLength": 8,
-					"minLength": 8
-				}
-			},
-			"additionalProperties": false,
-			"required": [
-				"provisionalLicenceProvided",
-				"passCertificateNumber"
-			]
-		},
-		"eyesightTest": {
-			"type": "object",
-			"properties": {
-				"complete": {
-					"type": "boolean"
-				},
-				"seriousFault": {
-					"description": "Whether the candidate has failed the eyesight test",
-					"type": "boolean"
-				},
-				"faultComments": {
-					"$ref": "#/definitions/faultComments"
-				}
-			},
-			"additionalProperties": false
-		},
-		"controlledStop": {
-			"additionalProperties": false,
-			"properties": {
-				"fault": {
-					"$ref": "#/definitions/manoeuvreOutcome"
-				},
-				"faultComments": {
-					"$ref": "#/definitions/faultComments"
-				},
-				"selected": {
-					"$ref": "#/definitions/manoeuvreIndicator"
-				}
-			},
-			"type": "object"
-		},
-		"instructorDetails": {
-			"additionalProperties": false,
-			"description": "Details about the candidate's driving instructor",
-			"properties": {
-				"registrationNumber": {
-					"description": "The instructor's registration number",
-					"maximum": 9999999,
-					"minimum": 0,
-					"type": "integer"
-				}
-			},
-			"type": "object"
 		},
 		"vehicleChecks": {
 			"additionalProperties": false,
