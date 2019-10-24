@@ -1540,6 +1540,14 @@
         },
         "gearboxCategory": {
           "$ref": "#/definitions/gearboxCategory"
+        },
+        "schoolCar": {
+          "description": "Indicates whether the vehicle belongs to a driving school",
+          "type": "boolean"
+        },
+        "dualControls": {
+          "description": "Indicates whether or not the vehicle has dual controls fitted",
+          "type": "boolean"
         }
       },
       "additionalProperties": false

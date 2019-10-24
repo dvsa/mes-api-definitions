@@ -3,37 +3,25 @@
   "type": "object",
   "definitions": {
     "faultComments": {
-      "description": "Comments recorded against a fault",
-      "type": "string",
-      "maxLength": 1000
+      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/faultComments"
     },
-    "eyesightTest": {
-      "type": "object",
-      "properties": {
-        "complete": {
-          "type": "boolean"
-        },
-        "seriousFault": {
-          "description": "Whether the candidate has failed the eyesight test",
-          "type": "boolean"
-        },
-        "faultComments": {
-          "$ref": "#/definitions/faultComments"
-        }
-      },
-      "additionalProperties": false
+    "manoeuvreOutcome": {
+      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/manoeuvreOutcome"
+    },
+    "manoeuvreIndicator": {
+      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/manoeuvreIndicator"
     },
     "controlledStop": {
       "additionalProperties": false,
       "properties": {
         "fault": {
-          "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+          "$ref": "#/definitions/manoeuvreOutcome"
         },
         "faultComments": {
-          "$ref": "../Common/index.json#/definitions/faultComments"
+          "$ref": "#/definitions/faultComments"
         },
         "selected": {
-          "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+          "$ref": "#/definitions/manoeuvreIndicator"
         }
       },
       "type": "object"
@@ -52,24 +40,26 @@
       "type": "object"
     },
     "manoeuvres": {
+      "additionalProperties": false,
+      "type": "object",
       "properties": {
         "forwardPark": {
           "additionalProperties": false,
           "properties": {
             "controlFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+              "$ref": "#/definitions/manoeuvreOutcome"
             },
             "controlFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
+              "$ref": "#/definitions/faultComments"
             },
             "observationFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+              "$ref": "#/definitions/manoeuvreOutcome"
             },
             "observationFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
+              "$ref": "#/definitions/faultComments"
             },
             "selected": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+              "$ref": "#/definitions/manoeuvreIndicator"
             }
           },
           "type": "object"
@@ -78,19 +68,19 @@
           "additionalProperties": false,
           "properties": {
             "controlFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+              "$ref": "#/definitions/manoeuvreOutcome"
             },
             "controlFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
+              "$ref": "#/definitions/faultComments"
             },
             "observationFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+              "$ref": "#/definitions/manoeuvreOutcome"
             },
             "observationFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
+              "$ref": "#/definitions/faultComments"
             },
             "selected": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+              "$ref": "#/definitions/manoeuvreIndicator"
             }
           },
           "type": "object"
@@ -99,19 +89,19 @@
           "additionalProperties": false,
           "properties": {
             "controlFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+              "$ref": "#/definitions/manoeuvreOutcome"
             },
             "controlFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
+              "$ref": "#/definitions/faultComments"
             },
             "observationFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+              "$ref": "#/definitions/manoeuvreOutcome"
             },
             "observationFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
+              "$ref": "#/definitions/faultComments"
             },
             "selected": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+              "$ref": "#/definitions/manoeuvreIndicator"
             }
           },
           "type": "object"
@@ -120,19 +110,19 @@
           "additionalProperties": false,
           "properties": {
             "controlFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+              "$ref": "#/definitions/manoeuvreOutcome"
             },
             "controlFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
+              "$ref": "#/definitions/faultComments"
             },
             "observationFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
+              "$ref": "#/definitions/manoeuvreOutcome"
             },
             "observationFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
+              "$ref": "#/definitions/faultComments"
             },
             "selected": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
+              "$ref": "#/definitions/manoeuvreIndicator"
             }
           },
           "type": "object"
@@ -140,36 +130,17 @@
       }
     },
     "testData": {
+      "additionalProperties": false,
+      "type": "object",
       "properties": {
         "controlledStop": {
           "$ref": "#/definitions/controlledStop"
         },
-        "dangerousFaults": {
-          "$ref": "../Common/index.json#/definitions/dangerousFaults"
-        },
-        "drivingFaults": {
-          "$ref": "../Common/index.json#/definitions/drivingFaults"
-        },
-        "eco": {
-          "$ref": "../Common/index.json#/definitions/eco"
-        },
-        "ETA": {
-          "$ref": "../Common/index.json#/definitions/ETA"
-        },
-        "eyesightTest": {
-          "$ref": "#/definitions/eyesightTest"
-        },
-        "faultSummary": {
-          "$ref": "../Common/index.json#/definitions/faultSummary"
+        "testRequirements": {
+          "$ref": "#/definitions/testRequirements"
         },
         "manoeuvres": {
-          "$ref": "../Common/index.json#/definitions/manoeuvres"
-        },
-        "seriousFaults": {
-          "$ref": "../Common/index.json#/definitions/seriousFaults"
-        },
-        "testRequirements": {
-          "$ref": "../Common/index.json#/definitions/testRequirements"
+          "$ref": "#/definitions/manoeuvres"
         },
         "vehicleChecks": {
           "$ref": "#/definitions/vehicleChecks"
@@ -177,6 +148,8 @@
       }
     },
     "testRequirements": {
+      "additionalProperties": false,
+      "type": "object",
       "properties": {
         "angledStart": {
           "description": "Indicates whether or not this test requirement was carried out",
@@ -188,6 +161,15 @@
         }
       }
     },
+    "questionCode": {
+      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/questionCode"
+    },
+    "questionDescription": {
+      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/questionDescription"
+    },
+    "questionOutcome": {
+      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/questionOutcome"
+    },
     "vehicleChecks": {
       "additionalProperties": false,
       "description": "Details of the Show Me and Tell Me questions asked during the test",
@@ -196,54 +178,45 @@
           "additionalProperties": false,
           "properties": {
             "code": {
-              "$ref": "../Common/index.json#/definitions/questionCode"
+              "$ref": "#/definitions/questionCode"
             },
             "description": {
-              "$ref": "../Common/index.json#/definitions/questionDescription"
+              "$ref": "#/definitions/questionDescription"
             },
             "outcome": {
-              "$ref": "../Common/index.json#/definitions/questionOutcome"
+              "$ref": "#/definitions/questionOutcome"
             }
           },
           "type": "object"
         },
         "showMeTellMeComments": {
-          "$ref": "../Common/index.json#/definitions/faultComments"
+          "$ref": "#/definitions/faultComments"
         },
         "tellMeQuestion": {
           "additionalProperties": false,
           "properties": {
             "code": {
-              "$ref": "../Common/index.json#/definitions/questionCode"
+              "$ref": "#/definitions/questionCode"
             },
             "description": {
-              "$ref": "../Common/index.json#/definitions/questionDescription"
+              "$ref": "#/definitions/questionDescription"
             },
             "outcome": {
-              "$ref": "../Common/index.json#/definitions/questionOutcome"
+              "$ref": "#/definitions/questionOutcome"
             }
           },
           "type": "object"
         }
       },
       "type": "object"
-    },
-    "vehicleDetails": {
-      "properties": {
-        "schoolCar": {
-          "description": "Indicates whether the vehicle belongs to a driving school",
-          "type": "boolean"
-        },
-        "dualControls": {
-          "description": "Indicates whether or not the vehicle has dual controls fitted",
-          "type": "boolean"
-        }
-      }
     }
   },
   "properties": {
     "instructorDetails": {
       "$ref": "#/definitions/instructorDetails"
+    },
+    "testData": {
+      "$ref": "#/definitions/testData"
     }
   },
   "additionalProperties": false,

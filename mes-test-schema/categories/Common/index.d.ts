@@ -685,6 +685,14 @@ export interface VehicleDetails {
    */
   registrationNumber?: string;
   gearboxCategory?: GearboxCategory;
+  /**
+   * Indicates whether the vehicle belongs to a driving school
+   */
+  schoolCar?: boolean;
+  /**
+   * Indicates whether or not the vehicle has dual controls fitted
+   */
+  dualControls?: boolean;
 }
 /**
  * Data associated with the test
@@ -1026,38 +1034,6 @@ export interface FaultSummary {
    * Count of the total number of dangerous faults incurred during the test
    */
   totalDangerousFaults?: number;
-}
-/**
- * Address of the business the candidate relates to
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "businessAddress".
- */
-export interface BusinessAddress {
-  /**
-   * First line of address
-   */
-  addressLine1?: string;
-  /**
-   * Second line of address
-   */
-  addressLine2?: string;
-  /**
-   * Third line of address
-   */
-  addressLine3?: string;
-  /**
-   * Fourth line of address
-   */
-  addressLine4?: string;
-  /**
-   * Fifth line of address
-   */
-  addressLine5?: string;
-  /**
-   * The address postcode
-   */
-  postcode?: string;
 }
 /**
  * The test requirements that must be carried out during a test

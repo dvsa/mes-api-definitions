@@ -87,9 +87,9 @@ export interface PassCompletion {
  */
 export interface TestData {
   uncoupleRecouple?: UncoupleRecouple;
+  testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres;
   vehicleChecks?: VehicleChecks;
-  testRequirements?: TestRequirements;
 }
 /**
  * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
@@ -99,6 +99,26 @@ export interface UncoupleRecouple {
   fault?: ManoeuvreOutcome;
   faultComments?: FaultComments;
   selected?: ManoeuvreIndicator;
+}
+/**
+ * The test requirements that must be carried out during a test
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "testRequirements".
+ */
+export interface TestRequirements {
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  angledStartControlledStop?: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  downhillStart?: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  uphillStart?: boolean;
 }
 /**
  * The manoeuvres that were carried out during the test and any faults recorded against them
@@ -133,26 +153,6 @@ export interface VehicleChecks {
     description?: QuestionDescription;
     outcome?: QuestionOutcome;
   }[];
-}
-/**
- * The test requirements that must be carried out during a test
- *
- * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
- * via the `definition` "testRequirements".
- */
-export interface TestRequirements {
-  /**
-   * Indicates whether or not this test requirement was carried out
-   */
-  angledStartControlledStop?: boolean;
-  /**
-   * Indicates whether or not this test requirement was carried out
-   */
-  downhillStart?: boolean;
-  /**
-   * Indicates whether or not this test requirement was carried out
-   */
-  uphillStart?: boolean;
 }
 /**
  * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
@@ -208,14 +208,6 @@ export interface BusinessAddress {
  */
 export interface VehicleDetails {
   /**
-   * Indicates whether the vehicle belongs to a driving school
-   */
-  schoolCar?: boolean;
-  /**
-   * Indicates whether or not the vehicle has dual controls fitted
-   */
-  dualControls?: boolean;
-  /**
    * Indicates the height of the vehicle
    */
   vehicleHeight?: number;
@@ -223,5 +215,4 @@ export interface VehicleDetails {
    * Indicates the width of the vehicle
    */
   vehicleWidth?: number;
-  [k: string]: any;
 }

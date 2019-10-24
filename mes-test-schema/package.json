@@ -6,6 +6,7 @@
     "generate": "ts-node generateSchemas.ts generate",
     "generate-common": "json2ts -i categories/common/index.json -o categories/common/index.d.ts --unreachableDefinitions",
     "generate-cat-be": "json2ts -i categories/BE/partial.json -o categories/BE/partial.d.ts --unreachableDefinitions",
+    "generate-cat-b": "json2ts -i categories/B/partial.json -o categories/B/partial.d.ts --unreachableDefinitions",
     "clean": "ts-node generateSchemas.ts clean",
     "test": "json2ts -i categories/BE/partial.json -o categories/BE/partial.d.ts --unreachableDefinitions"
   },

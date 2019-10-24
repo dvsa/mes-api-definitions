@@ -95,15 +95,9 @@
       "type": "object"
     },
     "vehicleDetails": {
+      "additionalProperties": false,
+      "type": "object",
       "properties": {
-        "schoolCar": {
-          "description": "Indicates whether the vehicle belongs to a driving school",
-          "type": "boolean"
-        },
-        "dualControls": {
-          "description": "Indicates whether or not the vehicle has dual controls fitted",
-          "type": "boolean"
-        },
         "vehicleHeight": {
           "description": "Indicates the height of the vehicle",
           "type": "number"
@@ -182,14 +176,14 @@
         "uncoupleRecouple": {
           "$ref": "#/definitions/uncoupleRecouple"
         },
+        "testRequirements": {
+          "$ref": "#/definitions/testRequirements"
+        },
         "manoeuvres": {
           "$ref": "#/definitions/manoeuvres"
         },
         "vehicleChecks": {
           "$ref": "#/definitions/vehicleChecks"
-        },
-        "testRequirements": {
-          "$ref": "#/definitions/testRequirements"
         }
       },
       "additionalProperties": false
