@@ -68,6 +68,7 @@ function deleteFileIfExists(fileLocation: string) {
   } catch (e) { }
 }
 
+// Remove all $ref if they have siblings
 function removeRefs(obj: any): any {
   const removeRefsFields = (obj: any) => {
     Object.keys(obj).forEach((key) => {
