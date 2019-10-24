@@ -6,17 +6,8 @@
 			"additionalProperties": false,
 			"description": "Data associated with the test",
 			"properties": {
-				"uncoupleRecouple": {
-					"$ref": "#/definitions/uncoupleRecouple"
-				},
-				"manoeuvres": {
-					"$ref": "#/definitions/manoeuvres"
-				},
-				"vehicleChecks": {
-					"$ref": "#/definitions/vehicleChecks"
-				},
-				"testRequirements": {
-					"$ref": "#/definitions/testRequirements"
+				"eyesightTest": {
+					"$ref": "#/definitions/eyesightTest"
 				},
 				"drivingFaults": {
 					"$ref": "#/definitions/drivingFaults"
@@ -36,8 +27,17 @@
 				"faultSummary": {
 					"$ref": "#/definitions/faultSummary"
 				},
-				"eyesightTest": {
-					"$ref": "#/definitions/eyesightTest"
+				"uncoupleRecouple": {
+					"$ref": "#/definitions/uncoupleRecouple"
+				},
+				"testRequirements": {
+					"$ref": "#/definitions/testRequirements"
+				},
+				"manoeuvres": {
+					"$ref": "#/definitions/manoeuvres"
+				},
+				"vehicleChecks": {
+					"$ref": "#/definitions/vehicleChecks"
 				}
 			},
 			"type": "object"
@@ -45,16 +45,14 @@
 		"businessName": {
 			"description": "Name of the business the candidate relates to",
 			"type": "string",
-			"maxLength": 100
+			"maxLength": 100,
+			"$ref": "../common/index.json#/definitions/businessName"
 		},
 		"businessTelephone": {
 			"description": "Telephone number of the business the candidate relates to",
 			"type": "string",
-			"maxLength": 20
-		},
-		"businessAddress": {
-			"description": "Address of the business the candidate relates to",
-			"$ref": "#/definitions/address"
+			"maxLength": 20,
+			"$ref": "../common/index.json#/definitions/businessTelephone"
 		},
 		"manoeuvreOutcome": {
 			"description": "The possible outcomes of any manoeuvre performed during the test",
@@ -63,7 +61,8 @@
 				"S",
 				"D"
 			],
-			"type": "string"
+			"type": "string",
+			"$ref": "../common/index.json#/definitions/manoeuvreOutcome"
 		},
 		"examiner": {
 			"description": "The examiner details",
@@ -392,6 +391,22 @@
 				"applicationReference"
 			]
 		},
+		"eyesightTest": {
+			"type": "object",
+			"properties": {
+				"complete": {
+					"type": "boolean"
+				},
+				"seriousFault": {
+					"description": "Whether the candidate has failed the eyesight test",
+					"type": "boolean"
+				},
+				"faultComments": {
+					"$ref": "#/definitions/faultComments"
+				}
+			},
+			"additionalProperties": false
+		},
 		"signature": {
 			"description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
 			"type": "string"
@@ -492,11 +507,13 @@
 		},
 		"questionCode": {
 			"description": "Code representing the question that was asked",
-			"type": "string"
+			"type": "string",
+			"$ref": "../common/index.json#/definitions/questionCode"
 		},
 		"questionDescription": {
 			"description": "Description of the question that was asked",
-			"type": "string"
+			"type": "string",
+			"$ref": "../common/index.json#/definitions/questionDescription"
 		},
 		"questionOutcome": {
 			"description": "Outcome of the question that was asked",
@@ -506,11 +523,13 @@
 				"DF",
 				"S",
 				"D"
-			]
+			],
+			"$ref": "../common/index.json#/definitions/questionOutcome"
 		},
 		"manoeuvreIndicator": {
 			"description": "Indicator for a manoeuvre being performed during the test",
-			"type": "boolean"
+			"type": "boolean",
+			"$ref": "../common/index.json#/definitions/manoeuvreIndicator"
 		},
 		"drivingFaultCount": {
 			"description": "The count of the number of driving faults recorded against a test element",
@@ -519,7 +538,8 @@
 		"faultComments": {
 			"description": "Comments recorded against a fault",
 			"type": "string",
-			"maxLength": 1000
+			"maxLength": 1000,
+			"$ref": "../common/index.json#/definitions/faultComments"
 		},
 		"drivingFaults": {
 			"description": "The driving faults accumulated during the test",
@@ -1523,34 +1543,6 @@
 			},
 			"additionalProperties": false
 		},
-		"manoeuvres": {
-			"additionalProperties": false,
-			"description": "The manoeuvres that were carried out during the test and any faults recorded against them",
-			"type": "object",
-			"properties": {
-				"reverseLeft": {
-					"additionalProperties": false,
-					"properties": {
-						"controlFault": {
-							"$ref": "#/definitions/manoeuvreOutcome"
-						},
-						"controlFaultComments": {
-							"$ref": "#/definitions/faultComments"
-						},
-						"observationFault": {
-							"$ref": "#/definitions/manoeuvreOutcome"
-						},
-						"observationFaultComments": {
-							"$ref": "#/definitions/faultComments"
-						},
-						"selected": {
-							"$ref": "#/definitions/manoeuvreIndicator"
-						}
-					},
-					"type": "object"
-				}
-			}
-		},
 		"testRequirements": {
 			"description": "The test requirements that must be carried out during a test",
 			"type": "object",
@@ -1635,21 +1627,33 @@
 				"code78Present"
 			]
 		},
-		"eyesightTest": {
+		"manoeuvres": {
+			"additionalProperties": false,
+			"description": "The manoeuvres that were carried out during the test and any faults recorded against them",
 			"type": "object",
 			"properties": {
-				"complete": {
-					"type": "boolean"
-				},
-				"seriousFault": {
-					"description": "Whether the candidate has failed the eyesight test",
-					"type": "boolean"
-				},
-				"faultComments": {
-					"$ref": "#/definitions/faultComments"
+				"reverseLeft": {
+					"additionalProperties": false,
+					"properties": {
+						"controlFault": {
+							"$ref": "#/definitions/manoeuvreOutcome"
+						},
+						"controlFaultComments": {
+							"$ref": "#/definitions/faultComments"
+						},
+						"observationFault": {
+							"$ref": "#/definitions/manoeuvreOutcome"
+						},
+						"observationFaultComments": {
+							"$ref": "#/definitions/faultComments"
+						},
+						"selected": {
+							"$ref": "#/definitions/manoeuvreIndicator"
+						}
+					},
+					"type": "object"
 				}
-			},
-			"additionalProperties": false
+			}
 		},
 		"vehicleChecks": {
 			"additionalProperties": false,
@@ -1696,6 +1700,9 @@
 				}
 			},
 			"type": "object"
+		},
+		"businessAddress": {
+			"$ref": "../common/index.json#/definitions/address"
 		},
 		"uncoupleRecouple": {
 			"additionalProperties": false,

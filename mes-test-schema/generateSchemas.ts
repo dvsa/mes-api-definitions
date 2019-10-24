@@ -8,7 +8,7 @@ const prettyJs = require('pretty-js');
 const json2ts = require('json-schema-to-typescript');
 const _ = require("lodash");
 
-const categories = ['B', 'BE', 'C'];
+const categories = ['B', 'BE'];
 
 // Json styling config
 const options = {
@@ -21,7 +21,7 @@ const cliArgument = process.argv[2];
 
 // Clears and cleans the generated schemas/typescripts
 if (cliArgument === 'clean') {
-  deleteFileIfExists(`./categories/Common/index.d.ts`);
+  deleteFileIfExists(`./categories/common/index.d.ts`);
   for (let category of categories) {
     deleteFileIfExists(`./categories/${category}/index.json`);
     deleteFileIfExists(`./categories/${category}/partial.d.ts`);
@@ -32,7 +32,7 @@ if (cliArgument === 'clean') {
 
 if (cliArgument === 'generate') {
   // Generate common typescript file
-  generateTypescriptInterfaces(`./categories/Common/index.json`);
+  generateTypescriptInterfaces(`./categories/common/index.json`);
   for (let category of categories) {
     const partialSchema = `./categories/${category}/partial.json`;
     const combinedSchema = `./categories/${category}/index.json`;

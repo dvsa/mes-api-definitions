@@ -3,13 +3,13 @@
   "type": "object",
   "definitions": {
     "faultComments": {
-      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/faultComments"
+      "$ref": "../common/index.json#/definitions/faultComments"
     },
     "manoeuvreOutcome": {
-      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/manoeuvreOutcome"
+      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
     },
     "manoeuvreIndicator": {
-      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/manoeuvreIndicator"
+      "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
     },
     "controlledStop": {
       "additionalProperties": false,
@@ -162,13 +162,13 @@
       }
     },
     "questionCode": {
-      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/questionCode"
+      "$ref": "../common/index.json#/definitions/questionCode"
     },
     "questionDescription": {
-      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/questionDescription"
+      "$ref": "../common/index.json#/definitions/questionDescription"
     },
     "questionOutcome": {
-      "$ref": "../mes-test-schema/categories/common/index.json#/definitions/questionOutcome"
+      "$ref": "../common/index.json#/definitions/questionOutcome"
     },
     "vehicleChecks": {
       "additionalProperties": false,
