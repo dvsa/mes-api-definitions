@@ -693,7 +693,7 @@ export interface TestData {
   dangerousFaults?: DangerousFaults;
   eco?: Eco;
   ETA?: ETA;
-  faultSummary?: FaultSummary;
+  testRequirements?: TestRequirements;
 }
 /**
  * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
@@ -1000,26 +1000,6 @@ export interface ETA {
    * Indicates that the examiner had to take verbal action
    */
   verbal?: boolean;
-}
-/**
- * Summary of the total number of each type of fault incurred during the test
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "faultSummary".
- */
-export interface FaultSummary {
-  /**
-   * Count of the total number of driving faults incurred during the test
-   */
-  totalDrivingFaults?: number;
-  /**
-   * Count of the total number of serious faults incurred during the test
-   */
-  totalSeriousFaults?: number;
-  /**
-   * Count of the total number of dangerous faults incurred during the test
-   */
-  totalDangerousFaults?: number;
 }
 /**
  * The test requirements that must be carried out during a test

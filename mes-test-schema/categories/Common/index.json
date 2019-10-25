@@ -24,8 +24,8 @@
         "ETA": {
           "$ref": "#/definitions/ETA"
         },
-        "faultSummary": {
-          "$ref": "#/definitions/faultSummary"
+        "testRequirements": {
+          "$ref": "#/definitions/testRequirements"
         }
       },
       "type": "object"
@@ -1263,25 +1263,6 @@
         "verbal": {
           "description": "Indicates that the examiner had to take verbal action",
           "type": "boolean"
-        }
-      },
-      "additionalProperties": false
-    },
-    "faultSummary": {
-      "description": "Summary of the total number of each type of fault incurred during the test",
-      "type": "object",
-      "properties": {
-        "totalDrivingFaults": {
-          "description": "Count of the total number of driving faults incurred during the test",
-          "type": "integer"
-        },
-        "totalSeriousFaults": {
-          "description": "Count of the total number of serious faults incurred during the test",
-          "type": "integer"
-        },
-        "totalDangerousFaults": {
-          "description": "Count of the total number of dangerous faults incurred during the test",
-          "type": "integer"
         }
       },
       "additionalProperties": false
