@@ -98,8 +98,8 @@
       "additionalProperties": false,
       "type": "object",
       "properties": {
-        "vehicleHeight": {
-          "description": "Indicates the height of the vehicle",
+        "vehicleLength": {
+          "description": "Indicates the length of the vehicle",
           "type": "number"
         },
         "vehicleWidth": {
