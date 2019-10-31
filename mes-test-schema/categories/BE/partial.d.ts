@@ -208,9 +208,9 @@ export interface Address {
  */
 export interface VehicleDetails {
   /**
-   * Indicates the height of the vehicle
+   * Indicates the length of the vehicle
    */
-  vehicleHeight?: number;
+  vehicleLength?: number;
   /**
    * Indicates the width of the vehicle
    */
