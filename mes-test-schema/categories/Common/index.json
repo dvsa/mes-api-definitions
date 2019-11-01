@@ -489,6 +489,21 @@
         "D"
       ]
     },
+    "questionResult": {
+      "description": "Result of a vehicle checks question",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/questionCode"
+        },
+        "description": {
+          "$ref": "#/definitions/questionDescription"
+        },
+        "outcome": {
+          "$ref": "#/definitions/questionOutcome"
+        }
+      }
+    },
     "manoeuvreIndicator": {
       "description": "Indicator for a manoeuvre being performed during the test",
       "type": "boolean"

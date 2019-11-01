@@ -27,27 +27,6 @@ export type FaultComments = string;
  */
 export type ManoeuvreIndicator = boolean;
 /**
- * Code representing the question that was asked
- *
- * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
- * via the `definition` "questionCode".
- */
-export type QuestionCode = string;
-/**
- * Description of the question that was asked
- *
- * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
- * via the `definition` "questionDescription".
- */
-export type QuestionDescription = string;
-/**
- * Outcome of the question that was asked
- *
- * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
- * via the `definition` "questionOutcome".
- */
-export type QuestionOutcome = "P" | "DF" | "S" | "D";
-/**
  * Name of the business the candidate relates to
  *
  * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
@@ -142,17 +121,29 @@ export interface Manoeuvres {
  * via the `definition` "vehicleChecks".
  */
 export interface VehicleChecks {
-  showMeQuestion?: {
-    code?: QuestionCode;
-    description?: QuestionDescription;
-    outcome?: QuestionOutcome;
-  }[];
+  showMeQuestions?: QuestionResult[];
   showMeTellMeComments?: FaultComments;
-  tellMeQuestions?: {
-    code?: QuestionCode;
-    description?: QuestionDescription;
-    outcome?: QuestionOutcome;
-  }[];
+  tellMeQuestions?: QuestionResult[];
+}
+/**
+ * Result of a vehicle checks question
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "questionResult".
+ */
+export interface QuestionResult {
+  /**
+   * Code representing the question that was asked
+   */
+  code?: string;
+  /**
+   * Description of the question that was asked
+   */
+  description?: string;
+  /**
+   * Outcome of the question that was asked
+   */
+  outcome?: "P" | "DF" | "S" | "D";
 }
 /**
  * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema

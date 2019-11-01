@@ -39,34 +39,16 @@
         }
       }
     },
-    "questionCode": {
-      "$ref": "../common/index.json#/definitions/questionCode"
-    },
-    "questionDescription": {
-      "$ref": "../common/index.json#/definitions/questionDescription"
-    },
-    "questionOutcome": {
-      "$ref": "../common/index.json#/definitions/questionOutcome"
+    "questionResult": {
+      "$ref": "../common/index.json#/definitions/questionResult"
     },
     "vehicleChecks": {
       "additionalProperties": false,
       "description": "Details of the Show Me and Tell Me questions asked during the test",
       "properties": {
-        "showMeQuestion": {
+        "showMeQuestions": {
           "items": {
-            "additionalProperties": false,
-            "properties": {
-              "code": {
-                "$ref": "#/definitions/questionCode"
-              },
-              "description": {
-                "$ref": "#/definitions/questionDescription"
-              },
-              "outcome": {
-                "$ref": "#/definitions/questionOutcome"
-              }
-            },
-            "type": "object"
+            "$ref": "#/definitions/questionResult"
           },
           "type": "array"
         },
@@ -75,19 +57,7 @@
         },
         "tellMeQuestions": {
           "items": {
-            "additionalProperties": false,
-            "properties": {
-              "code": {
-                "$ref": "#/definitions/questionCode"
-              },
-              "description": {
-                "$ref": "#/definitions/questionDescription"
-              },
-              "outcome": {
-                "$ref": "#/definitions/questionOutcome"
-              }
-            },
-            "type": "object"
+            "$ref": "#/definitions/questionResult"
           },
           "type": "array"
         }

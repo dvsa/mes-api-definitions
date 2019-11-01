@@ -1017,3 +1017,14 @@ export interface TestRequirements {
    */
   normalStart2?: boolean;
 }
+/**
+ * Result of a vehicle checks question
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "questionResult".
+ */
+export interface QuestionResult {
+  code?: QuestionCode;
+  description?: QuestionDescription;
+  outcome?: QuestionOutcome;
+}
