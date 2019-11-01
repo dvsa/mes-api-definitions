@@ -124,6 +124,8 @@ export interface VehicleChecks {
   tellMeQuestion?: QuestionResult;
 }
 /**
+ * Result of a vehicle checks question
+ *
  * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "questionResult".
  */

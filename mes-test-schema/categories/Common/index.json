@@ -490,6 +490,7 @@
       ]
     },
     "questionResult": {
+      "description": "Result of a vehicle checks question",
       "additionalProperties": false,
       "properties": {
         "code": {
