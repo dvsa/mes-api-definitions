@@ -2,7 +2,7 @@ declare var require: any
 declare var process: any
 
 const merge = require('deepmerge')
-const common = require("./categories/Common/index.json")
+const common = require("./categories/common/index.json")
 const fs = require('fs');
 const prettyJs = require('pretty-js');
 const json2ts = require('json-schema-to-typescript');
