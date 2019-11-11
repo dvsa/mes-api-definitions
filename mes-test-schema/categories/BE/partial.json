@@ -84,7 +84,10 @@
           "$ref": "#/definitions/candidate"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "required": [
+        "candidate"
+      ]
     },
     "address": {
       "$ref": "../common/index.json#/definitions/address"
@@ -193,5 +196,8 @@
       "$ref": "#/definitions/journalData"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "required": [
+    "journalData"
+  ]
 }
