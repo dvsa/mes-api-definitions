@@ -30,6 +30,28 @@
       },
       "type": "object"
     },
+    "manoeuvre": {
+      "additionalProperties": false,
+      "description": "Data needs capturing for a manoeuvre competency",
+      "properties": {
+        "controlFault": {
+          "$ref": "#/definitions/manoeuvreOutcome"
+        },
+        "controlFaultComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "observationFault": {
+          "$ref": "#/definitions/manoeuvreOutcome"
+        },
+        "observationFaultComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "selected": {
+          "$ref": "#/definitions/manoeuvreIndicator"
+        }
+      },
+      "type": "object"
+    },
     "manoeuvreOutcome": {
       "description": "The possible outcomes of any manoeuvre performed during the test",
       "enum": [

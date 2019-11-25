@@ -83,34 +83,23 @@ export interface TestRequirements {
  * via the `definition` "manoeuvres".
  */
 export interface Manoeuvres {
-  forwardPark?: {
-    controlFault?: ManoeuvreOutcome;
-    controlFaultComments?: FaultComments;
-    observationFault?: ManoeuvreOutcome;
-    observationFaultComments?: FaultComments;
-    selected?: ManoeuvreIndicator;
-  };
-  reverseParkCarpark?: {
-    controlFault?: ManoeuvreOutcome;
-    controlFaultComments?: FaultComments;
-    observationFault?: ManoeuvreOutcome;
-    observationFaultComments?: FaultComments;
-    selected?: ManoeuvreIndicator;
-  };
-  reverseParkRoad?: {
-    controlFault?: ManoeuvreOutcome;
-    controlFaultComments?: FaultComments;
-    observationFault?: ManoeuvreOutcome;
-    observationFaultComments?: FaultComments;
-    selected?: ManoeuvreIndicator;
-  };
-  reverseRight?: {
-    controlFault?: ManoeuvreOutcome;
-    controlFaultComments?: FaultComments;
-    observationFault?: ManoeuvreOutcome;
-    observationFaultComments?: FaultComments;
-    selected?: ManoeuvreIndicator;
-  };
+  forwardPark?: Manoeuvre;
+  reverseParkCarpark?: Manoeuvre;
+  reverseParkRoad?: Manoeuvre;
+  reverseRight?: Manoeuvre;
+}
+/**
+ * Data needs capturing for a manoeuvre competency
+ *
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
+ * via the `definition` "manoeuvre".
+ */
+export interface Manoeuvre {
+  controlFault?: ManoeuvreOutcome;
+  controlFaultComments?: FaultComments;
+  observationFault?: ManoeuvreOutcome;
+  observationFaultComments?: FaultComments;
+  selected?: ManoeuvreIndicator;
 }
 /**
  * Details of the Show Me and Tell Me questions asked during the test

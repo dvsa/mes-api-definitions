@@ -106,13 +106,20 @@ export interface TestRequirements {
  * via the `definition` "manoeuvres".
  */
 export interface Manoeuvres {
-  reverseLeft?: {
-    controlFault?: ManoeuvreOutcome;
-    controlFaultComments?: FaultComments;
-    observationFault?: ManoeuvreOutcome;
-    observationFaultComments?: FaultComments;
-    selected?: ManoeuvreIndicator;
-  };
+  reverseLeft?: Manoeuvre;
+}
+/**
+ * Data needs capturing for a manoeuvre competency
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "manoeuvre".
+ */
+export interface Manoeuvre {
+  controlFault?: ManoeuvreOutcome;
+  controlFaultComments?: FaultComments;
+  observationFault?: ManoeuvreOutcome;
+  observationFaultComments?: FaultComments;
+  selected?: ManoeuvreIndicator;
 }
 /**
  * Details of the Show Me and Tell Me questions asked during the test
