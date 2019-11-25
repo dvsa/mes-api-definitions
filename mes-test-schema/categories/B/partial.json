@@ -5,6 +5,9 @@
     "faultComments": {
       "$ref": "../common/index.json#/definitions/faultComments"
     },
+    "manoeuvre": {
+      "$ref": "../common/index.json#/definitions/manoeuvre"
+    },
     "manoeuvreOutcome": {
       "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
     },
@@ -45,88 +48,16 @@
       "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
       "properties": {
         "forwardPark": {
-          "additionalProperties": false,
-          "properties": {
-            "controlFault": {
-              "$ref": "#/definitions/manoeuvreOutcome"
-            },
-            "controlFaultComments": {
-              "$ref": "#/definitions/faultComments"
-            },
-            "observationFault": {
-              "$ref": "#/definitions/manoeuvreOutcome"
-            },
-            "observationFaultComments": {
-              "$ref": "#/definitions/faultComments"
-            },
-            "selected": {
-              "$ref": "#/definitions/manoeuvreIndicator"
-            }
-          },
-          "type": "object"
+          "$ref": "#/definitions/manoeuvre"
         },
         "reverseParkCarpark": {
-          "additionalProperties": false,
-          "properties": {
-            "controlFault": {
-              "$ref": "#/definitions/manoeuvreOutcome"
-            },
-            "controlFaultComments": {
-              "$ref": "#/definitions/faultComments"
-            },
-            "observationFault": {
-              "$ref": "#/definitions/manoeuvreOutcome"
-            },
-            "observationFaultComments": {
-              "$ref": "#/definitions/faultComments"
-            },
-            "selected": {
-              "$ref": "#/definitions/manoeuvreIndicator"
-            }
-          },
-          "type": "object"
+          "$ref": "#/definitions/manoeuvre"
         },
         "reverseParkRoad": {
-          "additionalProperties": false,
-          "properties": {
-            "controlFault": {
-              "$ref": "#/definitions/manoeuvreOutcome"
-            },
-            "controlFaultComments": {
-              "$ref": "#/definitions/faultComments"
-            },
-            "observationFault": {
-              "$ref": "#/definitions/manoeuvreOutcome"
-            },
-            "observationFaultComments": {
-              "$ref": "#/definitions/faultComments"
-            },
-            "selected": {
-              "$ref": "#/definitions/manoeuvreIndicator"
-            }
-          },
-          "type": "object"
+          "$ref": "#/definitions/manoeuvre"
         },
         "reverseRight": {
-          "additionalProperties": false,
-          "properties": {
-            "controlFault": {
-              "$ref": "#/definitions/manoeuvreOutcome"
-            },
-            "controlFaultComments": {
-              "$ref": "#/definitions/faultComments"
-            },
-            "observationFault": {
-              "$ref": "#/definitions/manoeuvreOutcome"
-            },
-            "observationFaultComments": {
-              "$ref": "#/definitions/faultComments"
-            },
-            "selected": {
-              "$ref": "#/definitions/manoeuvreIndicator"
-            }
-          },
-          "type": "object"
+          "$ref": "#/definitions/manoeuvre"
         }
       }
     },

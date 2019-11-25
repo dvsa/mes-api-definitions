@@ -166,6 +166,13 @@ export type DangerousFaultIndicator = boolean;
  */
 export type ManoeuvreOutcome = "DF" | "S" | "D";
 /**
+ * Indicator for a manoeuvre being performed during the test
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "manoeuvreIndicator".
+ */
+export type ManoeuvreIndicator = boolean;
+/**
  * Code representing the question that was asked
  *
  * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
@@ -186,13 +193,6 @@ export type QuestionDescription = string;
  * via the `definition` "questionOutcome".
  */
 export type QuestionOutcome = "P" | "DF" | "S" | "D";
-/**
- * Indicator for a manoeuvre being performed during the test
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "manoeuvreIndicator".
- */
-export type ManoeuvreIndicator = boolean;
 
 export interface TestResultCommonSchema {
   /**
@@ -1016,6 +1016,19 @@ export interface TestRequirements {
    * Indicates whether or not this test requirement was carried out
    */
   normalStart2?: boolean;
+}
+/**
+ * Data needs capturing for a manoeuvre competency
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "manoeuvre".
+ */
+export interface Manoeuvre {
+  controlFault?: ManoeuvreOutcome;
+  controlFaultComments?: FaultComments;
+  observationFault?: ManoeuvreOutcome;
+  observationFaultComments?: FaultComments;
+  selected?: ManoeuvreIndicator;
 }
 /**
  * Result of a vehicle checks question
