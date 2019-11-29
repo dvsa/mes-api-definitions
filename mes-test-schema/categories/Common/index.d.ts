@@ -6,6 +6,45 @@
  */
 
 /**
+ * Category code for the test report
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "categoryCode".
+ */
+export type CategoryCode =
+  | "A"
+  | "A1"
+  | "A2"
+  | "ADI2"
+  | "ADI3"
+  | "AM"
+  | "B"
+  | "B1"
+  | "B+E"
+  | "C"
+  | "C1"
+  | "C1+E"
+  | "CCPC"
+  | "C+E"
+  | "D"
+  | "D1"
+  | "D1+E"
+  | "DCPC"
+  | "D+E"
+  | "EUA1M1"
+  | "EUA1M2"
+  | "EUA2M1"
+  | "EUA2M2"
+  | "EUAM1"
+  | "EUAM2"
+  | "EUAMM1"
+  | "EUAMM2"
+  | "F"
+  | "G"
+  | "H"
+  | "K"
+  | "SC";
+/**
  * The reason for the previous test cancellation
  *
  * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
@@ -199,10 +238,7 @@ export interface TestResultCommonSchema {
    * Version number
    */
   version: string;
-  /**
-   * Category code for the test report
-   */
-  category: string;
+  category: CategoryCode;
   journalData: JournalData;
   activityCode: ActivityCode;
   communicationPreferences?: CommunicationPreferences;

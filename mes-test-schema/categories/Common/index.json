@@ -1394,6 +1394,44 @@
         }
       }
     },
+    "categoryCode": {
+      "description": "Category code for the test report",
+      "type": "string",
+      "enum": [
+        "A",
+        "A1",
+        "A2",
+        "ADI2",
+        "ADI3",
+        "AM",
+        "B",
+        "B1",
+        "B+E",
+        "C",
+        "C1",
+        "C1+E",
+        "CCPC",
+        "C+E",
+        "D",
+        "D1",
+        "D1+E",
+        "DCPC",
+        "D+E",
+        "EUA1M1",
+        "EUA1M2",
+        "EUA2M1",
+        "EUA2M2",
+        "EUAM1",
+        "EUAM2",
+        "EUAMM1",
+        "EUAMM2",
+        "F",
+        "G",
+        "H",
+        "K",
+        "SC"
+      ]
+    },
     "activityCode": {
       "description": "Code representing the result of the test",
       "type": "string",
@@ -1588,8 +1626,7 @@
       "type": "string"
     },
     "category": {
-      "description": "Category code for the test report",
-      "type": "string"
+      "$ref": "#/definitions/categoryCode"
     },
     "journalData": {
       "$ref": "#/definitions/journalData"
