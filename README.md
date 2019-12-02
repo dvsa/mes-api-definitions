@@ -17,3 +17,7 @@ To clean current schemas, run the command:
 
 To generate new schemas, (Combining the partials and common schema), run the command:
 `npm run generate`
+
+NOTE: The category specific index.d.ts files were initially generated but have been modified by hand
+      to create the category specific namespaces. These files should not be deleted nor regenerated
+      but any new types should be added manually.
