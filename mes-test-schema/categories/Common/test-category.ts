@@ -1,4 +1,4 @@
-export enum TestCategory {
+export const enum TestCategory {
     A = 'A',
     A1 = 'A1',
     A2 = 'A2',
@@ -31,4 +31,4 @@ export enum TestCategory {
     H = 'H',
     K = 'K',
     SC = 'SC',
-};
+}
