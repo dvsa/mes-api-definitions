@@ -24,7 +24,9 @@ if (cliArgument === 'clean') {
   for (let category of categories) {
     deleteFileIfExists(`./categories/${category}/index.json`);
     deleteFileIfExists(`./categories/${category}/partial.d.ts`);
-    deleteFileIfExists(`./categories/${category}/index.d.ts`);
+    // DO NOT DELETE THIS FILE IT HAS BEEN MODIFIED BY HAND 
+    // AND WILL NOT BE REGENERATED
+    // deleteFileIfExists(`./categories/${category}/index.d.ts`);
   }
   console.log('All categories have been cleaned');
 }
@@ -41,6 +43,7 @@ if (cliArgument === 'generate') {
 
     // Generate typescript files
     generateTypescriptInterfaces(partialSchema);
+    // DO NOT REGENERATED THIS FILE. IT HAS BEEEN MODIFIED BY HAND
     // generateTypescriptInterfaces(combinedSchema);
   }
   console.log('All categories have been generated');
