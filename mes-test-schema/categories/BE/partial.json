@@ -102,11 +102,6 @@
       "type": "object",
       "additionalProperties": false
     },
-    "passCompletion": {
-      "description": "Finalisation of a successful test outcome",
-      "type": "object",
-      "additionalProperties": false
-    },
     "uncoupleRecouple": {
       "additionalProperties": false,
       "properties": {
@@ -162,9 +157,6 @@
     }
   },
   "properties": {
-    "passCompletion": {
-      "$ref": "#/definitions/passCompletion"
-    },
     "testData": {
       "$ref": "#/definitions/testData"
     },

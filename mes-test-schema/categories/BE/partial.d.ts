@@ -27,14 +27,9 @@ export type BusinessName = string;
 export type BusinessTelephone = string;
 
 export interface PartialTestResultCatBESchema {
-  passCompletion?: PassCompletion;
   testData?: TestData;
   journalData: JournalData;
 }
-/**
- * Finalisation of a successful test outcome
- */
-export interface PassCompletion {}
 /**
  * Data associated with the test
  */
