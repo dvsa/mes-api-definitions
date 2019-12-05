@@ -105,16 +105,7 @@
     "passCompletion": {
       "description": "Finalisation of a successful test outcome",
       "type": "object",
-      "properties": {
-        "code78Present": {
-          "description": "Indicate presence of code 78 (automatic) on candidates license",
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "code78Present"
-      ]
+      "additionalProperties": false
     },
     "uncoupleRecouple": {
       "additionalProperties": false,
