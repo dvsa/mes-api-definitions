@@ -7,22 +7,37 @@
 
 /**
  * The possible outcomes of any manoeuvre performed during the test
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "manoeuvreOutcome".
  */
 export type ManoeuvreOutcome = "DF" | "S" | "D";
 /**
  * Comments recorded against a fault
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "faultComments".
  */
 export type FaultComments = string;
 /**
  * Indicator for a manoeuvre being performed during the test
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "manoeuvreIndicator".
  */
 export type ManoeuvreIndicator = boolean;
 /**
  * Name of the business the candidate relates to
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "businessName".
  */
 export type BusinessName = string;
 /**
  * Telephone number of the business the candidate relates to
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "businessTelephone".
  */
 export type BusinessTelephone = string;
 
@@ -32,6 +47,9 @@ export interface PartialTestResultCatBESchema {
 }
 /**
  * Data associated with the test
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "testData".
  */
 export interface TestData {
   uncoupleRecouple?: UncoupleRecouple;
@@ -39,6 +57,10 @@ export interface TestData {
   manoeuvres?: Manoeuvres;
   vehicleChecks?: VehicleChecks;
 }
+/**
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "uncoupleRecouple".
+ */
 export interface UncoupleRecouple {
   fault?: ManoeuvreOutcome;
   faultComments?: FaultComments;
@@ -46,6 +68,9 @@ export interface UncoupleRecouple {
 }
 /**
  * The test requirements that must be carried out during a test
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "testRequirements".
  */
 export interface TestRequirements {
   /**
@@ -63,12 +88,18 @@ export interface TestRequirements {
 }
 /**
  * The manoeuvres that were carried out during the test and any faults recorded against them
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "manoeuvres".
  */
 export interface Manoeuvres {
   reverseLeft?: Manoeuvre;
 }
 /**
  * Data needs capturing for a manoeuvre competency
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "manoeuvre".
  */
 export interface Manoeuvre {
   controlFault?: ManoeuvreOutcome;
@@ -79,6 +110,9 @@ export interface Manoeuvre {
 }
 /**
  * Details of the Show Me and Tell Me questions asked during the test
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "vehicleChecks".
  */
 export interface VehicleChecks {
   showMeQuestions?: QuestionResult[];
@@ -87,6 +121,9 @@ export interface VehicleChecks {
 }
 /**
  * Result of a vehicle checks question
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "questionResult".
  */
 export interface QuestionResult {
   /**
@@ -102,9 +139,17 @@ export interface QuestionResult {
    */
   outcome?: "P" | "DF" | "S" | "D";
 }
+/**
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "journalData".
+ */
 export interface JournalData {
   candidate: Candidate;
 }
+/**
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "candidate".
+ */
 export interface Candidate {
   businessAddress?: Address;
   businessName?: BusinessName;
@@ -112,6 +157,9 @@ export interface Candidate {
 }
 /**
  * Details of the address
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "address".
  */
 export interface Address {
   /**
@@ -138,4 +186,18 @@ export interface Address {
    * The address postcode
    */
   postcode?: string;
+}
+/**
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "vehicleDetails".
+ */
+export interface VehicleDetails {
+  /**
+   * Indicates the length of the vehicle
+   */
+  vehicleLength?: number;
+  /**
+   * Indicates the width of the vehicle
+   */
+  vehicleWidth?: number;
 }
