@@ -42,21 +42,8 @@ export type BusinessName = string;
 export type BusinessTelephone = string;
 
 export interface PartialTestResultCatBESchema {
-  passCompletion?: PassCompletion;
   testData?: TestData;
   journalData: JournalData;
-}
-/**
- * Finalisation of a successful test outcome
- *
- * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
- * via the `definition` "passCompletion".
- */
-export interface PassCompletion {
-  /**
-   * Indicate presence of code 78 (automatic) on candidates license
-   */
-  code78Present: boolean;
 }
 /**
  * Data associated with the test

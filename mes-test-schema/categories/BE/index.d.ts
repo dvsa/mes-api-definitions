@@ -5,10 +5,9 @@
  */
 
 // Always follow the order of the properties that are in partial.d.ts
-import { PartialTestResultCatBESchema, PassCompletion } from './partial';
+import { PartialTestResultCatBESchema } from './partial';
 import { TestResultCommonSchema } from '../common/index';
 import { PassCompletion as CommonPassCompletion } from '../common/index';
-import { PassCompletion as PartialCatBePassCompletion } from './partial';
 import { TestData as PartialCatBETestData } from './partial';
 import { TestData as CommonTestData } from '../common';
 import { UncoupleRecouple as PartialCatBEUncoupleRecouple } from './partial';
@@ -25,8 +24,6 @@ import { VehicleDetails as CommonVehicleDetails } from '../common/index';
 
 export declare namespace CatBEUniqueTypes {
   type TestResult = PartialTestResultCatBESchema & TestResultCommonSchema;
-
-  type PassCompletion = PartialCatBePassCompletion & CommonPassCompletion;
 
   type TestData = PartialCatBETestData & CommonTestData;
  
