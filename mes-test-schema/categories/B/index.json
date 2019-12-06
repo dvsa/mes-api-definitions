@@ -1401,7 +1401,8 @@
 					"description": "Any comments that the DE wants to record about the test",
 					"type": "string"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"categoryCode": {
 			"description": "Category code for the test report",

@@ -610,7 +610,6 @@ export interface TestSummary {
    * Any comments that the DE wants to record about the test
    */
   additionalInformation?: string;
-  [k: string]: any;
 }
 /**
  * Recording of the rekey reason
