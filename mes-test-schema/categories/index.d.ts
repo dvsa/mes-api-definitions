@@ -1,5 +1,5 @@
 import { PartialTestResultCatBSchema } from "./B/partial";
-import { PartialTestResultCatBESchema, PassCompletion } from "./BE/partial";
+import { PartialTestResultCatBESchema } from "./BE/partial";
 
 import { TestResultCommonSchema } from "./common/index";
 import { CatBUniqueTypes } from "./B";
