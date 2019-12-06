@@ -1361,6 +1361,7 @@
 			"type": "string",
 			"enum": [
 				"Sat nav",
+				"Diagram",
 				"Traffic signs",
 				"N/A"
 			]
