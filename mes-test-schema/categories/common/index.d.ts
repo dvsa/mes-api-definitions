@@ -137,7 +137,7 @@ export type Signature = string;
  * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "independentDriving".
  */
-export type IndependentDriving = "Sat nav" | "Traffic signs" | "N/A";
+export type IndependentDriving = "Sat nav" | "Diagram" | "Traffic signs" | "N/A";
 /**
  * Indicates which form of ID was provided by the candidate
  *
