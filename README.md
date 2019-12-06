@@ -21,3 +21,13 @@ To generate new schemas, (Combining the partials and common schema), run the com
 NOTE: The category specific index.d.ts files were initially generated but have been modified by hand
       to create the category specific namespaces. These files should not be deleted nor regenerated
       but any new types should be added manually.
+
+# Updating a schema
+
+Always make your edits to the **json schema files** (the ones ending in .json) and not the generated TypeScript definition files (ending in .d.ts). The general process for updating a schema is:-
+1. Make edits to the relevant json schema file
+2. Generate the new TypeScript definitions using `npm run generate` - _Ensure you are in the correct directory_
+3. If necessary, update the `index.d.ts`
+4. Bump the version of the package using `npm version {major|minor|patch}` - _Ensure you are in the correct directory_
+5. Raise a Pull Request on Github and await approvals
+6. Publish the new package to npm using `npm publish` - _You must be logged in and have the correct permissions to publish to the @dvsa npm org_
