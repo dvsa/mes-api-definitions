@@ -24,7 +24,7 @@ NOTE: The category specific index.d.ts files were initially generated but have b
 
 # Updating a schema
 
-Always make your edits to the **json schema files** (the ones ending in .json) and not the generated TypeScript definition files (ending in .d.ts). The general process for updating a schema is:-
+Always make your edits to the **json schema files** (except for the category `index.json` files, these are auto-generated) and not the generated TypeScript definition files (ending in .d.ts). The general process for updating a schema is:-
 1. Make edits to the relevant json schema file
 2. Generate the new TypeScript definitions using `npm run generate` - _Ensure you are in the correct directory_
 3. If necessary, update the `index.d.ts`
