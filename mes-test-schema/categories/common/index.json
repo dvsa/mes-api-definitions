@@ -513,6 +513,7 @@
     },
     "questionResult": {
       "description": "Result of a vehicle checks question",
+      "type": "object",
       "additionalProperties": false,
       "properties": {
         "code": {
