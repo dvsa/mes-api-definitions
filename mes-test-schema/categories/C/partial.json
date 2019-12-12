@@ -2,88 +2,129 @@
   "title": "Partial Test Result Cat C Schema",
   "type": "object",
   "definitions": {
-    "candidate": {
-      "properties": {
-        "businessAddress": {
-          "$ref": "../Common/index.json#/definitions/businessAddress"
-        },
-        "businessName": {
-          "$ref": "../Common/index.json#/definitions/businessName"
-        },
-        "businessTelephone": {
-          "$ref": "../Common/index.json#/definitions/businessTelephone"
-        }
-      }
-    },
-    "testData": {
-      "properties": {
-        "dangerousFaults": {
-          "$ref": "../Common/index.json#/definitions/dangerousFaults"
-        },
-        "drivingFaults": {
-          "$ref": "../Common/index.json#/definitions/drivingFaults"
-        },
-        "eco": {
-          "$ref": "../Common/index.json#/definitions/eco"
-        },
-        "ETA": {
-          "$ref": "../Common/index.json#/definitions/ETA"
-        },
-        "faultSummary": {
-          "$ref": "../Common/index.json#/definitions/faultSummary"
-        },
-        "manoeuvres": {
-          "$ref": "#/definitions/manoeuvres"
-        },
-        "seriousFaults": {
-          "$ref": "../Common/index.json#/definitions/seriousFaults"
-        },
-        "testRequirements": {
-          "$ref": "#/definitions/testRequirements"
-        },
-        "vehicleChecks": {
-          "$ref": "#/definitions/vehicleChecks"
-        }
-      }
-    },
-    "manoeuvres": {
-      "additionalProperties": false,
-      "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
-      "properties": {
-        "reverseLeft": {
-          "additionalProperties": false,
-          "properties": {
-            "controlFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
-            },
-            "controlFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
-            },
-            "observationFault": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreOutcome"
-            },
-            "observationFaultComments": {
-              "$ref": "../Common/index.json#/definitions/faultComments"
-            },
-            "selected": {
-              "$ref": "../Common/index.json#/definitions/manoeuvreIndicator"
-            }
-          },
-          "type": "object"
-        }
-      },
-      "type": "object"
-    },
     "passCompletion": {
       "properties": {
         "code78Present": {
           "description": "Indicate presence of code 78 (automatic) on candidates license",
           "type": "boolean"
         }
+      }
+    },
+    "faultComments": {
+      "$ref": "../common/index.json#/definitions/faultComments"
+    },
+    "manoeuvre": {
+      "$ref": "../common/index.json#/definitions/manoeuvre"
+    },
+    "manoeuvreOutcome": {
+      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
+    },
+    "manoeuvreIndicator": {
+      "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
+    },
+    "manoeuvres": {
+      "additionalProperties": false,
+      "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
+      "type": "object",
+      "properties": {
+        "reverseLeft": {
+          "$ref": "#/definitions/manoeuvre"
+        }
+      }
+    },
+    "questionResult": {
+      "$ref": "../common/index.json#/definitions/questionResult"
+    },
+    "vehicleChecks": {
+      "additionalProperties": false,
+      "description": "Details of the Show Me and Tell Me questions asked during the test",
+      "properties": {
+        "showMeQuestions": {
+          "items": {
+            "$ref": "#/definitions/questionResult"
+          },
+          "type": "array"
+        },
+        "showMeTellMeComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "tellMeQuestions": {
+          "items": {
+            "$ref": "#/definitions/questionResult"
+          },
+          "type": "array"
+        }
       },
+      "type": "object"
+    },
+    "vehicleDetails": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "vehicleLength": {
+          "description": "Indicates the length of the vehicle",
+          "type": "number"
+        },
+        "vehicleWidth": {
+          "description": "Indicates the width of the vehicle",
+          "type": "number"
+        }
+      }
+    },
+    "journalData": {
+      "properties": {
+        "candidate": {
+          "$ref": "#/definitions/candidate"
+        }
+      },
+      "additionalProperties": false,
       "required": [
-        "code78Present"
+        "candidate"
       ]
+    },
+    "address": {
+      "$ref": "../common/index.json#/definitions/address"
+    },
+    "businessName": {
+      "description": "Name of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 100
+    },
+    "businessTelephone": {
+      "description": "Telephone number of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 20
+    },
+    "candidate": {
+      "properties": {
+        "businessAddress": {
+          "$ref": "#/definitions/address"
+        },
+        "businessName": {
+          "$ref": "#/definitions/businessName"
+        },
+        "businessTelephone": {
+          "$ref": "#/definitions/businessTelephone"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "testData": {
+      "description": "Data associated with the test",
+      "type": "object",
+      "properties": {
+        "testRequirements": {
+          "$ref": "#/definitions/testRequirements"
+        },
+        "manoeuvres": {
+          "$ref": "#/definitions/manoeuvres"
+        },
+        "vehicleChecks": {
+          "$ref": "#/definitions/vehicleChecks"
+        }
+      },
+      "additionalProperties": false
     },
     "testRequirements": {
       "additionalProperties": false,
@@ -93,96 +134,28 @@
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         },
-        "downHillStart": {
+        "downhillStart": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         },
-        "normalStart1": {
+        "uphillStart": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
-        },
-        "normalStart2": {
-          "description": "Indicates whether or not this test requirement was carried out",
-          "type": "boolean"
-        },
-        "upHillStart": {
-          "description": "Indicates whether or not this test requirement was carried out",
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
-    "vehicleChecks": {
-      "additionalProperties": false,
-      "description": "Details of the Show Me and Tell Me questions asked during the test",
-      "properties": {
-        "showMeQuestion": {
-          "items": {
-            "additionalProperties": false,
-            "properties": {
-              "code": {
-                "$ref": "../Common/index.json#/definitions/questionCode"
-              },
-              "description": {
-                "$ref": "../Common/index.json#/definitions/questionDescription"
-              },
-              "outcome": {
-                "$ref": "../Common/index.json#/definitions/questionOutcome"
-              }
-            },
-            "type": "object"
-          },
-          "type": "array"
-        },
-        "showMeTellMeComments": {
-          "$ref": "../Common/index.json#/definitions/faultComments"
-        },
-        "tellMeQuestions": {
-          "items": {
-            "additionalProperties": false,
-            "properties": {
-              "code": {
-                "$ref": "../Common/index.json#/definitions/questionCode"
-              },
-              "description": {
-                "$ref": "../Common/index.json#/definitions/questionDescription"
-              },
-              "outcome": {
-                "$ref": "../Common/index.json#/definitions/questionOutcome"
-              }
-            },
-            "type": "object"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "vehicleDetails": {
-      "additionalProperties": false,
-      "description": "Details about the vehicle to be used for the test",
-      "properties": {
-        "gearboxCategory": {
-          "$ref": "../Common/index.json#/definitions/gearboxCategory"
-        },
-        "registrationNumber": {
-          "description": "The vehicle registration number",
-          "maxLength": 7,
-          "type": "string"
-        },
-        "vehicleHeight": {
-          "description": "Indicates the height of the vehicle",
-          "type": "number"
-        },
-        "vehicleWidth": {
-          "description": "Indicates the width of the vehicle",
-          "type": "number"
         }
       },
       "type": "object"
     }
   },
-  "properties": {},
+  "properties": {
+    "testData": {
+      "$ref": "#/definitions/testData"
+    },
+    "journalData": {
+      "$ref": "#/definitions/journalData"
+    }
+  },
   "additionalProperties": false,
-  "required": []
+  "required": [
+    "journalData"
+  ]
 }
