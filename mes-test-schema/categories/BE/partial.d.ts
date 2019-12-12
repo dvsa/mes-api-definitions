@@ -44,6 +44,7 @@ export type BusinessTelephone = string;
 export interface PartialTestResultCatBESchema {
   testData?: TestData;
   journalData: JournalData;
+  vehicleDetails?: VehicleDetails;
 }
 /**
  * Data associated with the test

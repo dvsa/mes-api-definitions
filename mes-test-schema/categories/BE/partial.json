@@ -162,6 +162,9 @@
     },
     "journalData": {
       "$ref": "#/definitions/journalData"
+    },
+    "vehicleDetails": {
+      "$ref": "#/definitions/vehicleDetails"
     }
   },
   "additionalProperties": false,
