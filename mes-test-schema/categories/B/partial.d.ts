@@ -6,13 +6,6 @@
  */
 
 /**
- * The possible outcomes of any manoeuvre performed during the test
- *
- * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
- * via the `definition` "manoeuvreOutcome".
- */
-export type ManoeuvreOutcome = "DF" | "S" | "D";
-/**
  * Comments recorded against a fault
  *
  * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
@@ -20,16 +13,38 @@ export type ManoeuvreOutcome = "DF" | "S" | "D";
  */
 export type FaultComments = string;
 /**
+ * The possible outcomes of any manoeuvre performed during the test
+ *
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
+ * via the `definition` "manoeuvreOutcome".
+ */
+export type ManoeuvreOutcome = "DF" | "S" | "D";
+/**
  * Indicator for a manoeuvre being performed during the test
  *
  * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
  * via the `definition` "manoeuvreIndicator".
  */
 export type ManoeuvreIndicator = boolean;
+/**
+ * Indicates whether the vehicle belongs to a driving school
+ *
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
+ * via the `definition` "schoolCar".
+ */
+export type SchoolCar = boolean;
+/**
+ * Indicates whether or not the vehicle has dual controls fitted
+ *
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
+ * via the `definition` "dualControls".
+ */
+export type DualControls = boolean;
 
 export interface PartialTestResultCatBSchema {
   instructorDetails?: InstructorDetails;
   testData?: TestData;
+  vehicleDetails?: VehicleDetails;
 }
 /**
  * Details about the candidate's driving instructor
@@ -48,10 +63,23 @@ export interface InstructorDetails {
  * via the `definition` "testData".
  */
 export interface TestData {
+  eyesightTest?: EyesightTest;
   controlledStop?: ControlledStop;
   testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres;
   vehicleChecks?: VehicleChecks;
+}
+/**
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
+ * via the `definition` "eyesightTest".
+ */
+export interface EyesightTest {
+  complete?: boolean;
+  /**
+   * Whether the candidate has failed the eyesight test
+   */
+  seriousFault?: boolean;
+  faultComments?: FaultComments;
 }
 /**
  * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
@@ -131,4 +159,13 @@ export interface QuestionResult {
    * Outcome of the question that was asked
    */
   outcome?: "P" | "DF" | "S" | "D";
+}
+/**
+ * This interface was referenced by `PartialTestResultCatBSchema`'s JSON-Schema
+ * via the `definition` "vehicleDetails".
+ */
+export interface VehicleDetails {
+  schoolCar?: SchoolCar;
+  dualControls?: DualControls;
+  [k: string]: any;
 }

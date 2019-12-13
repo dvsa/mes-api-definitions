@@ -170,19 +170,19 @@ export type WeatherConditions =
  */
 export type GearboxCategory = "Manual" | "Automatic";
 /**
- * Comments recorded against a fault
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "faultComments".
- */
-export type FaultComments = string;
-/**
  * The count of the number of driving faults recorded against a test element
  *
  * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
  * via the `definition` "drivingFaultCount".
  */
 export type DrivingFaultCount = number;
+/**
+ * Comments recorded against a fault
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "faultComments".
+ */
+export type FaultComments = string;
 /**
  * Indicator for a serious fault being recorded against a test element
  *
@@ -197,6 +197,27 @@ export type SeriousFaultIndicator = boolean;
  * via the `definition` "dangerousFaultIndicator".
  */
 export type DangerousFaultIndicator = boolean;
+/**
+ * Indicate presence of code 78 (automatic) on candidates license
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "code78Present".
+ */
+export type Code78Present = boolean;
+/**
+ * Indicates whether the vehicle belongs to a driving school
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "schoolCar".
+ */
+export type SchoolCar = boolean;
+/**
+ * Indicates whether or not the vehicle has dual controls fitted
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "dualControls".
+ */
+export type DualControls = boolean;
 /**
  * The possible outcomes of any manoeuvre performed during the test
  *
@@ -706,14 +727,6 @@ export interface VehicleDetails {
    */
   registrationNumber?: string;
   gearboxCategory?: GearboxCategory;
-  /**
-   * Indicates whether the vehicle belongs to a driving school
-   */
-  schoolCar?: boolean;
-  /**
-   * Indicates whether or not the vehicle has dual controls fitted
-   */
-  dualControls?: boolean;
 }
 /**
  * Data associated with the test
@@ -722,25 +735,12 @@ export interface VehicleDetails {
  * via the `definition` "testData".
  */
 export interface TestData {
-  eyesightTest?: EyesightTest;
   drivingFaults?: DrivingFaults;
   seriousFaults?: SeriousFaults;
   dangerousFaults?: DangerousFaults;
   eco?: Eco;
   ETA?: ETA;
   testRequirements?: TestRequirements;
-}
-/**
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "eyesightTest".
- */
-export interface EyesightTest {
-  complete?: boolean;
-  /**
-   * Whether the candidate has failed the eyesight test
-   */
-  seriousFault?: boolean;
-  faultComments?: FaultComments;
 }
 /**
  * The driving faults accumulated during the test
@@ -1064,6 +1064,18 @@ export interface Manoeuvre {
   observationFault?: ManoeuvreOutcome;
   observationFaultComments?: FaultComments;
   selected?: ManoeuvreIndicator;
+}
+/**
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "eyesightTest".
+ */
+export interface EyesightTest {
+  complete?: boolean;
+  /**
+   * Whether the candidate has failed the eyesight test
+   */
+  seriousFault?: boolean;
+  faultComments?: FaultComments;
 }
 /**
  * Result of a vehicle checks question

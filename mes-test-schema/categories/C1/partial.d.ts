@@ -6,53 +6,42 @@
  */
 
 /**
- * Indicate presence of code 78 (automatic) on candidates license
- *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
- * via the `definition` "code78Present".
- */
-export type Code78Present = boolean;
-/**
  * The possible outcomes of any manoeuvre performed during the test
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "manoeuvreOutcome".
  */
 export type ManoeuvreOutcome = "DF" | "S" | "D";
 /**
  * Comments recorded against a fault
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "faultComments".
  */
 export type FaultComments = string;
 /**
  * Indicator for a manoeuvre being performed during the test
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "manoeuvreIndicator".
  */
 export type ManoeuvreIndicator = boolean;
 /**
  * Name of the business the candidate relates to
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "businessName".
  */
 export type BusinessName = string;
 /**
  * Telephone number of the business the candidate relates to
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "businessTelephone".
  */
 export type BusinessTelephone = string;
 
-export interface PartialTestResultCatCSchema {
-  passCompletion?: {
-    code78Present?: Code78Present;
-    [k: string]: any;
-  };
+export interface PartialTestResultCatC1Schema {
   testData?: TestData;
   journalData: JournalData;
   vehicleDetails?: VehicleDetails;
@@ -60,7 +49,7 @@ export interface PartialTestResultCatCSchema {
 /**
  * Data associated with the test
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "testData".
  */
 export interface TestData {
@@ -71,7 +60,7 @@ export interface TestData {
 /**
  * The test requirements that must be carried out during a test
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "testRequirements".
  */
 export interface TestRequirements {
@@ -91,7 +80,7 @@ export interface TestRequirements {
 /**
  * The manoeuvres that were carried out during the test and any faults recorded against them
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "manoeuvres".
  */
 export interface Manoeuvres {
@@ -100,7 +89,7 @@ export interface Manoeuvres {
 /**
  * Data needs capturing for a manoeuvre competency
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "manoeuvre".
  */
 export interface Manoeuvre {
@@ -113,7 +102,7 @@ export interface Manoeuvre {
 /**
  * Details of the Show Me and Tell Me questions asked during the test
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "vehicleChecks".
  */
 export interface VehicleChecks {
@@ -124,7 +113,7 @@ export interface VehicleChecks {
 /**
  * Result of a vehicle checks question
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "questionResult".
  */
 export interface QuestionResult {
@@ -142,14 +131,14 @@ export interface QuestionResult {
   outcome?: "P" | "DF" | "S" | "D";
 }
 /**
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "journalData".
  */
 export interface JournalData {
   candidate: Candidate;
 }
 /**
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "candidate".
  */
 export interface Candidate {
@@ -160,7 +149,7 @@ export interface Candidate {
 /**
  * Details of the address
  *
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "address".
  */
 export interface Address {
@@ -190,7 +179,7 @@ export interface Address {
   postcode?: string;
 }
 /**
- * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
  * via the `definition` "vehicleDetails".
  */
 export interface VehicleDetails {

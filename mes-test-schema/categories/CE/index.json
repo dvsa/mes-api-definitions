@@ -1,5 +1,5 @@
 {
-	"title": "Test Result Cat BE Schema",
+	"title": "Test Result Cat CE Schema",
 	"type": "object",
 	"definitions": {
 		"code78Present": {
@@ -35,9 +35,6 @@
 				},
 				"testRequirements": {
 					"$ref": "#/definitions/testRequirements"
-				},
-				"eyesightTest": {
-					"$ref": "#/definitions/eyesightTest"
 				},
 				"uncoupleRecouple": {
 					"$ref": "#/definitions/uncoupleRecouple"
@@ -1640,12 +1637,6 @@
 				"vehicleWidth": {
 					"description": "Indicates the width of the vehicle",
 					"type": "number"
-				},
-				"schoolCar": {
-					"$ref": "#/definitions/schoolCar"
-				},
-				"dualControls": {
-					"$ref": "#/definitions/dualControls"
 				}
 			},
 			"additionalProperties": false
@@ -1670,6 +1661,21 @@
 				"provisionalLicenceProvided",
 				"passCertificateNumber"
 			]
+		},
+		"uncoupleRecouple": {
+			"additionalProperties": false,
+			"properties": {
+				"fault": {
+					"$ref": "#/definitions/manoeuvreOutcome"
+				},
+				"faultComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"selected": {
+					"$ref": "#/definitions/manoeuvreIndicator"
+				}
+			},
+			"type": "object"
 		},
 		"manoeuvres": {
 			"additionalProperties": false,
@@ -1712,21 +1718,6 @@
 			"description": "Telephone number of the business the candidate relates to",
 			"type": "string",
 			"maxLength": 20
-		},
-		"uncoupleRecouple": {
-			"additionalProperties": false,
-			"properties": {
-				"fault": {
-					"$ref": "#/definitions/manoeuvreOutcome"
-				},
-				"faultComments": {
-					"$ref": "#/definitions/faultComments"
-				},
-				"selected": {
-					"$ref": "#/definitions/manoeuvreIndicator"
-				}
-			},
-			"type": "object"
 		}
 	},
 	"properties": {
@@ -1786,7 +1777,11 @@
 			"type": "number"
 		},
 		"passCompletion": {
-			"$ref": "#/definitions/passCompletion"
+			"properties": {
+				"code78Present": {
+					"$ref": "#/definitions/code78Present"
+				}
+			}
 		},
 		"vehicleDetails": {
 			"$ref": "#/definitions/vehicleDetails"

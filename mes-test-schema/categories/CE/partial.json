@@ -1,15 +1,24 @@
 {
-  "title": "Partial Test Result Cat BE Schema",
+  "title": "Partial Test Result Cat CE Schema",
   "type": "object",
   "definitions": {
-    "schoolCar": {
-      "$ref": "../common/index.json#/definitions/schoolCar"
+    "uncoupleRecouple": {
+      "additionalProperties": false,
+      "properties": {
+        "fault": {
+          "$ref": "#/definitions/manoeuvreOutcome"
+        },
+        "faultComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "selected": {
+          "$ref": "#/definitions/manoeuvreIndicator"
+        }
+      },
+      "type": "object"
     },
-    "dualControls": {
-      "$ref": "../common/index.json#/definitions/dualControls"
-    },
-    "eyesightTest": {
-      "$ref": "../common/index.json#/definitions/eyesightTest"
+    "code78Present": {
+      "$ref": "../common/index.json#/definitions/code78Present"
     },
     "faultComments": {
       "$ref": "../common/index.json#/definitions/faultComments"
@@ -69,12 +78,6 @@
         "vehicleWidth": {
           "description": "Indicates the width of the vehicle",
           "type": "number"
-        },
-        "schoolCar": {
-          "$ref": "#/definitions/schoolCar"
-        },
-        "dualControls": {
-          "$ref": "#/definitions/dualControls"
         }
       }
     },
@@ -117,28 +120,10 @@
       "type": "object",
       "additionalProperties": false
     },
-    "uncoupleRecouple": {
-      "additionalProperties": false,
-      "properties": {
-        "fault": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "faultComments": {
-          "$ref": "#/definitions/faultComments"
-        },
-        "selected": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        }
-      },
-      "type": "object"
-    },
     "testData": {
       "description": "Data associated with the test",
       "type": "object",
       "properties": {
-        "eyesightTest": {
-          "$ref": "#/definitions/eyesightTest"
-        },
         "uncoupleRecouple": {
           "$ref": "#/definitions/uncoupleRecouple"
         },
@@ -175,6 +160,13 @@
     }
   },
   "properties": {
+    "passCompletion": {
+      "properties": {
+        "code78Present": {
+          "$ref": "#/definitions/code78Present"
+        }
+      }
+    },
     "testData": {
       "$ref": "#/definitions/testData"
     },

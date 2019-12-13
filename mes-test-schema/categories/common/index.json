@@ -2,13 +2,22 @@
   "title": "Test Result Common Schema",
   "type": "object",
   "definitions": {
+    "code78Present": {
+      "description": "Indicate presence of code 78 (automatic) on candidates license",
+      "type": "boolean"
+    },
+    "schoolCar": {
+      "description": "Indicates whether the vehicle belongs to a driving school",
+      "type": "boolean"
+    },
+    "dualControls": {
+      "description": "Indicates whether or not the vehicle has dual controls fitted",
+      "type": "boolean"
+    },
     "testData": {
       "additionalProperties": false,
       "description": "Data associated with the test",
       "properties": {
-        "eyesightTest": {
-          "$ref": "#/definitions/eyesightTest"
-        },
         "drivingFaults": {
           "$ref": "#/definitions/drivingFaults"
         },
@@ -1589,14 +1598,6 @@
         },
         "gearboxCategory": {
           "$ref": "#/definitions/gearboxCategory"
-        },
-        "schoolCar": {
-          "description": "Indicates whether the vehicle belongs to a driving school",
-          "type": "boolean"
-        },
-        "dualControls": {
-          "description": "Indicates whether or not the vehicle has dual controls fitted",
-          "type": "boolean"
         }
       },
       "additionalProperties": false
