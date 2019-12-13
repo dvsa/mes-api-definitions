@@ -167,4 +167,8 @@ export interface QuestionResult {
 export interface VehicleDetails {
   schoolCar?: SchoolCar;
   dualControls?: DualControls;
+<<<<<<< HEAD
+=======
+  [k: string]: any;
+>>>>>>> MES-4028-All category C schemas done
 }
