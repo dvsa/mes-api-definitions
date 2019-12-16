@@ -4,7 +4,7 @@
  * IT HAS SINCE BEEN MOFIIED BY HAND. DO NOT REGENERATE
  */
 
- // Always follow the order of the properties that are in partial.d.ts
+// Always follow the order of the properties that are in partial.d.ts
 import { PartialTestResultCatBSchema } from './partial';
 import { TestResultCommonSchema } from '../common';
 import { InstructorDetails as PartialCatBInstructorDetails } from './partial';
@@ -28,6 +28,6 @@ export declare namespace CatBUniqueTypes {
   type TestRequirements = PartialCatBTestRequirements & CommonTestRequirements;
 
   type Manoeuvres = PartialCatBManoeuvres;
-  
+
   type VehicleChecks = PartialCatBVehicleChecks;
 }
