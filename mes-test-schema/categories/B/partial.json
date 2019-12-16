@@ -10,7 +10,8 @@
         "dualControls": {
           "$ref": "#/definitions/dualControls"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "schoolCar": {
       "$ref": "../common/index.json#/definitions/schoolCar"

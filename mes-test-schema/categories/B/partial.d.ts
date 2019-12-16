@@ -167,5 +167,4 @@ export interface QuestionResult {
 export interface VehicleDetails {
   schoolCar?: SchoolCar;
   dualControls?: DualControls;
-  [k: string]: any;
 }
