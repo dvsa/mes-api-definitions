@@ -6,19 +6,19 @@
  */
 
 /**
- * The possible outcomes of any manoeuvre performed during the test
- *
- * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
- * via the `definition` "manoeuvreOutcome".
- */
-export type ManoeuvreOutcome = "DF" | "S" | "D";
-/**
  * Comments recorded against a fault
  *
  * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
  * via the `definition` "faultComments".
  */
 export type FaultComments = string;
+/**
+ * The possible outcomes of any manoeuvre performed during the test
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "manoeuvreOutcome".
+ */
+export type ManoeuvreOutcome = "DF" | "S" | "D";
 /**
  * Indicator for a manoeuvre being performed during the test
  *
@@ -40,6 +40,20 @@ export type BusinessName = string;
  * via the `definition` "businessTelephone".
  */
 export type BusinessTelephone = string;
+/**
+ * Indicates whether the vehicle belongs to a driving school
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "schoolCar".
+ */
+export type SchoolCar = boolean;
+/**
+ * Indicates whether or not the vehicle has dual controls fitted
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "dualControls".
+ */
+export type DualControls = boolean;
 
 export interface PartialTestResultCatBESchema {
   testData?: TestData;
@@ -53,10 +67,23 @@ export interface PartialTestResultCatBESchema {
  * via the `definition` "testData".
  */
 export interface TestData {
+  eyesightTest?: EyesightTest;
   uncoupleRecouple?: UncoupleRecouple;
   testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres;
   vehicleChecks?: VehicleChecks;
+}
+/**
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "eyesightTest".
+ */
+export interface EyesightTest {
+  complete?: boolean;
+  /**
+   * Whether the candidate has failed the eyesight test
+   */
+  seriousFault?: boolean;
+  faultComments?: FaultComments;
 }
 /**
  * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
@@ -201,4 +228,6 @@ export interface VehicleDetails {
    * Indicates the width of the vehicle
    */
   vehicleWidth?: number;
+  schoolCar?: SchoolCar;
+  dualControls?: DualControls;
 }

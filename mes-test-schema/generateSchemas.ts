@@ -2,12 +2,12 @@ declare var require: any
 declare var process: any
 
 const merge = require('deepmerge')
-const common = require("./categories/common/index.json")
+const common = require("./categoriesDefinitions/common/index.json")
 const fs = require('fs');
 const prettyJs = require('pretty-js');
 const json2ts = require('json-schema-to-typescript');
 
-const categories = ['B', 'BE'];
+const categories = ['B', 'BE', 'C'];
 
 // Json styling config
 const options = {
@@ -33,16 +33,16 @@ if (cliArgument === 'clean') {
 
 if (cliArgument === 'generate') {
   // Generate common typescript file
-  generateTypescriptInterfaces(`./categories/common/index.json`);
+  generateTypescriptInterfaces(`./categoriesDefinitions/common/index.json`, `./categories/common/index.d.ts`);
   for (let category of categories) {
-    const partialSchema = `./categories/${category}/partial.json`;
+    const partialSchema = `./categoriesDefinitions/${category}/partial.json`;
     const combinedSchema = `./categories/${category}/index.json`;
 
     // Generate combined schemas
     generateCombinedSchema(partialSchema, combinedSchema);
 
     // Generate typescript files
-    generateTypescriptInterfaces(partialSchema);
+    generateTypescriptInterfaces(partialSchema, `./categories/${category}/partial.d.ts`);
     // DO NOT REGENERATED THIS FILE. IT HAS BEEEN MODIFIED BY HAND
     // generateTypescriptInterfaces(combinedSchema);
   }
@@ -58,11 +58,11 @@ function generateCombinedSchema(partialSchemaLocation: string, combinedSchemaLoc
   fs.writeFileSync(combinedSchemaLocation, prettyJs(combinedJsonString, options));
 }
 
-function generateTypescriptInterfaces(schemaLocation: string) {
+function generateTypescriptInterfaces(schemaLocation: string, saveToLocation: string) {
   json2ts.compileFromFile(schemaLocation, {
     unreachableDefinitions: true
   })
-    .then(ts => fs.writeFileSync(schemaLocation.replace('.json', '.d.ts'), ts))
+    .then(ts => fs.writeFileSync(saveToLocation, ts))
 }
 
 function deleteFileIfExists(fileLocation: string) {

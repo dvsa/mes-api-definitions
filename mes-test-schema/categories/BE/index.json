@@ -2,13 +2,22 @@
 	"title": "Test Result Cat BE Schema",
 	"type": "object",
 	"definitions": {
+		"code78Present": {
+			"description": "Indicate presence of code 78 (automatic) on candidates license",
+			"type": "boolean"
+		},
+		"schoolCar": {
+			"description": "Indicates whether the vehicle belongs to a driving school",
+			"type": "boolean"
+		},
+		"dualControls": {
+			"description": "Indicates whether or not the vehicle has dual controls fitted",
+			"type": "boolean"
+		},
 		"testData": {
 			"additionalProperties": false,
 			"description": "Data associated with the test",
 			"properties": {
-				"eyesightTest": {
-					"$ref": "#/definitions/eyesightTest"
-				},
 				"drivingFaults": {
 					"$ref": "#/definitions/drivingFaults"
 				},
@@ -26,6 +35,9 @@
 				},
 				"testRequirements": {
 					"$ref": "#/definitions/testRequirements"
+				},
+				"eyesightTest": {
+					"$ref": "#/definitions/eyesightTest"
 				},
 				"uncoupleRecouple": {
 					"$ref": "#/definitions/uncoupleRecouple"
@@ -1621,14 +1633,6 @@
 				"gearboxCategory": {
 					"$ref": "#/definitions/gearboxCategory"
 				},
-				"schoolCar": {
-					"description": "Indicates whether the vehicle belongs to a driving school",
-					"type": "boolean"
-				},
-				"dualControls": {
-					"description": "Indicates whether or not the vehicle has dual controls fitted",
-					"type": "boolean"
-				},
 				"vehicleLength": {
 					"description": "Indicates the length of the vehicle",
 					"type": "number"
@@ -1636,6 +1640,12 @@
 				"vehicleWidth": {
 					"description": "Indicates the width of the vehicle",
 					"type": "number"
+				},
+				"schoolCar": {
+					"$ref": "#/definitions/schoolCar"
+				},
+				"dualControls": {
+					"$ref": "#/definitions/dualControls"
 				}
 			},
 			"additionalProperties": false

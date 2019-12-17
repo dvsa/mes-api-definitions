@@ -2,13 +2,22 @@
 	"title": "Test Result Cat B Schema",
 	"type": "object",
 	"definitions": {
+		"code78Present": {
+			"description": "Indicate presence of code 78 (automatic) on candidates license",
+			"type": "boolean"
+		},
+		"schoolCar": {
+			"description": "Indicates whether the vehicle belongs to a driving school",
+			"type": "boolean"
+		},
+		"dualControls": {
+			"description": "Indicates whether or not the vehicle has dual controls fitted",
+			"type": "boolean"
+		},
 		"testData": {
 			"additionalProperties": false,
 			"description": "Data associated with the test",
 			"properties": {
-				"eyesightTest": {
-					"$ref": "#/definitions/eyesightTest"
-				},
 				"drivingFaults": {
 					"$ref": "#/definitions/drivingFaults"
 				},
@@ -26,6 +35,9 @@
 				},
 				"testRequirements": {
 					"$ref": "#/definitions/testRequirements"
+				},
+				"eyesightTest": {
+					"$ref": "#/definitions/eyesightTest"
 				},
 				"controlledStop": {
 					"$ref": "#/definitions/controlledStop"
@@ -1608,12 +1620,10 @@
 					"$ref": "#/definitions/gearboxCategory"
 				},
 				"schoolCar": {
-					"description": "Indicates whether the vehicle belongs to a driving school",
-					"type": "boolean"
+					"$ref": "#/definitions/schoolCar"
 				},
 				"dualControls": {
-					"description": "Indicates whether or not the vehicle has dual controls fitted",
-					"type": "boolean"
+					"$ref": "#/definitions/dualControls"
 				}
 			},
 			"additionalProperties": false

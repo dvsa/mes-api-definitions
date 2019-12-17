@@ -2,6 +2,26 @@
   "title": "Partial Test Result Cat B Schema",
   "type": "object",
   "definitions": {
+    "vehicleDetails": {
+      "properties": {
+        "schoolCar": {
+          "$ref": "#/definitions/schoolCar"
+        },
+        "dualControls": {
+          "$ref": "#/definitions/dualControls"
+        }
+      },
+      "additionalProperties": false
+    },
+    "schoolCar": {
+      "$ref": "../common/index.json#/definitions/schoolCar"
+    },
+    "dualControls": {
+      "$ref": "../common/index.json#/definitions/dualControls"
+    },
+    "eyesightTest": {
+      "$ref": "../common/index.json#/definitions/eyesightTest"
+    },
     "faultComments": {
       "$ref": "../common/index.json#/definitions/faultComments"
     },
@@ -65,6 +85,9 @@
       "additionalProperties": false,
       "type": "object",
       "properties": {
+        "eyesightTest": {
+          "$ref": "#/definitions/eyesightTest"
+        },
         "controlledStop": {
           "$ref": "#/definitions/controlledStop"
         },
@@ -119,6 +142,9 @@
     },
     "testData": {
       "$ref": "#/definitions/testData"
+    },
+    "vehicleDetails": {
+      "$ref": "#/definitions/vehicleDetails"
     }
   },
   "additionalProperties": false,
