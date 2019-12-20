@@ -2,7 +2,7 @@ declare var require: any
 declare var process: any
 
 const merge = require('deepmerge')
-const common = require("./categoriesDefinitions/common/index.json")
+const common = require("./category-definitions/common/index.json")
 const fs = require('fs');
 const prettyJs = require('pretty-js');
 const json2ts = require('json-schema-to-typescript');
@@ -33,9 +33,9 @@ if (cliArgument === 'clean') {
 
 if (cliArgument === 'generate') {
   // Generate common typescript file
-  generateTypescriptInterfaces(`./categoriesDefinitions/common/index.json`, `./categories/common/index.d.ts`);
+  generateTypescriptInterfaces(`./category-definitions/common/index.json`, `./categories/common/index.d.ts`);
   for (let category of categories) {
-    const partialSchema = `./categoriesDefinitions/${category}/partial.json`;
+    const partialSchema = `./category-definitions/${category}/partial.json`;
     const combinedSchema = `./categories/${category}/index.json`;
 
     // Generate combined schemas
