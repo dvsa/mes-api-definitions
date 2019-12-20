@@ -7,7 +7,7 @@ const fs = require('fs');
 const prettyJs = require('pretty-js');
 const json2ts = require('json-schema-to-typescript');
 
-const categories = ['B', 'BE', 'C', 'C1', 'CE', 'C1E'];
+const categories = ['B', 'BE', 'C', 'CE'];
 
 // Json styling config
 const options = {
