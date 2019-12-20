@@ -49,13 +49,17 @@ export type BusinessName = string;
 export type BusinessTelephone = string;
 
 export interface PartialTestResultCatCESchema {
-  passCompletion?: {
-    code78Present?: Code78Present;
-    [k: string]: any;
-  };
+  passCompletion?: PassCompletion;
   testData?: TestData;
   journalData: JournalData;
   vehicleDetails?: VehicleDetails;
+}
+/**
+ * This interface was referenced by `PartialTestResultCatCESchema`'s JSON-Schema
+ * via the `definition` "passCompletion".
+ */
+export interface PassCompletion {
+  code78Present?: Code78Present;
 }
 /**
  * Data associated with the test

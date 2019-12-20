@@ -2,6 +2,14 @@
   "title": "Partial Test Result Cat CE Schema",
   "type": "object",
   "definitions": {
+    "passCompletion": {
+      "additionalProperties": false,
+      "properties": {
+        "code78Present": {
+          "$ref": "#/definitions/code78Present"
+        }
+      }
+    },
     "uncoupleRecouple": {
       "additionalProperties": false,
       "properties": {
@@ -161,11 +169,7 @@
   },
   "properties": {
     "passCompletion": {
-      "properties": {
-        "code78Present": {
-          "$ref": "#/definitions/code78Present"
-        }
-      }
+      "$ref": "#/definitions/passCompletion"
     },
     "testData": {
       "$ref": "#/definitions/testData"
