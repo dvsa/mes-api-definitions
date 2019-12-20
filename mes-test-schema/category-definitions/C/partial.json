@@ -2,6 +2,14 @@
   "title": "Partial Test Result Cat C Schema",
   "type": "object",
   "definitions": {
+    "passCompletion": {
+      "additionalProperties": false,
+      "properties": {
+        "code78Present": {
+          "$ref": "#/definitions/code78Present"
+        }
+      }
+    },
     "code78Present": {
       "$ref": "../common/index.json#/definitions/code78Present"
     },
@@ -143,11 +151,7 @@
   },
   "properties": {
     "passCompletion": {
-      "properties": {
-        "code78Present": {
-          "$ref": "#/definitions/code78Present"
-        }
-      }
+      "$ref": "#/definitions/passCompletion"
     },
     "testData": {
       "$ref": "#/definitions/testData"

@@ -1654,6 +1654,9 @@
 					"type": "string",
 					"maxLength": 8,
 					"minLength": 8
+				},
+				"code78Present": {
+					"$ref": "#/definitions/code78Present"
 				}
 			},
 			"additionalProperties": false,
@@ -1777,11 +1780,7 @@
 			"type": "number"
 		},
 		"passCompletion": {
-			"properties": {
-				"code78Present": {
-					"$ref": "#/definitions/code78Present"
-				}
-			}
+			"$ref": "#/definitions/passCompletion"
 		},
 		"vehicleDetails": {
 			"$ref": "#/definitions/vehicleDetails"
