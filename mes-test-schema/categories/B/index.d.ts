@@ -15,6 +15,8 @@ import { TestRequirements as PartialCatBTestRequirements } from './partial';
 import { TestRequirements as CommonTestRequirements } from '../common/index';
 import { Manoeuvres as PartialCatBManoeuvres } from './partial';
 import { VehicleChecks as PartialCatBVehicleChecks } from './partial';
+import { VehicleDetails as PartialCatBVehicleDetails } from './partial';
+import { VehicleDetails as CommonVehicleDetails } from '../common/index';
 
 export declare namespace CatBUniqueTypes {
   type TestResult = PartialTestResultCatBSchema & TestResultCommonSchema;
@@ -30,4 +32,6 @@ export declare namespace CatBUniqueTypes {
   type Manoeuvres = PartialCatBManoeuvres;
 
   type VehicleChecks = PartialCatBVehicleChecks;
+
+  type VehicleDetails = PartialCatBVehicleDetails & CommonVehicleDetails;
 }
