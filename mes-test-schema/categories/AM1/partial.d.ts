@@ -6,12 +6,12 @@
  */
 
 /**
- * The possible outcomes of any manoeuvre performed during the test
+ * The count of the number of driving faults recorded against a test element
  *
  * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "controlledStopOutcome".
+ * via the `definition` "drivingFaultCount".
  */
-export type ControlledStopOutcome = "DF" | "S" | "D";
+export type DrivingFaultCount = number;
 /**
  * Comments recorded against a fault
  *
@@ -20,12 +20,19 @@ export type ControlledStopOutcome = "DF" | "S" | "D";
  */
 export type FaultComments = string;
 /**
- * Indicator for a controlled stop being performed during the test
+ * Indicator for a serious fault being recorded against a test element
  *
  * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "controlledStopIndicator".
+ * via the `definition` "seriousFaultIndicator".
  */
-export type ControlledStopIndicator = boolean;
+export type SeriousFaultIndicator = boolean;
+/**
+ * Indicator for a dangerous fault being recorded against a test element
+ *
+ * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "dangerousFaultIndicator".
+ */
+export type DangerousFaultIndicator = boolean;
 /**
  * Name of the business the candidate relates to
  *
@@ -41,19 +48,26 @@ export type BusinessName = string;
  */
 export type BusinessTelephone = string;
 /**
- * Indicates whether the vehicle belongs to a driving school
+ * Indicates whether the bike belongs to a driving school
  *
  * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "schoolCar".
+ * via the `definition` "schoolBike".
  */
-export type SchoolCar = boolean;
+export type SchoolBike = boolean;
 /**
- * Indicates whether or not the vehicle has dual controls fitted
+ * The possible outcomes of any manoeuvre performed during the test
  *
  * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "dualControls".
+ * via the `definition` "controlledStopOutcome".
  */
-export type DualControls = boolean;
+export type ControlledStopOutcome = "DF" | "S" | "D";
+/**
+ * Indicator for a controlled stop being performed during the test
+ *
+ * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "controlledStopIndicator".
+ */
+export type ControlledStopIndicator = boolean;
 
 export interface PartialTestResultCatAM1Schema {
   testData?: TestData;
@@ -67,16 +81,160 @@ export interface PartialTestResultCatAM1Schema {
  * via the `definition` "testData".
  */
 export interface TestData {
-  controlledStop?: ControlledStop;
+  ETA?: ETA;
+  drivingFaults?: DrivingFaults;
+  seriousFaults?: SeriousFaults;
+  dangerousFaults?: DangerousFaults;
+  emergencyStop?: EmergencyStop;
+  avoidance?: Avoidance;
 }
 /**
+ * Indicates whether the examiner had to take physical or verbal action during the test
+ *
  * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "controlledStop".
+ * via the `definition` "ETA".
  */
-export interface ControlledStop {
-  fault?: ControlledStopOutcome;
-  faultComments?: FaultComments;
-  selected?: ControlledStopIndicator;
+export interface ETA {
+  /**
+   * Indicates that the examiner had to take physical action
+   */
+  physical?: boolean;
+  /**
+   * Indicates that the examiner had to take verbal action
+   */
+  verbal?: boolean;
+}
+/**
+ * The driving faults accumulated during the test
+ *
+ * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "drivingFaults".
+ */
+export interface DrivingFaults {
+  useOfStand?: DrivingFaultCount;
+  useOfStandComments?: FaultComments;
+  manualHandling?: DrivingFaultCount;
+  manualHandlingComments?: FaultComments;
+  slalom?: DrivingFaultCount;
+  slalomComments?: FaultComments;
+  slowControl?: DrivingFaultCount;
+  slowControlComments?: FaultComments;
+  uTurn?: DrivingFaultCount;
+  uTurnComments?: FaultComments;
+  controlledStop?: DrivingFaultCount;
+  controlledStopComments?: FaultComments;
+  precautions?: DrivingFaultCount;
+  precautionsComments?: FaultComments;
+  moveOffSafety?: DrivingFaultCount;
+  moveOffSafetyComments?: FaultComments;
+  moveOffControl?: DrivingFaultCount;
+  moveOffControlComments?: FaultComments;
+  avoidance?: DrivingFaultCount;
+  avoidanceComments?: FaultComments;
+  emergencyStop?: DrivingFaultCount;
+  emergencyStopComments?: FaultComments;
+}
+/**
+ * The serious faults accumulated during the test
+ *
+ * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "seriousFaults".
+ */
+export interface SeriousFaults {
+  useOfStand?: SeriousFaultIndicator;
+  useOfStandComments?: FaultComments;
+  manualHandling?: SeriousFaultIndicator;
+  manualHandlingComments?: FaultComments;
+  slalom?: SeriousFaultIndicator;
+  slalomComments?: FaultComments;
+  slowControl?: SeriousFaultIndicator;
+  slowControlComments?: FaultComments;
+  uTurn?: SeriousFaultIndicator;
+  uTurnComments?: FaultComments;
+  controlledStop?: SeriousFaultIndicator;
+  controlledStopComments?: FaultComments;
+  precautions?: SeriousFaultIndicator;
+  precautionsComments?: FaultComments;
+  moveOffSafety?: SeriousFaultIndicator;
+  moveOffSafetyComments?: FaultComments;
+  moveOffControl?: SeriousFaultIndicator;
+  moveOffControlComments?: FaultComments;
+  avoidance?: SeriousFaultIndicator;
+  avoidanceComments?: FaultComments;
+  emergencyStop?: SeriousFaultIndicator;
+  emergencyStopComments?: FaultComments;
+}
+/**
+ * The dangerous faults accumulated during the test
+ *
+ * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "dangerousFaults".
+ */
+export interface DangerousFaults {
+  useOfStand?: DangerousFaultIndicator;
+  useOfStandComments?: FaultComments;
+  manualHandling?: DangerousFaultIndicator;
+  manualHandlingComments?: FaultComments;
+  slalom?: DangerousFaultIndicator;
+  slalomComments?: FaultComments;
+  slowControl?: DangerousFaultIndicator;
+  slowControlComments?: FaultComments;
+  uTurn?: DangerousFaultIndicator;
+  uTurnComments?: FaultComments;
+  controlledStop?: DangerousFaultIndicator;
+  controlledStopComments?: FaultComments;
+  precautions?: DangerousFaultIndicator;
+  precautionsComments?: FaultComments;
+  moveOffSafety?: DangerousFaultIndicator;
+  moveOffSafetyComments?: FaultComments;
+  moveOffControl?: DangerousFaultIndicator;
+  moveOffControlComments?: FaultComments;
+  avoidance?: DangerousFaultIndicator;
+  avoidanceComments?: FaultComments;
+  emergencyStop?: DangerousFaultIndicator;
+  emergencyStopComments?: FaultComments;
+}
+/**
+ * The outcome of emergency stop tests
+ *
+ * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "emergencyStop".
+ */
+export interface EmergencyStop {
+  /**
+   * The speed of the first attempt
+   */
+  firstAttempt?: number;
+  /**
+   * The speed of the second attempt
+   */
+  secondAttempt?: number;
+  /**
+   * Whether the required speed was not met
+   */
+  speedNotMet?: boolean;
+  [k: string]: any;
+}
+/**
+ * The outcome of avoidance tests
+ *
+ * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "avoidance".
+ */
+export interface Avoidance {
+  /**
+   * The speed of the first attempt
+   */
+  firstAttempt?: number;
+  /**
+   * The speed of the second attempt
+   */
+  secondAttempt?: number;
+  /**
+   * Whether the required speed was not met
+   */
+  speedNotMet?: boolean;
+  [k: string]: any;
 }
 /**
  * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
@@ -131,16 +289,7 @@ export interface Address {
  * via the `definition` "vehicleDetails".
  */
 export interface VehicleDetails {
-  /**
-   * Indicates the length of the vehicle
-   */
-  vehicleLength?: number;
-  /**
-   * Indicates the width of the vehicle
-   */
-  vehicleWidth?: number;
-  schoolCar?: SchoolCar;
-  dualControls?: DualControls;
+  schoolBike?: SchoolBike;
 }
 /**
  * Data needs capturing for a manoeuvre competency

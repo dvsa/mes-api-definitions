@@ -2,29 +2,293 @@
   "title": "Partial Test Result Cat AM1 Schema",
   "type": "object",
   "definitions": {
-    "controlledStop": {
-      "additionalProperties": false,
+    "avoidance": {
+      "description": "The outcome of avoidance tests",
+      "type": "object",
       "properties": {
-        "fault": {
-          "$ref": "#/definitions/controlledStopOutcome"
+        "firstAttempt": {
+          "description": "The speed of the first attempt",
+          "type": "integer"
         },
-        "faultComments": {
-          "$ref": "#/definitions/faultComments"
+        "secondAttempt": {
+          "description": "The speed of the second attempt",
+          "type": "integer"
         },
-        "selected": {
-          "$ref": "#/definitions/controlledStopIndicator"
+        "speedNotMet": {
+          "description": "Whether the required speed was not met",
+          "type": "boolean"
         }
-      },
-      "type": "object"
+      }
     },
-    "schoolCar": {
-      "$ref": "../common/index.json#/definitions/schoolCar"
-    },
-    "dualControls": {
-      "$ref": "../common/index.json#/definitions/dualControls"
+    "emergencyStop": {
+      "description": "The outcome of emergency stop tests",
+      "type": "object",
+      "properties": {
+        "firstAttempt": {
+          "description": "The speed of the first attempt",
+          "type": "integer"
+        },
+        "secondAttempt": {
+          "description": "The speed of the second attempt",
+          "type": "integer"
+        },
+        "speedNotMet": {
+          "description": "Whether the required speed was not met",
+          "type": "boolean"
+        }
+      }
     },
     "faultComments": {
       "$ref": "../common/index.json#/definitions/faultComments"
+    },
+    "drivingFaultCount": {
+      "$ref": "../common/index.json#/definitions/drivingFaultCount"
+    },
+    "ETA": {
+      "description": "Indicates whether the examiner had to take physical or verbal action during the test",
+      "type": "object",
+      "properties": {
+        "physical": {
+          "description": "Indicates that the examiner had to take physical action",
+          "type": "boolean"
+        },
+        "verbal": {
+          "description": "Indicates that the examiner had to take verbal action",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "drivingFaults": {
+      "description": "The driving faults accumulated during the test",
+      "type": "object",
+      "properties": {
+        "useOfStand": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "useOfStandComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "manualHandling": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "manualHandlingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "slalom": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "slalomComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "slowControl": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "slowControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "uTurn": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "uTurnComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlledStop": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "controlledStopComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "precautions": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "precautionsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffSafety": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "moveOffSafetyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffControl": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "moveOffControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "avoidance": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "avoidanceComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "emergencyStop": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "emergencyStopComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
+    "seriousFaultIndicator": {
+      "description": "Indicator for a serious fault being recorded against a test element",
+      "type": "boolean"
+    },
+    "seriousFaults": {
+      "description": "The serious faults accumulated during the test",
+      "type": "object",
+      "properties": {
+        "useOfStand": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "useOfStandComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "manualHandling": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "manualHandlingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "slalom": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "slalomComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "slowControl": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "slowControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "uTurn": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "uTurnComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlledStop": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "controlledStopComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "precautions": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "precautionsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffSafety": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "moveOffSafetyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffControl": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "moveOffControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "avoidance": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "avoidanceComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "emergencyStop": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "emergencyStopComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dangerousFaultIndicator": {
+      "description": "Indicator for a dangerous fault being recorded against a test element",
+      "type": "boolean"
+    },
+    "dangerousFaults": {
+      "description": "The dangerous faults accumulated during the test",
+      "type": "object",
+      "properties": {
+        "useOfStand": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "useOfStandComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "manualHandling": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "manualHandlingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "slalom": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "slalomComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "slowControl": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "slowControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "uTurn": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "uTurnComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlledStop": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "controlledStopComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "precautions": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "precautionsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffSafety": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "moveOffSafetyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffControl": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "moveOffControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "avoidance": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "avoidanceComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "emergencyStop": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "emergencyStopComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
+    "schoolBike": {
+      "description": "Indicates whether the bike belongs to a driving school",
+      "type": "boolean"
     },
     "manoeuvre": {
       "$ref": "../common/index.json#/definitions/manoeuvre"
@@ -43,19 +307,8 @@
       "additionalProperties": false,
       "type": "object",
       "properties": {
-        "vehicleLength": {
-          "description": "Indicates the length of the vehicle",
-          "type": "number"
-        },
-        "vehicleWidth": {
-          "description": "Indicates the width of the vehicle",
-          "type": "number"
-        },
-        "schoolCar": {
-          "$ref": "#/definitions/schoolCar"
-        },
-        "dualControls": {
-          "$ref": "#/definitions/dualControls"
+        "schoolBike": {
+          "$ref": "#/definitions/schoolBike"
         }
       }
     },
@@ -102,8 +355,23 @@
       "description": "Data associated with the test",
       "type": "object",
       "properties": {
-        "controlledStop": {
-          "$ref": "#/definitions/controlledStop"
+        "ETA": {
+          "$ref": "#/definitions/ETA"
+        },
+        "drivingFaults": {
+          "$ref": "#/definitions/drivingFaults"
+        },
+        "seriousFaults": {
+          "$ref": "#/definitions/seriousFaults"
+        },
+        "dangerousFaults": {
+          "$ref": "#/definitions/dangerousFaults"
+        },
+        "emergencyStop": {
+          "$ref": "#/definitions/emergencyStop"
+        },
+        "avoidance": {
+          "$ref": "#/definitions/avoidance"
         }
       },
       "additionalProperties": false

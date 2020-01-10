@@ -19,7 +19,7 @@ import { VehicleDetails as CommonVehicleDetails } from '../common/index';
 export declare namespace CatAM1UniqueTypes {
     type TestResult = PartialTestResultCatAM1Schema & TestResultCommonSchema;
 
-    type TestData = PartialCatAM1TestData & CommonTestData;
+    type TestData = PartialCatAM1TestData;
 
     type JournalData = PartialCatAM1JournalData & CommonJournalData;
 
