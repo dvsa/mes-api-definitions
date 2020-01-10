@@ -11,7 +11,6 @@ import { PassCompletion as CommonPassCompletion } from '../common/index';
 import { TestData as PartialCatC1ETestData } from './partial';
 import { TestData as CommonTestData } from '../common';
 import { TestRequirements as PartialCatC1ETestRequirements } from './partial';
-import { TestRequirements as CommonTestRequirements } from '../common/index';
 import { Manoeuvres as PartialCatC1EManoeuvres } from './partial';
 import { VehicleChecks as PartialCatC1EVehicleChecks } from './partial';
 import { JournalData as PartialCatC1EJournalData } from './partial';
@@ -27,7 +26,7 @@ export declare namespace CatC1EUniqueTypes {
 
   type TestData = PartialCatC1ETestData & CommonTestData;
 
-  type TestRequirements = PartialCatC1ETestRequirements & CommonTestRequirements;
+  type TestRequirements = PartialCatC1ETestRequirements;
 
   type Manoeuvres = PartialCatC1EManoeuvres;
 

@@ -12,7 +12,6 @@ import { TestData as PartialCatBTestData } from './partial';
 import { TestData as CommonTestData } from '../common/index';
 import { ControlledStop as PartialCatBControlledStop } from './partial';
 import { TestRequirements as PartialCatBTestRequirements } from './partial';
-import { TestRequirements as CommonTestRequirements } from '../common/index';
 import { Manoeuvres as PartialCatBManoeuvres } from './partial';
 import { VehicleChecks as PartialCatBVehicleChecks } from './partial';
 import { VehicleDetails as PartialCatBVehicleDetails } from './partial';
@@ -27,7 +26,7 @@ export declare namespace CatBUniqueTypes {
 
   type ControlledStop = PartialCatBControlledStop;
 
-  type TestRequirements = PartialCatBTestRequirements & CommonTestRequirements;
+  type TestRequirements = PartialCatBTestRequirements;
 
   type Manoeuvres = PartialCatBManoeuvres;
 

@@ -10,7 +10,6 @@ import { TestResultCommonSchema } from '../common/index';
 import { TestData as PartialCatCTestData } from './partial';
 import { TestData as CommonTestData } from '../common';
 import { TestRequirements as PartialCatCTestRequirements } from './partial';
-import { TestRequirements as CommonTestRequirements } from '../common/index';
 import { Manoeuvres as PartialCatCManoeuvres } from './partial';
 import { VehicleChecks as PartialCatCVehicleChecks } from './partial';
 import { JournalData as PartialCatCJournalData } from './partial';
@@ -27,7 +26,7 @@ export declare namespace CatCUniqueTypes {
 
   type TestData = PartialCatCTestData & CommonTestData;
 
-  type TestRequirements = PartialCatCTestRequirements & CommonTestRequirements;
+  type TestRequirements = PartialCatCTestRequirements;
 
   type Manoeuvres = PartialCatCManoeuvres;
 

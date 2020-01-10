@@ -2,6 +2,40 @@
   "title": "Partial Test Result Cat B Schema",
   "type": "object",
   "definitions": {
+    "eco": {
+      "description": "Assessment of the eco friendly manner of driving",
+      "type": "object",
+      "properties": {
+        "completed": {
+          "description": "Indicates that the eco friendly manner of driving has been assessed",
+          "type": "boolean"
+        },
+        "adviceGivenControl": {
+          "description": "Indicates that advice was given on the Control aspect of eco driving",
+          "type": "boolean"
+        },
+        "adviceGivenPlanning": {
+          "description": "Indicates that advice was given on the Planning aspect of eco driving",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ETA": {
+      "description": "Indicates whether the examiner had to take physical or verbal action during the test",
+      "type": "object",
+      "properties": {
+        "physical": {
+          "description": "Indicates that the examiner had to take physical action",
+          "type": "boolean"
+        },
+        "verbal": {
+          "description": "Indicates that the examiner had to take verbal action",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
     "vehicleDetails": {
       "properties": {
         "schoolCar": {
@@ -99,13 +133,28 @@
         },
         "vehicleChecks": {
           "$ref": "#/definitions/vehicleChecks"
+        },
+        "eco": {
+          "$ref": "#/definitions/eco"
+        },
+        "ETA": {
+          "$ref": "#/definitions/ETA"
         }
       }
     },
     "testRequirements": {
+      "description": "The test requirements that must be carried out during a test",
       "additionalProperties": false,
       "type": "object",
       "properties": {
+        "normalStart1": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        },
+        "normalStart2": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        },
         "angledStart": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"

@@ -12,7 +12,6 @@ import { TestData as PartialCatBETestData } from './partial';
 import { TestData as CommonTestData } from '../common';
 import { UncoupleRecouple as PartialCatBEUncoupleRecouple } from './partial';
 import { TestRequirements as PartialCatBETestRequirements } from './partial';
-import { TestRequirements as CommonTestRequirements } from '../common/index';
 import { Manoeuvres as PartialCatBEManoeuvres } from './partial';
 import { VehicleChecks as PartialCatBEVehicleChecks } from './partial';
 import { JournalData as PartialCatBEJournalData } from './partial';
@@ -29,7 +28,7 @@ export declare namespace CatBEUniqueTypes {
  
   type UncoupleRecouple = PartialCatBEUncoupleRecouple;
 
-  type TestRequirements = PartialCatBETestRequirements & CommonTestRequirements;
+  type TestRequirements = PartialCatBETestRequirements;
 
   type Manoeuvres = PartialCatBEManoeuvres;
 

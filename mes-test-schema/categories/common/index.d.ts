@@ -738,9 +738,6 @@ export interface TestData {
   drivingFaults?: DrivingFaults;
   seriousFaults?: SeriousFaults;
   dangerousFaults?: DangerousFaults;
-  eco?: Eco;
-  ETA?: ETA;
-  testRequirements?: TestRequirements;
 }
 /**
  * The driving faults accumulated during the test
@@ -999,58 +996,6 @@ export interface DangerousFaults {
   positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: DangerousFaultIndicator;
   awarenessPlanningComments?: FaultComments;
-}
-/**
- * Assessment of the eco friendly manner of driving
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "eco".
- */
-export interface Eco {
-  /**
-   * Indicates that the eco friendly manner of driving has been assessed
-   */
-  completed?: boolean;
-  /**
-   * Indicates that advice was given on the Control aspect of eco driving
-   */
-  adviceGivenControl?: boolean;
-  /**
-   * Indicates that advice was given on the Planning aspect of eco driving
-   */
-  adviceGivenPlanning?: boolean;
-}
-/**
- * Indicates whether the examiner had to take physical or verbal action during the test
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "ETA".
- */
-export interface ETA {
-  /**
-   * Indicates that the examiner had to take physical action
-   */
-  physical?: boolean;
-  /**
-   * Indicates that the examiner had to take verbal action
-   */
-  verbal?: boolean;
-}
-/**
- * The test requirements that must be carried out during a test
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "testRequirements".
- */
-export interface TestRequirements {
-  /**
-   * Indicates whether or not this test requirement was carried out
-   */
-  normalStart1?: boolean;
-  /**
-   * Indicates whether or not this test requirement was carried out
-   */
-  normalStart2?: boolean;
 }
 /**
  * Data needs capturing for a manoeuvre competency

@@ -71,6 +71,8 @@ export interface TestData {
   testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres;
   vehicleChecks?: VehicleChecks;
+  eco?: Eco;
+  ETA?: ETA;
 }
 /**
  * The test requirements that must be carried out during a test
@@ -79,6 +81,14 @@ export interface TestData {
  * via the `definition` "testRequirements".
  */
 export interface TestRequirements {
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  normalStart1?: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  normalStart2?: boolean;
   /**
    * Indicates whether or not this test requirement was carried out
    */
@@ -144,6 +154,42 @@ export interface QuestionResult {
    * Outcome of the question that was asked
    */
   outcome?: "P" | "DF" | "S" | "D";
+}
+/**
+ * Assessment of the eco friendly manner of driving
+ *
+ * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * via the `definition` "eco".
+ */
+export interface Eco {
+  /**
+   * Indicates that the eco friendly manner of driving has been assessed
+   */
+  completed?: boolean;
+  /**
+   * Indicates that advice was given on the Control aspect of eco driving
+   */
+  adviceGivenControl?: boolean;
+  /**
+   * Indicates that advice was given on the Planning aspect of eco driving
+   */
+  adviceGivenPlanning?: boolean;
+}
+/**
+ * Indicates whether the examiner had to take physical or verbal action during the test
+ *
+ * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
+ * via the `definition` "ETA".
+ */
+export interface ETA {
+  /**
+   * Indicates that the examiner had to take physical action
+   */
+  physical?: boolean;
+  /**
+   * Indicates that the examiner had to take verbal action
+   */
+  verbal?: boolean;
 }
 /**
  * This interface was referenced by `PartialTestResultCatCSchema`'s JSON-Schema
