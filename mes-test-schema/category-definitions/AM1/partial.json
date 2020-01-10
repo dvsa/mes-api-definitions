@@ -1,0 +1,127 @@
+{
+  "title": "Partial Test Result Cat AM1 Schema",
+  "type": "object",
+  "definitions": {
+    "controlledStop": {
+      "additionalProperties": false,
+      "properties": {
+        "fault": {
+          "$ref": "#/definitions/controlledStopOutcome"
+        },
+        "faultComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "selected": {
+          "$ref": "#/definitions/controlledStopIndicator"
+        }
+      },
+      "type": "object"
+    },
+    "schoolCar": {
+      "$ref": "../common/index.json#/definitions/schoolCar"
+    },
+    "dualControls": {
+      "$ref": "../common/index.json#/definitions/dualControls"
+    },
+    "faultComments": {
+      "$ref": "../common/index.json#/definitions/faultComments"
+    },
+    "manoeuvre": {
+      "$ref": "../common/index.json#/definitions/manoeuvre"
+    },
+    "controlledStopOutcome": {
+      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
+    },
+    "controlledStopIndicator": {
+      "description": "Indicator for a controlled stop being performed during the test",
+      "type": "boolean"
+    },
+    "questionResult": {
+      "$ref": "../common/index.json#/definitions/questionResult"
+    },
+    "vehicleDetails": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "vehicleLength": {
+          "description": "Indicates the length of the vehicle",
+          "type": "number"
+        },
+        "vehicleWidth": {
+          "description": "Indicates the width of the vehicle",
+          "type": "number"
+        },
+        "schoolCar": {
+          "$ref": "#/definitions/schoolCar"
+        },
+        "dualControls": {
+          "$ref": "#/definitions/dualControls"
+        }
+      }
+    },
+    "journalData": {
+      "properties": {
+        "candidate": {
+          "$ref": "#/definitions/candidate"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "candidate"
+      ]
+    },
+    "address": {
+      "$ref": "../common/index.json#/definitions/address"
+    },
+    "businessName": {
+      "description": "Name of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 100
+    },
+    "businessTelephone": {
+      "description": "Telephone number of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 20
+    },
+    "candidate": {
+      "properties": {
+        "businessAddress": {
+          "$ref": "#/definitions/address"
+        },
+        "businessName": {
+          "$ref": "#/definitions/businessName"
+        },
+        "businessTelephone": {
+          "$ref": "#/definitions/businessTelephone"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "testData": {
+      "description": "Data associated with the test",
+      "type": "object",
+      "properties": {
+        "controlledStop": {
+          "$ref": "#/definitions/controlledStop"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "testData": {
+      "$ref": "#/definitions/testData"
+    },
+    "journalData": {
+      "$ref": "#/definitions/journalData"
+    },
+    "vehicleDetails": {
+      "$ref": "#/definitions/vehicleDetails"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "journalData"
+  ]
+}
