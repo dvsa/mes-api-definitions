@@ -12,7 +12,7 @@ import { TestData as CommonTestData } from '../common/index';
 import { VehicleDetails as PartialCatAM2VehicleDetails } from './partial';
 import { TestRequirements as CommonTestRequirements } from '../common/index';
 
-export declare namespace CatBUniqueTypes {
+export declare namespace CatAM2UniqueTypes {
 
   type TestData = PartialCatAM2TestData;
   type SafetyAndBalanceQuestions = PartialCatAM2SafetyAndBalanceQuestions;
