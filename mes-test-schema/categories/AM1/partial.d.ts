@@ -55,6 +55,13 @@ export type BusinessTelephone = string;
  */
 export type SchoolBike = boolean;
 /**
+ * The number of the DL196 CBT certificate presented by the candidate
+ *
+ * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "DL196CBTCertNumber".
+ */
+export type DL196CBTCertNumber = string;
+/**
  * The possible outcomes of any manoeuvre performed during the test
  *
  * This interface was referenced by `PartialTestResultCatAM1Schema`'s JSON-Schema
@@ -70,6 +77,9 @@ export type ControlledStopOutcome = "DF" | "S" | "D";
 export type ControlledStopIndicator = boolean;
 
 export interface PartialTestResultCatAM1Schema {
+  preTestDeclarations?: {
+    [k: string]: any;
+  };
   testData?: TestData;
   journalData: JournalData;
   vehicleDetails?: VehicleDetails;
