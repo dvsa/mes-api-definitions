@@ -63,49 +63,13 @@
       "type": "string"
     },
     "examiner": {
-      "description": "The examiner details",
-      "type": "object",
-      "properties": {
-        "staffNumber": {
-          "description": "The examiner's DSA staff number",
-          "type": "string",
-          "maxLength": 10
-        },
-        "individualId": {
-          "description": "The individual ID of the examiner",
-          "type": "number"
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "staffNumber"
-      ]
+      "$ref": "../common/index.json#/definitions/examiner"
     },
-    "testCentre": {
-      "description": "Details of the test centre",
-      "type": "object",
-      "properties": {
-        "centreId": {
-          "description": "Identifer for the test centre",
-          "type": "integer"
-        },
-        "costCode": {
-          "description": "Cost centre code for the test centre",
-          "type": "string",
-          "maxLength": 6
-        },
-        "centreName": {
-          "description": "Name of the test centre",
-          "type": "string",
-          "maxLength": 50
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "centreId",
-        "costCode"
-      ]
-    },
+    "testCentre":
+    {
+      "$ref": "../common/index.json#/definitions/testCentre"
+    }
+  ,
     "name": {
       "description": "Details of the individual's name",
       "type": "object",
@@ -361,79 +325,19 @@
       ]
     },
     "journalData": {
-      "description": "Data brought through from the journal",
-      "type": "object",
-      "properties": {
-        "examiner": {
-          "$ref": "#/definitions/examiner"
-        },
-        "testCentre": {
-          "$ref": "#/definitions/testCentre"
-        },
-        "testSlotAttributes": {
-          "$ref": "#/definitions/testSlotAttributes"
-        },
-        "candidate": {
-          "$ref": "#/definitions/candidate"
-        },
-        "applicationReference": {
-          "$ref": "#/definitions/applicationReference"
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "examiner",
-        "testCentre",
-        "testSlotAttributes",
-        "candidate",
-        "applicationReference",
-        "candidate"
-      ]
+      "$ref": "../common/index.json#/definitions/journalData"
     },
     "signature": {
-      "description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
-      "type": "string"
+      "$ref": "../common/index.json#/definitions/signature"
     },
     "communicationMethod": {
-      "description": "The method of communication by which the candidate agrees to receive their results",
-      "type": "string",
-      "enum": [
-        "Email",
-        "Post",
-        "Support Centre",
-        "Not provided"
-      ]
+      "$ref": "../common/index.json#/definitions/communicationMethod"
     },
     "conductedLanguage": {
-      "description": "The language in which a candidate agrees to perform a test",
-      "type": "string",
-      "enum": [
-        "English",
-        "Cymraeg",
-        "Not provided"
-      ]
+      "$ref": "../common/index.json#/definitions/conductedLanguage"
     },
     "communicationPreferences": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "updatedEmail": {
-          "description": "The email address that the candidate agrees their results can be sent to",
-          "type": "string",
-          "maxLength": 100
-        },
-        "communicationMethod": {
-          "$ref": "#/definitions/communicationMethod"
-        },
-        "conductedLanguage": {
-          "$ref": "#/definitions/conductedLanguage"
-        }
-      },
-      "required": [
-        "updatedEmail",
-        "communicationMethod",
-        "conductedLanguage"
-      ]
+      "$ref": "../common/index.json#/definitions/communicationPreferences"
     },
     "preTestDeclarations": {
       "type": "object",
@@ -462,44 +366,16 @@
       ]
     },
     "accompaniment": {
-      "description": "Indicators for anybody else overseeing the test",
-      "type": "object",
-      "properties": {
-        "ADI": {
-          "description": "Indicates whether the ADI was present during the test",
-          "type": "boolean"
-        },
-        "supervisor": {
-          "description": "Indicates whether a DVSA supervisor was present during the test",
-          "type": "boolean"
-        },
-        "interpreter": {
-          "description": "Indicates whether an interpreter was present during the test",
-          "type": "boolean"
-        },
-        "other": {
-          "description": "Indicates whether another individual was present during the test",
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false
+      "$ref": "../common/index.json#/definitions/accompaniment"
     },
     "gearboxCategory": {
-      "description": "The type of gearbox",
-      "type": "string",
-      "enum": [
-        "Manual",
-        "Automatic"
-      ]
+      "$ref": "../common/index.json#/definitions/gearboxCategory"
     },
     "drivingFaultCount": {
-      "description": "The count of the number of driving faults recorded against a test element",
-      "type": "integer"
+      "$ref": "../common/index.json#/definitions/drivingFaultCount"
     },
     "faultComments": {
-      "description": "Comments recorded against a fault",
-      "type": "string",
-      "maxLength": 1000
+      "$ref": "../common/index.json#/definitions/faultComments"
     },
     "drivingFaults": {
       "description": "The driving faults accumulated during the test",
@@ -527,8 +403,7 @@
       "additionalProperties": false
     },
     "seriousFaultIndicator": {
-      "description": "Indicator for a serious fault being recorded against a test element",
-      "type": "boolean"
+      "$ref": "../common/index.json#/definitions/seriousFaultIndicator"
     },
     "seriousFaults": {
       "description": "The serious faults accumulated during the test",
@@ -556,8 +431,7 @@
       "additionalProperties": false
     },
     "dangerousFaultIndicator": {
-      "description": "Indicator for a dangerous fault being recorded against a test element",
-      "type": "boolean"
+      "$ref": "../common/index.json#/definitions/dangerousFaultIndicator"
     },
     "dangerousFaults": {
       "description": "The dangerous faults accumulated during the test",
@@ -585,37 +459,10 @@
       "additionalProperties": false
     },
     "postTestDeclarations": {
-      "type": "object",
-      "properties": {
-        "healthDeclarationAccepted": {
-          "description": "Whether or not the candidate has declared that their health status hasn't changed since their last application",
-          "type": "boolean"
-        },
-        "passCertificateNumberReceived": {
-          "description": "Indicates whether the candidate acknowledges receipt of the PCN",
-          "type": "boolean"
-        },
-        "postTestSignature": {
-          "$ref": "#/definitions/signature"
-        }
-      },
-      "additionalProperties": false
+      "$ref": "../common/index.json#/definitions/postTestDeclarations"
     },
     "weatherConditions": {
-      "description": "Predefined values for the type of weather encountered during the test",
-      "type": "string",
-      "enum": [
-        "Bright / dry roads",
-        "Bright / wet roads",
-        "Raining through test",
-        "Showers",
-        "Foggy / misty",
-        "Dull / wet roads",
-        "Dull / dry roads",
-        "Snowing",
-        "Icy",
-        "Windy"
-      ]
+      "$ref": "../common/index.json#/definitions/weatherConditions"
     },
     "independentDriving": {
       "description": "Method chosen to conduct the independent driving section of the test",
@@ -627,12 +474,7 @@
       ]
     },
     "identification": {
-      "description": "Indicates which form of ID was provided by the candidate",
-      "type": "string",
-      "enum": [
-        "Licence",
-        "Passport"
-      ]
+      "$ref": "../common/index.json#/definitions/identification"
     },
     "testSummary": {
       "description": "Recording of other characteristics of the test",
@@ -690,132 +532,22 @@
       ]
     },
     "activityCode": {
-      "description": "Code representing the result of the test",
-      "type": "string",
-      "enum": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "11",
-        "20",
-        "21",
-        "22",
-        "23",
-        "24",
-        "25",
-        "26",
-        "27",
-        "28",
-        "32",
-        "33",
-        "34",
-        "35",
-        "36",
-        "37",
-        "38",
-        "40",
-        "41",
-        "51",
-        "52",
-        "55",
-        "58",
-        "59",
-        "60",
-        "61",
-        "62",
-        "63",
-        "64",
-        "66",
-        "67",
-        "68",
-        "69",
-        "70",
-        "71",
-        "73",
-        "74",
-        "75",
-        "82",
-        "83"
-      ]
+      "$ref": "../common/index.json#/definitions/activityCode"
     },
     "gender": {
-      "description": "The gender of an individual, limited to 'M' or 'F' as per TARS master data",
-      "type": "string",
-      "enum": [
-        "M",
-        "F"
-      ]
+      "$ref": "../common/index.json#/definitions/gender"
     },
     "rekeyReason": {
-      "description": "Recording of the rekey reason",
-      "type": "object",
-      "properties": {
-        "transfer": {
-          "$ref": "#/definitions/transfer"
-        },
-        "ipadIssue": {
-          "$ref": "#/definitions/ipadIssue"
-        },
-        "other": {
-          "$ref": "#/definitions/other"
-        }
-      },
-      "additionalProperties": false
+      "$ref": "../common/index.json#/definitions/rekeyReason"
     },
     "transfer": {
-      "description": "Recording of if a rekey was due to a transfer",
-      "type": "object",
-      "properties": {
-        "selected": {
-          "description": "If this option was selected",
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false
+      "$ref": "../common/index.json#/definitions/transfer"
     },
     "ipadIssue": {
-      "description": "Recording of if a rekey was due to a iPad issue",
-      "type": "object",
-      "properties": {
-        "selected": {
-          "description": "If this option was selected",
-          "type": "boolean"
-        },
-        "technicalFault": {
-          "description": "If the iPad was not used due to a technical fault",
-          "type": "boolean"
-        },
-        "lost": {
-          "description": "If the iPad was not used as it has been lost",
-          "type": "boolean"
-        },
-        "stolen": {
-          "description": "If the iPad was not used as it has been stolen",
-          "type": "boolean"
-        },
-        "broken": {
-          "description": "If the iPad was not used as it is broken",
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false
+      "$ref": "../common/index.json#/definitions/ipadIssue"
     },
     "other": {
-      "description": "Recording of if a rekey was due to a different reason",
-      "type": "object",
-      "properties": {
-        "selected": {
-          "description": "If this option was selected",
-          "type": "boolean"
-        },
-        "reason": {
-          "description": "The reason this option was selected",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
+      "$ref": "../common/index.json#/definitions/other"
     },
     "vehicleDetails": {
       "description": "Details about the vehicle to be used for the test",
@@ -836,20 +568,7 @@
       "additionalProperties": false
     },
     "passCompletion": {
-      "description": "Finalisation of a successful test outcome",
-      "type": "object",
-      "properties": {
-        "passCertificateNumber": {
-          "description": "The PCN issued to the candidate",
-          "type": "string",
-          "maxLength": 8,
-          "minLength": 8
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "passCertificateNumber"
-      ]
+      "$ref": "../common/index.json#/definitions/passCompletion"
     },
     "DL196CBTCertNumber": {
       "description": "The number of the DL196 CBT certificate presented by the candidate",
@@ -902,19 +621,7 @@
       }
     },
     "ETA": {
-      "description": "Indicates whether the examiner had to take physical or verbal action during the test",
-      "type": "object",
-      "properties": {
-        "physical": {
-          "description": "Indicates that the examiner had to take physical action",
-          "type": "boolean"
-        },
-        "verbal": {
-          "description": "Indicates that the examiner had to take verbal action",
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false
+      "$ref": "../common/index.json#/definitions/ETA"
     },
     "schoolBike": {
       "description": "Indicates whether the bike belongs to a driving school",

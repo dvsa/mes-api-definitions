@@ -13,33 +13,12 @@
  */
 export type CategoryCode = "A" | "A1" | "A2" | "AM";
 /**
- * The reason for the previous test cancellation
- *
- * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "initiator".
- */
-export type Initiator = "Act of nature" | "DSA";
-/**
  * The gender of an individual, limited to 'M' or 'F' as per TARS master data
  *
  * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
  * via the `definition` "gender".
  */
 export type Gender = "M" | "F";
-/**
- * Name of the business the candidate relates to
- *
- * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "businessName".
- */
-export type BusinessName = string;
-/**
- * Telephone number of the business the candidate relates to
- *
- * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "businessTelephone".
- */
-export type BusinessTelephone = string;
 /**
  * Code representing the result of the test
  *
@@ -207,6 +186,27 @@ export type SeriousFaultIndicator = boolean;
  * via the `definition` "dangerousFaultIndicator".
  */
 export type DangerousFaultIndicator = boolean;
+/**
+ * Name of the business the candidate relates to
+ *
+ * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "businessName".
+ */
+export type BusinessName = string;
+/**
+ * Telephone number of the business the candidate relates to
+ *
+ * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "businessTelephone".
+ */
+export type BusinessTelephone = string;
+/**
+ * The reason for the previous test cancellation
+ *
+ * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "initiator".
+ */
+export type Initiator = "Act of nature" | "DSA";
 
 export interface TestResultCatAM1Schema {
   /**
@@ -259,9 +259,176 @@ export interface TestResultCatAM1Schema {
 export interface JournalData {
   examiner: Examiner;
   testCentre: TestCentre;
-  testSlotAttributes: TestSlotAttributes;
-  candidate: Candidate;
-  applicationReference: ApplicationReference;
+  /**
+   * The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.
+   */
+  testSlotAttributes: {
+    /**
+     * Unique identifier for the journal test slot
+     */
+    slotId: number;
+    /**
+     * Start time of the test slot
+     */
+    start: string;
+    /**
+     * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
+     */
+    vehicleTypeCode: string;
+    /**
+     * Whether the test is to be conducted using the welsh language
+     */
+    welshTest: boolean;
+    /**
+     * Special needs code
+     */
+    specialNeedsCode?: "NONE" | "YES" | "EXTRA";
+    /**
+     * Whether the candidate has any special needs that require the D255 form to be completed
+     */
+    specialNeeds: boolean;
+    /**
+     * The special needs
+     */
+    specialNeedsArray?: string[];
+    /**
+     * Whether this is an extended test
+     */
+    extendedTest: boolean;
+    /**
+     * Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre
+     */
+    examinerVisiting?: boolean;
+    /**
+     * Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)
+     */
+    entitlementCheck?: boolean;
+    /**
+     * The details of any previous test cancellations
+     */
+    previousCancellation?: ("Act of nature" | "DSA")[];
+    /**
+     * A description of the types of test intended to be conducted in this slot (e.g. Standard Test / Extended Special Needs Test)
+     */
+    slotType?: string;
+  };
+  /**
+   * Details of the candidate booked into the test slot
+   */
+  candidate: {
+    /**
+     * The id of the test candidate
+     */
+    candidateId?: number;
+    /**
+     * Details of the individual's name
+     */
+    candidateName?: {
+      /**
+       * The individual's title
+       */
+      title?: string;
+      /**
+       * The individual's forename
+       */
+      firstName?: string;
+      /**
+       * The individual's second name
+       */
+      secondName?: string;
+      /**
+       * The individual's third name
+       */
+      thirdName?: string;
+      /**
+       * The individual's surname
+       */
+      lastName?: string;
+    };
+    /**
+     * The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI
+     */
+    driverNumber?: string;
+    /**
+     * The candidate's date of birth, formatted as an ISO 8601 date (YYYY-MM-DD)
+     */
+    dateOfBirth?: string;
+    gender?: Gender;
+    /**
+     * Details of the address
+     */
+    candidateAddress?: {
+      /**
+       * First line of address
+       */
+      addressLine1?: string;
+      /**
+       * Second line of address
+       */
+      addressLine2?: string;
+      /**
+       * Third line of address
+       */
+      addressLine3?: string;
+      /**
+       * Fourth line of address
+       */
+      addressLine4?: string;
+      /**
+       * Fifth line of address
+       */
+      addressLine5?: string;
+      /**
+       * The address postcode
+       */
+      postcode?: string;
+    };
+    /**
+     * The candidate's primary telephone number, if any (and consent to leave voicemail has been given)
+     */
+    primaryTelephone?: string;
+    /**
+     * The candidate's secondary telephone number, if any (and consent to leave voicemail has been given)
+     */
+    secondaryTelephone?: string;
+    /**
+     * The candidate's mobile telephone number, if any (and consent to leave voicemail has been given)
+     */
+    mobileTelephone?: string;
+    /**
+     * The candidate's email address, if any
+     */
+    emailAddress?: string;
+    /**
+     * The candidate's ADI PRN (potential register number), if an ADI test
+     */
+    prn?: number;
+    /**
+     * The number of previous test attempts, if an ADI test
+     */
+    previousADITests?: number;
+    /**
+     * A character between A and G representing different categories of ethnicity
+     */
+    ethnicityCode?: string;
+  };
+  /**
+   * The full application identifier, including applicationId, bookingSequence and checkDigit
+   */
+  applicationReference: {
+    /**
+     * Unique identifier for each test application
+     */
+    applicationId: number;
+    /**
+     * Booking sequence number of the test application
+     */
+    bookingSequence: number;
+    /**
+     * Reference checksum for the test application
+     */
+    checkDigit: number;
+  };
 }
 /**
  * The examiner details
@@ -298,196 +465,6 @@ export interface TestCentre {
    * Name of the test centre
    */
   centreName?: string;
-}
-/**
- * The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.
- *
- * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "testSlotAttributes".
- */
-export interface TestSlotAttributes {
-  /**
-   * Unique identifier for the journal test slot
-   */
-  slotId: number;
-  /**
-   * Start time of the test slot
-   */
-  start: string;
-  /**
-   * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
-   */
-  vehicleTypeCode: string;
-  /**
-   * Whether the test is to be conducted using the welsh language
-   */
-  welshTest: boolean;
-  /**
-   * Special needs code
-   */
-  specialNeedsCode?: "NONE" | "YES" | "EXTRA";
-  /**
-   * Whether the candidate has any special needs that require the D255 form to be completed
-   */
-  specialNeeds: boolean;
-  /**
-   * The special needs
-   */
-  specialNeedsArray?: string[];
-  /**
-   * Whether this is an extended test
-   */
-  extendedTest: boolean;
-  /**
-   * Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre
-   */
-  examinerVisiting?: boolean;
-  /**
-   * Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)
-   */
-  entitlementCheck?: boolean;
-  /**
-   * The details of any previous test cancellations
-   */
-  previousCancellation?: Initiator[];
-  /**
-   * A description of the types of test intended to be conducted in this slot (e.g. Standard Test / Extended Special Needs Test)
-   */
-  slotType?: string;
-}
-/**
- * Details of the candidate booked into the test slot
- *
- * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "candidate".
- */
-export interface Candidate {
-  /**
-   * The id of the test candidate
-   */
-  candidateId?: number;
-  candidateName?: Name;
-  /**
-   * The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI
-   */
-  driverNumber?: string;
-  /**
-   * The candidate's date of birth, formatted as an ISO 8601 date (YYYY-MM-DD)
-   */
-  dateOfBirth?: string;
-  gender?: Gender;
-  candidateAddress?: Address;
-  /**
-   * The candidate's primary telephone number, if any (and consent to leave voicemail has been given)
-   */
-  primaryTelephone?: string;
-  /**
-   * The candidate's secondary telephone number, if any (and consent to leave voicemail has been given)
-   */
-  secondaryTelephone?: string;
-  /**
-   * The candidate's mobile telephone number, if any (and consent to leave voicemail has been given)
-   */
-  mobileTelephone?: string;
-  /**
-   * The candidate's email address, if any
-   */
-  emailAddress?: string;
-  /**
-   * The candidate's ADI PRN (potential register number), if an ADI test
-   */
-  prn?: number;
-  /**
-   * The number of previous test attempts, if an ADI test
-   */
-  previousADITests?: number;
-  /**
-   * A character between A and G representing different categories of ethnicity
-   */
-  ethnicityCode?: string;
-  businessAddress?: Address;
-  businessName?: BusinessName;
-  businessTelephone?: BusinessTelephone;
-}
-/**
- * Details of the individual's name
- *
- * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "name".
- */
-export interface Name {
-  /**
-   * The individual's title
-   */
-  title?: string;
-  /**
-   * The individual's forename
-   */
-  firstName?: string;
-  /**
-   * The individual's second name
-   */
-  secondName?: string;
-  /**
-   * The individual's third name
-   */
-  thirdName?: string;
-  /**
-   * The individual's surname
-   */
-  lastName?: string;
-}
-/**
- * Details of the address
- *
- * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "address".
- */
-export interface Address {
-  /**
-   * First line of address
-   */
-  addressLine1?: string;
-  /**
-   * Second line of address
-   */
-  addressLine2?: string;
-  /**
-   * Third line of address
-   */
-  addressLine3?: string;
-  /**
-   * Fourth line of address
-   */
-  addressLine4?: string;
-  /**
-   * Fifth line of address
-   */
-  addressLine5?: string;
-  /**
-   * The address postcode
-   */
-  postcode?: string;
-}
-/**
- * The full application identifier, including applicationId, bookingSequence and checkDigit
- *
- * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "applicationReference".
- */
-export interface ApplicationReference {
-  /**
-   * Unique identifier for each test application
-   */
-  applicationId: number;
-  /**
-   * Booking sequence number of the test application
-   */
-  bookingSequence: number;
-  /**
-   * Reference checksum for the test application
-   */
-  checkDigit: number;
 }
 /**
  * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
@@ -666,6 +643,10 @@ export interface Other {
  */
 export interface PassCompletion {
   /**
+   * Indicates whether the candidate submitted their provisional driving licence
+   */
+  provisionalLicenceProvided: boolean;
+  /**
    * The PCN issued to the candidate
    */
   passCertificateNumber: string;
@@ -803,4 +784,194 @@ export interface ETA {
    * Indicates that the examiner had to take verbal action
    */
   verbal?: boolean;
+}
+/**
+ * Details of the individual's name
+ *
+ * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "name".
+ */
+export interface Name {
+  /**
+   * The individual's title
+   */
+  title?: string;
+  /**
+   * The individual's forename
+   */
+  firstName?: string;
+  /**
+   * The individual's second name
+   */
+  secondName?: string;
+  /**
+   * The individual's third name
+   */
+  thirdName?: string;
+  /**
+   * The individual's surname
+   */
+  lastName?: string;
+}
+/**
+ * Details of the address
+ *
+ * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "address".
+ */
+export interface Address {
+  /**
+   * First line of address
+   */
+  addressLine1?: string;
+  /**
+   * Second line of address
+   */
+  addressLine2?: string;
+  /**
+   * Third line of address
+   */
+  addressLine3?: string;
+  /**
+   * Fourth line of address
+   */
+  addressLine4?: string;
+  /**
+   * Fifth line of address
+   */
+  addressLine5?: string;
+  /**
+   * The address postcode
+   */
+  postcode?: string;
+}
+/**
+ * Details of the candidate booked into the test slot
+ *
+ * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "candidate".
+ */
+export interface Candidate {
+  /**
+   * The id of the test candidate
+   */
+  candidateId?: number;
+  candidateName?: Name;
+  /**
+   * The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI
+   */
+  driverNumber?: string;
+  /**
+   * The candidate's date of birth, formatted as an ISO 8601 date (YYYY-MM-DD)
+   */
+  dateOfBirth?: string;
+  gender?: Gender;
+  candidateAddress?: Address;
+  /**
+   * The candidate's primary telephone number, if any (and consent to leave voicemail has been given)
+   */
+  primaryTelephone?: string;
+  /**
+   * The candidate's secondary telephone number, if any (and consent to leave voicemail has been given)
+   */
+  secondaryTelephone?: string;
+  /**
+   * The candidate's mobile telephone number, if any (and consent to leave voicemail has been given)
+   */
+  mobileTelephone?: string;
+  /**
+   * The candidate's email address, if any
+   */
+  emailAddress?: string;
+  /**
+   * The candidate's ADI PRN (potential register number), if an ADI test
+   */
+  prn?: number;
+  /**
+   * The number of previous test attempts, if an ADI test
+   */
+  previousADITests?: number;
+  /**
+   * A character between A and G representing different categories of ethnicity
+   */
+  ethnicityCode?: string;
+  businessAddress?: Address;
+  businessName?: BusinessName;
+  businessTelephone?: BusinessTelephone;
+}
+/**
+ * The full application identifier, including applicationId, bookingSequence and checkDigit
+ *
+ * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "applicationReference".
+ */
+export interface ApplicationReference {
+  /**
+   * Unique identifier for each test application
+   */
+  applicationId: number;
+  /**
+   * Booking sequence number of the test application
+   */
+  bookingSequence: number;
+  /**
+   * Reference checksum for the test application
+   */
+  checkDigit: number;
+}
+/**
+ * The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.
+ *
+ * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "testSlotAttributes".
+ */
+export interface TestSlotAttributes {
+  /**
+   * Unique identifier for the journal test slot
+   */
+  slotId: number;
+  /**
+   * Start time of the test slot
+   */
+  start: string;
+  /**
+   * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
+   */
+  vehicleTypeCode: string;
+  /**
+   * Whether the test is to be conducted using the welsh language
+   */
+  welshTest: boolean;
+  /**
+   * Special needs code
+   */
+  specialNeedsCode?: "NONE" | "YES" | "EXTRA";
+  /**
+   * Whether the candidate has any special needs that require the D255 form to be completed
+   */
+  specialNeeds: boolean;
+  /**
+   * The special needs
+   */
+  specialNeedsArray?: string[];
+  /**
+   * Whether this is an extended test
+   */
+  extendedTest: boolean;
+  /**
+   * Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre
+   */
+  examinerVisiting?: boolean;
+  /**
+   * Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)
+   */
+  entitlementCheck?: boolean;
+  /**
+   * The details of any previous test cancellations
+   */
+  previousCancellation?: Initiator[];
+  /**
+   * A description of the types of test intended to be conducted in this slot (e.g. Standard Test / Extended Special Needs Test)
+   */
+  slotType?: string;
 }
