@@ -47,9 +47,9 @@ if (cliArgument === 'generate') {
     // generateTypescriptInterfaces(combinedSchema);
   }
   // generate Cat A mod 1 typescript file (standalone)
-  generateTypescriptInterfaces(`./category-definitions/AM1/index.json`, `./categories/AM1/index.d.ts`);
+  generateTypescriptInterfaces(`./category-definitions/AM1/partial.json`, `./categories/AM1/partial.d.ts`);
   // copy Cat A mod 1 index.json file
-  fs.copyFile(`./category-definitions/AM1/index.json`, `./categories/AM1/index.json`, (err) => {
+  fs.copyFile(`./category-definitions/AM1/partial.json`, `./categories/AM1/index.json`, (err) => {
     if(err) throw err;
   });
   // copy common index.json file across for consistency
