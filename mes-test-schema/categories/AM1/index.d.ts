@@ -1,7 +1,7 @@
 import { TestResultCatAM1Schema } from './partial';
-import { TestData as CatAM1TestData} from './partial';
+import { TestData as CatAM1TestData } from './partial';
 import { VehicleDetails as CatAM1VehicleDetails } from './partial';
-import { JournalData as CommonJournalData} from '../common';
+import { JournalData as CommonJournalData } from '../common';
 import { Candidate as CommonCandidate } from '../common';
 import { Circuit as CatAM1Circuit } from './partial';
 import { CategoryCode as CatAM1CategoryCode } from './partial';
