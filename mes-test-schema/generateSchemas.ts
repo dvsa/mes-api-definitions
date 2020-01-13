@@ -34,6 +34,10 @@ if (cliArgument === 'clean') {
 if (cliArgument === 'generate') {
   // Generate common typescript file
   generateTypescriptInterfaces(`./category-definitions/common/index.json`, `./categories/common/index.d.ts`);
+  //generate Cat A mod 1 typescript file (standalone)
+  generateTypescriptInterfaces(`./category-definitions/AM1/partial.json`, `./categories/AM1/index.d.ts`);
+  //copy Cat A mod 1 index.json file
+
   for (let category of categories) {
     const partialSchema = `./category-definitions/${category}/partial.json`;
     const combinedSchema = `./categories/${category}/index.json`;
