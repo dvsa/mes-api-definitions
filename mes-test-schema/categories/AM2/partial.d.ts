@@ -78,20 +78,18 @@ export interface ETA {
  * via the `definition` "drivingFaults".
  */
 export interface DrivingFaults {
-  controlsAccelerator?: DrivingFaultCount;
-  controlsAcceleratorComments?: FaultComments;
+  controlsThrottle?: DrivingFaultCount;
+  controlsThrottleComments?: FaultComments;
   controlsClutch?: DrivingFaultCount;
   controlsClutchComments?: FaultComments;
   controlsGears?: DrivingFaultCount;
   controlsGearsComments?: FaultComments;
-  controlsFootbrake?: DrivingFaultCount;
-  controlsFootbrakeComments?: FaultComments;
-  controlsParkingBrake?: DrivingFaultCount;
-  controlsParkingBrakeComments?: FaultComments;
+  controlsFrontbrake?: DrivingFaultCount;
+  controlsFrontbrakeComments?: FaultComments;
+  controlsRearBrake?: DrivingFaultCount;
+  controlsRearBrakeComments?: FaultComments;
   controlsSteering?: DrivingFaultCount;
   controlsSteeringComments?: FaultComments;
-  precautions?: DrivingFaultCount;
-  precautionsComments?: FaultComments;
   ancillaryControls?: DrivingFaultCount;
   ancillaryControlsComments?: FaultComments;
   moveOffSafety?: DrivingFaultCount;
@@ -130,8 +128,8 @@ export interface DrivingFaults {
   positioningNormalDrivingComments?: FaultComments;
   positioningLaneDiscipline?: DrivingFaultCount;
   positioningLaneDisciplineComments?: FaultComments;
-  clearance?: DrivingFaultCount;
-  clearanceComments?: FaultComments;
+  clearanceOrObstructions?: DrivingFaultCount;
+  clearanceOrObstructionsComments?: FaultComments;
   followingDistance?: DrivingFaultCount;
   followingDistanceComments?: FaultComments;
   useOfSpeed?: DrivingFaultCount;
@@ -156,6 +154,8 @@ export interface DrivingFaults {
   positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: DrivingFaultCount;
   awarenessPlanningComments?: FaultComments;
+  bends?: DrivingFaultCount;
+  bendsComments?: FaultComments;
 }
 /**
  * The serious faults accumulated during the test
@@ -164,20 +164,18 @@ export interface DrivingFaults {
  * via the `definition` "seriousFaults".
  */
 export interface SeriousFaults {
-  controlsAccelerator?: SeriousFaultIndicator;
-  controlsAcceleratorComments?: FaultComments;
+  controlsThrottle?: SeriousFaultIndicator;
+  controlsThrottleComments?: FaultComments;
   controlsClutch?: SeriousFaultIndicator;
   controlsClutchComments?: FaultComments;
   controlsGears?: SeriousFaultIndicator;
   controlsGearsComments?: FaultComments;
-  controlsFootbrake?: SeriousFaultIndicator;
-  controlsFootbrakeComments?: FaultComments;
-  controlsParkingBrake?: SeriousFaultIndicator;
-  controlsParkingBrakeComments?: FaultComments;
+  controlsFrontbrake?: SeriousFaultIndicator;
+  controlsFrontbrakeComments?: FaultComments;
+  controlsRearBrake?: SeriousFaultIndicator;
+  controlsRearBrakeComments?: FaultComments;
   controlsSteering?: SeriousFaultIndicator;
   controlsSteeringComments?: FaultComments;
-  precautions?: SeriousFaultIndicator;
-  precautionsComments?: FaultComments;
   ancillaryControls?: SeriousFaultIndicator;
   ancillaryControlsComments?: FaultComments;
   moveOffSafety?: SeriousFaultIndicator;
@@ -216,8 +214,8 @@ export interface SeriousFaults {
   positioningNormalDrivingComments?: FaultComments;
   positioningLaneDiscipline?: SeriousFaultIndicator;
   positioningLaneDisciplineComments?: FaultComments;
-  clearance?: SeriousFaultIndicator;
-  clearanceComments?: FaultComments;
+  clearanceOrObstructions?: SeriousFaultIndicator;
+  clearanceOrObstructionsComments?: FaultComments;
   followingDistance?: SeriousFaultIndicator;
   followingDistanceComments?: FaultComments;
   useOfSpeed?: SeriousFaultIndicator;
@@ -242,6 +240,8 @@ export interface SeriousFaults {
   positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: SeriousFaultIndicator;
   awarenessPlanningComments?: FaultComments;
+  bends?: SeriousFaultIndicator;
+  bendsComments?: FaultComments;
 }
 /**
  * The dangerous faults accumulated during the test
@@ -250,20 +250,18 @@ export interface SeriousFaults {
  * via the `definition` "dangerousFaults".
  */
 export interface DangerousFaults {
-  controlsAccelerator?: DangerousFaultIndicator;
-  controlsAcceleratorComments?: FaultComments;
+  controlsThrottle?: DangerousFaultIndicator;
+  controlsThrottleComments?: FaultComments;
   controlsClutch?: DangerousFaultIndicator;
   controlsClutchComments?: FaultComments;
   controlsGears?: DangerousFaultIndicator;
   controlsGearsComments?: FaultComments;
-  controlsFootbrake?: DangerousFaultIndicator;
-  controlsFootbrakeComments?: FaultComments;
-  controlsParkingBrake?: DangerousFaultIndicator;
-  controlsParkingBrakeComments?: FaultComments;
+  controlsFrontbrake?: DangerousFaultIndicator;
+  controlsFrontbrakeComments?: FaultComments;
+  controlsRearBrake?: DangerousFaultIndicator;
+  controlsRearBrakeComments?: FaultComments;
   controlsSteering?: DangerousFaultIndicator;
   controlsSteeringComments?: FaultComments;
-  precautions?: DangerousFaultIndicator;
-  precautionsComments?: FaultComments;
   ancillaryControls?: DangerousFaultIndicator;
   ancillaryControlsComments?: FaultComments;
   moveOffSafety?: DangerousFaultIndicator;
@@ -302,8 +300,8 @@ export interface DangerousFaults {
   positioningNormalDrivingComments?: FaultComments;
   positioningLaneDiscipline?: DangerousFaultIndicator;
   positioningLaneDisciplineComments?: FaultComments;
-  clearance?: DangerousFaultIndicator;
-  clearanceComments?: FaultComments;
+  clearanceOrObstructions?: DangerousFaultIndicator;
+  clearanceOrObstructionsComments?: FaultComments;
   followingDistance?: DangerousFaultIndicator;
   followingDistanceComments?: FaultComments;
   useOfSpeed?: DangerousFaultIndicator;
@@ -328,6 +326,8 @@ export interface DangerousFaults {
   positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: DangerousFaultIndicator;
   awarenessPlanningComments?: FaultComments;
+  bends?: DangerousFaultIndicator;
+  bendsComments?: FaultComments;
 }
 /**
  * Details of the safety and balance questions asked during the test

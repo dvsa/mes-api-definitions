@@ -26,10 +26,10 @@
         "description": "The driving faults accumulated during the test",
         "type": "object",
         "properties": {
-          "controlsAccelerator": {
+          "controlsThrottle": {
             "$ref": "#/definitions/drivingFaultCount"
           },
-          "controlsAcceleratorComments": {
+          "controlsThrottleComments": {
             "$ref": "#/definitions/faultComments"
           },
           "controlsClutch": {
@@ -44,28 +44,22 @@
           "controlsGearsComments": {
             "$ref": "#/definitions/faultComments"
           },
-          "controlsFootbrake": {
+          "controlsFrontbrake": {
             "$ref": "#/definitions/drivingFaultCount"
           },
-          "controlsFootbrakeComments": {
+          "controlsFrontbrakeComments": {
             "$ref": "#/definitions/faultComments"
           },
-          "controlsParkingBrake": {
+          "controlsRearBrake": {
             "$ref": "#/definitions/drivingFaultCount"
           },
-          "controlsParkingBrakeComments": {
+          "controlsRearBrakeComments": {
             "$ref": "#/definitions/faultComments"
           },
           "controlsSteering": {
             "$ref": "#/definitions/drivingFaultCount"
           },
           "controlsSteeringComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "precautions": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "precautionsComments": {
             "$ref": "#/definitions/faultComments"
           },
           "ancillaryControls": {
@@ -182,10 +176,10 @@
           "positioningLaneDisciplineComments": {
             "$ref": "#/definitions/faultComments"
           },
-          "clearance": {
+          "clearanceOrObstructions": {
             "$ref": "#/definitions/drivingFaultCount"
           },
-          "clearanceComments": {
+          "clearanceOrObstructionsComments": {
             "$ref": "#/definitions/faultComments"
           },
           "followingDistance": {
@@ -258,6 +252,12 @@
             "$ref": "#/definitions/drivingFaultCount"
           },
           "awarenessPlanningComments": {
+            "$ref": "#/definitions/faultComments"
+          },
+          "bends": {
+            "$ref": "#/definitions/drivingFaultCount"
+          },
+          "bendsComments": {
             "$ref": "#/definitions/faultComments"
           }
         },
@@ -271,10 +271,10 @@
         "description": "The serious faults accumulated during the test",
         "type": "object",
         "properties": {
-          "controlsAccelerator": {
+          "controlsThrottle": {
             "$ref": "#/definitions/seriousFaultIndicator"
           },
-          "controlsAcceleratorComments": {
+          "controlsThrottleComments": {
             "$ref": "#/definitions/faultComments"
           },
           "controlsClutch": {
@@ -289,28 +289,22 @@
           "controlsGearsComments": {
             "$ref": "#/definitions/faultComments"
           },
-          "controlsFootbrake": {
+          "controlsFrontbrake": {
             "$ref": "#/definitions/seriousFaultIndicator"
           },
-          "controlsFootbrakeComments": {
+          "controlsFrontbrakeComments": {
             "$ref": "#/definitions/faultComments"
           },
-          "controlsParkingBrake": {
+          "controlsRearBrake": {
             "$ref": "#/definitions/seriousFaultIndicator"
           },
-          "controlsParkingBrakeComments": {
+          "controlsRearBrakeComments": {
             "$ref": "#/definitions/faultComments"
           },
           "controlsSteering": {
             "$ref": "#/definitions/seriousFaultIndicator"
           },
           "controlsSteeringComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "precautions": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "precautionsComments": {
             "$ref": "#/definitions/faultComments"
           },
           "ancillaryControls": {
@@ -427,10 +421,10 @@
           "positioningLaneDisciplineComments": {
             "$ref": "#/definitions/faultComments"
           },
-          "clearance": {
+          "clearanceOrObstructions": {
             "$ref": "#/definitions/seriousFaultIndicator"
           },
-          "clearanceComments": {
+          "clearanceOrObstructionsComments": {
             "$ref": "#/definitions/faultComments"
           },
           "followingDistance": {
@@ -503,6 +497,12 @@
             "$ref": "#/definitions/seriousFaultIndicator"
           },
           "awarenessPlanningComments": {
+            "$ref": "#/definitions/faultComments"
+          },
+          "bends": {
+            "$ref": "#/definitions/seriousFaultIndicator"
+          },
+          "bendsComments": {
             "$ref": "#/definitions/faultComments"
           }
         },
@@ -512,10 +512,10 @@
         "description": "The dangerous faults accumulated during the test",
         "type": "object",
         "properties": {
-          "controlsAccelerator": {
+          "controlsThrottle": {
             "$ref": "#/definitions/dangerousFaultIndicator"
           },
-          "controlsAcceleratorComments": {
+          "controlsThrottleComments": {
             "$ref": "#/definitions/faultComments"
           },
           "controlsClutch": {
@@ -530,28 +530,22 @@
           "controlsGearsComments": {
             "$ref": "#/definitions/faultComments"
           },
-          "controlsFootbrake": {
+          "controlsFrontbrake": {
             "$ref": "#/definitions/dangerousFaultIndicator"
           },
-          "controlsFootbrakeComments": {
+          "controlsFrontbrakeComments": {
             "$ref": "#/definitions/faultComments"
           },
-          "controlsParkingBrake": {
+          "controlsRearBrake": {
             "$ref": "#/definitions/dangerousFaultIndicator"
           },
-          "controlsParkingBrakeComments": {
+          "controlsRearBrakeComments": {
             "$ref": "#/definitions/faultComments"
           },
           "controlsSteering": {
             "$ref": "#/definitions/dangerousFaultIndicator"
           },
           "controlsSteeringComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "precautions": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "precautionsComments": {
             "$ref": "#/definitions/faultComments"
           },
           "ancillaryControls": {
@@ -668,10 +662,10 @@
           "positioningLaneDisciplineComments": {
             "$ref": "#/definitions/faultComments"
           },
-          "clearance": {
+          "clearanceOrObstructions": {
             "$ref": "#/definitions/dangerousFaultIndicator"
           },
-          "clearanceComments": {
+          "clearanceOrObstructionsComments": {
             "$ref": "#/definitions/faultComments"
           },
           "followingDistance": {
@@ -744,6 +738,12 @@
             "$ref": "#/definitions/dangerousFaultIndicator"
           },
           "awarenessPlanningComments": {
+            "$ref": "#/definitions/faultComments"
+          },
+          "bends": {
+            "$ref": "#/definitions/dangerousFaultIndicator"
+          },
+          "bendsComments": {
             "$ref": "#/definitions/faultComments"
           }
         },
