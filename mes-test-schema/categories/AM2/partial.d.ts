@@ -11,7 +11,7 @@
  * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "categoryCode".
  */
-export type CategoryCode = "A" | "A2" | "EUA1M2" | "EUA2M2" | "EUAM2" | "EUAMM2";
+export type CategoryCode = "A" | "A1" | "A2" | "AM" | "EUA1M2" | "EUA2M2" | "EUAM2" | "EUAMM2";
 /**
  * Code representing the result of the test
  *

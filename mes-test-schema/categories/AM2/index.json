@@ -34,7 +34,9 @@
       "type": "string",
       "enum": [
         "A",
+        "A1",
         "A2",
+        "AM",
         "EUA1M2",
         "EUA2M2",
         "EUAM2",
