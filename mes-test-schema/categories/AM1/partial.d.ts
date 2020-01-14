@@ -512,7 +512,7 @@ export interface PreTestDeclarations {
    */
   residencyDeclarationAccepted: boolean;
   preTestSignature: Signature;
-  DL196CBTCertNumber: DL196CBTCertNumber;
+  DL196CBTCertNumber?: DL196CBTCertNumber;
 }
 /**
  * Indicators for anybody else overseeing the test
@@ -723,7 +723,7 @@ export interface EmergencyStop {
   /**
    * Whether the required speed was not met
    */
-  speedNotMet?: boolean;
+  speedNotMetSeriousFault?: boolean;
   outcome?: SingleFaultCompetencyOutcome;
 }
 /**
@@ -744,7 +744,7 @@ export interface Avoidance {
   /**
    * Whether the required speed was not met
    */
-  speedNotMet?: boolean;
+  speedNotMetSeriousFault?: boolean;
   outcome?: SingleFaultCompetencyOutcome;
 }
 /**
