@@ -46,6 +46,16 @@ if (cliArgument === 'generate') {
     // DO NOT REGENERATED THIS FILE. IT HAS BEEEN MODIFIED BY HAND
     // generateTypescriptInterfaces(combinedSchema);
   }
+  // copy Cat A mod 1 index.json file
+  fs.copyFile(`./category-definitions/AM1/partial.json`, `./categories/AM1/index.json`, (err) => {
+    if(err) throw err;
+  });
+  // copy common index.json file across for consistency
+  fs.copyFile(`./category-definitions/common/index.json`, `./categories/common/index.json`, (err) => {
+    if(err) throw err;
+  });
+  // generate Cat A mod 1 typescript file (standalone)
+  generateTypescriptInterfaces(`./category-definitions/AM1/partial.json`, `./categories/AM1/partial.d.ts`);
   console.log('All categories have been generated');
 }
 

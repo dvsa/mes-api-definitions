@@ -1,0 +1,483 @@
+{
+  "title": "Test Result Cat AM1 Schema",
+  "type": "object",
+  "definitions": {
+    "circuit": {
+      "description": "Circuit completed (left or right)",
+      "type": "string",
+      "enum": [
+        "Left",
+        "Right"
+      ]
+    },
+    "testData": {
+      "additionalProperties": false,
+      "description": "Data associated with the test",
+      "properties": {
+        "useOfStand": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "manualHandling": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "slalom": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "slowControl": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "uTurn": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "controlledStop": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "emergencyStop": {
+          "$ref": "#/definitions/emergencyStop"
+        },
+        "avoidance": {
+          "$ref": "#/definitions/avoidance"
+        },
+        "drivingFaults": {
+          "$ref": "#/definitions/drivingFaults"
+        },
+        "seriousFaults": {
+          "$ref": "#/definitions/seriousFaults"
+        },
+        "dangerousFaults": {
+          "$ref": "#/definitions/dangerousFaults"
+        },
+        "ETA": {
+          "$ref": "#/definitions/ETA"
+        }
+      },
+      "type": "object"
+    },
+    "singleFaultCompetencyOutcome": {
+      "description": "The possible outcomes of any single fault competency",
+      "enum": [
+        "DF",
+        "S",
+        "D"
+      ],
+      "type": "string"
+    },
+    "examiner": {
+      "$ref": "../common/index.json#/definitions/examiner"
+    },
+    "testCentre": {
+      "$ref": "../common/index.json#/definitions/testCentre"
+    },
+    "name": {
+      "$ref": "../common/index.json#/definitions/name"
+    },
+    "address": {
+      "$ref": "../common/index.json#/definitions/address"
+    },
+    "candidate": {
+      "$ref": "../common/index.json#/definitions/candidate"
+    },
+    "applicationReference": {
+      "$ref": "../common/index.json#/definitions/applicationReference"
+    },
+    "initiator": {
+      "$ref": "../common/index.json#/definitions/initiator"
+    },
+    "testSlotAttributes": {
+      "$ref": "../common/index.json#/definitions/testSlotAttributes"
+    },
+    "journalData": {
+      "$ref": "../common/index.json#/definitions/journalData"
+    },
+    "signature": {
+      "$ref": "../common/index.json#/definitions/signature"
+    },
+    "communicationMethod": {
+      "$ref": "../common/index.json#/definitions/communicationMethod"
+    },
+    "conductedLanguage": {
+      "$ref": "../common/index.json#/definitions/conductedLanguage"
+    },
+    "communicationPreferences": {
+      "$ref": "../common/index.json#/definitions/communicationPreferences"
+    },
+    "preTestDeclarations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "insuranceDeclarationAccepted": {
+          "description": "Whether or not the candidate has declared that their test vehicle has a valid insurance policy",
+          "type": "boolean"
+        },
+        "residencyDeclarationAccepted": {
+          "description": "Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test",
+          "type": "boolean"
+        },
+        "preTestSignature": {
+          "$ref": "#/definitions/signature"
+        },
+        "DL196CBTCertNumber": {
+          "$ref": "#/definitions/DL196CBTCertNumber"
+        }
+      },
+      "required": [
+        "insuranceDeclarationAccepted",
+        "residencyDeclarationAccepted",
+        "preTestSignature"
+      ]
+    },
+    "accompaniment": {
+      "$ref": "../common/index.json#/definitions/accompaniment"
+    },
+    "gearboxCategory": {
+      "$ref": "../common/index.json#/definitions/gearboxCategory"
+    },
+    "drivingFaultCount": {
+      "$ref": "../common/index.json#/definitions/drivingFaultCount"
+    },
+    "faultComments": {
+      "$ref": "../common/index.json#/definitions/faultComments"
+    },
+    "drivingFaults": {
+      "description": "The driving faults accumulated during the test",
+      "type": "object",
+      "properties": {
+        "precautions": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "precautionsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffSafety": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "moveOffSafetyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffControl": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "moveOffControlComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
+    "seriousFaultIndicator": {
+      "$ref": "../common/index.json#/definitions/seriousFaultIndicator"
+    },
+    "seriousFaults": {
+      "description": "The serious faults accumulated during the test",
+      "type": "object",
+      "properties": {
+        "precautions": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "precautionsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffSafety": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "moveOffSafetyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffControl": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "moveOffControlComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dangerousFaultIndicator": {
+      "$ref": "../common/index.json#/definitions/dangerousFaultIndicator"
+    },
+    "dangerousFaults": {
+      "description": "The dangerous faults accumulated during the test",
+      "type": "object",
+      "properties": {
+        "precautions": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "precautionsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffSafety": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "moveOffSafetyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffControl": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "moveOffControlComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
+    "postTestDeclarations": {
+      "$ref": "../common/index.json#/definitions/postTestDeclarations"
+    },
+    "weatherConditions": {
+      "$ref": "../common/index.json#/definitions/weatherConditions"
+    },
+    "independentDriving": {
+      "description": "Method chosen to conduct the independent driving section of the test",
+      "type": "string",
+      "enum": [
+        "Diagram",
+        "Traffic signs",
+        "N/A"
+      ]
+    },
+    "identification": {
+      "$ref": "../common/index.json#/definitions/identification"
+    },
+    "testSummary": {
+      "description": "Recording of other characteristics of the test",
+      "type": "object",
+      "properties": {
+        "routeNumber": {
+          "description": "Number of the route that was taken during the test",
+          "type": "integer",
+          "const": 88
+        },
+        "independentDriving": {
+          "$ref": "#/definitions/independentDriving"
+        },
+        "candidateDescription": {
+          "description": "Physical description of the candidate",
+          "type": "string",
+          "maxLength": 1000
+        },
+        "debriefWitnessed": {
+          "description": "Indicates whether anybody else (e.g. ADI) was present for the debrief",
+          "type": "boolean"
+        },
+        "identification": {
+          "$ref": "#/definitions/identification"
+        },
+        "weatherConditions": {
+          "description": "Description of the type of weather encountered during the test",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/weatherConditions"
+          }
+        },
+        "D255": {
+          "description": "Indicates whether a D255 form needs to be completed",
+          "type": "boolean"
+        },
+        "additionalInformation": {
+          "description": "Any comments that the DE wants to record about the test",
+          "type": "string"
+        },
+        "circuit": {
+          "$ref": "#/definitions/circuit"
+        }
+      },
+      "additionalProperties": false
+    },
+    "categoryCode": {
+      "description": "Category code for the test report",
+      "type": "string",
+      "enum": [
+        "A",
+        "A1",
+        "A2",
+        "AM",
+        "EUA1M1",
+        "EUA2M1",
+        "EUAM1",
+        "EUAMM1"
+      ]
+    },
+    "activityCode": {
+      "$ref": "../common/index.json#/definitions/activityCode"
+    },
+    "gender": {
+      "$ref": "../common/index.json#/definitions/gender"
+    },
+    "rekeyReason": {
+      "$ref": "../common/index.json#/definitions/rekeyReason"
+    },
+    "transfer": {
+      "$ref": "../common/index.json#/definitions/transfer"
+    },
+    "ipadIssue": {
+      "$ref": "../common/index.json#/definitions/ipadIssue"
+    },
+    "other": {
+      "$ref": "../common/index.json#/definitions/other"
+    },
+    "vehicleDetails": {
+      "description": "Details about the vehicle to be used for the test",
+      "type": "object",
+      "properties": {
+        "registrationNumber": {
+          "description": "The vehicle registration number",
+          "type": "string",
+          "maxLength": 7
+        },
+        "gearboxCategory": {
+          "$ref": "#/definitions/gearboxCategory"
+        },
+        "schoolBike": {
+          "$ref": "#/definitions/schoolBike"
+        }
+      },
+      "additionalProperties": false
+    },
+    "passCompletion": {
+      "$ref": "../common/index.json#/definitions/passCompletion"
+    },
+    "DL196CBTCertNumber": {
+      "description": "The number of the DL196 CBT certificate presented by the candidate",
+      "type": "string"
+    },
+    "avoidance": {
+      "description": "The outcome of avoidance tests",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "firstAttempt": {
+          "description": "The speed of the first attempt",
+          "type": "integer"
+        },
+        "secondAttempt": {
+          "description": "The speed of the second attempt",
+          "type": "integer"
+        },
+        "speedNotMetSeriousFault": {
+          "description": "Whether the required speed was not met",
+          "type": "boolean"
+        },
+        "outcome": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        }
+      }
+    },
+    "emergencyStop": {
+      "description": "The outcome of emergency stop tests",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "firstAttempt": {
+          "description": "The speed of the first attempt",
+          "type": "integer"
+        },
+        "secondAttempt": {
+          "description": "The speed of the second attempt",
+          "type": "integer"
+        },
+        "speedNotMetSeriousFault": {
+          "description": "Whether the required speed was not met",
+          "type": "boolean"
+        },
+        "outcome": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        }
+      }
+    },
+    "ETA": {
+      "$ref": "../common/index.json#/definitions/ETA"
+    },
+    "schoolBike": {
+      "description": "Indicates whether the bike belongs to a driving school",
+      "type": "boolean"
+    },
+    "businessName": {
+      "description": "Name of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 100
+    },
+    "businessTelephone": {
+      "description": "Telephone number of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 20
+    }
+  },
+  "properties": {
+    "version": {
+      "description": "Version number",
+      "type": "string"
+    },
+    "category": {
+      "$ref": "#/definitions/categoryCode"
+    },
+    "journalData": {
+      "$ref": "#/definitions/journalData"
+    },
+    "activityCode": {
+      "$ref": "#/definitions/activityCode"
+    },
+    "communicationPreferences": {
+      "$ref": "#/definitions/communicationPreferences"
+    },
+    "preTestDeclarations": {
+      "$ref": "#/definitions/preTestDeclarations"
+    },
+    "accompaniment": {
+      "$ref": "#/definitions/accompaniment"
+    },
+    "postTestDeclarations": {
+      "$ref": "#/definitions/postTestDeclarations"
+    },
+    "testSummary": {
+      "$ref": "#/definitions/testSummary"
+    },
+    "rekeyReason": {
+      "$ref": "#/definitions/rekeyReason"
+    },
+    "rekey": {
+      "description": "Whether the test was rekeyed or not",
+      "type": "boolean"
+    },
+    "rekeyDate": {
+      "description": "Date the test was rekeyed",
+      "type": "string"
+    },
+    "changeMarker": {
+      "description": "Whether the test was conducted by another examiner",
+      "type": "boolean"
+    },
+    "examinerBooked": {
+      "description": "The examiner who the test was booked to",
+      "type": "number"
+    },
+    "examinerConducted": {
+      "description": "The examiner who conducted the test",
+      "type": "number"
+    },
+    "examinerKeyed": {
+      "description": "The examiner who keyed the test into the iPad",
+      "type": "number"
+    },
+    "passCompletion": {
+      "$ref": "#/definitions/passCompletion"
+    },
+    "vehicleDetails": {
+      "$ref": "#/definitions/vehicleDetails"
+    },
+    "testData": {
+      "$ref": "#/definitions/testData"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "category",
+    "journalData",
+    "activityCode",
+    "rekey",
+    "changeMarker",
+    "examinerBooked",
+    "examinerConducted",
+    "examinerKeyed",
+    "journalData"
+  ]
+}
