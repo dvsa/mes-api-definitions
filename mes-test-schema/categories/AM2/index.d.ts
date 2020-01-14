@@ -9,7 +9,7 @@ import { TestResultCatAM2Schema } from './partial';
 import { TestData as CatAM2TestData } from './partial';
 import { SafetyAndBalanceQuestions as CatAM2SafetyAndBalanceQuestions } from './partial';
 import { VehicleDetails as CatAM2VehicleDetails } from './partial';
-import { CategoryCode as CatAM2CategoryCode } from './partial'
+import { CategoryCode as CatAM2CategoryCode } from './partial';
 
 export declare namespace CatAM2UniqueTypes {
 
