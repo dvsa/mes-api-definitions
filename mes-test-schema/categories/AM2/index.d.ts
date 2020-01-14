@@ -10,6 +10,7 @@ import { TestData as CatAM2TestData } from './partial';
 import { SafetyAndBalanceQuestions as CatAM2SafetyAndBalanceQuestions } from './partial';
 import { VehicleDetails as CatAM2VehicleDetails } from './partial';
 import { CategoryCode as CatAM2CategoryCode } from './partial';
+import { Circuit as CatAM2Circuit} from './partial';
 
 export declare namespace CatAM2UniqueTypes {
 
@@ -22,5 +23,7 @@ export declare namespace CatAM2UniqueTypes {
   type VehicleDetails = CatAM2VehicleDetails;
 
   type CategoryCode = CatAM2CategoryCode;
+
+  type Circuit = CatAM2Circuit;
 
 }

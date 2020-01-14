@@ -79,6 +79,44 @@ export type Signature = string;
  */
 export type Mod1CertificateNumber = string;
 /**
+ * Method chosen to conduct the independent driving section of the test
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "independentDriving".
+ */
+export type IndependentDriving = "Diagram" | "Traffic signs" | "N/A";
+/**
+ * Indicates which form of ID was provided by the candidate
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "identification".
+ */
+export type Identification = "Licence" | "Passport";
+/**
+ * Predefined values for the type of weather encountered during the test
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "weatherConditions".
+ */
+export type WeatherConditions =
+  | "Bright / dry roads"
+  | "Bright / wet roads"
+  | "Raining through test"
+  | "Showers"
+  | "Foggy / misty"
+  | "Dull / wet roads"
+  | "Dull / dry roads"
+  | "Snowing"
+  | "Icy"
+  | "Windy";
+/**
+ * Circuit completed (left or right)
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "circuit".
+ */
+export type Circuit = "Left" | "Right";
+/**
  * Indicates whether the bike belongs to a driving school
  *
  * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
@@ -451,10 +489,7 @@ export interface TestSummary {
    * Number of the route that was taken during the test
    */
   routeNumber?: number;
-  /**
-   * Method chosen to conduct the independent driving section of the test
-   */
-  independentDriving?: "Sat nav" | "Diagram" | "Traffic signs" | "N/A";
+  independentDriving?: IndependentDriving;
   /**
    * Physical description of the candidate
    */
@@ -463,24 +498,11 @@ export interface TestSummary {
    * Indicates whether anybody else (e.g. ADI) was present for the debrief
    */
   debriefWitnessed?: boolean;
-  /**
-   * Indicates which form of ID was provided by the candidate
-   */
-  identification?: "Licence" | "Passport";
+  identification?: Identification;
   /**
    * Description of the type of weather encountered during the test
    */
-  weatherConditions?: (
-    | "Bright / dry roads"
-    | "Bright / wet roads"
-    | "Raining through test"
-    | "Showers"
-    | "Foggy / misty"
-    | "Dull / wet roads"
-    | "Dull / dry roads"
-    | "Snowing"
-    | "Icy"
-    | "Windy")[];
+  weatherConditions?: WeatherConditions[];
   /**
    * Indicates whether a D255 form needs to be completed
    */
@@ -489,6 +511,7 @@ export interface TestSummary {
    * Any comments that the DE wants to record about the test
    */
   additionalInformation?: string;
+  circuit?: Circuit;
 }
 /**
  * Recording of the rekey reason
