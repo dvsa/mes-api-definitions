@@ -290,7 +290,11 @@
         "A",
         "A1",
         "A2",
-        "AM"
+        "AM",
+        "EUA1M1",
+        "EUA2M1",
+        "EUAM1",
+        "EUAMM1",
       ]
     },
     "activityCode": {
