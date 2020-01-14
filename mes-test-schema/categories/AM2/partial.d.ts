@@ -6,49 +6,563 @@
  */
 
 /**
+ * Category code for the test report
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "categoryCode".
+ */
+export type CategoryCode = "A" | "A2" | "EUA1M2" | "EUA2M2" | "EUAM2" | "EUAMM2";
+/**
+ * Code representing the result of the test
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "activityCode".
+ */
+export type ActivityCode =
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "11"
+  | "20"
+  | "21"
+  | "22"
+  | "23"
+  | "24"
+  | "25"
+  | "26"
+  | "27"
+  | "28"
+  | "32"
+  | "33"
+  | "34"
+  | "35"
+  | "36"
+  | "37"
+  | "38"
+  | "40"
+  | "41"
+  | "51"
+  | "52"
+  | "55"
+  | "58"
+  | "59"
+  | "60"
+  | "61"
+  | "62"
+  | "63"
+  | "64"
+  | "66"
+  | "67"
+  | "68"
+  | "69"
+  | "70"
+  | "71"
+  | "73"
+  | "74"
+  | "75"
+  | "82"
+  | "83";
+/**
+ * Indicates whether the bike belongs to a driving school
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "schoolBike".
+ */
+export type SchoolBike = boolean;
+/**
  * The count of the number of driving faults recorded against a test element
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "drivingFaultCount".
  */
 export type DrivingFaultCount = number;
 /**
  * Comments recorded against a fault
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "faultComments".
  */
 export type FaultComments = string;
 /**
  * Indicator for a serious fault being recorded against a test element
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "seriousFaultIndicator".
  */
 export type SeriousFaultIndicator = boolean;
 /**
  * Indicator for a dangerous fault being recorded against a test element
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "dangerousFaultIndicator".
  */
 export type DangerousFaultIndicator = boolean;
-/**
- * Indicates whether the bike belongs to a driving school
- *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
- * via the `definition` "schoolBike".
- */
-export type SchoolBike = boolean;
 
-export interface PartialTestResultCatAM2Schema {
-  testData?: TestData;
+export interface TestResultCatAM2Schema {
+  /**
+   * Version number
+   */
+  version: string;
+  category: CategoryCode;
+  journalData: JournalData;
+  activityCode: ActivityCode;
+  communicationPreferences?: CommunicationPreferences;
+  preTestDeclarations?: PreTestDeclarations;
+  accompaniment?: Accompaniment;
+  postTestDeclarations?: PostTestDeclarations;
+  testSummary?: TestSummary;
+  rekeyReason?: RekeyReason;
+  /**
+   * Whether the test was rekeyed or not
+   */
+  rekey: boolean;
+  /**
+   * Date the test was rekeyed
+   */
+  rekeyDate?: string;
+  /**
+   * Whether the test was conducted by another examiner
+   */
+  changeMarker: boolean;
+  /**
+   * The examiner who the test was booked to
+   */
+  examinerBooked: number;
+  /**
+   * The examiner who conducted the test
+   */
+  examinerConducted: number;
+  /**
+   * The examiner who keyed the test into the iPad
+   */
+  examinerKeyed: number;
+  passCompletion?: PassCompletion;
   vehicleDetails?: VehicleDetails;
+  testData?: TestData;
+}
+/**
+ * Data brought through from the journal
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "journalData".
+ */
+export interface JournalData {
+  /**
+   * The examiner details
+   */
+  examiner: {
+    /**
+     * The examiner's DSA staff number
+     */
+    staffNumber: string;
+    /**
+     * The individual ID of the examiner
+     */
+    individualId?: number;
+  };
+  /**
+   * Details of the test centre
+   */
+  testCentre: {
+    /**
+     * Identifer for the test centre
+     */
+    centreId: number;
+    /**
+     * Cost centre code for the test centre
+     */
+    costCode: string;
+    /**
+     * Name of the test centre
+     */
+    centreName?: string;
+  };
+  /**
+   * The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.
+   */
+  testSlotAttributes: {
+    /**
+     * Unique identifier for the journal test slot
+     */
+    slotId: number;
+    /**
+     * Start time of the test slot
+     */
+    start: string;
+    /**
+     * A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type
+     */
+    vehicleTypeCode: string;
+    /**
+     * Whether the test is to be conducted using the welsh language
+     */
+    welshTest: boolean;
+    /**
+     * Special needs code
+     */
+    specialNeedsCode?: "NONE" | "YES" | "EXTRA";
+    /**
+     * Whether the candidate has any special needs that require the D255 form to be completed
+     */
+    specialNeeds: boolean;
+    /**
+     * The special needs
+     */
+    specialNeedsArray?: string[];
+    /**
+     * Whether this is an extended test
+     */
+    extendedTest: boolean;
+    /**
+     * Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre
+     */
+    examinerVisiting?: boolean;
+    /**
+     * Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)
+     */
+    entitlementCheck?: boolean;
+    /**
+     * The details of any previous test cancellations
+     */
+    previousCancellation?: ("Act of nature" | "DSA")[];
+    /**
+     * A description of the types of test intended to be conducted in this slot (e.g. Standard Test / Extended Special Needs Test)
+     */
+    slotType?: string;
+  };
+  /**
+   * Details of the candidate booked into the test slot
+   */
+  candidate: {
+    /**
+     * The id of the test candidate
+     */
+    candidateId?: number;
+    /**
+     * Details of the individual's name
+     */
+    candidateName?: {
+      /**
+       * The individual's title
+       */
+      title?: string;
+      /**
+       * The individual's forename
+       */
+      firstName?: string;
+      /**
+       * The individual's second name
+       */
+      secondName?: string;
+      /**
+       * The individual's third name
+       */
+      thirdName?: string;
+      /**
+       * The individual's surname
+       */
+      lastName?: string;
+    };
+    /**
+     * The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI
+     */
+    driverNumber?: string;
+    /**
+     * The candidate's date of birth, formatted as an ISO 8601 date (YYYY-MM-DD)
+     */
+    dateOfBirth?: string;
+    /**
+     * The gender of an individual, limited to 'M' or 'F' as per TARS master data
+     */
+    gender?: "M" | "F";
+    /**
+     * Details of the address
+     */
+    candidateAddress?: {
+      /**
+       * First line of address
+       */
+      addressLine1?: string;
+      /**
+       * Second line of address
+       */
+      addressLine2?: string;
+      /**
+       * Third line of address
+       */
+      addressLine3?: string;
+      /**
+       * Fourth line of address
+       */
+      addressLine4?: string;
+      /**
+       * Fifth line of address
+       */
+      addressLine5?: string;
+      /**
+       * The address postcode
+       */
+      postcode?: string;
+    };
+    /**
+     * The candidate's primary telephone number, if any (and consent to leave voicemail has been given)
+     */
+    primaryTelephone?: string;
+    /**
+     * The candidate's secondary telephone number, if any (and consent to leave voicemail has been given)
+     */
+    secondaryTelephone?: string;
+    /**
+     * The candidate's mobile telephone number, if any (and consent to leave voicemail has been given)
+     */
+    mobileTelephone?: string;
+    /**
+     * The candidate's email address, if any
+     */
+    emailAddress?: string;
+    /**
+     * The candidate's ADI PRN (potential register number), if an ADI test
+     */
+    prn?: number;
+    /**
+     * The number of previous test attempts, if an ADI test
+     */
+    previousADITests?: number;
+    /**
+     * A character between A and G representing different categories of ethnicity
+     */
+    ethnicityCode?: string;
+  };
+  /**
+   * The full application identifier, including applicationId, bookingSequence and checkDigit
+   */
+  applicationReference: {
+    /**
+     * Unique identifier for each test application
+     */
+    applicationId: number;
+    /**
+     * Booking sequence number of the test application
+     */
+    bookingSequence: number;
+    /**
+     * Reference checksum for the test application
+     */
+    checkDigit: number;
+  };
+}
+/**
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "communicationPreferences".
+ */
+export interface CommunicationPreferences {
+  /**
+   * The email address that the candidate agrees their results can be sent to
+   */
+  updatedEmail: string;
+  /**
+   * The method of communication by which the candidate agrees to receive their results
+   */
+  communicationMethod: "Email" | "Post" | "Support Centre" | "Not provided";
+  /**
+   * The language in which a candidate agrees to perform a test
+   */
+  conductedLanguage: "English" | "Cymraeg" | "Not provided";
+}
+/**
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "preTestDeclarations".
+ */
+export interface PreTestDeclarations {
+  /**
+   * Whether or not the candidate has declared that their test vehicle has a valid insurance policy
+   */
+  insuranceDeclarationAccepted: boolean;
+  /**
+   * Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test
+   */
+  residencyDeclarationAccepted: boolean;
+  /**
+   * Base 64 encoded binary data representing a PNG image of the candidates signature
+   */
+  preTestSignature: string;
+}
+/**
+ * Indicators for anybody else overseeing the test
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "accompaniment".
+ */
+export interface Accompaniment {
+  /**
+   * Indicates whether the ADI was present during the test
+   */
+  ADI?: boolean;
+  /**
+   * Indicates whether a DVSA supervisor was present during the test
+   */
+  supervisor?: boolean;
+  /**
+   * Indicates whether an interpreter was present during the test
+   */
+  interpreter?: boolean;
+  /**
+   * Indicates whether another individual was present during the test
+   */
+  other?: boolean;
+}
+/**
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "postTestDeclarations".
+ */
+export interface PostTestDeclarations {
+  /**
+   * Whether or not the candidate has declared that their health status hasn't changed since their last application
+   */
+  healthDeclarationAccepted?: boolean;
+  /**
+   * Indicates whether the candidate acknowledges receipt of the PCN
+   */
+  passCertificateNumberReceived?: boolean;
+  /**
+   * Base 64 encoded binary data representing a PNG image of the candidates signature
+   */
+  postTestSignature?: string;
+}
+/**
+ * Recording of other characteristics of the test
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "testSummary".
+ */
+export interface TestSummary {
+  /**
+   * Number of the route that was taken during the test
+   */
+  routeNumber?: number;
+  /**
+   * Method chosen to conduct the independent driving section of the test
+   */
+  independentDriving?: "Sat nav" | "Diagram" | "Traffic signs" | "N/A";
+  /**
+   * Physical description of the candidate
+   */
+  candidateDescription?: string;
+  /**
+   * Indicates whether anybody else (e.g. ADI) was present for the debrief
+   */
+  debriefWitnessed?: boolean;
+  /**
+   * Indicates which form of ID was provided by the candidate
+   */
+  identification?: "Licence" | "Passport";
+  /**
+   * Description of the type of weather encountered during the test
+   */
+  weatherConditions?: (
+    | "Bright / dry roads"
+    | "Bright / wet roads"
+    | "Raining through test"
+    | "Showers"
+    | "Foggy / misty"
+    | "Dull / wet roads"
+    | "Dull / dry roads"
+    | "Snowing"
+    | "Icy"
+    | "Windy")[];
+  /**
+   * Indicates whether a D255 form needs to be completed
+   */
+  D255?: boolean;
+  /**
+   * Any comments that the DE wants to record about the test
+   */
+  additionalInformation?: string;
+}
+/**
+ * Recording of the rekey reason
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "rekeyReason".
+ */
+export interface RekeyReason {
+  /**
+   * Recording of if a rekey was due to a transfer
+   */
+  transfer?: {
+    /**
+     * If this option was selected
+     */
+    selected?: boolean;
+  };
+  /**
+   * Recording of if a rekey was due to a iPad issue
+   */
+  ipadIssue?: {
+    /**
+     * If this option was selected
+     */
+    selected?: boolean;
+    /**
+     * If the iPad was not used due to a technical fault
+     */
+    technicalFault?: boolean;
+    /**
+     * If the iPad was not used as it has been lost
+     */
+    lost?: boolean;
+    /**
+     * If the iPad was not used as it has been stolen
+     */
+    stolen?: boolean;
+    /**
+     * If the iPad was not used as it is broken
+     */
+    broken?: boolean;
+  };
+  /**
+   * Recording of if a rekey was due to a different reason
+   */
+  other?: {
+    /**
+     * If this option was selected
+     */
+    selected?: boolean;
+    /**
+     * The reason this option was selected
+     */
+    reason?: string;
+  };
+}
+/**
+ * Finalisation of a successful test outcome
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "passCompletion".
+ */
+export interface PassCompletion {
+  /**
+   * Indicates whether the candidate submitted their provisional driving licence
+   */
+  provisionalLicenceProvided: boolean;
+  /**
+   * The PCN issued to the candidate
+   */
+  passCertificateNumber: string;
+}
+/**
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "vehicleDetails".
+ */
+export interface VehicleDetails {
+  schoolBike?: SchoolBike;
 }
 /**
  * Data associated with the test
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "testData".
  */
 export interface TestData {
@@ -62,7 +576,7 @@ export interface TestData {
 /**
  * Indicates whether the examiner had to take verbal action during the test
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "ETA".
  */
 export interface ETA {
@@ -74,7 +588,7 @@ export interface ETA {
 /**
  * The driving faults accumulated during the test
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "drivingFaults".
  */
 export interface DrivingFaults {
@@ -160,7 +674,7 @@ export interface DrivingFaults {
 /**
  * The serious faults accumulated during the test
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "seriousFaults".
  */
 export interface SeriousFaults {
@@ -246,7 +760,7 @@ export interface SeriousFaults {
 /**
  * The dangerous faults accumulated during the test
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "dangerousFaults".
  */
 export interface DangerousFaults {
@@ -332,7 +846,7 @@ export interface DangerousFaults {
 /**
  * Details of the safety and balance questions asked during the test
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "safetyAndBalanceQuestions".
  */
 export interface SafetyAndBalanceQuestions {
@@ -344,7 +858,7 @@ export interface SafetyAndBalanceQuestions {
 /**
  * Result of a vehicle checks question
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "questionResult".
  */
 export interface QuestionResult {
@@ -364,7 +878,7 @@ export interface QuestionResult {
 /**
  * Assessment of the eco friendly manner of driving
  *
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
  * via the `definition` "eco".
  */
 export interface Eco {
@@ -380,11 +894,4 @@ export interface Eco {
    * Indicates that advice was given on the Planning aspect of eco driving
    */
   adviceGivenPlanning?: boolean;
-}
-/**
- * This interface was referenced by `PartialTestResultCatAM2Schema`'s JSON-Schema
- * via the `definition` "vehicleDetails".
- */
-export interface VehicleDetails {
-  schoolBike?: SchoolBike;
 }

@@ -5,16 +5,22 @@
  */
 
 // Always follow the order of the properties that are in partial.d.ts
-import { TestResultCommonSchema } from '../common';
-import { TestData as PartialCatAM2TestData, PartialTestResultCatAM2Schema } from './partial';
-import { SafetyAndBalanceQuestions as PartialCatAM2SafetyAndBalanceQuestions } from './partial';
-import { TestData as CommonTestData } from '../common/index';
-import { VehicleDetails as PartialCatAM2VehicleDetails } from './partial';
-import { TestRequirements as CommonTestRequirements } from '../common/index';
+import { TestResultCatAM2Schema } from './partial';
+import { TestData as CatAM2TestData } from './partial';
+import { SafetyAndBalanceQuestions as CatAM2SafetyAndBalanceQuestions } from './partial';
+import { VehicleDetails as CatAM2VehicleDetails } from './partial';
+import { CategoryCode as CatAM2CategoryCode } from './partial'
 
 export declare namespace CatAM2UniqueTypes {
-  type TestResult = TestResultCommonSchema & PartialTestResultCatAM2Schema;
-  type TestData = PartialCatAM2TestData;
-  type SafetyAndBalanceQuestions = PartialCatAM2SafetyAndBalanceQuestions;
-  type VehicleDetails = PartialCatAM2VehicleDetails;
+
+  type TestResult =  TestResultCatAM2Schema;
+
+  type TestData = CatAM2TestData;
+
+  type SafetyAndBalanceQuestions = CatAM2SafetyAndBalanceQuestions;
+
+  type VehicleDetails = CatAM2VehicleDetails;
+
+  type CategoryCode = CatAM2CategoryCode;
+
 }

@@ -1,832 +1,940 @@
 {
-    "title": "Partial Test Result Cat AM2 Schema",
-    "type": "object",
-    "definitions": {
-      "faultComments": {
-        "$ref": "../common/index.json#/definitions/faultComments"
-      },
-      "drivingFaultCount": {
-        "$ref": "../common/index.json#/definitions/drivingFaultCount"
-      },
-      "ETA": {
-        "description": "Indicates whether the examiner had to take verbal action during the test",
-        "type": "object",
-        "properties": {
-          "verbal": {
-            "description": "Indicates that the examiner had to take verbal action",
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "eco": {
-        "$ref": "../common/index.json#/definitions/eco"
-      },
-      "drivingFaults": {
-        "description": "The driving faults accumulated during the test",
-        "type": "object",
-        "properties": {
-          "controlsThrottle": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "controlsThrottleComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsClutch": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "controlsClutchComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsGears": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "controlsGearsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsFrontbrake": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "controlsFrontbrakeComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsRearBrake": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "controlsRearBrakeComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsSteering": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "controlsSteeringComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "ancillaryControls": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "ancillaryControlsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "moveOffSafety": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "moveOffSafetyComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "moveOffControl": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "moveOffControlComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfMirrorsSignalling": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "useOfMirrorsSignallingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfMirrorsChangeDirection": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "useOfMirrorsChangeDirectionComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfMirrorsChangeSpeed": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "useOfMirrorsChangeSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "signalsNecessary": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "signalsNecessaryComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "signalsCorrectly": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "signalsCorrectlyComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "signalsTimed": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "signalsTimedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsApproachSpeed": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "junctionsApproachSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsObservation": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "junctionsObservationComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsTurningRight": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "junctionsTurningRightComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsTurningLeft": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "junctionsTurningLeftComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsCuttingCorners": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "junctionsCuttingCornersComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "judgementOvertaking": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "judgementOvertakingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "judgementMeeting": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "judgementMeetingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "judgementCrossing": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "judgementCrossingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "positioningNormalDriving": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "positioningNormalDrivingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "positioningLaneDiscipline": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "positioningLaneDisciplineComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "clearanceOrObstructions": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "clearanceOrObstructionsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "followingDistance": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "followingDistanceComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfSpeed": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "useOfSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "progressAppropriateSpeed": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "progressAppropriateSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "progressUndueHesitation": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "progressUndueHesitationComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsTrafficSigns": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "responseToSignsTrafficSignsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsRoadMarkings": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "responseToSignsRoadMarkingsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsTrafficLights": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "responseToSignsTrafficLightsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsTrafficControllers": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "responseToSignsTrafficControllersComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsOtherRoadUsers": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "responseToSignsOtherRoadUsersComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "pedestrianCrossings": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "pedestrianCrossingsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "positionNormalStops": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "positionNormalStopsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "awarenessPlanning": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "awarenessPlanningComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "bends": {
-            "$ref": "#/definitions/drivingFaultCount"
-          },
-          "bendsComments": {
-            "$ref": "#/definitions/faultComments"
-          }
-        },
-        "additionalProperties": false
-      },
-      "seriousFaultIndicator": {
-        "description": "Indicator for a serious fault being recorded against a test element",
-        "type": "boolean"
-      },
-      "seriousFaults": {
-        "description": "The serious faults accumulated during the test",
-        "type": "object",
-        "properties": {
-          "controlsThrottle": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "controlsThrottleComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsClutch": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "controlsClutchComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsGears": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "controlsGearsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsFrontbrake": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "controlsFrontbrakeComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsRearBrake": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "controlsRearBrakeComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsSteering": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "controlsSteeringComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "ancillaryControls": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "ancillaryControlsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "moveOffSafety": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "moveOffSafetyComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "moveOffControl": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "moveOffControlComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfMirrorsSignalling": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "useOfMirrorsSignallingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfMirrorsChangeDirection": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "useOfMirrorsChangeDirectionComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfMirrorsChangeSpeed": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "useOfMirrorsChangeSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "signalsNecessary": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "signalsNecessaryComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "signalsCorrectly": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "signalsCorrectlyComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "signalsTimed": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "signalsTimedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsApproachSpeed": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "junctionsApproachSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsObservation": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "junctionsObservationComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsTurningRight": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "junctionsTurningRightComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsTurningLeft": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "junctionsTurningLeftComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsCuttingCorners": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "junctionsCuttingCornersComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "judgementOvertaking": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "judgementOvertakingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "judgementMeeting": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "judgementMeetingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "judgementCrossing": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "judgementCrossingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "positioningNormalDriving": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "positioningNormalDrivingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "positioningLaneDiscipline": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "positioningLaneDisciplineComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "clearanceOrObstructions": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "clearanceOrObstructionsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "followingDistance": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "followingDistanceComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfSpeed": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "useOfSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "progressAppropriateSpeed": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "progressAppropriateSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "progressUndueHesitation": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "progressUndueHesitationComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsTrafficSigns": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "responseToSignsTrafficSignsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsRoadMarkings": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "responseToSignsRoadMarkingsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsTrafficLights": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "responseToSignsTrafficLightsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsTrafficControllers": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "responseToSignsTrafficControllersComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsOtherRoadUsers": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "responseToSignsOtherRoadUsersComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "pedestrianCrossings": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "pedestrianCrossingsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "positionNormalStops": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "positionNormalStopsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "awarenessPlanning": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "awarenessPlanningComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "bends": {
-            "$ref": "#/definitions/seriousFaultIndicator"
-          },
-          "bendsComments": {
-            "$ref": "#/definitions/faultComments"
-          }
-        },
-        "additionalProperties": false
-      },
-      "dangerousFaults": {
-        "description": "The dangerous faults accumulated during the test",
-        "type": "object",
-        "properties": {
-          "controlsThrottle": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "controlsThrottleComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsClutch": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "controlsClutchComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsGears": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "controlsGearsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsFrontbrake": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "controlsFrontbrakeComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsRearBrake": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "controlsRearBrakeComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "controlsSteering": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "controlsSteeringComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "ancillaryControls": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "ancillaryControlsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "moveOffSafety": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "moveOffSafetyComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "moveOffControl": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "moveOffControlComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfMirrorsSignalling": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "useOfMirrorsSignallingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfMirrorsChangeDirection": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "useOfMirrorsChangeDirectionComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfMirrorsChangeSpeed": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "useOfMirrorsChangeSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "signalsNecessary": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "signalsNecessaryComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "signalsCorrectly": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "signalsCorrectlyComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "signalsTimed": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "signalsTimedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsApproachSpeed": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "junctionsApproachSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsObservation": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "junctionsObservationComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsTurningRight": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "junctionsTurningRightComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsTurningLeft": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "junctionsTurningLeftComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "junctionsCuttingCorners": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "junctionsCuttingCornersComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "judgementOvertaking": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "judgementOvertakingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "judgementMeeting": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "judgementMeetingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "judgementCrossing": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "judgementCrossingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "positioningNormalDriving": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "positioningNormalDrivingComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "positioningLaneDiscipline": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "positioningLaneDisciplineComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "clearanceOrObstructions": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "clearanceOrObstructionsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "followingDistance": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "followingDistanceComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "useOfSpeed": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "useOfSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "progressAppropriateSpeed": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "progressAppropriateSpeedComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "progressUndueHesitation": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "progressUndueHesitationComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsTrafficSigns": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "responseToSignsTrafficSignsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsRoadMarkings": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "responseToSignsRoadMarkingsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsTrafficLights": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "responseToSignsTrafficLightsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsTrafficControllers": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "responseToSignsTrafficControllersComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "responseToSignsOtherRoadUsers": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "responseToSignsOtherRoadUsersComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "pedestrianCrossings": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "pedestrianCrossingsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "positionNormalStops": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "positionNormalStopsComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "awarenessPlanning": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "awarenessPlanningComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "bends": {
-            "$ref": "#/definitions/dangerousFaultIndicator"
-          },
-          "bendsComments": {
-            "$ref": "#/definitions/faultComments"
-          }
-        },
-        "additionalProperties": false
-      },
-      "dangerousFaultIndicator": {
-        "description": "Indicator for a dangerous fault being recorded against a test element",
-        "type": "boolean"
-      },
-      "schoolBike": {
-        "description": "Indicates whether the bike belongs to a driving school",
-        "type": "boolean"
-      },
-      "questionResult": {
-        "$ref": "../common/index.json#/definitions/questionResult"
-      },
-      "vehicleDetails": {
-        "additionalProperties": false,
-        "type": "object",
-        "properties": {
-          "schoolBike": {
-            "$ref": "#/definitions/schoolBike"
-          }
+  "title": "Test Result Cat AM2 Schema",
+  "type": "object",
+  "definitions": {
+    "journalData": {
+      "$ref": "../common/index.json#/definitions/journalData"
+    },
+    "activityCode": {
+      "$ref": "../common/index.json#/definitions/activityCode"
+    },
+    "communicationPreferences": {
+      "$ref": "../common/index.json#/definitions/communicationPreferences"
+    },
+    "preTestDeclarations": {
+      "$ref": "../common/index.json#/definitions/preTestDeclarations"
+    },
+    "accompaniment": {
+      "$ref": "../common/index.json#/definitions/accompaniment"
+    },
+    "postTestDeclarations": {
+      "$ref": "../common/index.json#/definitions/postTestDeclarations"
+    },
+    "testSummary": {
+      "$ref": "../common/index.json#/definitions/testSummary"
+    },
+    "rekeyReason": {
+      "$ref": "../common/index.json#/definitions/rekeyReason"
+    },
+    "passCompletion": {
+      "$ref": "../common/index.json#/definitions/passCompletion"
+    },
+    "categoryCode": {
+      "description": "Category code for the test report",
+      "type": "string",
+      "enum": [
+        "A",
+        "A2",
+        "EUA1M2",
+        "EUA2M2",
+        "EUAM2",
+        "EUAMM2"
+      ]
+    },
+    "faultComments": {
+      "$ref": "../common/index.json#/definitions/faultComments"
+    },
+    "drivingFaultCount": {
+      "$ref": "../common/index.json#/definitions/drivingFaultCount"
+    },
+    "ETA": {
+      "description": "Indicates whether the examiner had to take verbal action during the test",
+      "type": "object",
+      "properties": {
+        "verbal": {
+          "description": "Indicates that the examiner had to take verbal action",
+          "type": "boolean"
         }
       },
-      "safetyAndBalanceQuestions": {
-        "additionalProperties": false,
-        "description": "Details of the safety and balance questions asked during the test",
-        "properties": {
-          "safetyQuestions": {
-            "items": {
-              "$ref": "#/definitions/questionResult"
-            },
-            "type": "array"
-          },
-          "safetyComments": {
-            "$ref": "#/definitions/faultComments"
-          },
-          "balanceQuestions": {
-            "items": {
-              "$ref": "#/definitions/questionResult"
-            },
-            "type": "array"
-          },
-          "balanceComments": {
-            "$ref": "#/definitions/faultComments"
-          }
+      "additionalProperties": false
+    },
+    "eco": {
+      "$ref": "../common/index.json#/definitions/eco"
+    },
+    "drivingFaults": {
+      "description": "The driving faults accumulated during the test",
+      "type": "object",
+      "properties": {
+        "controlsThrottle": {
+          "$ref": "#/definitions/drivingFaultCount"
         },
-        "type": "object"
+        "controlsThrottleComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsClutch": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "controlsClutchComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsGears": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "controlsGearsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsFrontbrake": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "controlsFrontbrakeComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsRearBrake": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "controlsRearBrakeComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsSteering": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "controlsSteeringComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "ancillaryControls": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "ancillaryControlsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffSafety": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "moveOffSafetyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffControl": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "moveOffControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfMirrorsSignalling": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "useOfMirrorsSignallingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfMirrorsChangeDirection": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "useOfMirrorsChangeDirectionComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfMirrorsChangeSpeed": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "useOfMirrorsChangeSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "signalsNecessary": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "signalsNecessaryComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "signalsCorrectly": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "signalsCorrectlyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "signalsTimed": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "signalsTimedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsApproachSpeed": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "junctionsApproachSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsObservation": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "junctionsObservationComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsTurningRight": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "junctionsTurningRightComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsTurningLeft": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "junctionsTurningLeftComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsCuttingCorners": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "junctionsCuttingCornersComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "judgementOvertaking": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "judgementOvertakingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "judgementMeeting": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "judgementMeetingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "judgementCrossing": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "judgementCrossingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "positioningNormalDriving": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "positioningNormalDrivingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "positioningLaneDiscipline": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "positioningLaneDisciplineComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "clearanceOrObstructions": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "clearanceOrObstructionsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "followingDistance": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "followingDistanceComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfSpeed": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "useOfSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "progressAppropriateSpeed": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "progressAppropriateSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "progressUndueHesitation": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "progressUndueHesitationComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsTrafficSigns": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "responseToSignsTrafficSignsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsRoadMarkings": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "responseToSignsRoadMarkingsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsTrafficLights": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "responseToSignsTrafficLightsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsTrafficControllers": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "responseToSignsTrafficControllersComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsOtherRoadUsers": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "responseToSignsOtherRoadUsersComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "pedestrianCrossings": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "pedestrianCrossingsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "positionNormalStops": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "positionNormalStopsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "awarenessPlanning": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "awarenessPlanningComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "bends": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "bendsComments": {
+          "$ref": "#/definitions/faultComments"
+        }
       },
-      "testData": {
-        "description": "Data associated with the test",
-        "type": "object",
-        "properties": {
-          "ETA": {
-            "$ref": "#/definitions/ETA"
-          },
-          "drivingFaults": {
-            "$ref": "#/definitions/drivingFaults"
-          },
-          "seriousFaults": {
-            "$ref": "#/definitions/seriousFaults"
-          },
-          "dangerousFaults": {
-            "$ref": "#/definitions/dangerousFaults"
-          },
-          "safetyAndBalanceQuestions": {
-            "$ref": "#/definitions/safetyAndBalanceQuestions"
-          },
-          "eco": {
-            "$ref": "#/definitions/eco"
-          }
+      "additionalProperties": false
+    },
+    "seriousFaultIndicator": {
+      "description": "Indicator for a serious fault being recorded against a test element",
+      "type": "boolean"
+    },
+    "seriousFaults": {
+      "description": "The serious faults accumulated during the test",
+      "type": "object",
+      "properties": {
+        "controlsThrottle": {
+          "$ref": "#/definitions/seriousFaultIndicator"
         },
-        "additionalProperties": false
+        "controlsThrottleComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsClutch": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "controlsClutchComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsGears": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "controlsGearsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsFrontbrake": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "controlsFrontbrakeComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsRearBrake": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "controlsRearBrakeComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsSteering": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "controlsSteeringComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "ancillaryControls": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "ancillaryControlsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffSafety": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "moveOffSafetyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffControl": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "moveOffControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfMirrorsSignalling": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "useOfMirrorsSignallingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfMirrorsChangeDirection": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "useOfMirrorsChangeDirectionComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfMirrorsChangeSpeed": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "useOfMirrorsChangeSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "signalsNecessary": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "signalsNecessaryComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "signalsCorrectly": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "signalsCorrectlyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "signalsTimed": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "signalsTimedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsApproachSpeed": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "junctionsApproachSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsObservation": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "junctionsObservationComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsTurningRight": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "junctionsTurningRightComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsTurningLeft": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "junctionsTurningLeftComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsCuttingCorners": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "junctionsCuttingCornersComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "judgementOvertaking": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "judgementOvertakingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "judgementMeeting": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "judgementMeetingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "judgementCrossing": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "judgementCrossingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "positioningNormalDriving": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "positioningNormalDrivingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "positioningLaneDiscipline": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "positioningLaneDisciplineComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "clearanceOrObstructions": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "clearanceOrObstructionsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "followingDistance": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "followingDistanceComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfSpeed": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "useOfSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "progressAppropriateSpeed": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "progressAppropriateSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "progressUndueHesitation": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "progressUndueHesitationComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsTrafficSigns": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "responseToSignsTrafficSignsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsRoadMarkings": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "responseToSignsRoadMarkingsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsTrafficLights": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "responseToSignsTrafficLightsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsTrafficControllers": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "responseToSignsTrafficControllersComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsOtherRoadUsers": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "responseToSignsOtherRoadUsersComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "pedestrianCrossings": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "pedestrianCrossingsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "positionNormalStops": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "positionNormalStopsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "awarenessPlanning": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "awarenessPlanningComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "bends": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "bendsComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dangerousFaults": {
+      "description": "The dangerous faults accumulated during the test",
+      "type": "object",
+      "properties": {
+        "controlsThrottle": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "controlsThrottleComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsClutch": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "controlsClutchComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsGears": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "controlsGearsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsFrontbrake": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "controlsFrontbrakeComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsRearBrake": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "controlsRearBrakeComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlsSteering": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "controlsSteeringComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "ancillaryControls": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "ancillaryControlsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffSafety": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "moveOffSafetyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "moveOffControl": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "moveOffControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfMirrorsSignalling": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "useOfMirrorsSignallingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfMirrorsChangeDirection": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "useOfMirrorsChangeDirectionComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfMirrorsChangeSpeed": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "useOfMirrorsChangeSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "signalsNecessary": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "signalsNecessaryComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "signalsCorrectly": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "signalsCorrectlyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "signalsTimed": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "signalsTimedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsApproachSpeed": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "junctionsApproachSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsObservation": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "junctionsObservationComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsTurningRight": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "junctionsTurningRightComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsTurningLeft": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "junctionsTurningLeftComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "junctionsCuttingCorners": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "junctionsCuttingCornersComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "judgementOvertaking": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "judgementOvertakingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "judgementMeeting": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "judgementMeetingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "judgementCrossing": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "judgementCrossingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "positioningNormalDriving": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "positioningNormalDrivingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "positioningLaneDiscipline": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "positioningLaneDisciplineComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "clearanceOrObstructions": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "clearanceOrObstructionsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "followingDistance": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "followingDistanceComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "useOfSpeed": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "useOfSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "progressAppropriateSpeed": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "progressAppropriateSpeedComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "progressUndueHesitation": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "progressUndueHesitationComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsTrafficSigns": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "responseToSignsTrafficSignsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsRoadMarkings": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "responseToSignsRoadMarkingsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsTrafficLights": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "responseToSignsTrafficLightsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsTrafficControllers": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "responseToSignsTrafficControllersComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "responseToSignsOtherRoadUsers": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "responseToSignsOtherRoadUsersComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "pedestrianCrossings": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "pedestrianCrossingsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "positionNormalStops": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "positionNormalStopsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "awarenessPlanning": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "awarenessPlanningComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "bends": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "bendsComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dangerousFaultIndicator": {
+      "description": "Indicator for a dangerous fault being recorded against a test element",
+      "type": "boolean"
+    },
+    "schoolBike": {
+      "description": "Indicates whether the bike belongs to a driving school",
+      "type": "boolean"
+    },
+    "questionResult": {
+      "$ref": "../common/index.json#/definitions/questionResult"
+    },
+    "vehicleDetails": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "schoolBike": {
+          "$ref": "#/definitions/schoolBike"
+        }
       }
     },
-    "properties": {
-      "testData": {
-        "$ref": "#/definitions/testData"
+    "safetyAndBalanceQuestions": {
+      "additionalProperties": false,
+      "description": "Details of the safety and balance questions asked during the test",
+      "properties": {
+        "safetyQuestions": {
+          "items": {
+            "$ref": "#/definitions/questionResult"
+          },
+          "type": "array"
+        },
+        "safetyComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "balanceQuestions": {
+          "items": {
+            "$ref": "#/definitions/questionResult"
+          },
+          "type": "array"
+        },
+        "balanceComments": {
+          "$ref": "#/definitions/faultComments"
+        }
       },
-      "vehicleDetails": {
-        "$ref": "#/definitions/vehicleDetails"
-      }
+      "type": "object"
     },
-    "additionalProperties": false
-  }
+    "testData": {
+      "description": "Data associated with the test",
+      "type": "object",
+      "properties": {
+        "ETA": {
+          "$ref": "#/definitions/ETA"
+        },
+        "drivingFaults": {
+          "$ref": "#/definitions/drivingFaults"
+        },
+        "seriousFaults": {
+          "$ref": "#/definitions/seriousFaults"
+        },
+        "dangerousFaults": {
+          "$ref": "#/definitions/dangerousFaults"
+        },
+        "safetyAndBalanceQuestions": {
+          "$ref": "#/definitions/safetyAndBalanceQuestions"
+        },
+        "eco": {
+          "$ref": "#/definitions/eco"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "version": {
+      "description": "Version number",
+      "type": "string"
+    },
+    "category": {
+      "$ref": "#/definitions/categoryCode"
+    },
+    "journalData": {
+      "$ref": "#/definitions/journalData"
+    },
+    "activityCode": {
+      "$ref": "#/definitions/activityCode"
+    },
+    "communicationPreferences": {
+      "$ref": "#/definitions/communicationPreferences"
+    },
+    "preTestDeclarations": {
+      "$ref": "#/definitions/preTestDeclarations"
+    },
+    "accompaniment": {
+      "$ref": "#/definitions/accompaniment"
+    },
+    "postTestDeclarations": {
+      "$ref": "#/definitions/postTestDeclarations"
+    },
+    "testSummary": {
+      "$ref": "#/definitions/testSummary"
+    },
+    "rekeyReason": {
+      "$ref": "#/definitions/rekeyReason"
+    },
+    "rekey": {
+      "description": "Whether the test was rekeyed or not",
+      "type": "boolean"
+    },
+    "rekeyDate": {
+      "description": "Date the test was rekeyed",
+      "type": "string"
+    },
+    "changeMarker": {
+      "description": "Whether the test was conducted by another examiner",
+      "type": "boolean"
+    },
+    "examinerBooked": {
+      "description": "The examiner who the test was booked to",
+      "type": "number"
+    },
+    "examinerConducted": {
+      "description": "The examiner who conducted the test",
+      "type": "number"
+    },
+    "examinerKeyed": {
+      "description": "The examiner who keyed the test into the iPad",
+      "type": "number"
+    },
+    "passCompletion": {
+      "$ref": "#/definitions/passCompletion"
+    },
+    "vehicleDetails": {
+      "$ref": "#/definitions/vehicleDetails"
+    },
+    "testData": {
+      "$ref": "#/definitions/testData"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "category",
+    "journalData",
+    "activityCode",
+    "rekey",
+    "changeMarker",
+    "examinerBooked",
+    "examinerConducted",
+    "examinerKeyed"
+  ]
+}
