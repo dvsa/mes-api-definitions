@@ -65,6 +65,20 @@ export type ActivityCode =
   | "82"
   | "83";
 /**
+ * Base 64 encoded binary data representing a PNG image of the candidates signature
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "signature".
+ */
+export type Signature = string;
+/**
+ * The number of the Mod 1 certificate presented by the candidate
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "mod1CertificateNumber".
+ */
+export type Mod1CertificateNumber = string;
+/**
  * Indicates whether the bike belongs to a driving school
  *
  * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
@@ -384,10 +398,8 @@ export interface PreTestDeclarations {
    * Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test
    */
   residencyDeclarationAccepted: boolean;
-  /**
-   * Base 64 encoded binary data representing a PNG image of the candidates signature
-   */
-  preTestSignature: string;
+  preTestSignature: Signature;
+  mod1CertificateNumber: Mod1CertificateNumber;
 }
 /**
  * Indicators for anybody else overseeing the test
@@ -426,10 +438,7 @@ export interface PostTestDeclarations {
    * Indicates whether the candidate acknowledges receipt of the PCN
    */
   passCertificateNumberReceived?: boolean;
-  /**
-   * Base 64 encoded binary data representing a PNG image of the candidates signature
-   */
-  postTestSignature?: string;
+  postTestSignature?: Signature;
 }
 /**
  * Recording of other characteristics of the test
