@@ -46,17 +46,21 @@ if (cliArgument === 'generate') {
     // DO NOT REGENERATED THIS FILE. IT HAS BEEEN MODIFIED BY HAND
     // generateTypescriptInterfaces(combinedSchema);
   }
-  // copy Cat A mod 1 index.json file
-  fs.copyFile(`./category-definitions/AM1/partial.json`, `./categories/AM1/index.json`, (err) => {
-    if(err) throw err;
-  });
-  // copy common index.json file across for consistency
-  fs.copyFile(`./category-definitions/common/index.json`, `./categories/common/index.json`, (err) => {
-    if(err) throw err;
-  });
-  // generate Cat A mod 1 typescript file (standalone)
+  // copy Cat A mod 1 and Cat A mod 2 index.json files
+  copyFile(`./category-definitions/AM1/partial.json`, `./categories/AM1/index.json`);
+  copyFile(`./category-definitions/AM2/partial.json`, `./categories/AM2/index.json`);
+  // generate Cat A mod 1 and mod 2 typescript files (standalone)
   generateTypescriptInterfaces(`./category-definitions/AM1/partial.json`, `./categories/AM1/partial.d.ts`);
+  generateTypescriptInterfaces(`./category-definitions/AM2/partial.json`, `./categories/AM2/partial.d.ts`);
+  // copy common index.json file across for consistency
+  copyFile(`./category-definitions/common/index.json`, `./categories/common/index.json`)
   console.log('All categories have been generated');
+}
+
+function copyFile(source: string, destination: string) {
+  fs.copyFile(source, destination, (err) => {
+    if(err) throw err;
+  });
 }
 
 function generateCombinedSchema(partialSchemaLocation: string, combinedSchemaLocation: string) {
