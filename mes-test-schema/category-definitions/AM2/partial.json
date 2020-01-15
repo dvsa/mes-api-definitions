@@ -913,6 +913,11 @@
         },
         "gearboxCategory": {
           "$ref": "#/definitions/gearboxCategory"
+        },
+        "registrationNumber": {
+          "description": "The vehicle registration number",
+          "type": "string",
+          "maxLength": 7
         }
       }
     },
