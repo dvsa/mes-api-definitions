@@ -124,6 +124,13 @@ export type Circuit = "Left" | "Right";
  */
 export type SchoolBike = boolean;
 /**
+ * The type of gearbox
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "gearboxCategory".
+ */
+export type GearboxCategory = "Manual" | "Automatic";
+/**
  * The count of the number of driving faults recorded against a test element
  *
  * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
@@ -590,6 +597,7 @@ export interface PassCompletion {
  */
 export interface VehicleDetails {
   schoolBike?: SchoolBike;
+  gearboxCategory?: GearboxCategory;
 }
 /**
  * Data associated with the test
@@ -926,4 +934,16 @@ export interface Eco {
    * Indicates that advice was given on the Planning aspect of eco driving
    */
   adviceGivenPlanning?: boolean;
+}
+/**
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "eyesightTest".
+ */
+export interface EyesightTest {
+  complete?: boolean;
+  /**
+   * Whether the candidate has failed the eyesight test
+   */
+  seriousFault?: boolean;
+  faultComments?: FaultComments;
 }

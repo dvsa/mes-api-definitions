@@ -2,6 +2,12 @@
   "title": "Test Result Cat AM2 Schema",
   "type": "object",
   "definitions": {
+    "gearboxCategory": {
+      "$ref": "../common/index.json#/definitions/gearboxCategory"
+    },
+    "eyesightTest": {
+      "$ref": "../common/index.json#/definitions/eyesightTest"
+    },
     "circuit": {
       "description": "Circuit completed (left or right)",
       "type": "string",
@@ -904,6 +910,9 @@
       "properties": {
         "schoolBike": {
           "$ref": "#/definitions/schoolBike"
+        },
+        "gearboxCategory": {
+          "$ref": "#/definitions/gearboxCategory"
         }
       }
     },
