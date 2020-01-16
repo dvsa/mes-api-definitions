@@ -17,13 +17,7 @@
       ]
     },
     "independentDriving": {
-      "description": "Method chosen to conduct the independent driving section of the test",
-      "type": "string",
-      "enum": [
-        "Diagram",
-        "Traffic signs",
-        "N/A"
-      ]
+      "$ref": "../common/index.json#/definitions/independentDriving"
     },
     "identification": {
       "$ref": "../common/index.json#/definitions/identification"
@@ -133,18 +127,7 @@
       "$ref": "../common/index.json#/definitions/passCompletion"
     },
     "categoryCode": {
-      "description": "Category code for the test report",
-      "type": "string",
-      "enum": [
-        "A",
-        "A1",
-        "A2",
-        "AM",
-        "EUA1M2",
-        "EUA2M2",
-        "EUAM2",
-        "EUAMM2"
-      ]
+      "$ref": "../common/index.json#/definitions/categoryCode"
     },
     "faultComments": {
       "$ref": "../common/index.json#/definitions/faultComments"
