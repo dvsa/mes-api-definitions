@@ -225,15 +225,6 @@
     "weatherConditions": {
       "$ref": "../common/index.json#/definitions/weatherConditions"
     },
-    "independentDriving": {
-      "description": "Method chosen to conduct the independent driving section of the test",
-      "type": "string",
-      "enum": [
-        "Diagram",
-        "Traffic signs",
-        "N/A"
-      ]
-    },
     "identification": {
       "$ref": "../common/index.json#/definitions/identification"
     },
@@ -245,9 +236,6 @@
           "description": "Number of the route that was taken during the test",
           "type": "integer",
           "const": 88
-        },
-        "independentDriving": {
-          "$ref": "#/definitions/independentDriving"
         },
         "candidateDescription": {
           "description": "Physical description of the candidate",
@@ -283,18 +271,7 @@
       "additionalProperties": false
     },
     "categoryCode": {
-      "description": "Category code for the test report",
-      "type": "string",
-      "enum": [
-        "A",
-        "A1",
-        "A2",
-        "AM",
-        "EUA1M1",
-        "EUA2M1",
-        "EUAM1",
-        "EUAMM1"
-      ]
+      "$ref": "../common/index.json#/definitions/categoryCode"
     },
     "activityCode": {
       "$ref": "../common/index.json#/definitions/activityCode"
