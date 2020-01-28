@@ -28,12 +28,6 @@
     "signature": {
       "$ref": "../common/index.json#/definitions/signature"
     },
-    "mod1CertificateNumber": {
-      "description": "The number of the Mod 1 certificate presented by the candidate",
-      "type": "string",
-      "maxLength": 8,
-      "minLength": 8
-    },
     "journalData": {
       "$ref": "../common/index.json#/definitions/journalData"
     },
@@ -58,8 +52,8 @@
         "preTestSignature": {
           "$ref": "#/definitions/signature"
         },
-        "mod1CertificateNumber": {
-          "$ref": "#/definitions/mod1CertificateNumber"
+        "DL196CBTCertNumber": {
+          "$ref": "#/definitions/DL196CBTCertNumber"
         }
       },
       "required": [
@@ -950,9 +944,16 @@
         },
         "eco": {
           "$ref": "#/definitions/eco"
+        },
+        "eyesightTest": {
+          "$ref": "#/definitions/eyesightTest"
         }
       },
       "additionalProperties": false
+    },
+    "DL196CBTCertNumber": {
+      "description": "The number of the DL196 CBT certificate presented by the candidate",
+      "type": "string"
     }
   },
   "properties": {

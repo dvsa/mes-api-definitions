@@ -104,12 +104,12 @@ export type ActivityCode =
  */
 export type Signature = string;
 /**
- * The number of the Mod 1 certificate presented by the candidate
+ * The number of the DL196 CBT certificate presented by the candidate
  *
  * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
- * via the `definition` "mod1CertificateNumber".
+ * via the `definition` "DL196CBTCertNumber".
  */
-export type Mod1CertificateNumber = string;
+export type DL196CBTCertNumber = string;
 /**
  * Method chosen to conduct the independent driving section of the test
  *
@@ -476,7 +476,7 @@ export interface PreTestDeclarations {
    */
   residencyDeclarationAccepted: boolean;
   preTestSignature: Signature;
-  mod1CertificateNumber: Mod1CertificateNumber;
+  DL196CBTCertNumber?: DL196CBTCertNumber;
 }
 /**
  * Indicators for anybody else overseeing the test
@@ -648,6 +648,7 @@ export interface TestData {
   dangerousFaults?: DangerousFaults;
   safetyAndBalanceQuestions?: SafetyAndBalanceQuestions;
   eco?: Eco;
+  eyesightTest?: EyesightTest;
 }
 /**
  * Indicates whether the examiner had to take verbal action during the test
