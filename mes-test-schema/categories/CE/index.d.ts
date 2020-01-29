@@ -7,7 +7,6 @@
 // Always follow the order of the properties that are in partial.d.ts
 import { PartialTestResultCatCESchema } from './partial';
 import { TestResultCommonSchema } from '../common/index';
-import { PassCompletion as CommonPassCompletion } from '../common/index';
 import { TestData as PartialCatCETestData } from './partial';
 import { TestData as CommonTestData } from '../common';
 import { TestRequirements as PartialCatCETestRequirements } from './partial';
@@ -42,6 +41,6 @@ export declare namespace CatCEUniqueTypes {
 
   type VehicleDetails = PartialCatCEVehicleDetails & CommonVehicleDetails;
 
-  type PassCompletion = PartialPassCompletion & CommonPassCompletion;
+  type PassCompletion = PartialPassCompletion;
 
 }

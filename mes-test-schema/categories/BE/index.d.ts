@@ -7,7 +7,6 @@
 // Always follow the order of the properties that are in partial.d.ts
 import { PartialTestResultCatBESchema } from './partial';
 import { TestResultCommonSchema } from '../common/index';
-import { PassCompletion as CommonPassCompletion } from '../common/index';
 import { TestData as PartialCatBETestData } from './partial';
 import { TestData as CommonTestData } from '../common';
 import { UncoupleRecouple as PartialCatBEUncoupleRecouple } from './partial';

@@ -1,44 +1,24 @@
 {
-  "title": "Partial Test Result Cat CE Schema",
+  "title": "Partial Test Result Cat D1 Schema",
   "type": "object",
   "definitions": {
-    "passCompletion": {
-      "description": "Finalisation of a successful test outcome",
-      "type": "object",
-      "properties": {
-        "provisionalLicenceProvided": {
-          "$ref": "#/definitions/provisionalLicenceProvided"
-        },
-        "passCertificateNumber": {
-          "$ref": "#/definitions/passCertificateNumber"
-        },
-        "code78Present": {
-          "$ref": "#/definitions/code78Present"
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "provisionalLicenceProvided",
-        "passCertificateNumber"
-      ]
-    },
-    "provisionalLicenceProvided": {
-      "$ref": "../common/index.json#/definitions/provisionalLicenceProvided"
-    },
-    "passCertificateNumber": {
-      "$ref": "../common/index.json#/definitions/passCertificateNumber"
-    },
-    "uncoupleRecouple": {
+    "pcvDoorExercise": {
       "additionalProperties": false,
       "properties": {
-        "fault": {
-          "$ref": "#/definitions/manoeuvreOutcome"
+        "drivingFault": {
+          "description": "Whether a driving fault was marked on the PCV Door Exercise",
+          "type": "boolean"
+        },
+        "seriousFault": {
+          "description": "Whether a serious fault was marked on the PCV Door Exercise",
+          "type": "boolean"
+        },
+        "dangerousFault": {
+          "description": "Whether a dangerous fault was marked on the PCV Door Exercise",
+          "type": "boolean"
         },
         "faultComments": {
           "$ref": "#/definitions/faultComments"
-        },
-        "selected": {
-          "$ref": "#/definitions/manoeuvreIndicator"
         }
       },
       "type": "object"
@@ -70,6 +50,9 @@
     },
     "questionResult": {
       "$ref": "../common/index.json#/definitions/questionResult"
+    },
+    "safetyQuestionResult": {
+      "$ref": "../common/index.json#/definitions/safetyQuestionResult"
     },
     "vehicleChecks": {
       "additionalProperties": false,
@@ -150,9 +133,6 @@
       "description": "Data associated with the test",
       "type": "object",
       "properties": {
-        "uncoupleRecouple": {
-          "$ref": "#/definitions/uncoupleRecouple"
-        },
         "testRequirements": {
           "$ref": "#/definitions/testRequirements"
         },
@@ -161,6 +141,15 @@
         },
         "vehicleChecks": {
           "$ref": "#/definitions/vehicleChecks"
+        },
+        "pcvDoorExercise": {
+          "$ref": "#/definitions/pcvDoorExercise"
+        },
+        "safetyQuestions": {
+          "items": {
+            "$ref": "#/definitions/safetyQuestionResult"
+          },
+          "type": "array"
         }
       },
       "additionalProperties": false
@@ -180,15 +169,20 @@
         "uphillStart": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
+        },
+        "busStop1": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        },
+        "busStop2": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
         }
       },
       "type": "object"
     }
   },
   "properties": {
-    "passCompletion": {
-      "$ref": "#/definitions/passCompletion"
-    },
     "testData": {
       "$ref": "#/definitions/testData"
     },

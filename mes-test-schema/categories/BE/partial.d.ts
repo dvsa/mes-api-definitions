@@ -54,11 +54,26 @@ export type SchoolCar = boolean;
  * via the `definition` "dualControls".
  */
 export type DualControls = boolean;
+/**
+ * Indicates whether the candidate submitted their provisional driving licence
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "provisionalLicenceProvided".
+ */
+export type ProvisionalLicenceProvided = boolean;
+/**
+ * The PCN issued to the candidate
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "passCertificateNumber".
+ */
+export type PassCertificateNumber = string;
 
 export interface PartialTestResultCatBESchema {
   testData?: TestData;
   journalData: JournalData;
   vehicleDetails?: VehicleDetails;
+  passCompletion?: PassCompletion;
 }
 /**
  * Data associated with the test
@@ -230,4 +245,14 @@ export interface VehicleDetails {
   vehicleWidth?: number;
   schoolCar?: SchoolCar;
   dualControls?: DualControls;
+}
+/**
+ * Finalisation of a successful test outcome
+ *
+ * This interface was referenced by `PartialTestResultCatBESchema`'s JSON-Schema
+ * via the `definition` "passCompletion".
+ */
+export interface PassCompletion {
+  provisionalLicenceProvided: ProvisionalLicenceProvided;
+  passCertificateNumber: PassCertificateNumber;
 }
