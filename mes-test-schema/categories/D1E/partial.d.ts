@@ -8,74 +8,69 @@
 /**
  * The possible outcomes of any manoeuvre performed during the test
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "manoeuvreOutcome".
  */
 export type ManoeuvreOutcome = "DF" | "S" | "D";
 /**
  * Comments recorded against a fault
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "faultComments".
  */
 export type FaultComments = string;
 /**
  * Indicator for a manoeuvre being performed during the test
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "manoeuvreIndicator".
  */
 export type ManoeuvreIndicator = boolean;
 /**
  * Name of the business the candidate relates to
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "businessName".
  */
 export type BusinessName = string;
 /**
  * Telephone number of the business the candidate relates to
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "businessTelephone".
  */
 export type BusinessTelephone = string;
 /**
- * Indicates whether the candidate submitted their provisional driving licence
+ * Indicate presence of code 78 (automatic) on candidates license
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
- * via the `definition` "provisionalLicenceProvided".
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
+ * via the `definition` "code78Present".
  */
-export type ProvisionalLicenceProvided = boolean;
-/**
- * The PCN issued to the candidate
- *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
- * via the `definition` "passCertificateNumber".
- */
-export type PassCertificateNumber = string;
+export type Code78Present = boolean;
 
-export interface PartialTestResultCatC1Schema {
+export interface PartialTestResultCatD1ESchema {
   testData?: TestData;
   journalData: JournalData;
   vehicleDetails?: VehicleDetails;
-  passCompletion?: PassCompletion;
 }
 /**
  * Data associated with the test
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "testData".
  */
 export interface TestData {
   testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres;
   vehicleChecks?: VehicleChecks;
+  pcvDoorExercise?: PcvDoorExercise;
+  safetyQuestions?: SafetyQuestionResult[];
+  uncoupleRecouple?: UncoupleRecouple;
 }
 /**
  * The test requirements that must be carried out during a test
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "testRequirements".
  */
 export interface TestRequirements {
@@ -91,11 +86,19 @@ export interface TestRequirements {
    * Indicates whether or not this test requirement was carried out
    */
   uphillStart?: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  busStop1?: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  busStop2?: boolean;
 }
 /**
  * The manoeuvres that were carried out during the test and any faults recorded against them
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "manoeuvres".
  */
 export interface Manoeuvres {
@@ -104,7 +107,7 @@ export interface Manoeuvres {
 /**
  * Data needs capturing for a manoeuvre competency
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "manoeuvre".
  */
 export interface Manoeuvre {
@@ -117,7 +120,7 @@ export interface Manoeuvre {
 /**
  * Details of the Show Me and Tell Me questions asked during the test
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "vehicleChecks".
  */
 export interface VehicleChecks {
@@ -128,7 +131,7 @@ export interface VehicleChecks {
 /**
  * Result of a vehicle checks question
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "questionResult".
  */
 export interface QuestionResult {
@@ -146,14 +149,58 @@ export interface QuestionResult {
   outcome?: "P" | "DF" | "S" | "D";
 }
 /**
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
+ * via the `definition` "pcvDoorExercise".
+ */
+export interface PcvDoorExercise {
+  /**
+   * Whether a driving fault was marked on the PCV Door Exercise
+   */
+  drivingFault?: boolean;
+  /**
+   * Whether a serious fault was marked on the PCV Door Exercise
+   */
+  seriousFault?: boolean;
+  /**
+   * Whether a dangerous fault was marked on the PCV Door Exercise
+   */
+  dangerousFault?: boolean;
+  faultComments?: FaultComments;
+}
+/**
+ * Result of a safety question
+ *
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
+ * via the `definition` "safetyQuestionResult".
+ */
+export interface SafetyQuestionResult {
+  /**
+   * Description of the question that was asked
+   */
+  description?: string;
+  /**
+   * Outcome of the question that was asked
+   */
+  outcome?: "P" | "DF" | "S" | "D";
+}
+/**
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
+ * via the `definition` "uncoupleRecouple".
+ */
+export interface UncoupleRecouple {
+  fault?: ManoeuvreOutcome;
+  faultComments?: FaultComments;
+  selected?: ManoeuvreIndicator;
+}
+/**
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "journalData".
  */
 export interface JournalData {
   candidate: Candidate;
 }
 /**
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "candidate".
  */
 export interface Candidate {
@@ -164,7 +211,7 @@ export interface Candidate {
 /**
  * Details of the address
  *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "address".
  */
 export interface Address {
@@ -194,7 +241,7 @@ export interface Address {
   postcode?: string;
 }
 /**
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
  * via the `definition` "vehicleDetails".
  */
 export interface VehicleDetails {
@@ -206,14 +253,4 @@ export interface VehicleDetails {
    * Indicates the width of the vehicle
    */
   vehicleWidth?: number;
-}
-/**
- * Finalisation of a successful test outcome
- *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
- * via the `definition` "passCompletion".
- */
-export interface PassCompletion {
-  provisionalLicenceProvided: ProvisionalLicenceProvided;
-  passCertificateNumber: PassCertificateNumber;
 }

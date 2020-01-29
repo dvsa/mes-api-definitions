@@ -1,5 +1,5 @@
 {
-	"title": "Test Result Cat CE Schema",
+	"title": "Test Result Cat DE Schema",
 	"type": "object",
 	"definitions": {
 		"code78Present": {
@@ -36,14 +36,23 @@
 				"testRequirements": {
 					"$ref": "#/definitions/testRequirements"
 				},
-				"uncoupleRecouple": {
-					"$ref": "#/definitions/uncoupleRecouple"
-				},
 				"manoeuvres": {
 					"$ref": "#/definitions/manoeuvres"
 				},
 				"vehicleChecks": {
 					"$ref": "#/definitions/vehicleChecks"
+				},
+				"pcvDoorExercise": {
+					"$ref": "#/definitions/pcvDoorExercise"
+				},
+				"safetyQuestions": {
+					"items": {
+						"$ref": "#/definitions/safetyQuestionResult"
+					},
+					"type": "array"
+				},
+				"uncoupleRecouple": {
+					"$ref": "#/definitions/uncoupleRecouple"
 				}
 			},
 			"type": "object"
@@ -1627,6 +1636,14 @@
 				"uphillStart": {
 					"description": "Indicates whether or not this test requirement was carried out",
 					"type": "boolean"
+				},
+				"busStop1": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				},
+				"busStop2": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
 				}
 			},
 			"additionalProperties": false
@@ -1664,26 +1681,6 @@
 			"maxLength": 8,
 			"minLength": 8
 		},
-		"passCompletion": {
-			"description": "Finalisation of a successful test outcome",
-			"type": "object",
-			"properties": {
-				"provisionalLicenceProvided": {
-					"$ref": "#/definitions/provisionalLicenceProvided"
-				},
-				"passCertificateNumber": {
-					"$ref": "#/definitions/passCertificateNumber"
-				},
-				"code78Present": {
-					"$ref": "#/definitions/code78Present"
-				}
-			},
-			"additionalProperties": false,
-			"required": [
-				"provisionalLicenceProvided",
-				"passCertificateNumber"
-			]
-		},
 		"uncoupleRecouple": {
 			"additionalProperties": false,
 			"properties": {
@@ -1695,6 +1692,37 @@
 				},
 				"selected": {
 					"$ref": "#/definitions/manoeuvreIndicator"
+				}
+			},
+			"type": "object"
+		},
+		"passCompletion": {
+			"description": "Finalisation of a successful test outcome",
+			"type": "object",
+			"properties": {
+				"code78Present": {
+					"$ref": "#/definitions/code78Present"
+				}
+			},
+			"additionalProperties": false
+		},
+		"pcvDoorExercise": {
+			"additionalProperties": false,
+			"properties": {
+				"drivingFault": {
+					"description": "Whether a driving fault was marked on the PCV Door Exercise",
+					"type": "boolean"
+				},
+				"seriousFault": {
+					"description": "Whether a serious fault was marked on the PCV Door Exercise",
+					"type": "boolean"
+				},
+				"dangerousFault": {
+					"description": "Whether a dangerous fault was marked on the PCV Door Exercise",
+					"type": "boolean"
+				},
+				"faultComments": {
+					"$ref": "#/definitions/faultComments"
 				}
 			},
 			"type": "object"
@@ -1803,9 +1831,6 @@
 		},
 		"testData": {
 			"$ref": "#/definitions/testData"
-		},
-		"passCompletion": {
-			"$ref": "#/definitions/passCompletion"
 		}
 	},
 	"additionalProperties": false,
