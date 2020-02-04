@@ -1831,6 +1831,9 @@
 		},
 		"testData": {
 			"$ref": "#/definitions/testData"
+		},
+		"passCompletion": {
+			"$ref": "#/definitions/passCompletion"
 		}
 	},
 	"additionalProperties": false,

@@ -201,6 +201,9 @@
     },
     "vehicleDetails": {
       "$ref": "#/definitions/vehicleDetails"
+    },
+    "passCompletion": {
+      "$ref": "#/definitions/passCompletion"
     }
   },
   "additionalProperties": false,
