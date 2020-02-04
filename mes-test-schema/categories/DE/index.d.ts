@@ -21,6 +21,8 @@ import { VehicleDetails as PartialCatDEVehicleDetails } from './partial';
 import { VehicleDetails as CommonVehicleDetails } from '../common/index';
 import { PassCompletion as PartialPassCompletion } from './partial';
 import { UncoupleRecouple as PartialCatDEEUncoupleRecouple } from './partial';
+import { SafetyQuestionResult as PartialSafetyQuestionResult } from './partial';
+import { PcvDoorExercise as PartialPcvDoorExercise } from './partial';
 
 export declare namespace CatDEUniqueTypes {
   type TestResult = PartialTestResultCatDESchema & TestResultCommonSchema;
@@ -42,4 +44,8 @@ export declare namespace CatDEUniqueTypes {
   type PassCompletion = PartialPassCompletion;
 
   type UncoupleRecouple = PartialCatDEEUncoupleRecouple;
+
+  type SafetyQuestion = PartialSafetyQuestionResult;
+
+  type PcvDoorExercise = PartialPcvDoorExercise;
 }
