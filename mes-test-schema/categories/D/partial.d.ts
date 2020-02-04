@@ -52,6 +52,7 @@ export interface PartialTestResultCatDSchema {
   testData?: TestData;
   journalData: JournalData;
   vehicleDetails?: VehicleDetails;
+  passCompletion?: PassCompletion;
 }
 /**
  * Data associated with the test
