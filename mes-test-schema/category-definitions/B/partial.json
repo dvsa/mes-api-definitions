@@ -2,29 +2,6 @@
   "title": "Partial Test Result Cat B Schema",
   "type": "object",
   "definitions": {
-    "passCompletion": {
-      "description": "Finalisation of a successful test outcome",
-      "type": "object",
-      "properties": {
-        "provisionalLicenceProvided": {
-          "$ref": "#/definitions/provisionalLicenceProvided"
-        },
-        "passCertificateNumber": {
-          "$ref": "#/definitions/passCertificateNumber"
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "provisionalLicenceProvided",
-        "passCertificateNumber"
-      ]
-    },
-    "provisionalLicenceProvided": {
-      "$ref": "../common/index.json#/definitions/provisionalLicenceProvided"
-    },
-    "passCertificateNumber": {
-      "$ref": "../common/index.json#/definitions/passCertificateNumber"
-    },
     "vehicleDetails": {
       "properties": {
         "schoolCar": {
@@ -168,9 +145,6 @@
     },
     "vehicleDetails": {
       "$ref": "#/definitions/vehicleDetails"
-    },
-    "passCompletion": {
-      "$ref": "#/definitions/passCompletion"
     }
   },
   "additionalProperties": false,

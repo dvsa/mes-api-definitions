@@ -3,8 +3,6 @@
   "type": "object",
   "definitions": {
     "passCompletion": {
-      "description": "Finalisation of a successful test outcome",
-      "type": "object",
       "properties": {
         "code78Present": {
           "$ref": "#/definitions/code78Present"
@@ -201,9 +199,6 @@
     },
     "vehicleDetails": {
       "$ref": "#/definitions/vehicleDetails"
-    },
-    "passCompletion": {
-      "$ref": "#/definitions/passCompletion"
     }
   },
   "additionalProperties": false,

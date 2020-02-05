@@ -40,26 +40,11 @@ export type BusinessName = string;
  * via the `definition` "businessTelephone".
  */
 export type BusinessTelephone = string;
-/**
- * Indicates whether the candidate submitted their provisional driving licence
- *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
- * via the `definition` "provisionalLicenceProvided".
- */
-export type ProvisionalLicenceProvided = boolean;
-/**
- * The PCN issued to the candidate
- *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
- * via the `definition` "passCertificateNumber".
- */
-export type PassCertificateNumber = string;
 
 export interface PartialTestResultCatC1Schema {
   testData?: TestData;
   journalData: JournalData;
   vehicleDetails?: VehicleDetails;
-  passCompletion?: PassCompletion;
 }
 /**
  * Data associated with the test
@@ -206,14 +191,4 @@ export interface VehicleDetails {
    * Indicates the width of the vehicle
    */
   vehicleWidth?: number;
-}
-/**
- * Finalisation of a successful test outcome
- *
- * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
- * via the `definition` "passCompletion".
- */
-export interface PassCompletion {
-  provisionalLicenceProvided: ProvisionalLicenceProvided;
-  passCertificateNumber: PassCertificateNumber;
 }

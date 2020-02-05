@@ -1654,25 +1654,19 @@
 			},
 			"additionalProperties": false
 		},
-		"provisionalLicenceProvided": {
-			"description": "Indicates whether the candidate submitted their provisional driving licence",
-			"type": "boolean"
-		},
-		"passCertificateNumber": {
-			"description": "The PCN issued to the candidate",
-			"type": "string",
-			"maxLength": 8,
-			"minLength": 8
-		},
 		"passCompletion": {
 			"description": "Finalisation of a successful test outcome",
 			"type": "object",
 			"properties": {
 				"provisionalLicenceProvided": {
-					"$ref": "#/definitions/provisionalLicenceProvided"
+					"description": "Indicates whether the candidate submitted their provisional driving licence",
+					"type": "boolean"
 				},
 				"passCertificateNumber": {
-					"$ref": "#/definitions/passCertificateNumber"
+					"description": "The PCN issued to the candidate",
+					"type": "string",
+					"maxLength": 8,
+					"minLength": 8
 				},
 				"code78Present": {
 					"$ref": "#/definitions/code78Present"
@@ -1798,14 +1792,14 @@
 			"description": "The examiner who keyed the test into the iPad",
 			"type": "number"
 		},
+		"passCompletion": {
+			"$ref": "#/definitions/passCompletion"
+		},
 		"vehicleDetails": {
 			"$ref": "#/definitions/vehicleDetails"
 		},
 		"testData": {
 			"$ref": "#/definitions/testData"
-		},
-		"passCompletion": {
-			"$ref": "#/definitions/passCompletion"
 		}
 	},
 	"additionalProperties": false,

@@ -52,7 +52,6 @@ export interface PartialTestResultCatDSchema {
   testData?: TestData;
   journalData: JournalData;
   vehicleDetails?: VehicleDetails;
-  passCompletion?: PassCompletion;
 }
 /**
  * Data associated with the test
@@ -246,8 +245,6 @@ export interface VehicleDetails {
   vehicleWidth?: number;
 }
 /**
- * Finalisation of a successful test outcome
- *
  * This interface was referenced by `PartialTestResultCatDSchema`'s JSON-Schema
  * via the `definition` "passCompletion".
  */
