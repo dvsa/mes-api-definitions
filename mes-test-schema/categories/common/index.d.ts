@@ -253,20 +253,6 @@ export type QuestionDescription = string;
  * via the `definition` "questionOutcome".
  */
 export type QuestionOutcome = "P" | "DF" | "S" | "D";
-/**
- * Indicates whether the candidate submitted their provisional driving licence
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "provisionalLicenceProvided".
- */
-export type ProvisionalLicenceProvided = boolean;
-/**
- * The PCN issued to the candidate
- *
- * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
- * via the `definition` "passCertificateNumber".
- */
-export type PassCertificateNumber = string;
 
 export interface TestResultCommonSchema {
   /**
@@ -306,6 +292,7 @@ export interface TestResultCommonSchema {
    * The examiner who keyed the test into the iPad
    */
   examinerKeyed: number;
+  passCompletion?: PassCompletion;
   vehicleDetails?: VehicleDetails;
   testData?: TestData;
 }
@@ -711,6 +698,22 @@ export interface Other {
    * The reason this option was selected
    */
   reason?: string;
+}
+/**
+ * Finalisation of a successful test outcome
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "passCompletion".
+ */
+export interface PassCompletion {
+  /**
+   * Indicates whether the candidate submitted their provisional driving licence
+   */
+  provisionalLicenceProvided: boolean;
+  /**
+   * The PCN issued to the candidate
+   */
+  passCertificateNumber: string;
 }
 /**
  * Details about the vehicle to be used for the test

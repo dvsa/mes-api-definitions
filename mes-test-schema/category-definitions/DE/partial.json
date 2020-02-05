@@ -18,14 +18,12 @@
       "type": "object"
     },
     "passCompletion": {
-      "description": "Finalisation of a successful test outcome",
-      "type": "object",
+      "additionalProperties": false,
       "properties": {
         "code78Present": {
           "$ref": "#/definitions/code78Present"
         }
-      },
-      "additionalProperties": false
+      }
     },
     "pcvDoorExercise": {
       "additionalProperties": false,
@@ -219,9 +217,6 @@
     },
     "vehicleDetails": {
       "$ref": "#/definitions/vehicleDetails"
-    },
-    "passCompletion": {
-      "$ref": "#/definitions/passCompletion"
     }
   },
   "additionalProperties": false,

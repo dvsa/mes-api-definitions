@@ -3,30 +3,12 @@
   "type": "object",
   "definitions": {
     "passCompletion": {
-      "description": "Finalisation of a successful test outcome",
-      "type": "object",
+      "additionalProperties": false,
       "properties": {
-        "provisionalLicenceProvided": {
-          "$ref": "#/definitions/provisionalLicenceProvided"
-        },
-        "passCertificateNumber": {
-          "$ref": "#/definitions/passCertificateNumber"
-        },
         "code78Present": {
           "$ref": "#/definitions/code78Present"
         }
-      },
-      "additionalProperties": false,
-      "required": [
-        "provisionalLicenceProvided",
-        "passCertificateNumber"
-      ]
-    },
-    "provisionalLicenceProvided": {
-      "$ref": "../common/index.json#/definitions/provisionalLicenceProvided"
-    },
-    "passCertificateNumber": {
-      "$ref": "../common/index.json#/definitions/passCertificateNumber"
+      }
     },
     "code78Present": {
       "$ref": "../common/index.json#/definitions/code78Present"
@@ -168,9 +150,6 @@
     }
   },
   "properties": {
-    "passCompletion": {
-      "$ref": "#/definitions/passCompletion"
-    },
     "testData": {
       "$ref": "#/definitions/testData"
     },

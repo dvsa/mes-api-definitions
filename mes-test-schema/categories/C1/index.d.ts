@@ -19,7 +19,6 @@ import { Candidate as PartialCatC1Candidate } from './partial';
 import { Candidate as CommonCandidate } from '../common/index';
 import { VehicleDetails as PartialCatC1VehicleDetails } from './partial';
 import { VehicleDetails as CommonVehicleDetails } from '../common/index';
-import { PassCompletion as PartialPassCompletion } from './partial';
 
 export declare namespace CatC1UniqueTypes {
   type TestResult = PartialTestResultCatC1Schema & TestResultCommonSchema;
@@ -37,6 +36,4 @@ export declare namespace CatC1UniqueTypes {
   type Candidate = PartialCatC1Candidate & CommonCandidate;
 
   type VehicleDetails = PartialCatC1VehicleDetails & CommonVehicleDetails;
-
-  type PassCompletion = PartialPassCompletion;
 }
