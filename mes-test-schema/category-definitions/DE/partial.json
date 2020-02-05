@@ -18,12 +18,12 @@
       "type": "object"
     },
     "passCompletion": {
-      "additionalProperties": false,
       "properties": {
         "code78Present": {
           "$ref": "#/definitions/code78Present"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "pcvDoorExercise": {
       "additionalProperties": false,

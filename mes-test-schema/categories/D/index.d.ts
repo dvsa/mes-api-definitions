@@ -19,9 +19,10 @@ import { Candidate as PartialCatDCandidate } from './partial';
 import { Candidate as CommonCandidate } from '../common/index';
 import { VehicleDetails as PartialCatDVehicleDetails } from './partial';
 import { VehicleDetails as CommonVehicleDetails } from '../common/index';
-import { PassCompletion as PartialPassCompletion } from './partial';
 import { SafetyQuestionResult as PartialSafetyQuestionResult } from './partial';
 import { PcvDoorExercise as PartialPcvDoorExercise } from './partial';
+import { PassCompletion as PartialPassCompletion } from './partial';
+import { PassCompletion as CommonPassCompletion } from '../common/index';
 
 export declare namespace CatDUniqueTypes {
   type TestResult = PartialTestResultCatDSchema & TestResultCommonSchema;
@@ -40,7 +41,7 @@ export declare namespace CatDUniqueTypes {
 
   type VehicleDetails = PartialCatDVehicleDetails & CommonVehicleDetails;
 
-  type PassCompletion = PartialPassCompletion;
+  type PassCompletion = PartialPassCompletion & CommonPassCompletion;
 
   type SafetyQuestion = PartialSafetyQuestionResult;
 
