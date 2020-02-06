@@ -46,10 +46,19 @@
 					"$ref": "#/definitions/pcvDoorExercise"
 				},
 				"safetyQuestions": {
-					"items": {
-						"$ref": "#/definitions/safetyQuestionResult"
-					},
-					"type": "array"
+					"additionalProperties": false,
+					"description": "Details of the safety questions asked during the test",
+					"properties": {
+						"questions": {
+							"items": {
+								"$ref": "#/definitions/safetyQuestions"
+							},
+							"type": "array"
+						},
+						"faultComments": {
+							"$ref": "#/definitions/faultComments"
+						}
+					}
 				}
 			},
 			"type": "object"
@@ -1691,6 +1700,12 @@
 				"provisionalLicenceProvided",
 				"passCertificateNumber"
 			]
+		},
+		"safetyQuestions": {
+			"items": {
+				"$ref": "#/definitions/safetyQuestionResult"
+			},
+			"type": "array"
 		},
 		"pcvDoorExercise": {
 			"additionalProperties": false,

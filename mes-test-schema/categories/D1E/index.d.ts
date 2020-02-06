@@ -20,7 +20,7 @@ import { Candidate as CommonCandidate } from '../common/index';
 import { VehicleDetails as PartialCatD1EVehicleDetails } from './partial';
 import { VehicleDetails as CommonVehicleDetails } from '../common/index';
 import { UncoupleRecouple as PartialCatD1EUncoupleRecouple } from './partial';
-import { SafetyQuestionResult as PartialSafetyQuestionResult } from './partial';
+import { SafetyQuestions as PartialSafetyQuestions } from './partial';
 import { PcvDoorExercise as PartialPcvDoorExercise } from './partial';
 
 export declare namespace CatD1EUniqueTypes {
@@ -42,7 +42,7 @@ export declare namespace CatD1EUniqueTypes {
 
   type UncoupleRecouple = PartialCatD1EUncoupleRecouple;
   
-  type SafetyQuestion = PartialSafetyQuestionResult;
+  type SafetyQuestions = PartialSafetyQuestions;
 
   type PcvDoorExercise = PartialPcvDoorExercise;
 }

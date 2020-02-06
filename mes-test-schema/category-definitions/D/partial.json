@@ -2,6 +2,12 @@
   "title": "Partial Test Result Cat D Schema",
   "type": "object",
   "definitions": {
+    "safetyQuestions": {
+      "items": {
+        "$ref": "#/definitions/safetyQuestionResult"
+      },
+      "type": "array"
+    },
     "passCompletion": {
       "properties": {
         "code78Present": {
@@ -154,10 +160,19 @@
           "$ref": "#/definitions/pcvDoorExercise"
         },
         "safetyQuestions": {
-          "items": {
-            "$ref": "#/definitions/safetyQuestionResult"
-          },
-          "type": "array"
+          "additionalProperties": false,
+          "description": "Details of the safety questions asked during the test",
+          "properties": {
+            "questions": {
+              "items": {
+                "$ref": "#/definitions/safetyQuestions"
+              },
+              "type": "array"
+            },
+            "faultComments": {
+              "$ref": "#/definitions/faultComments"
+            }
+          }
         }
       },
       "additionalProperties": false

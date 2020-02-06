@@ -27,6 +27,11 @@ export type FaultComments = string;
  */
 export type ManoeuvreIndicator = boolean;
 /**
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
+ * via the `definition` "safetyQuestions".
+ */
+export type SafetyQuestions = SafetyQuestionResult[];
+/**
  * Name of the business the candidate relates to
  *
  * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
@@ -64,7 +69,13 @@ export interface TestData {
   manoeuvres?: Manoeuvres;
   vehicleChecks?: VehicleChecks;
   pcvDoorExercise?: PcvDoorExercise;
-  safetyQuestions?: SafetyQuestionResult[];
+  /**
+   * Details of the safety questions asked during the test
+   */
+  safetyQuestions?: {
+    questions?: SafetyQuestions[];
+    faultComments?: FaultComments;
+  };
   uncoupleRecouple?: UncoupleRecouple;
 }
 /**
