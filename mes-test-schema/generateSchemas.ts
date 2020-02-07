@@ -1,11 +1,12 @@
-declare var require: any
-declare var process: any
+declare var require: any;
+declare var process: any;
 
-const merge = require('deepmerge')
-const common = require("./category-definitions/common/index.json")
+const merge = require('deepmerge');
+const common = require("./category-definitions/common/index.json");
 const fs = require('fs');
 const prettyJs = require('pretty-js');
 const json2ts = require('json-schema-to-typescript');
+const derefSchema = require('json-schema-deref-sync');
 
 const categories = ['B', 'BE', 'C', 'CE', 'C1', 'C1E', 'D', 'DE', 'D1', 'D1E'];
 
@@ -46,14 +47,14 @@ if (cliArgument === 'generate') {
     // DO NOT REGENERATED THIS FILE. IT HAS BEEEN MODIFIED BY HAND
     // generateTypescriptInterfaces(combinedSchema);
   }
-  // copy Cat A mod 1 and Cat A mod 2 index.json files
-  copyFile(`./category-definitions/AM1/index.json`, `./categories/AM1/index.json`);
-  copyFile(`./category-definitions/AM2/index.json`, `./categories/AM2/index.json`);
+  // dereference and copy across Cat A mod 1 and Cat A mod 2 index.json files
+  deReferenceJsonSchema('./category-definitions/AM1/index.json', './categories/AM1/index.json');
+  deReferenceJsonSchema('./category-definitions/AM2/index.json', './categories/AM2/index.json');
   // generate Cat A mod 1 and mod 2 typescript files (standalone)
   generateTypescriptInterfaces(`./category-definitions/AM1/index.json`, `./categories/AM1/index.d.ts`);
   generateTypescriptInterfaces(`./category-definitions/AM2/index.json`, `./categories/AM2/index.d.ts`);
   // copy common index.json file across for consistency
-  copyFile(`./category-definitions/common/index.json`, `./categories/common/index.json`)
+  copyFile(`./category-definitions/common/index.json`, `./categories/common/index.json`);
   console.log('All categories have been generated');
 }
 
@@ -96,4 +97,18 @@ function removeRefs(obj: any): any {
     return obj;
   };
   return removeRefsFields(obj);
+}
+
+function deReferenceJsonSchema(sourcePath: string, targetPath: string): void {
+  const originalSchema = require(sourcePath);
+  const baseFolder = sourcePath.substring(0, sourcePath.lastIndexOf("/"));
+  let deReferencedJsonSchema = derefSchema(originalSchema, {
+    baseFolder: baseFolder,
+  });
+  let deReferencedSchema = prettyJs(JSON.stringify(deReferencedJsonSchema), options);
+  fs.writeFile(targetPath, deReferencedSchema, 'utf8', (err) => {
+    if (err) {
+      console.error(`unable to write to file ${targetPath}`);
+    }
+  })
 }
