@@ -165,7 +165,9 @@ export interface PcvDoorExercise {
    * Whether a dangerous fault was marked on the PCV Door Exercise
    */
   dangerousFault?: boolean;
-  faultComments?: FaultComments;
+  drivingFaultComments?: FaultComments;
+  seriousFaultComments?: FaultComments;
+  dangerousFaultComments?: FaultComments;
 }
 /**
  * Details of the safety questions asked during the test
