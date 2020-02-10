@@ -4,7 +4,7 @@
   "definitions": {
     "singleFaultCompetencies": {
       "additionalProperties": false,
-      "description": "the single fault competencies associated with the test",
+      "description": "Single fault competencies associated with the test",
       "properties": {
         "useOfStand": {
           "$ref": "#/definitions/singleFaultCompetencyOutcome"

@@ -725,7 +725,7 @@ export interface TestData {
   ETA?: ETA;
 }
 /**
- * the single fault competencies associated with the test
+ * Single fault competencies associated with the test
  *
  * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
  * via the `definition` "singleFaultCompetencies".
@@ -764,6 +764,7 @@ export interface EmergencyStop {
    */
   speedNotMetSeriousFault?: boolean;
   outcome?: SingleFaultCompetencyOutcome;
+  comments?: FaultComments;
 }
 /**
  * The outcome of avoidance tests
@@ -785,6 +786,7 @@ export interface Avoidance {
    */
   speedNotMetSeriousFault?: boolean;
   outcome?: SingleFaultCompetencyOutcome;
+  comments?: FaultComments;
 }
 /**
  * The driving faults accumulated during the test

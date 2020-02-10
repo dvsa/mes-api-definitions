@@ -4,7 +4,7 @@
 	"definitions": {
 		"singleFaultCompetencies": {
 			"additionalProperties": false,
-			"description": "the single fault competencies associated with the test",
+			"description": "Single fault competencies associated with the test",
 			"properties": {
 				"useOfStand": {
 					"description": "The possible outcomes of any single fault competency",
@@ -106,7 +106,7 @@
 			"properties": {
 				"singleFaultCompetencies": {
 					"additionalProperties": false,
-					"description": "the single fault competencies associated with the test",
+					"description": "Single fault competencies associated with the test",
 					"properties": {
 						"useOfStand": {
 							"description": "The possible outcomes of any single fault competency",
@@ -2444,7 +2444,7 @@
 			"properties": {
 				"singleFaultCompetencies": {
 					"additionalProperties": false,
-					"description": "the single fault competencies associated with the test",
+					"description": "Single fault competencies associated with the test",
 					"properties": {
 						"useOfStand": {
 							"description": "The possible outcomes of any single fault competency",
