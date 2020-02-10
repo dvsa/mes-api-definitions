@@ -19,7 +19,7 @@ import { Candidate as PartialCatD1Candidate } from './partial';
 import { Candidate as CommonCandidate } from '../common/index';
 import { VehicleDetails as PartialCatD1VehicleDetails } from './partial';
 import { VehicleDetails as CommonVehicleDetails } from '../common/index';
-import { SafetyQuestionResult as PartialSafetyQuestionResult } from './partial';
+import { SafetyQuestions as PartialSafetyQuestions } from './partial';
 import { PcvDoorExercise as PartialPcvDoorExercise } from './partial';
 
 export declare namespace CatD1UniqueTypes {
@@ -39,7 +39,7 @@ export declare namespace CatD1UniqueTypes {
 
   type VehicleDetails = PartialCatD1VehicleDetails & CommonVehicleDetails;
 
-  type SafetyQuestion = PartialSafetyQuestionResult;
+  type SafetyQuestions = PartialSafetyQuestions;
 
   type PcvDoorExercise = PartialPcvDoorExercise;
 }

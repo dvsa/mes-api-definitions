@@ -64,7 +64,7 @@ export interface TestData {
   manoeuvres?: Manoeuvres;
   vehicleChecks?: VehicleChecks;
   pcvDoorExercise?: PcvDoorExercise;
-  safetyQuestions?: SafetyQuestionResult[];
+  safetyQuestions?: SafetyQuestions;
   uncoupleRecouple?: UncoupleRecouple;
 }
 /**
@@ -165,6 +165,16 @@ export interface PcvDoorExercise {
    * Whether a dangerous fault was marked on the PCV Door Exercise
    */
   dangerousFault?: boolean;
+  faultComments?: FaultComments;
+}
+/**
+ * Details of the safety questions asked during the test
+ *
+ * This interface was referenced by `PartialTestResultCatDESchema`'s JSON-Schema
+ * via the `definition` "safetyQuestions".
+ */
+export interface SafetyQuestions {
+  questions?: SafetyQuestionResult[];
   faultComments?: FaultComments;
 }
 /**
