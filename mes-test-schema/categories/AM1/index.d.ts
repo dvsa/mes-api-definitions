@@ -191,19 +191,19 @@ export type SchoolBike = boolean;
  */
 export type SingleFaultCompetencyOutcome = "DF" | "S" | "D";
 /**
- * The count of the number of driving faults recorded against a test element
- *
- * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
- * via the `definition` "drivingFaultCount".
- */
-export type DrivingFaultCount = number;
-/**
  * Comments recorded against a fault
  *
  * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
  * via the `definition` "faultComments".
  */
 export type FaultComments = string;
+/**
+ * The count of the number of driving faults recorded against a test element
+ *
+ * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "drivingFaultCount".
+ */
+export type DrivingFaultCount = number;
 /**
  * Indicator for a serious fault being recorded against a test element
  *
@@ -716,18 +716,33 @@ export interface VehicleDetails {
  * via the `definition` "testData".
  */
 export interface TestData {
-  useOfStand?: SingleFaultCompetencyOutcome;
-  manualHandling?: SingleFaultCompetencyOutcome;
-  slalom?: SingleFaultCompetencyOutcome;
-  slowControl?: SingleFaultCompetencyOutcome;
-  uTurn?: SingleFaultCompetencyOutcome;
-  controlledStop?: SingleFaultCompetencyOutcome;
+  singleFaultCompetencies?: SingleFaultCompetencies;
   emergencyStop?: EmergencyStop;
   avoidance?: Avoidance;
   drivingFaults?: DrivingFaults;
   seriousFaults?: SeriousFaults;
   dangerousFaults?: DangerousFaults;
   ETA?: ETA;
+}
+/**
+ * the single fault competencies associated with the test
+ *
+ * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "singleFaultCompetencies".
+ */
+export interface SingleFaultCompetencies {
+  useOfStand?: SingleFaultCompetencyOutcome;
+  useOfStandComments?: FaultComments;
+  manualHandling?: SingleFaultCompetencyOutcome;
+  manualHandlingComments?: FaultComments;
+  slalom?: SingleFaultCompetencyOutcome;
+  slalomComments?: FaultComments;
+  slowControl?: SingleFaultCompetencyOutcome;
+  slowControlComments?: FaultComments;
+  uTurn?: SingleFaultCompetencyOutcome;
+  uTurnComments?: FaultComments;
+  controlledStop?: SingleFaultCompetencyOutcome;
+  controlledStopComments?: FaultComments;
 }
 /**
  * The outcome of emergency stop tests
