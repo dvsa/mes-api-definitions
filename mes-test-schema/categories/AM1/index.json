@@ -219,6 +219,11 @@
 								"D"
 							],
 							"type": "string"
+						},
+						"comments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					}
 				},
@@ -247,6 +252,11 @@
 								"D"
 							],
 							"type": "string"
+						},
+						"comments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					}
 				},
@@ -1667,6 +1677,11 @@
 						"D"
 					],
 					"type": "string"
+				},
+				"comments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
 				}
 			}
 		},
@@ -1695,6 +1710,11 @@
 						"D"
 					],
 					"type": "string"
+				},
+				"comments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
 				}
 			}
 		},
@@ -2537,6 +2557,11 @@
 								"D"
 							],
 							"type": "string"
+						},
+						"comments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					}
 				},
@@ -2565,6 +2590,11 @@
 								"D"
 							],
 							"type": "string"
+						},
+						"comments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					}
 				},

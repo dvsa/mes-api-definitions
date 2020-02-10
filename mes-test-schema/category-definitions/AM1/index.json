@@ -380,6 +380,9 @@
         },
         "outcome": {
           "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "comments": {
+          "$ref": "#/definitions/faultComments"
         }
       }
     },
@@ -402,6 +405,9 @@
         },
         "outcome": {
           "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "comments": {
+          "$ref": "#/definitions/faultComments"
         }
       }
     },
