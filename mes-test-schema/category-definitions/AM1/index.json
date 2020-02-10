@@ -2,6 +2,48 @@
   "title": "Test Result Cat AM1 Schema",
   "type": "object",
   "definitions": {
+    "singleFaultCompetencies": {
+      "additionalProperties": false,
+      "description": "Single fault competencies associated with the test",
+      "properties": {
+        "useOfStand": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "useOfStandComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "manualHandling": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "manualHandlingComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "slalom": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "slalomComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "slowControl": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "slowControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "uTurn": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "uTurnComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "controlledStop": {
+          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "controlledStopComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      }
+    },
     "circuit": {
       "description": "Circuit completed (left or right)",
       "type": "string",
@@ -14,23 +56,8 @@
       "additionalProperties": false,
       "description": "Data associated with the test",
       "properties": {
-        "useOfStand": {
-          "$ref": "#/definitions/singleFaultCompetencyOutcome"
-        },
-        "manualHandling": {
-          "$ref": "#/definitions/singleFaultCompetencyOutcome"
-        },
-        "slalom": {
-          "$ref": "#/definitions/singleFaultCompetencyOutcome"
-        },
-        "slowControl": {
-          "$ref": "#/definitions/singleFaultCompetencyOutcome"
-        },
-        "uTurn": {
-          "$ref": "#/definitions/singleFaultCompetencyOutcome"
-        },
-        "controlledStop": {
-          "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        "singleFaultCompetencies": {
+          "$ref": "#/definitions/singleFaultCompetencies"
         },
         "emergencyStop": {
           "$ref": "#/definitions/emergencyStop"
@@ -353,6 +380,9 @@
         },
         "outcome": {
           "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "comments": {
+          "$ref": "#/definitions/faultComments"
         }
       }
     },
@@ -375,6 +405,9 @@
         },
         "outcome": {
           "$ref": "#/definitions/singleFaultCompetencyOutcome"
+        },
+        "comments": {
+          "$ref": "#/definitions/faultComments"
         }
       }
     },

@@ -2,6 +2,96 @@
 	"title": "Test Result Cat AM1 Schema",
 	"type": "object",
 	"definitions": {
+		"singleFaultCompetencies": {
+			"additionalProperties": false,
+			"description": "Single fault competencies associated with the test",
+			"properties": {
+				"useOfStand": {
+					"description": "The possible outcomes of any single fault competency",
+					"enum": [
+						"DF",
+						"S",
+						"D"
+					],
+					"type": "string"
+				},
+				"useOfStandComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"manualHandling": {
+					"description": "The possible outcomes of any single fault competency",
+					"enum": [
+						"DF",
+						"S",
+						"D"
+					],
+					"type": "string"
+				},
+				"manualHandlingComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"slalom": {
+					"description": "The possible outcomes of any single fault competency",
+					"enum": [
+						"DF",
+						"S",
+						"D"
+					],
+					"type": "string"
+				},
+				"slalomComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"slowControl": {
+					"description": "The possible outcomes of any single fault competency",
+					"enum": [
+						"DF",
+						"S",
+						"D"
+					],
+					"type": "string"
+				},
+				"slowControlComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"uTurn": {
+					"description": "The possible outcomes of any single fault competency",
+					"enum": [
+						"DF",
+						"S",
+						"D"
+					],
+					"type": "string"
+				},
+				"uTurnComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"controlledStop": {
+					"description": "The possible outcomes of any single fault competency",
+					"enum": [
+						"DF",
+						"S",
+						"D"
+					],
+					"type": "string"
+				},
+				"controlledStopComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				}
+			}
+		},
 		"circuit": {
 			"description": "Circuit completed (left or right)",
 			"type": "string",
@@ -14,59 +104,95 @@
 			"additionalProperties": false,
 			"description": "Data associated with the test",
 			"properties": {
-				"useOfStand": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
-				},
-				"manualHandling": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
-				},
-				"slalom": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
-				},
-				"slowControl": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
-				},
-				"uTurn": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
-				},
-				"controlledStop": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
+				"singleFaultCompetencies": {
+					"additionalProperties": false,
+					"description": "Single fault competencies associated with the test",
+					"properties": {
+						"useOfStand": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"useOfStandComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"manualHandling": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"manualHandlingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"slalom": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"slalomComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"slowControl": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"slowControlComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"uTurn": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"uTurnComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"controlledStop": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"controlledStopComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						}
+					}
 				},
 				"emergencyStop": {
 					"description": "The outcome of emergency stop tests",
@@ -93,6 +219,11 @@
 								"D"
 							],
 							"type": "string"
+						},
+						"comments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					}
 				},
@@ -121,6 +252,11 @@
 								"D"
 							],
 							"type": "string"
+						},
+						"comments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					}
 				},
@@ -1541,6 +1677,11 @@
 						"D"
 					],
 					"type": "string"
+				},
+				"comments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
 				}
 			}
 		},
@@ -1569,6 +1710,11 @@
 						"D"
 					],
 					"type": "string"
+				},
+				"comments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
 				}
 			}
 		},
@@ -2296,59 +2442,95 @@
 			"additionalProperties": false,
 			"description": "Data associated with the test",
 			"properties": {
-				"useOfStand": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
-				},
-				"manualHandling": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
-				},
-				"slalom": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
-				},
-				"slowControl": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
-				},
-				"uTurn": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
-				},
-				"controlledStop": {
-					"description": "The possible outcomes of any single fault competency",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
+				"singleFaultCompetencies": {
+					"additionalProperties": false,
+					"description": "Single fault competencies associated with the test",
+					"properties": {
+						"useOfStand": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"useOfStandComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"manualHandling": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"manualHandlingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"slalom": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"slalomComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"slowControl": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"slowControlComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"uTurn": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"uTurnComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"controlledStop": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"controlledStopComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						}
+					}
 				},
 				"emergencyStop": {
 					"description": "The outcome of emergency stop tests",
@@ -2375,6 +2557,11 @@
 								"D"
 							],
 							"type": "string"
+						},
+						"comments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					}
 				},
@@ -2403,6 +2590,11 @@
 								"D"
 							],
 							"type": "string"
+						},
+						"comments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					}
 				},
