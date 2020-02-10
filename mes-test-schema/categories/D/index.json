@@ -1707,7 +1707,13 @@
 					"description": "Whether a dangerous fault was marked on the PCV Door Exercise",
 					"type": "boolean"
 				},
-				"faultComments": {
+				"drivingFaultComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"seriousFaultComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"dangerousFaultComments": {
 					"$ref": "#/definitions/faultComments"
 				}
 			},
