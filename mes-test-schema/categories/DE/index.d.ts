@@ -22,7 +22,7 @@ import { VehicleDetails as CommonVehicleDetails } from '../common/index';
 import { PassCompletion as PartialPassCompletion } from './partial';
 import { PassCompletion as CommonPassCompletion } from '../common/index';
 import { UncoupleRecouple as PartialCatDEEUncoupleRecouple } from './partial';
-import { SafetyQuestionResult as PartialSafetyQuestionResult } from './partial';
+import { SafetyQuestions as PartialSafetyQuestions } from './partial';
 import { PcvDoorExercise as PartialPcvDoorExercise } from './partial';
 
 export declare namespace CatDEUniqueTypes {
@@ -46,7 +46,7 @@ export declare namespace CatDEUniqueTypes {
 
   type UncoupleRecouple = PartialCatDEEUncoupleRecouple;
 
-  type SafetyQuestion = PartialSafetyQuestionResult;
+  type SafetyQuestions = PartialSafetyQuestions;
 
   type PcvDoorExercise = PartialPcvDoorExercise;
 }
