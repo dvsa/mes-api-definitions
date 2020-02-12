@@ -687,10 +687,6 @@ export interface Other {
  */
 export interface PassCompletion {
   /**
-   * Indicates whether the candidate submitted their provisional driving licence
-   */
-  provisionalLicenceProvided: boolean;
-  /**
    * The PCN issued to the candidate
    */
   passCertificateNumber: string;
