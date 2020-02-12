@@ -340,10 +340,6 @@
       "description": "Finalisation of a successful test outcome",
       "type": "object",
       "properties": {
-        "provisionalLicenceProvided": {
-          "description": "Indicates whether the candidate submitted their provisional driving licence",
-          "type": "boolean"
-        },
         "passCertificateNumber": {
           "description": "The PCN issued to the candidate",
           "type": "string",
@@ -353,7 +349,6 @@
       },
       "additionalProperties": false,
       "required": [
-        "provisionalLicenceProvided",
         "passCertificateNumber"
       ]
     },
