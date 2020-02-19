@@ -8,14 +8,6 @@
     "eyesightTest": {
       "$ref": "../common/index.json#/definitions/eyesightTest"
     },
-    "circuit": {
-      "description": "Circuit completed (left or right)",
-      "type": "string",
-      "enum": [
-        "Left",
-        "Right"
-      ]
-    },
     "independentDriving": {
       "$ref": "../common/index.json#/definitions/independentDriving"
     },
@@ -107,9 +99,6 @@
         "additionalInformation": {
           "description": "Any comments that the DE wants to record about the test",
           "type": "string"
-        },
-        "circuit": {
-          "$ref": "#/definitions/circuit"
         }
       },
       "additionalProperties": false
