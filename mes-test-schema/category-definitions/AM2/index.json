@@ -201,10 +201,22 @@
         "controlsSteeringComments": {
           "$ref": "#/definitions/faultComments"
         },
+        "controlsBalanceControl": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "controlsBalanceControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
         "ancillaryControls": {
           "$ref": "#/definitions/drivingFaultCount"
         },
         "ancillaryControlsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "precautions": {
+          "$ref": "#/definitions/drivingFaultCount"
+        },
+        "precautionsComments": {
           "$ref": "#/definitions/faultComments"
         },
         "moveOffSafety": {
@@ -446,10 +458,22 @@
         "controlsSteeringComments": {
           "$ref": "#/definitions/faultComments"
         },
+        "controlsBalanceControl": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "controlsBalanceControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
         "ancillaryControls": {
           "$ref": "#/definitions/seriousFaultIndicator"
         },
         "ancillaryControlsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "precautions": {
+          "$ref": "#/definitions/seriousFaultIndicator"
+        },
+        "precautionsComments": {
           "$ref": "#/definitions/faultComments"
         },
         "moveOffSafety": {
@@ -687,10 +711,22 @@
         "controlsSteeringComments": {
           "$ref": "#/definitions/faultComments"
         },
+        "controlsBalanceControl": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "controlsBalanceControlComments": {
+          "$ref": "#/definitions/faultComments"
+        },
         "ancillaryControls": {
           "$ref": "#/definitions/dangerousFaultIndicator"
         },
         "ancillaryControlsComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "precautions": {
+          "$ref": "#/definitions/dangerousFaultIndicator"
+        },
+        "precautionsComments": {
           "$ref": "#/definitions/faultComments"
         },
         "moveOffSafety": {
@@ -941,10 +977,36 @@
       },
       "type": "object"
     },
+    "testRequirements": {
+      "description": "The test requirements that must be carried out during a test",
+      "type": "object",
+      "properties": {
+        "normalStart1": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        },
+        "normalStart2": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        },
+        "angledStart": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        },
+        "hillStart": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
     "testData": {
       "description": "Data associated with the test",
       "type": "object",
       "properties": {
+        "testRequirements": {
+          "$ref": "#/definitions/testRequirements"
+        },
         "ETA": {
           "$ref": "#/definitions/ETA"
         },

@@ -642,6 +642,7 @@ export interface VehicleDetails {
  * via the `definition` "testData".
  */
 export interface TestData {
+  testRequirements?: TestRequirements;
   ETA?: ETA;
   drivingFaults?: DrivingFaults;
   seriousFaults?: SeriousFaults;
@@ -649,6 +650,30 @@ export interface TestData {
   safetyAndBalanceQuestions?: SafetyAndBalanceQuestions;
   eco?: Eco;
   eyesightTest?: EyesightTest;
+}
+/**
+ * The test requirements that must be carried out during a test
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "testRequirements".
+ */
+export interface TestRequirements {
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  normalStart1?: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  normalStart2?: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  angledStart?: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  hillStart?: boolean;
 }
 /**
  * Indicates whether the examiner had to take verbal action during the test
@@ -681,8 +706,12 @@ export interface DrivingFaults {
   controlsRearBrakeComments?: FaultComments;
   controlsSteering?: DrivingFaultCount;
   controlsSteeringComments?: FaultComments;
+  controlsBalanceControl?: DrivingFaultCount;
+  controlsBalanceControlComments?: FaultComments;
   ancillaryControls?: DrivingFaultCount;
   ancillaryControlsComments?: FaultComments;
+  precautions?: DrivingFaultCount;
+  precautionsComments?: FaultComments;
   moveOffSafety?: DrivingFaultCount;
   moveOffSafetyComments?: FaultComments;
   moveOffControl?: DrivingFaultCount;
@@ -767,8 +796,12 @@ export interface SeriousFaults {
   controlsRearBrakeComments?: FaultComments;
   controlsSteering?: SeriousFaultIndicator;
   controlsSteeringComments?: FaultComments;
+  controlsBalanceControl?: SeriousFaultIndicator;
+  controlsBalanceControlComments?: FaultComments;
   ancillaryControls?: SeriousFaultIndicator;
   ancillaryControlsComments?: FaultComments;
+  precautions?: SeriousFaultIndicator;
+  precautionsComments?: FaultComments;
   moveOffSafety?: SeriousFaultIndicator;
   moveOffSafetyComments?: FaultComments;
   moveOffControl?: SeriousFaultIndicator;
@@ -853,8 +886,12 @@ export interface DangerousFaults {
   controlsRearBrakeComments?: FaultComments;
   controlsSteering?: DangerousFaultIndicator;
   controlsSteeringComments?: FaultComments;
+  controlsBalanceControl?: DangerousFaultIndicator;
+  controlsBalanceControlComments?: FaultComments;
   ancillaryControls?: DangerousFaultIndicator;
   ancillaryControlsComments?: FaultComments;
+  precautions?: DangerousFaultIndicator;
+  precautionsComments?: FaultComments;
   moveOffSafety?: DangerousFaultIndicator;
   moveOffSafetyComments?: FaultComments;
   moveOffControl?: DangerousFaultIndicator;
