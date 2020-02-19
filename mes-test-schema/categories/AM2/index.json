@@ -28,14 +28,6 @@
 			},
 			"additionalProperties": false
 		},
-		"circuit": {
-			"description": "Circuit completed (left or right)",
-			"type": "string",
-			"enum": [
-				"Left",
-				"Right"
-			]
-		},
 		"independentDriving": {
 			"description": "Method chosen to conduct the independent driving section of the test",
 			"type": "string",
@@ -591,14 +583,6 @@
 				"additionalInformation": {
 					"description": "Any comments that the DE wants to record about the test",
 					"type": "string"
-				},
-				"circuit": {
-					"description": "Circuit completed (left or right)",
-					"type": "string",
-					"enum": [
-						"Left",
-						"Right"
-					]
 				}
 			},
 			"additionalProperties": false
@@ -3889,14 +3873,6 @@
 				"additionalInformation": {
 					"description": "Any comments that the DE wants to record about the test",
 					"type": "string"
-				},
-				"circuit": {
-					"description": "Circuit completed (left or right)",
-					"type": "string",
-					"enum": [
-						"Left",
-						"Right"
-					]
 				}
 			},
 			"additionalProperties": false

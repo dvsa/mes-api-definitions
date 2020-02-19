@@ -142,13 +142,6 @@ export type WeatherConditions =
   | "Icy"
   | "Windy";
 /**
- * Circuit completed (left or right)
- *
- * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
- * via the `definition` "circuit".
- */
-export type Circuit = "Left" | "Right";
-/**
  * Indicates whether the bike belongs to a driving school
  *
  * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
@@ -550,7 +543,6 @@ export interface TestSummary {
    * Any comments that the DE wants to record about the test
    */
   additionalInformation?: string;
-  circuit?: Circuit;
 }
 /**
  * Recording of the rekey reason
