@@ -142,13 +142,6 @@ export type WeatherConditions =
   | "Icy"
   | "Windy";
 /**
- * Circuit completed (left or right)
- *
- * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
- * via the `definition` "circuit".
- */
-export type Circuit = "Left" | "Right";
-/**
  * Indicates whether the bike belongs to a driving school
  *
  * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
@@ -550,7 +543,6 @@ export interface TestSummary {
    * Any comments that the DE wants to record about the test
    */
   additionalInformation?: string;
-  circuit?: Circuit;
 }
 /**
  * Recording of the rekey reason
@@ -642,6 +634,7 @@ export interface VehicleDetails {
  * via the `definition` "testData".
  */
 export interface TestData {
+  testRequirements?: TestRequirements;
   ETA?: ETA;
   drivingFaults?: DrivingFaults;
   seriousFaults?: SeriousFaults;
@@ -649,6 +642,30 @@ export interface TestData {
   safetyAndBalanceQuestions?: SafetyAndBalanceQuestions;
   eco?: Eco;
   eyesightTest?: EyesightTest;
+}
+/**
+ * The test requirements that must be carried out during a test
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "testRequirements".
+ */
+export interface TestRequirements {
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  normalStart1?: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  normalStart2?: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  angledStart?: boolean;
+  /**
+   * Indicates whether or not this test requirement was carried out
+   */
+  hillStart?: boolean;
 }
 /**
  * Indicates whether the examiner had to take verbal action during the test
@@ -675,14 +692,18 @@ export interface DrivingFaults {
   controlsClutchComments?: FaultComments;
   controlsGears?: DrivingFaultCount;
   controlsGearsComments?: FaultComments;
-  controlsFrontbrake?: DrivingFaultCount;
-  controlsFrontbrakeComments?: FaultComments;
+  controlsFrontBrake?: DrivingFaultCount;
+  controlsFrontBrakeComments?: FaultComments;
   controlsRearBrake?: DrivingFaultCount;
   controlsRearBrakeComments?: FaultComments;
   controlsSteering?: DrivingFaultCount;
   controlsSteeringComments?: FaultComments;
+  controlsBalanceSlowControl?: DrivingFaultCount;
+  controlsBalanceSlowControlComments?: FaultComments;
   ancillaryControls?: DrivingFaultCount;
   ancillaryControlsComments?: FaultComments;
+  precautions?: DrivingFaultCount;
+  precautionsComments?: FaultComments;
   moveOffSafety?: DrivingFaultCount;
   moveOffSafetyComments?: FaultComments;
   moveOffControl?: DrivingFaultCount;
@@ -761,14 +782,18 @@ export interface SeriousFaults {
   controlsClutchComments?: FaultComments;
   controlsGears?: SeriousFaultIndicator;
   controlsGearsComments?: FaultComments;
-  controlsFrontbrake?: SeriousFaultIndicator;
-  controlsFrontbrakeComments?: FaultComments;
+  controlsFrontBrake?: SeriousFaultIndicator;
+  controlsFrontBrakeComments?: FaultComments;
   controlsRearBrake?: SeriousFaultIndicator;
   controlsRearBrakeComments?: FaultComments;
   controlsSteering?: SeriousFaultIndicator;
   controlsSteeringComments?: FaultComments;
+  controlsBalanceSlowControl?: SeriousFaultIndicator;
+  controlsBalanceSlowControlComments?: FaultComments;
   ancillaryControls?: SeriousFaultIndicator;
   ancillaryControlsComments?: FaultComments;
+  precautions?: SeriousFaultIndicator;
+  precautionsComments?: FaultComments;
   moveOffSafety?: SeriousFaultIndicator;
   moveOffSafetyComments?: FaultComments;
   moveOffControl?: SeriousFaultIndicator;
@@ -847,14 +872,18 @@ export interface DangerousFaults {
   controlsClutchComments?: FaultComments;
   controlsGears?: DangerousFaultIndicator;
   controlsGearsComments?: FaultComments;
-  controlsFrontbrake?: DangerousFaultIndicator;
-  controlsFrontbrakeComments?: FaultComments;
+  controlsFrontBrake?: DangerousFaultIndicator;
+  controlsFrontBrakeComments?: FaultComments;
   controlsRearBrake?: DangerousFaultIndicator;
   controlsRearBrakeComments?: FaultComments;
   controlsSteering?: DangerousFaultIndicator;
   controlsSteeringComments?: FaultComments;
+  controlsBalanceSlowControl?: DangerousFaultIndicator;
+  controlsBalanceSlowControlComments?: FaultComments;
   ancillaryControls?: DangerousFaultIndicator;
   ancillaryControlsComments?: FaultComments;
+  precautions?: DangerousFaultIndicator;
+  precautionsComments?: FaultComments;
   moveOffSafety?: DangerousFaultIndicator;
   moveOffSafetyComments?: FaultComments;
   moveOffControl?: DangerousFaultIndicator;

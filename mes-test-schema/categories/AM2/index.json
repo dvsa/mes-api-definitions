@@ -28,14 +28,6 @@
 			},
 			"additionalProperties": false
 		},
-		"circuit": {
-			"description": "Circuit completed (left or right)",
-			"type": "string",
-			"enum": [
-				"Left",
-				"Right"
-			]
-		},
 		"independentDriving": {
 			"description": "Method chosen to conduct the independent driving section of the test",
 			"type": "string",
@@ -591,14 +583,6 @@
 				"additionalInformation": {
 					"description": "Any comments that the DE wants to record about the test",
 					"type": "string"
-				},
-				"circuit": {
-					"description": "Circuit completed (left or right)",
-					"type": "string",
-					"enum": [
-						"Left",
-						"Right"
-					]
 				}
 			},
 			"additionalProperties": false
@@ -792,11 +776,11 @@
 					"type": "string",
 					"maxLength": 1000
 				},
-				"controlsFrontbrake": {
+				"controlsFrontBrake": {
 					"description": "The count of the number of driving faults recorded against a test element",
 					"type": "integer"
 				},
-				"controlsFrontbrakeComments": {
+				"controlsFrontBrakeComments": {
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
@@ -819,11 +803,29 @@
 					"type": "string",
 					"maxLength": 1000
 				},
+				"controlsBalanceSlowControl": {
+					"description": "The count of the number of driving faults recorded against a test element",
+					"type": "integer"
+				},
+				"controlsBalanceSlowControlComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
 				"ancillaryControls": {
 					"description": "The count of the number of driving faults recorded against a test element",
 					"type": "integer"
 				},
 				"ancillaryControlsComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"precautions": {
+					"description": "The count of the number of driving faults recorded against a test element",
+					"type": "integer"
+				},
+				"precautionsComments": {
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
@@ -1154,11 +1156,11 @@
 					"type": "string",
 					"maxLength": 1000
 				},
-				"controlsFrontbrake": {
+				"controlsFrontBrake": {
 					"description": "Indicator for a serious fault being recorded against a test element",
 					"type": "boolean"
 				},
-				"controlsFrontbrakeComments": {
+				"controlsFrontBrakeComments": {
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
@@ -1181,11 +1183,29 @@
 					"type": "string",
 					"maxLength": 1000
 				},
+				"controlsBalanceSlowControl": {
+					"description": "Indicator for a serious fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"controlsBalanceSlowControlComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
 				"ancillaryControls": {
 					"description": "Indicator for a serious fault being recorded against a test element",
 					"type": "boolean"
 				},
 				"ancillaryControlsComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"precautions": {
+					"description": "Indicator for a serious fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"precautionsComments": {
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
@@ -1512,11 +1532,11 @@
 					"type": "string",
 					"maxLength": 1000
 				},
-				"controlsFrontbrake": {
+				"controlsFrontBrake": {
 					"description": "Indicator for a dangerous fault being recorded against a test element",
 					"type": "boolean"
 				},
-				"controlsFrontbrakeComments": {
+				"controlsFrontBrakeComments": {
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
@@ -1539,11 +1559,29 @@
 					"type": "string",
 					"maxLength": 1000
 				},
+				"controlsBalanceSlowControl": {
+					"description": "Indicator for a dangerous fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"controlsBalanceSlowControlComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
 				"ancillaryControls": {
 					"description": "Indicator for a dangerous fault being recorded against a test element",
 					"type": "boolean"
 				},
 				"ancillaryControlsComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"precautions": {
+					"description": "Indicator for a dangerous fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"precautionsComments": {
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
@@ -1968,10 +2006,56 @@
 			},
 			"type": "object"
 		},
+		"testRequirements": {
+			"description": "The test requirements that must be carried out during a test",
+			"type": "object",
+			"properties": {
+				"normalStart1": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				},
+				"normalStart2": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				},
+				"angledStart": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				},
+				"hillStart": {
+					"description": "Indicates whether or not this test requirement was carried out",
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
 		"testData": {
 			"description": "Data associated with the test",
 			"type": "object",
 			"properties": {
+				"testRequirements": {
+					"description": "The test requirements that must be carried out during a test",
+					"type": "object",
+					"properties": {
+						"normalStart1": {
+							"description": "Indicates whether or not this test requirement was carried out",
+							"type": "boolean"
+						},
+						"normalStart2": {
+							"description": "Indicates whether or not this test requirement was carried out",
+							"type": "boolean"
+						},
+						"angledStart": {
+							"description": "Indicates whether or not this test requirement was carried out",
+							"type": "boolean"
+						},
+						"hillStart": {
+							"description": "Indicates whether or not this test requirement was carried out",
+							"type": "boolean"
+						}
+					},
+					"additionalProperties": false
+				},
 				"ETA": {
 					"description": "Indicates whether the examiner had to take verbal action during the test",
 					"type": "object",
@@ -2014,11 +2098,11 @@
 							"type": "string",
 							"maxLength": 1000
 						},
-						"controlsFrontbrake": {
+						"controlsFrontBrake": {
 							"description": "The count of the number of driving faults recorded against a test element",
 							"type": "integer"
 						},
-						"controlsFrontbrakeComments": {
+						"controlsFrontBrakeComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -2041,11 +2125,29 @@
 							"type": "string",
 							"maxLength": 1000
 						},
+						"controlsBalanceSlowControl": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"controlsBalanceSlowControlComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
 						"ancillaryControls": {
 							"description": "The count of the number of driving faults recorded against a test element",
 							"type": "integer"
 						},
 						"ancillaryControlsComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"precautions": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"precautionsComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -2372,11 +2474,11 @@
 							"type": "string",
 							"maxLength": 1000
 						},
-						"controlsFrontbrake": {
+						"controlsFrontBrake": {
 							"description": "Indicator for a serious fault being recorded against a test element",
 							"type": "boolean"
 						},
-						"controlsFrontbrakeComments": {
+						"controlsFrontBrakeComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -2399,11 +2501,29 @@
 							"type": "string",
 							"maxLength": 1000
 						},
+						"controlsBalanceSlowControl": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"controlsBalanceSlowControlComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
 						"ancillaryControls": {
 							"description": "Indicator for a serious fault being recorded against a test element",
 							"type": "boolean"
 						},
 						"ancillaryControlsComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"precautions": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"precautionsComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -2730,11 +2850,11 @@
 							"type": "string",
 							"maxLength": 1000
 						},
-						"controlsFrontbrake": {
+						"controlsFrontBrake": {
 							"description": "Indicator for a dangerous fault being recorded against a test element",
 							"type": "boolean"
 						},
-						"controlsFrontbrakeComments": {
+						"controlsFrontBrakeComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -2757,11 +2877,29 @@
 							"type": "string",
 							"maxLength": 1000
 						},
+						"controlsBalanceSlowControl": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"controlsBalanceSlowControlComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
 						"ancillaryControls": {
 							"description": "Indicator for a dangerous fault being recorded against a test element",
 							"type": "boolean"
 						},
 						"ancillaryControlsComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"precautions": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"precautionsComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -3735,14 +3873,6 @@
 				"additionalInformation": {
 					"description": "Any comments that the DE wants to record about the test",
 					"type": "string"
-				},
-				"circuit": {
-					"description": "Circuit completed (left or right)",
-					"type": "string",
-					"enum": [
-						"Left",
-						"Right"
-					]
 				}
 			},
 			"additionalProperties": false
@@ -3879,6 +4009,29 @@
 			"description": "Data associated with the test",
 			"type": "object",
 			"properties": {
+				"testRequirements": {
+					"description": "The test requirements that must be carried out during a test",
+					"type": "object",
+					"properties": {
+						"normalStart1": {
+							"description": "Indicates whether or not this test requirement was carried out",
+							"type": "boolean"
+						},
+						"normalStart2": {
+							"description": "Indicates whether or not this test requirement was carried out",
+							"type": "boolean"
+						},
+						"angledStart": {
+							"description": "Indicates whether or not this test requirement was carried out",
+							"type": "boolean"
+						},
+						"hillStart": {
+							"description": "Indicates whether or not this test requirement was carried out",
+							"type": "boolean"
+						}
+					},
+					"additionalProperties": false
+				},
 				"ETA": {
 					"description": "Indicates whether the examiner had to take verbal action during the test",
 					"type": "object",
@@ -3921,11 +4074,11 @@
 							"type": "string",
 							"maxLength": 1000
 						},
-						"controlsFrontbrake": {
+						"controlsFrontBrake": {
 							"description": "The count of the number of driving faults recorded against a test element",
 							"type": "integer"
 						},
-						"controlsFrontbrakeComments": {
+						"controlsFrontBrakeComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -3948,11 +4101,29 @@
 							"type": "string",
 							"maxLength": 1000
 						},
+						"controlsBalanceSlowControl": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"controlsBalanceSlowControlComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
 						"ancillaryControls": {
 							"description": "The count of the number of driving faults recorded against a test element",
 							"type": "integer"
 						},
 						"ancillaryControlsComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"precautions": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"precautionsComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -4279,11 +4450,11 @@
 							"type": "string",
 							"maxLength": 1000
 						},
-						"controlsFrontbrake": {
+						"controlsFrontBrake": {
 							"description": "Indicator for a serious fault being recorded against a test element",
 							"type": "boolean"
 						},
-						"controlsFrontbrakeComments": {
+						"controlsFrontBrakeComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -4306,11 +4477,29 @@
 							"type": "string",
 							"maxLength": 1000
 						},
+						"controlsBalanceSlowControl": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"controlsBalanceSlowControlComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
 						"ancillaryControls": {
 							"description": "Indicator for a serious fault being recorded against a test element",
 							"type": "boolean"
 						},
 						"ancillaryControlsComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"precautions": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"precautionsComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -4637,11 +4826,11 @@
 							"type": "string",
 							"maxLength": 1000
 						},
-						"controlsFrontbrake": {
+						"controlsFrontBrake": {
 							"description": "Indicator for a dangerous fault being recorded against a test element",
 							"type": "boolean"
 						},
-						"controlsFrontbrakeComments": {
+						"controlsFrontBrakeComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -4664,11 +4853,29 @@
 							"type": "string",
 							"maxLength": 1000
 						},
+						"controlsBalanceSlowControl": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"controlsBalanceSlowControlComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
 						"ancillaryControls": {
 							"description": "Indicator for a dangerous fault being recorded against a test element",
 							"type": "boolean"
 						},
 						"ancillaryControlsComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"precautions": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"precautionsComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
