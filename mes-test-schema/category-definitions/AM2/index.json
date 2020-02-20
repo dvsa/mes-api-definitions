@@ -172,10 +172,10 @@
         "controlsGearsComments": {
           "$ref": "#/definitions/faultComments"
         },
-        "controlsFrontbrake": {
+        "controlsFrontBrake": {
           "$ref": "#/definitions/drivingFaultCount"
         },
-        "controlsFrontbrakeComments": {
+        "controlsFrontBrakeComments": {
           "$ref": "#/definitions/faultComments"
         },
         "controlsRearBrake": {
@@ -190,10 +190,10 @@
         "controlsSteeringComments": {
           "$ref": "#/definitions/faultComments"
         },
-        "controlsBalanceControl": {
+        "controlsBalanceSlowControl": {
           "$ref": "#/definitions/drivingFaultCount"
         },
-        "controlsBalanceControlComments": {
+        "controlsBalanceSlowControlComments": {
           "$ref": "#/definitions/faultComments"
         },
         "ancillaryControls": {
@@ -429,10 +429,10 @@
         "controlsGearsComments": {
           "$ref": "#/definitions/faultComments"
         },
-        "controlsFrontbrake": {
+        "controlsFrontBrake": {
           "$ref": "#/definitions/seriousFaultIndicator"
         },
-        "controlsFrontbrakeComments": {
+        "controlsFrontBrakeComments": {
           "$ref": "#/definitions/faultComments"
         },
         "controlsRearBrake": {
@@ -447,10 +447,10 @@
         "controlsSteeringComments": {
           "$ref": "#/definitions/faultComments"
         },
-        "controlsBalanceControl": {
+        "controlsBalanceSlowControl": {
           "$ref": "#/definitions/seriousFaultIndicator"
         },
-        "controlsBalanceControlComments": {
+        "controlsBalanceSlowControlComments": {
           "$ref": "#/definitions/faultComments"
         },
         "ancillaryControls": {
@@ -682,10 +682,10 @@
         "controlsGearsComments": {
           "$ref": "#/definitions/faultComments"
         },
-        "controlsFrontbrake": {
+        "controlsFrontBrake": {
           "$ref": "#/definitions/dangerousFaultIndicator"
         },
-        "controlsFrontbrakeComments": {
+        "controlsFrontBrakeComments": {
           "$ref": "#/definitions/faultComments"
         },
         "controlsRearBrake": {
@@ -700,10 +700,10 @@
         "controlsSteeringComments": {
           "$ref": "#/definitions/faultComments"
         },
-        "controlsBalanceControl": {
+        "controlsBalanceSlowControl": {
           "$ref": "#/definitions/dangerousFaultIndicator"
         },
-        "controlsBalanceControlComments": {
+        "controlsBalanceSlowControlComments": {
           "$ref": "#/definitions/faultComments"
         },
         "ancillaryControls": {
