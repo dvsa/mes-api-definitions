@@ -26,6 +26,10 @@ export interface MdmConfig {
    */
   enableDevTools?: boolean;
   /**
+   * Flag to enable store rehydration plugin in browser
+   */
+  enableRehydrationPlugin?: boolean;
+  /**
    * Flag whether the logout clears test presistence or no
    */
   logoutClearsTestPersistence?: boolean;
