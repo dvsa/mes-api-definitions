@@ -63,6 +63,10 @@
       "description": "Flag to enable dev tools",
       "type": "boolean"
     },
+    "enableRehydrationPlugin": {
+      "description": "Flag to enable store rehydration plugin in browser",
+      "type": "boolean"
+    },
     "logoutClearsTestPersistence": {
       "description": "Flag whether the logout clears test presistence or no",
       "type": "boolean"
