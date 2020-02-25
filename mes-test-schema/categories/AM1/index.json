@@ -89,6 +89,34 @@
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
+				},
+				"emergencyStop": {
+					"description": "The possible outcomes of any single fault competency",
+					"enum": [
+						"DF",
+						"S",
+						"D"
+					],
+					"type": "string"
+				},
+				"emergancyStopComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"avoidance": {
+					"description": "The possible outcomes of any single fault competency",
+					"enum": [
+						"DF",
+						"S",
+						"D"
+					],
+					"type": "string"
+				},
+				"avoidanceComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
 				}
 			}
 		},
@@ -191,6 +219,34 @@
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
+						},
+						"emergencyStop": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"emergancyStopComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"avoidance": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"avoidanceComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					}
 				},
@@ -207,16 +263,10 @@
 							"description": "The speed of the second attempt",
 							"type": "integer"
 						},
-						"speedNotMetSeriousFault": {
-							"description": "Whether the required speed was not met",
-							"type": "boolean"
-						},
 						"outcome": {
-							"description": "The possible outcomes of any single fault competency",
+							"description": "The possible outcomes of speed requirment fault competency",
 							"enum": [
-								"DF",
-								"S",
-								"D"
+								"S"
 							],
 							"type": "string"
 						},
@@ -240,16 +290,10 @@
 							"description": "The speed of the second attempt",
 							"type": "integer"
 						},
-						"speedNotMetSeriousFault": {
-							"description": "Whether the required speed was not met",
-							"type": "boolean"
-						},
 						"outcome": {
-							"description": "The possible outcomes of any single fault competency",
+							"description": "The possible outcomes of speed requirment fault competency",
 							"enum": [
-								"DF",
-								"S",
-								"D"
+								"S"
 							],
 							"type": "string"
 						},
@@ -386,6 +430,13 @@
 				"DF",
 				"S",
 				"D"
+			],
+			"type": "string"
+		},
+		"SpeedRequirementCompetencyOutcome": {
+			"description": "The possible outcomes of speed requirment fault competency",
+			"enum": [
+				"S"
 			],
 			"type": "string"
 		},
@@ -1660,16 +1711,10 @@
 					"description": "The speed of the second attempt",
 					"type": "integer"
 				},
-				"speedNotMetSeriousFault": {
-					"description": "Whether the required speed was not met",
-					"type": "boolean"
-				},
 				"outcome": {
-					"description": "The possible outcomes of any single fault competency",
+					"description": "The possible outcomes of speed requirment fault competency",
 					"enum": [
-						"DF",
-						"S",
-						"D"
+						"S"
 					],
 					"type": "string"
 				},
@@ -1693,16 +1738,10 @@
 					"description": "The speed of the second attempt",
 					"type": "integer"
 				},
-				"speedNotMetSeriousFault": {
-					"description": "Whether the required speed was not met",
-					"type": "boolean"
-				},
 				"outcome": {
-					"description": "The possible outcomes of any single fault competency",
+					"description": "The possible outcomes of speed requirment fault competency",
 					"enum": [
-						"DF",
-						"S",
-						"D"
+						"S"
 					],
 					"type": "string"
 				},
@@ -2519,6 +2558,34 @@
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
+						},
+						"emergencyStop": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"emergancyStopComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"avoidance": {
+							"description": "The possible outcomes of any single fault competency",
+							"enum": [
+								"DF",
+								"S",
+								"D"
+							],
+							"type": "string"
+						},
+						"avoidanceComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					}
 				},
@@ -2535,16 +2602,10 @@
 							"description": "The speed of the second attempt",
 							"type": "integer"
 						},
-						"speedNotMetSeriousFault": {
-							"description": "Whether the required speed was not met",
-							"type": "boolean"
-						},
 						"outcome": {
-							"description": "The possible outcomes of any single fault competency",
+							"description": "The possible outcomes of speed requirment fault competency",
 							"enum": [
-								"DF",
-								"S",
-								"D"
+								"S"
 							],
 							"type": "string"
 						},
@@ -2568,16 +2629,10 @@
 							"description": "The speed of the second attempt",
 							"type": "integer"
 						},
-						"speedNotMetSeriousFault": {
-							"description": "Whether the required speed was not met",
-							"type": "boolean"
-						},
 						"outcome": {
-							"description": "The possible outcomes of any single fault competency",
+							"description": "The possible outcomes of speed requirment fault competency",
 							"enum": [
-								"DF",
-								"S",
-								"D"
+								"S"
 							],
 							"type": "string"
 						},
