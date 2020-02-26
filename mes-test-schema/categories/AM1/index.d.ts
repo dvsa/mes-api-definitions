@@ -198,6 +198,13 @@ export type SingleFaultCompetencyOutcome = "DF" | "S" | "D";
  */
 export type FaultComments = string;
 /**
+ * The possible outcomes of speed requirment fault competency
+ *
+ * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
+ * via the `definition` "SpeedRequirementCompetencyOutcome".
+ */
+export type SpeedRequirementCompetencyOutcome = "S";
+/**
  * The count of the number of driving faults recorded against a test element
  *
  * This interface was referenced by `TestResultCatAM1Schema`'s JSON-Schema
@@ -739,6 +746,10 @@ export interface SingleFaultCompetencies {
   uTurnComments?: FaultComments;
   controlledStop?: SingleFaultCompetencyOutcome;
   controlledStopComments?: FaultComments;
+  emergencyStop?: SingleFaultCompetencyOutcome;
+  emergencyStopComments?: FaultComments;
+  avoidance?: SingleFaultCompetencyOutcome;
+  avoidanceComments?: FaultComments;
 }
 /**
  * The outcome of emergency stop tests
@@ -755,11 +766,7 @@ export interface EmergencyStop {
    * The speed of the second attempt
    */
   secondAttempt?: number;
-  /**
-   * Whether the required speed was not met
-   */
-  speedNotMetSeriousFault?: boolean;
-  outcome?: SingleFaultCompetencyOutcome;
+  outcome?: SpeedRequirementCompetencyOutcome;
   comments?: FaultComments;
 }
 /**
@@ -777,11 +784,7 @@ export interface Avoidance {
    * The speed of the second attempt
    */
   secondAttempt?: number;
-  /**
-   * Whether the required speed was not met
-   */
-  speedNotMetSeriousFault?: boolean;
-  outcome?: SingleFaultCompetencyOutcome;
+  outcome?: SpeedRequirementCompetencyOutcome;
   comments?: FaultComments;
 }
 /**
