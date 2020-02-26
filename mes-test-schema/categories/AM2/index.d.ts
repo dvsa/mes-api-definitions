@@ -523,6 +523,10 @@ export interface TestSummary {
   routeNumber?: number;
   independentDriving?: IndependentDriving;
   /**
+   * Method of transportation the driving examiner conducted the test on
+   */
+  testConductedOn?: "Bike to bike" | "Car to bike" | "N/A";
+  /**
    * Physical description of the candidate
    */
   candidateDescription?: string;
@@ -957,9 +961,8 @@ export interface DangerousFaults {
  */
 export interface SafetyAndBalanceQuestions {
   safetyQuestions?: QuestionResult[];
-  safetyComments?: FaultComments;
+  safetyAndBalanceComments?: FaultComments;
   balanceQuestions?: QuestionResult[];
-  balanceComments?: FaultComments;
 }
 /**
  * Result of a vehicle checks question

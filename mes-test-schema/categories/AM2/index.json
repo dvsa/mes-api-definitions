@@ -539,6 +539,15 @@
 						"N/A"
 					]
 				},
+				"testConductedOn": {
+					"description": "Method of transportation the driving examiner conducted the test on",
+					"type": "string",
+					"enum": [
+						"Bike to bike",
+						"Car to bike",
+						"N/A"
+					]
+				},
 				"candidateDescription": {
 					"description": "Physical description of the candidate",
 					"type": "string",
@@ -1965,7 +1974,7 @@
 					},
 					"type": "array"
 				},
-				"safetyComments": {
+				"safetyAndBalanceComments": {
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
@@ -1997,11 +2006,6 @@
 						}
 					},
 					"type": "array"
-				},
-				"balanceComments": {
-					"description": "Comments recorded against a fault",
-					"type": "string",
-					"maxLength": 1000
 				}
 			},
 			"type": "object"
@@ -3227,7 +3231,7 @@
 							},
 							"type": "array"
 						},
-						"safetyComments": {
+						"safetyAndBalanceComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -3259,11 +3263,6 @@
 								}
 							},
 							"type": "array"
-						},
-						"balanceComments": {
-							"description": "Comments recorded against a fault",
-							"type": "string",
-							"maxLength": 1000
 						}
 					},
 					"type": "object"
@@ -3826,6 +3825,15 @@
 						"Sat nav",
 						"Diagram",
 						"Traffic signs",
+						"N/A"
+					]
+				},
+				"testConductedOn": {
+					"description": "Method of transportation the driving examiner conducted the test on",
+					"type": "string",
+					"enum": [
+						"Bike to bike",
+						"Car to bike",
 						"N/A"
 					]
 				},
@@ -5203,7 +5211,7 @@
 							},
 							"type": "array"
 						},
-						"safetyComments": {
+						"safetyAndBalanceComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -5235,11 +5243,6 @@
 								}
 							},
 							"type": "array"
-						},
-						"balanceComments": {
-							"description": "Comments recorded against a fault",
-							"type": "string",
-							"maxLength": 1000
 						}
 					},
 					"type": "object"

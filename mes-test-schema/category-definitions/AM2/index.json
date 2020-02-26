@@ -73,6 +73,15 @@
         "independentDriving": {
           "$ref": "#/definitions/independentDriving"
         },
+        "testConductedOn": {
+          "description": "Method of transportation the driving examiner conducted the test on",
+          "type": "string",
+          "enum": [
+            "Bike to bike",
+            "Car to bike",
+            "N/A"
+          ]
+        },
         "candidateDescription": {
           "description": "Physical description of the candidate",
           "type": "string",
@@ -951,7 +960,7 @@
           },
           "type": "array"
         },
-        "safetyComments": {
+        "safetyAndBalanceComments": {
           "$ref": "#/definitions/faultComments"
         },
         "balanceQuestions": {
@@ -959,9 +968,6 @@
             "$ref": "#/definitions/questionResult"
           },
           "type": "array"
-        },
-        "balanceComments": {
-          "$ref": "#/definitions/faultComments"
         }
       },
       "type": "object"
