@@ -45,7 +45,7 @@
         "emergencyStop": {
           "$ref": "#/definitions/singleFaultCompetencyOutcome"
         },
-        "emergancyStopComments": {
+        "emergencyStopComments": {
           "$ref": "#/definitions/faultComments"
         },
         "avoidance": {

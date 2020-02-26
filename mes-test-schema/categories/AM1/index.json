@@ -99,7 +99,7 @@
 					],
 					"type": "string"
 				},
-				"emergancyStopComments": {
+				"emergencyStopComments": {
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
@@ -229,7 +229,7 @@
 							],
 							"type": "string"
 						},
-						"emergancyStopComments": {
+						"emergencyStopComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -2568,7 +2568,7 @@
 							],
 							"type": "string"
 						},
-						"emergancyStopComments": {
+						"emergencyStopComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000

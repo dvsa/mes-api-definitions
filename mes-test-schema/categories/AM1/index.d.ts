@@ -747,7 +747,7 @@ export interface SingleFaultCompetencies {
   controlledStop?: SingleFaultCompetencyOutcome;
   controlledStopComments?: FaultComments;
   emergencyStop?: SingleFaultCompetencyOutcome;
-  emergancyStopComments?: FaultComments;
+  emergencyStopComments?: FaultComments;
   avoidance?: SingleFaultCompetencyOutcome;
   avoidanceComments?: FaultComments;
 }
