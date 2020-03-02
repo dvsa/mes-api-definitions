@@ -38,6 +38,15 @@
 				"N/A"
 			]
 		},
+		"modeOfTransport": {
+			"description": "Method of transportation the driving examiner conducted the test on",
+			"type": "string",
+			"enum": [
+				"Bike to bike",
+				"Car to bike",
+				"N/A"
+			]
+		},
 		"identification": {
 			"description": "Indicates which form of ID was provided by the candidate",
 			"type": "string",
@@ -539,7 +548,7 @@
 						"N/A"
 					]
 				},
-				"testConductedOn": {
+				"modeOfTransport": {
 					"description": "Method of transportation the driving examiner conducted the test on",
 					"type": "string",
 					"enum": [
@@ -3828,7 +3837,7 @@
 						"N/A"
 					]
 				},
-				"testConductedOn": {
+				"modeOfTransport": {
 					"description": "Method of transportation the driving examiner conducted the test on",
 					"type": "string",
 					"enum": [

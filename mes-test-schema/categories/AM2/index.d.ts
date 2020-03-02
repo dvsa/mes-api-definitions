@@ -118,6 +118,13 @@ export type DL196CBTCertNumber = string;
  */
 export type IndependentDriving = "Sat nav" | "Diagram" | "Traffic signs" | "N/A";
 /**
+ * Method of transportation the driving examiner conducted the test on
+ *
+ * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
+ * via the `definition` "modeOfTransport".
+ */
+export type ModeOfTransport = "Bike to bike" | "Car to bike" | "N/A";
+/**
  * Indicates which form of ID was provided by the candidate
  *
  * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
@@ -522,10 +529,7 @@ export interface TestSummary {
    */
   routeNumber?: number;
   independentDriving?: IndependentDriving;
-  /**
-   * Method of transportation the driving examiner conducted the test on
-   */
-  testConductedOn?: "Bike to bike" | "Car to bike" | "N/A";
+  modeOfTransport?: ModeOfTransport;
   /**
    * Physical description of the candidate
    */
