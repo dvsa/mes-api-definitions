@@ -11,6 +11,15 @@
     "independentDriving": {
       "$ref": "../common/index.json#/definitions/independentDriving"
     },
+    "modeOfTransport": {
+      "description": "Method of transportation the driving examiner conducted the test on",
+      "type": "string",
+      "enum": [
+        "Bike to bike",
+        "Car to bike",
+        "N/A"
+      ]
+    },
     "identification": {
       "$ref": "../common/index.json#/definitions/identification"
     },
@@ -73,14 +82,8 @@
         "independentDriving": {
           "$ref": "#/definitions/independentDriving"
         },
-        "testConductedOn": {
-          "description": "Method of transportation the driving examiner conducted the test on",
-          "type": "string",
-          "enum": [
-            "Bike to bike",
-            "Car to bike",
-            "N/A"
-          ]
+        "modeOfTransport": {
+          "$ref": "#/definitions/modeOfTransport"
         },
         "candidateDescription": {
           "description": "Physical description of the candidate",
