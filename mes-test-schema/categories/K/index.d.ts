@@ -19,7 +19,6 @@ import { Candidate as PartialCatKCandidate } from './partial';
 import { Candidate as CommonCandidate } from '../common/index';
 import { VehicleDetails as PartialCatKVehicleDetails } from './partial';
 import { VehicleDetails as CommonVehicleDetails } from '../common/index';
-import { PassCompletion as CommonPassCompletion } from '../common/index';
 
 export declare namespace CatKUniqueTypes {
   type TestResult = PartialTestResultCatKSchema & TestResultCommonSchema;

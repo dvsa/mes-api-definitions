@@ -19,7 +19,6 @@ import { Candidate as PartialCatHCandidate } from './partial';
 import { Candidate as CommonCandidate } from '../common/index';
 import { VehicleDetails as PartialCatHVehicleDetails } from './partial';
 import { VehicleDetails as CommonVehicleDetails } from '../common/index';
-import { PassCompletion as CommonPassCompletion } from '../common/index';
 
 export declare namespace CatHUniqueTypes {
   type TestResult = PartialTestResultCatHSchema & TestResultCommonSchema;

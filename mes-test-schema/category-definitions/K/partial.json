@@ -30,10 +30,7 @@
           "description": "Whether a serious fault was marked on Highway Code Safety",
           "type": "boolean"
         },
-        "drivingFaultComments": {
-          "$ref": "#/definitions/faultComments"
-        },
-        "seriousFaultComments": {
+        "faultComments": {
           "$ref": "#/definitions/faultComments"
         }
       },
@@ -43,24 +40,11 @@
     "faultComments": {
       "$ref": "../common/index.json#/definitions/faultComments"
     },
-    "manoeuvre": {
-      "$ref": "../common/index.json#/definitions/manoeuvre"
-    },
     "manoeuvreOutcome": {
       "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
     },
     "manoeuvreIndicator": {
       "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
-    },
-    "manoeuvres": {
-      "additionalProperties": false,
-      "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
-      "type": "object",
-      "properties": {
-        "reverseLeft": {
-          "$ref": "#/definitions/manoeuvre"
-        }
-      }
     },
     "questionResult": {
       "$ref": "../common/index.json#/definitions/questionResult"
@@ -86,20 +70,6 @@
         }
       },
       "type": "object"
-    },
-    "vehicleDetails": {
-      "additionalProperties": false,
-      "type": "object",
-      "properties": {
-        "vehicleLength": {
-          "description": "Indicates the length of the vehicle",
-          "type": "number"
-        },
-        "vehicleWidth": {
-          "description": "Indicates the width of the vehicle",
-          "type": "number"
-        }
-      }
     },
     "journalData": {
       "properties": {
@@ -166,15 +136,11 @@
       "additionalProperties": false,
       "description": "The test requirements that must be carried out during a test",
       "properties": {
-        "angledStartControlledStop": {
+        "angledStart": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         },
-        "downhillStart": {
-          "description": "Indicates whether or not this test requirement was carried out",
-          "type": "boolean"
-        },
-        "uphillStart": {
+        "uphillStartDesignatedStart": {
           "description": "Indicates whether or not this test requirement was carried out",
           "type": "boolean"
         }
@@ -188,9 +154,6 @@
     },
     "journalData": {
       "$ref": "#/definitions/journalData"
-    },
-    "vehicleDetails": {
-      "$ref": "#/definitions/vehicleDetails"
     }
   },
   "additionalProperties": false,

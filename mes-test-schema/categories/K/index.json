@@ -1619,15 +1619,11 @@
 					"description": "Indicates whether or not this test requirement was carried out",
 					"type": "boolean"
 				},
-				"angledStartControlledStop": {
+				"angledStart": {
 					"description": "Indicates whether or not this test requirement was carried out",
 					"type": "boolean"
 				},
-				"downhillStart": {
-					"description": "Indicates whether or not this test requirement was carried out",
-					"type": "boolean"
-				},
-				"uphillStart": {
+				"uphillStartDesignatedStart": {
 					"description": "Indicates whether or not this test requirement was carried out",
 					"type": "boolean"
 				}
@@ -1645,14 +1641,6 @@
 				},
 				"gearboxCategory": {
 					"$ref": "#/definitions/gearboxCategory"
-				},
-				"vehicleLength": {
-					"description": "Indicates the length of the vehicle",
-					"type": "number"
-				},
-				"vehicleWidth": {
-					"description": "Indicates the width of the vehicle",
-					"type": "number"
 				}
 			},
 			"additionalProperties": false
@@ -1703,25 +1691,12 @@
 					"description": "Whether a serious fault was marked on Highway Code Safety",
 					"type": "boolean"
 				},
-				"drivingFaultComments": {
-					"$ref": "#/definitions/faultComments"
-				},
-				"seriousFaultComments": {
+				"faultComments": {
 					"$ref": "#/definitions/faultComments"
 				}
 			},
 			"type": "object",
 			"additionalProperties": false
-		},
-		"manoeuvres": {
-			"additionalProperties": false,
-			"description": "The manoeuvres that were carried out during the test and any faults recorded against them",
-			"type": "object",
-			"properties": {
-				"reverseLeft": {
-					"$ref": "#/definitions/manoeuvre"
-				}
-			}
 		},
 		"vehicleChecks": {
 			"additionalProperties": false,

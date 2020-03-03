@@ -44,7 +44,6 @@ export type BusinessTelephone = string;
 export interface PartialTestResultCatFSchema {
   testData?: TestData;
   journalData: JournalData;
-  vehicleDetails?: VehicleDetails;
 }
 /**
  * Data associated with the test
@@ -91,15 +90,11 @@ export interface TestRequirements {
   /**
    * Indicates whether or not this test requirement was carried out
    */
-  angledStartControlledStop?: boolean;
+  angledStart?: boolean;
   /**
    * Indicates whether or not this test requirement was carried out
    */
-  downhillStart?: boolean;
-  /**
-   * Indicates whether or not this test requirement was carried out
-   */
-  uphillStart?: boolean;
+  uphillStartDesignatedStart?: boolean;
 }
 /**
  * The manoeuvres that were carried out during the test and any faults recorded against them
@@ -167,8 +162,7 @@ export interface HighwayCodeSafety {
    * Whether a serious fault was marked on Highway Code Safety
    */
   seriousFault?: boolean;
-  drivingFaultComments?: FaultComments;
-  seriousFaultComments?: FaultComments;
+  faultComments?: FaultComments;
 }
 /**
  * This interface was referenced by `PartialTestResultCatFSchema`'s JSON-Schema
@@ -217,18 +211,4 @@ export interface Address {
    * The address postcode
    */
   postcode?: string;
-}
-/**
- * This interface was referenced by `PartialTestResultCatFSchema`'s JSON-Schema
- * via the `definition` "vehicleDetails".
- */
-export interface VehicleDetails {
-  /**
-   * Indicates the length of the vehicle
-   */
-  vehicleLength?: number;
-  /**
-   * Indicates the width of the vehicle
-   */
-  vehicleWidth?: number;
 }
