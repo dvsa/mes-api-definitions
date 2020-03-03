@@ -17,8 +17,8 @@ import { JournalData as PartialCatGJournalData } from './partial';
 import { JournalData as CommonJournalData } from '../common/index';
 import { Candidate as PartialCatGCandidate } from './partial';
 import { Candidate as CommonCandidate } from '../common/index';
-import { VehicleDetails as PartialCatGVehicleDetails } from './partial';
-import { VehicleDetails as CommonVehicleDetails } from '../common/index';
+import { ControlledStop as PartialCatGControlledStop } from './partial';
+import { HighwayCodeSafety as PartialCatGHighwayCodeSafety } from './partial';
 
 export declare namespace CatGUniqueTypes {
   type TestResult = PartialTestResultCatGSchema & TestResultCommonSchema;
@@ -35,6 +35,7 @@ export declare namespace CatGUniqueTypes {
 
   type Candidate = PartialCatGCandidate & CommonCandidate;
 
-  type VehicleDetails = PartialCatGVehicleDetails & CommonVehicleDetails;
+  type ControlledStop = PartialCatGControlledStop;
 
+  type HighwayCodeSafety = PartialCatGHighwayCodeSafety;
 }

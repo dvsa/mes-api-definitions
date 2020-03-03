@@ -17,8 +17,8 @@ import { JournalData as PartialCatFJournalData } from './partial';
 import { JournalData as CommonJournalData } from '../common/index';
 import { Candidate as PartialCatFCandidate } from './partial';
 import { Candidate as CommonCandidate } from '../common/index';
-import { VehicleDetails as PartialCatFVehicleDetails } from './partial';
-import { VehicleDetails as CommonVehicleDetails } from '../common/index';
+import { ControlledStop as PartialCatFControlledStop } from './partial';
+import { HighwayCodeSafety as PartialCatFHighwayCodeSafety } from './partial';
 
 export declare namespace CatFUniqueTypes {
   type TestResult = PartialTestResultCatFSchema & TestResultCommonSchema;
@@ -35,6 +35,7 @@ export declare namespace CatFUniqueTypes {
 
   type Candidate = PartialCatFCandidate & CommonCandidate;
 
-  type VehicleDetails = PartialCatFVehicleDetails & CommonVehicleDetails;
+  type ControlledStop = PartialCatFControlledStop;
 
+  type HighwayCodeSafety = PartialCatFHighwayCodeSafety;
 }

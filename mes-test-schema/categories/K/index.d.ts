@@ -11,14 +11,13 @@ import { TestData as PartialCatKTestData } from './partial';
 import { TestData as CommonTestData } from '../common';
 import { TestRequirements as PartialCatKTestRequirements } from './partial';
 import { TestRequirements as CommonTestRequirements } from '../common/index';
-import { Manoeuvres as PartialCatKManoeuvres } from './partial';
 import { VehicleChecks as PartialCatKVehicleChecks } from './partial';
 import { JournalData as PartialCatKJournalData } from './partial';
 import { JournalData as CommonJournalData } from '../common/index';
 import { Candidate as PartialCatKCandidate } from './partial';
 import { Candidate as CommonCandidate } from '../common/index';
-import { VehicleDetails as PartialCatKVehicleDetails } from './partial';
-import { VehicleDetails as CommonVehicleDetails } from '../common/index';
+import { ControlledStop as PartialCatKControlledStop } from './partial';
+import { HighwayCodeSafety as PartialCatKHighwayCodeSafety } from './partial';
 
 export declare namespace CatKUniqueTypes {
   type TestResult = PartialTestResultCatKSchema & TestResultCommonSchema;
@@ -27,14 +26,13 @@ export declare namespace CatKUniqueTypes {
 
   type TestRequirements = PartialCatKTestRequirements & CommonTestRequirements;
 
-  type Manoeuvres = PartialCatKManoeuvres;
-
   type VehicleChecks = PartialCatKVehicleChecks;
 
   type JournalData = PartialCatKJournalData & CommonJournalData;
 
   type Candidate = PartialCatKCandidate & CommonCandidate;
 
-  type VehicleDetails = PartialCatKVehicleDetails & CommonVehicleDetails;
+  type ControlledStop = PartialCatKControlledStop;
 
+  type HighwayCodeSafety = PartialCatKHighwayCodeSafety;
 }
