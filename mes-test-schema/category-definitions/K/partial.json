@@ -1,0 +1,163 @@
+{
+  "title": "Partial Test Result Cat K Schema",
+  "type": "object",
+  "definitions": {
+    "controlledStop": {
+      "additionalProperties": false,
+      "properties": {
+        "fault": {
+          "$ref": "#/definitions/manoeuvreOutcome"
+        },
+        "faultComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "selected": {
+          "$ref": "#/definitions/manoeuvreIndicator"
+        }
+      },
+      "type": "object"
+    },
+    "eyesightTest": {
+      "$ref": "../common/index.json#/definitions/eyesightTest"
+    },
+    "highwayCodeSafety": {
+      "properties": {
+        "drivingFault": {
+          "description": "Whether a driving fault was marked on Highway Code Safety",
+          "type": "boolean"
+        },
+        "seriousFault": {
+          "description": "Whether a serious fault was marked on Highway Code Safety",
+          "type": "boolean"
+        },
+        "faultComments": {
+          "$ref": "#/definitions/faultComments"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "faultComments": {
+      "$ref": "../common/index.json#/definitions/faultComments"
+    },
+    "manoeuvreOutcome": {
+      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
+    },
+    "manoeuvreIndicator": {
+      "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
+    },
+    "questionResult": {
+      "$ref": "../common/index.json#/definitions/questionResult"
+    },
+    "vehicleChecks": {
+      "additionalProperties": false,
+      "description": "Details of the Show Me and Tell Me questions asked during the test",
+      "properties": {
+        "showMeQuestions": {
+          "items": {
+            "$ref": "#/definitions/questionResult"
+          },
+          "type": "array"
+        },
+        "showMeTellMeComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "tellMeQuestions": {
+          "items": {
+            "$ref": "#/definitions/questionResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "journalData": {
+      "properties": {
+        "candidate": {
+          "$ref": "#/definitions/candidate"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "candidate"
+      ]
+    },
+    "address": {
+      "$ref": "../common/index.json#/definitions/address"
+    },
+    "businessName": {
+      "description": "Name of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 100
+    },
+    "businessTelephone": {
+      "description": "Telephone number of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 20
+    },
+    "candidate": {
+      "properties": {
+        "businessAddress": {
+          "$ref": "#/definitions/address"
+        },
+        "businessName": {
+          "$ref": "#/definitions/businessName"
+        },
+        "businessTelephone": {
+          "$ref": "#/definitions/businessTelephone"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "testData": {
+      "description": "Data associated with the test",
+      "type": "object",
+      "properties": {
+        "controlledStop": {
+          "$ref": "#/definitions/controlledStop"
+        },
+        "eyesightTest": {
+          "$ref": "#/definitions/eyesightTest"
+        },
+        "testRequirements": {
+          "$ref": "#/definitions/testRequirements"
+        },
+        "vehicleChecks": {
+          "$ref": "#/definitions/vehicleChecks"
+        },
+        "highwayCodeSafety": {
+          "$ref": "#/definitions/highwayCodeSafety"
+        }
+      },
+      "additionalProperties": false
+    },
+    "testRequirements": {
+      "additionalProperties": false,
+      "description": "The test requirements that must be carried out during a test",
+      "properties": {
+        "angledStart": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        },
+        "uphillStartDesignatedStart": {
+          "description": "Indicates whether or not this test requirement was carried out",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "properties": {
+    "testData": {
+      "$ref": "#/definitions/testData"
+    },
+    "journalData": {
+      "$ref": "#/definitions/journalData"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "journalData"
+  ]
+}
