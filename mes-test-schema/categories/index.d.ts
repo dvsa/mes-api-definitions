@@ -11,6 +11,10 @@ import { CatD1UniqueTypes } from './D1';
 import { CatD1EUniqueTypes } from './D1E';
 import { TestResultCatAM1Schema } from './AM1';
 import { TestResultCatAM2Schema } from './AM2';
+import { CatFUniqueTypes } from './F';
+import { CatGUniqueTypes } from './G';
+import { CatHUniqueTypes } from './H';
+import { CatKUniqueTypes } from './K';
 
 export type TestResultSchemasUnion =
   | CatBUniqueTypes.TestResult
@@ -24,4 +28,8 @@ export type TestResultSchemasUnion =
   | CatD1UniqueTypes.TestResult
   | CatD1EUniqueTypes.TestResult
   | TestResultCatAM1Schema
-  | TestResultCatAM2Schema;
+  | TestResultCatAM2Schema
+  | CatFUniqueTypes.TestResult
+  | CatGUniqueTypes.TestResult
+  | CatHUniqueTypes.TestResult
+  | CatKUniqueTypes.TestResult;
