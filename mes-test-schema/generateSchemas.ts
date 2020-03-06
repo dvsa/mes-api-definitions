@@ -8,7 +8,7 @@ const prettyJs = require('pretty-js');
 const json2ts = require('json-schema-to-typescript');
 const derefSchema = require('json-schema-deref-sync');
 
-const categories = ['B', 'BE', 'C', 'CE', 'C1', 'C1E', 'D', 'DE', 'D1', 'D1E', 'F', 'G', 'H', 'K'];
+const categories = ['ADI2', 'B', 'BE', 'C', 'CE', 'C1', 'C1E', 'D', 'DE', 'D1', 'D1E', 'F', 'G', 'H', 'K'];
 
 // Json styling config
 const options = {

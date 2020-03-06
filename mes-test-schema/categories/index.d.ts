@@ -1,4 +1,5 @@
 import { TestResultCommonSchema } from './common/index';
+import { CatADI2UniqueTypes } from './ADI2';
 import { CatBUniqueTypes } from './B';
 import { CatBEUniqueTypes } from './BE';
 import { CatCUniqueTypes } from './C';
@@ -17,6 +18,7 @@ import { CatHUniqueTypes } from './H';
 import { CatKUniqueTypes } from './K';
 
 export type TestResultSchemasUnion =
+  | CatADI2UniqueTypes.TestResult
   | CatBUniqueTypes.TestResult
   | CatBEUniqueTypes.TestResult
   | CatCUniqueTypes.TestResult
