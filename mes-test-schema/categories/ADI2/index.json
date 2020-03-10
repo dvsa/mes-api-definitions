@@ -39,11 +39,14 @@
 				"eyesightTest": {
 					"$ref": "#/definitions/eyesightTest"
 				},
-				"manoeuvre1": {
-					"$ref": "#/definitions/manoeuvre1"
-				},
-				"manoeuvre2": {
-					"$ref": "#/definitions/manoeuvre2"
+				"manoeuvres": {
+					"items": {
+						"$ref": "#/definitions/manoeuvres"
+					},
+					"type": "array",
+					"minItems": 2,
+					"maxItems": 2,
+					"uniqueItems": true
 				},
 				"vehicleChecks": {
 					"$ref": "#/definitions/vehicleChecks"
@@ -1702,29 +1705,10 @@
 			},
 			"type": "object"
 		},
-		"manoeuvre1": {
+		"manoeuvres": {
 			"additionalProperties": false,
 			"type": "object",
-			"description": "The first manoeuvre that was carried out during the test and any faults recorded against it",
-			"properties": {
-				"forwardPark": {
-					"$ref": "#/definitions/manoeuvre"
-				},
-				"reverseParkCarpark": {
-					"$ref": "#/definitions/manoeuvre"
-				},
-				"reverseParkRoad": {
-					"$ref": "#/definitions/manoeuvre"
-				},
-				"reverseRight": {
-					"$ref": "#/definitions/manoeuvre"
-				}
-			}
-		},
-		"manoeuvre2": {
-			"additionalProperties": false,
-			"type": "object",
-			"description": "The second manoeuvre that was carried out during the test and any faults recorded against it",
+			"description": "The manoeuvres that were carried out during the test and any faults recorded against them",
 			"properties": {
 				"forwardPark": {
 					"$ref": "#/definitions/manoeuvre"

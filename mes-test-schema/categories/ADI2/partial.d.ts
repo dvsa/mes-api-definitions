@@ -25,8 +25,7 @@ export interface PartialTestResultADI2Schema {
 export interface TestData {
   eyesightTest?: EyesightTest;
   testRequirements?: TestRequirements;
-  manoeuvre1?: Manoeuvre1;
-  manoeuvre2?: Manoeuvre2;
+  manoeuvres?: Manoeuvres[];
   vehicleChecks?: VehicleChecks;
   controlledStop?: ControlledStop;
 }
@@ -64,12 +63,12 @@ export interface TestRequirements {
   angledStart?: boolean;
 }
 /**
- * The first manoeuvre that was carried out during the test and any faults recorded against it
+ * The manoeuvres that were carried out during the test and any faults recorded against them
  *
  * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
- * via the `definition` "manoeuvre1".
+ * via the `definition` "manoeuvres".
  */
-export interface Manoeuvre1 {
+export interface Manoeuvres {
   forwardPark?: Manoeuvre;
   reverseParkCarpark?: Manoeuvre;
   reverseParkRoad?: Manoeuvre;
@@ -96,18 +95,6 @@ export interface Manoeuvre {
    * Indicator for a manoeuvre being performed during the test
    */
   selected?: boolean;
-}
-/**
- * The second manoeuvre that was carried out during the test and any faults recorded against it
- *
- * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
- * via the `definition` "manoeuvre2".
- */
-export interface Manoeuvre2 {
-  forwardPark?: Manoeuvre;
-  reverseParkCarpark?: Manoeuvre;
-  reverseParkRoad?: Manoeuvre;
-  reverseRight?: Manoeuvre;
 }
 /**
  * Details of the Tell Me questions asked during the test

@@ -10,10 +10,9 @@ import { TestResultCommonSchema } from '../common';
 import { TestData as PartialADI2TestData } from './partial';
 import { TestData as CommonTestData } from '../common/index';
 import { ControlledStop as PartialADI2ControlledStop } from './partial';
+import { Manoeuvre as PartialADI2Manoeuvre } from './partial';
 import { TestRequirements as PartialADI2TestRequirements } from './partial';
 import { TestRequirements as CommonTestRequirements } from '../common/index';
-import { Manoeuvre1 as PartialADI2Manoeuvre1 } from './partial';
-import { Manoeuvre2 as PartialADI2Manoeuvre2 } from './partial';
 import { VehicleChecks as PartialADI2VehicleChecks } from './partial';
 import { VehicleDetails as PartialADI2VehicleDetails } from './partial';
 import { VehicleDetails as CommonVehicleDetails } from '../common/index';
@@ -27,11 +26,9 @@ export declare namespace CatADI2UniqueTypes {
 
   type TestRequirements = PartialADI2TestRequirements & CommonTestRequirements;
 
-  type Manoeuvre1 = PartialADI2Manoeuvre1;
-
-  type Manoeuvre2 = PartialADI2Manoeuvre2;
-
   type VehicleChecks = PartialADI2VehicleChecks;
+
+  type Manoeuvres = PartialADI2Manoeuvre;
 
   type VehicleDetails = PartialADI2VehicleDetails & CommonVehicleDetails;
 }
