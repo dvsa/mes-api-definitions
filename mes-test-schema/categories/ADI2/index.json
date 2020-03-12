@@ -1676,16 +1676,22 @@
 		},
 		"vehicleChecks": {
 			"additionalProperties": false,
-			"description": "Details of the Tell Me questions asked during the test",
+			"description": "Details of the Show Me and Tell Me questions asked during the test",
 			"properties": {
-				"tellMeQuestions": {
+				"showMeQuestions": {
 					"items": {
 						"$ref": "#/definitions/questionResult"
 					},
 					"type": "array"
 				},
-				"tellMeComments": {
+				"showMeTellMeComments": {
 					"$ref": "#/definitions/faultComments"
+				},
+				"tellMeQuestions": {
+					"items": {
+						"$ref": "#/definitions/questionResult"
+					},
+					"type": "array"
 				}
 			},
 			"type": "object"

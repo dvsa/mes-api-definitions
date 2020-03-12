@@ -2,27 +2,27 @@
   "title": "Partial Test Result ADI 2 Schema",
   "type": "object",
   "definitions": {
-    "eyesightTest": {
-      "$ref": "../common/index.json#/definitions/eyesightTest"
-    },
     "vehicleChecks": {
       "additionalProperties": false,
-      "description": "Details of the Tell Me questions asked during the test",
+      "description": "Details of the Show Me and Tell Me questions asked during the test",
       "properties": {
-        "tellMeQuestions": {
+        "showMeQuestions": {
           "items": {
-            "$ref": "#/definitions/questionResult"
+            "$ref": "../common/index.json#/definitions/questionResult"
           },
           "type": "array"
         },
-        "tellMeComments": {
+        "showMeTellMeComments": {
           "$ref": "../common/index.json#/definitions/faultComments"
+        },
+        "tellMeQuestions": {
+          "items": {
+            "$ref": "../common/index.json#/definitions/questionResult"
+          },
+          "type": "array"
         }
       },
       "type": "object"
-    },
-    "questionResult": {
-      "$ref": "../common/index.json#/definitions/questionResult"
     },
     "vehicleDetails": {
       "properties": {
@@ -56,7 +56,7 @@
       "additionalProperties": false,
       "properties": {
         "fault": {
-          "$ref": "#/definitions/manoeuvreOutcome"
+          "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
         },
         "faultComments": {
           "$ref": "../common/index.json#/definitions/faultComments"
@@ -67,28 +67,22 @@
       },
       "type": "object"
     },
-    "manoeuvre": {
-      "$ref": "../common/index.json#/definitions/manoeuvre"
-    },
-    "manoeuvreOutcome": {
-      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
-    },
     "manoeuvres": {
       "additionalProperties": false,
       "type": "object",
       "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
       "properties": {
         "forwardPark": {
-          "$ref": "#/definitions/manoeuvre"
+          "$ref": "../common/index.json#/definitions/manoeuvre"
         },
         "reverseParkCarpark": {
-          "$ref": "#/definitions/manoeuvre"
+          "$ref": "../common/index.json#/definitions/manoeuvre"
         },
         "reverseParkRoad": {
-          "$ref": "#/definitions/manoeuvre"
+          "$ref": "../common/index.json#/definitions/manoeuvre"
         },
         "reverseRight": {
-          "$ref": "#/definitions/manoeuvre"
+          "$ref": "../common/index.json#/definitions/manoeuvre"
         }
       }
     },
@@ -97,7 +91,7 @@
       "type": "object",
       "properties": {
         "eyesightTest": {
-          "$ref": "#/definitions/eyesightTest"
+          "$ref": "../common/index.json#/definitions/eyesightTest"
         },
         "testRequirements": {
           "$ref": "#/definitions/testRequirements"
