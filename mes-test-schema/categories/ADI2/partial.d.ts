@@ -30,18 +30,23 @@ export interface PartialTestResultADI2Schema {
  * via the `definition` "testData".
  */
 export interface TestData {
-  eyesightTest?: {
-    complete?: boolean;
-    /**
-     * Whether the candidate has failed the eyesight test
-     */
-    seriousFault?: boolean;
-    faultComments?: FaultComments;
-  };
+  eyesightTest?: EyesightTest;
   testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres[];
   vehicleChecks?: VehicleChecks;
   controlledStop?: ControlledStop;
+}
+/**
+ * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
+ * via the `definition` "eyesightTest".
+ */
+export interface EyesightTest {
+  complete?: boolean;
+  /**
+   * Whether the candidate has failed the eyesight test
+   */
+  seriousFault?: boolean;
+  faultComments?: FaultComments;
 }
 /**
  * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema

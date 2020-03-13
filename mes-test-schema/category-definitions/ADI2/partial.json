@@ -2,6 +2,9 @@
   "title": "Partial Test Result ADI 2 Schema",
   "type": "object",
   "definitions": {
+    "eyesightTest": {
+      "$ref": "../common/index.json#/definitions/eyesightTest"
+    },
     "faultComments": {
       "$ref": "../common/index.json#/definitions/faultComments"
     },
@@ -103,7 +106,7 @@
       "type": "object",
       "properties": {
         "eyesightTest": {
-          "$ref": "../common/index.json#/definitions/eyesightTest"
+          "$ref": "#/definitions/eyesightTest"
         },
         "testRequirements": {
           "$ref": "#/definitions/testRequirements"
