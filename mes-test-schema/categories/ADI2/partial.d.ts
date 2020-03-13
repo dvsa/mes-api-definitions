@@ -19,6 +19,13 @@ export type FaultComments = string;
  * via the `definition` "manoeuvreOutcome".
  */
 export type ManoeuvreOutcome = "DF" | "S" | "D";
+/**
+ * Indicator for a manoeuvre being performed during the test
+ *
+ * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
+ * via the `definition` "manoeuvreIndicator".
+ */
+export type ManoeuvreIndicator = boolean;
 
 export interface PartialTestResultADI2Schema {
   testData?: TestData;
@@ -89,10 +96,7 @@ export interface Manoeuvre {
   controlFaultComments?: FaultComments;
   observationFault?: ManoeuvreOutcome;
   observationFaultComments?: FaultComments;
-  /**
-   * Indicator for a manoeuvre being performed during the test
-   */
-  selected?: boolean;
+  selected?: ManoeuvreIndicator;
 }
 /**
  * Details of the Show Me and Tell Me questions asked during the test
@@ -132,10 +136,7 @@ export interface QuestionResult {
 export interface ControlledStop {
   fault?: ManoeuvreOutcome;
   faultComments?: FaultComments;
-  /**
-   * Indicator for a manoeuvre being performed during the test
-   */
-  selected?: boolean;
+  selected?: ManoeuvreIndicator;
 }
 /**
  * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema

@@ -17,13 +17,16 @@
     "questionResult": {
       "$ref": "../common/index.json#/definitions/questionResult"
     },
+    "manoeuvreIndicator": {
+      "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
+    },
     "vehicleChecks": {
       "additionalProperties": false,
       "description": "Details of the Show Me and Tell Me questions asked during the test",
       "properties": {
         "showMeQuestions": {
           "items": {
-            "$ref": "../common/index.json#/definitions/questionResult"
+            "$ref": "#/definitions/questionResult"
           },
           "type": "array"
         },
@@ -71,13 +74,13 @@
       "additionalProperties": false,
       "properties": {
         "fault": {
-          "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
+          "$ref": "#/definitions/manoeuvreOutcome"
         },
         "faultComments": {
-          "$ref": "../common/index.json#/definitions/faultComments"
+          "$ref": "#/definitions/faultComments"
         },
         "selected": {
-          "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
+          "$ref": "#/definitions/manoeuvreIndicator"
         }
       },
       "type": "object"
@@ -88,16 +91,16 @@
       "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
       "properties": {
         "forwardPark": {
-          "$ref": "../common/index.json#/definitions/manoeuvre"
+          "$ref": "#/definitions/manoeuvre"
         },
         "reverseParkCarpark": {
-          "$ref": "../common/index.json#/definitions/manoeuvre"
+          "$ref": "#/definitions/manoeuvre"
         },
         "reverseParkRoad": {
-          "$ref": "../common/index.json#/definitions/manoeuvre"
+          "$ref": "#/definitions/manoeuvre"
         },
         "reverseRight": {
-          "$ref": "../common/index.json#/definitions/manoeuvre"
+          "$ref": "#/definitions/manoeuvre"
         }
       }
     },
