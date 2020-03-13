@@ -6,12 +6,26 @@
  */
 
 /**
+ * Comments recorded against a fault
+ *
+ * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
+ * via the `definition` "faultComments".
+ */
+export type FaultComments = string;
+/**
  * The possible outcomes of any manoeuvre performed during the test
  *
  * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
  * via the `definition` "manoeuvreOutcome".
  */
 export type ManoeuvreOutcome = "DF" | "S" | "D";
+/**
+ * Indicator for a manoeuvre being performed during the test
+ *
+ * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
+ * via the `definition` "manoeuvreIndicator".
+ */
+export type ManoeuvreIndicator = boolean;
 
 export interface PartialTestResultADI2Schema {
   testData?: TestData;
@@ -39,10 +53,7 @@ export interface EyesightTest {
    * Whether the candidate has failed the eyesight test
    */
   seriousFault?: boolean;
-  /**
-   * Comments recorded against a fault
-   */
-  faultComments?: string;
+  faultComments?: FaultComments;
 }
 /**
  * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
@@ -82,32 +93,21 @@ export interface Manoeuvres {
  */
 export interface Manoeuvre {
   controlFault?: ManoeuvreOutcome;
-  /**
-   * Comments recorded against a fault
-   */
-  controlFaultComments?: string;
+  controlFaultComments?: FaultComments;
   observationFault?: ManoeuvreOutcome;
-  /**
-   * Comments recorded against a fault
-   */
-  observationFaultComments?: string;
-  /**
-   * Indicator for a manoeuvre being performed during the test
-   */
-  selected?: boolean;
+  observationFaultComments?: FaultComments;
+  selected?: ManoeuvreIndicator;
 }
 /**
- * Details of the Tell Me questions asked during the test
+ * Details of the Show Me and Tell Me questions asked during the test
  *
  * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
  * via the `definition` "vehicleChecks".
  */
 export interface VehicleChecks {
+  showMeQuestions?: QuestionResult[];
+  showMeTellMeComments?: FaultComments;
   tellMeQuestions?: QuestionResult[];
-  /**
-   * Comments recorded against a fault
-   */
-  tellMeComments?: string;
 }
 /**
  * Result of a vehicle checks question
@@ -135,14 +135,8 @@ export interface QuestionResult {
  */
 export interface ControlledStop {
   fault?: ManoeuvreOutcome;
-  /**
-   * Comments recorded against a fault
-   */
-  faultComments?: string;
-  /**
-   * Indicator for a manoeuvre being performed during the test
-   */
-  selected?: boolean;
+  faultComments?: FaultComments;
+  selected?: ManoeuvreIndicator;
 }
 /**
  * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema

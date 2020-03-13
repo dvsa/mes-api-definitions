@@ -5,24 +5,42 @@
     "eyesightTest": {
       "$ref": "../common/index.json#/definitions/eyesightTest"
     },
+    "faultComments": {
+      "$ref": "../common/index.json#/definitions/faultComments"
+    },
+    "manoeuvre": {
+      "$ref": "../common/index.json#/definitions/manoeuvre"
+    },
+    "manoeuvreOutcome": {
+      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
+    },
+    "questionResult": {
+      "$ref": "../common/index.json#/definitions/questionResult"
+    },
+    "manoeuvreIndicator": {
+      "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
+    },
     "vehicleChecks": {
       "additionalProperties": false,
-      "description": "Details of the Tell Me questions asked during the test",
+      "description": "Details of the Show Me and Tell Me questions asked during the test",
       "properties": {
-        "tellMeQuestions": {
+        "showMeQuestions": {
           "items": {
             "$ref": "#/definitions/questionResult"
           },
           "type": "array"
         },
-        "tellMeComments": {
-          "$ref": "../common/index.json#/definitions/faultComments"
+        "showMeTellMeComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "tellMeQuestions": {
+          "items": {
+            "$ref": "#/definitions/questionResult"
+          },
+          "type": "array"
         }
       },
       "type": "object"
-    },
-    "questionResult": {
-      "$ref": "../common/index.json#/definitions/questionResult"
     },
     "vehicleDetails": {
       "properties": {
@@ -59,19 +77,13 @@
           "$ref": "#/definitions/manoeuvreOutcome"
         },
         "faultComments": {
-          "$ref": "../common/index.json#/definitions/faultComments"
+          "$ref": "#/definitions/faultComments"
         },
         "selected": {
-          "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
+          "$ref": "#/definitions/manoeuvreIndicator"
         }
       },
       "type": "object"
-    },
-    "manoeuvre": {
-      "$ref": "../common/index.json#/definitions/manoeuvre"
-    },
-    "manoeuvreOutcome": {
-      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
     },
     "manoeuvres": {
       "additionalProperties": false,
