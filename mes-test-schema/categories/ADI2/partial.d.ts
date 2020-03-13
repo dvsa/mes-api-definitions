@@ -5,6 +5,21 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * Comments recorded against a fault
+ *
+ * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
+ * via the `definition` "faultComments".
+ */
+export type FaultComments = string;
+/**
+ * The possible outcomes of any manoeuvre performed during the test
+ *
+ * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
+ * via the `definition` "manoeuvreOutcome".
+ */
+export type ManoeuvreOutcome = "DF" | "S" | "D";
+
 export interface PartialTestResultADI2Schema {
   testData?: TestData;
   vehicleDetails?: VehicleDetails;
@@ -21,10 +36,7 @@ export interface TestData {
      * Whether the candidate has failed the eyesight test
      */
     seriousFault?: boolean;
-    /**
-     * Comments recorded against a fault
-     */
-    faultComments?: string;
+    faultComments?: FaultComments;
   };
   testRequirements?: TestRequirements;
   manoeuvres?: Manoeuvres[];
@@ -56,106 +68,26 @@ export interface TestRequirements {
  * via the `definition` "manoeuvres".
  */
 export interface Manoeuvres {
+  forwardPark?: Manoeuvre;
+  reverseParkCarpark?: Manoeuvre;
+  reverseParkRoad?: Manoeuvre;
+  reverseRight?: Manoeuvre;
+}
+/**
+ * Data needs capturing for a manoeuvre competency
+ *
+ * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
+ * via the `definition` "manoeuvre".
+ */
+export interface Manoeuvre {
+  controlFault?: ManoeuvreOutcome;
+  controlFaultComments?: FaultComments;
+  observationFault?: ManoeuvreOutcome;
+  observationFaultComments?: FaultComments;
   /**
-   * Data needs capturing for a manoeuvre competency
+   * Indicator for a manoeuvre being performed during the test
    */
-  forwardPark?: {
-    /**
-     * The possible outcomes of any manoeuvre performed during the test
-     */
-    controlFault?: "DF" | "S" | "D";
-    /**
-     * Comments recorded against a fault
-     */
-    controlFaultComments?: string;
-    /**
-     * The possible outcomes of any manoeuvre performed during the test
-     */
-    observationFault?: "DF" | "S" | "D";
-    /**
-     * Comments recorded against a fault
-     */
-    observationFaultComments?: string;
-    /**
-     * Indicator for a manoeuvre being performed during the test
-     */
-    selected?: boolean;
-  };
-  /**
-   * Data needs capturing for a manoeuvre competency
-   */
-  reverseParkCarpark?: {
-    /**
-     * The possible outcomes of any manoeuvre performed during the test
-     */
-    controlFault?: "DF" | "S" | "D";
-    /**
-     * Comments recorded against a fault
-     */
-    controlFaultComments?: string;
-    /**
-     * The possible outcomes of any manoeuvre performed during the test
-     */
-    observationFault?: "DF" | "S" | "D";
-    /**
-     * Comments recorded against a fault
-     */
-    observationFaultComments?: string;
-    /**
-     * Indicator for a manoeuvre being performed during the test
-     */
-    selected?: boolean;
-  };
-  /**
-   * Data needs capturing for a manoeuvre competency
-   */
-  reverseParkRoad?: {
-    /**
-     * The possible outcomes of any manoeuvre performed during the test
-     */
-    controlFault?: "DF" | "S" | "D";
-    /**
-     * Comments recorded against a fault
-     */
-    controlFaultComments?: string;
-    /**
-     * The possible outcomes of any manoeuvre performed during the test
-     */
-    observationFault?: "DF" | "S" | "D";
-    /**
-     * Comments recorded against a fault
-     */
-    observationFaultComments?: string;
-    /**
-     * Indicator for a manoeuvre being performed during the test
-     */
-    selected?: boolean;
-  };
-  /**
-   * Data needs capturing for a manoeuvre competency
-   */
-  reverseRight?: {
-    /**
-     * The possible outcomes of any manoeuvre performed during the test
-     */
-    controlFault?: "DF" | "S" | "D";
-    /**
-     * Comments recorded against a fault
-     */
-    controlFaultComments?: string;
-    /**
-     * The possible outcomes of any manoeuvre performed during the test
-     */
-    observationFault?: "DF" | "S" | "D";
-    /**
-     * Comments recorded against a fault
-     */
-    observationFaultComments?: string;
-    /**
-     * Indicator for a manoeuvre being performed during the test
-     */
-    selected?: boolean;
-  };
+  selected?: boolean;
 }
 /**
  * Details of the Show Me and Tell Me questions asked during the test
@@ -164,52 +96,37 @@ export interface Manoeuvres {
  * via the `definition` "vehicleChecks".
  */
 export interface VehicleChecks {
-  showMeQuestions?: {
-    /**
-     * Code representing the question that was asked
-     */
-    code?: string;
-    /**
-     * Description of the question that was asked
-     */
-    description?: string;
-    /**
-     * Outcome of the question that was asked
-     */
-    outcome?: "P" | "DF" | "S" | "D";
-  }[];
+  showMeQuestions?: QuestionResult[];
+  showMeTellMeComments?: FaultComments;
+  tellMeQuestions?: QuestionResult[];
+}
+/**
+ * Result of a vehicle checks question
+ *
+ * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
+ * via the `definition` "questionResult".
+ */
+export interface QuestionResult {
   /**
-   * Comments recorded against a fault
+   * Code representing the question that was asked
    */
-  showMeTellMeComments?: string;
-  tellMeQuestions?: {
-    /**
-     * Code representing the question that was asked
-     */
-    code?: string;
-    /**
-     * Description of the question that was asked
-     */
-    description?: string;
-    /**
-     * Outcome of the question that was asked
-     */
-    outcome?: "P" | "DF" | "S" | "D";
-  }[];
+  code?: string;
+  /**
+   * Description of the question that was asked
+   */
+  description?: string;
+  /**
+   * Outcome of the question that was asked
+   */
+  outcome?: "P" | "DF" | "S" | "D";
 }
 /**
  * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
  * via the `definition` "controlledStop".
  */
 export interface ControlledStop {
-  /**
-   * The possible outcomes of any manoeuvre performed during the test
-   */
-  fault?: "DF" | "S" | "D";
-  /**
-   * Comments recorded against a fault
-   */
-  faultComments?: string;
+  fault?: ManoeuvreOutcome;
+  faultComments?: FaultComments;
   /**
    * Indicator for a manoeuvre being performed during the test
    */

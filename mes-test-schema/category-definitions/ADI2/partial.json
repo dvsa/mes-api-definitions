@@ -2,6 +2,18 @@
   "title": "Partial Test Result ADI 2 Schema",
   "type": "object",
   "definitions": {
+    "faultComments": {
+      "$ref": "../common/index.json#/definitions/faultComments"
+    },
+    "manoeuvre": {
+      "$ref": "../common/index.json#/definitions/manoeuvre"
+    },
+    "manoeuvreOutcome": {
+      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
+    },
+    "questionResult": {
+      "$ref": "../common/index.json#/definitions/questionResult"
+    },
     "vehicleChecks": {
       "additionalProperties": false,
       "description": "Details of the Show Me and Tell Me questions asked during the test",
@@ -13,11 +25,11 @@
           "type": "array"
         },
         "showMeTellMeComments": {
-          "$ref": "../common/index.json#/definitions/faultComments"
+          "$ref": "#/definitions/faultComments"
         },
         "tellMeQuestions": {
           "items": {
-            "$ref": "../common/index.json#/definitions/questionResult"
+            "$ref": "#/definitions/questionResult"
           },
           "type": "array"
         }
