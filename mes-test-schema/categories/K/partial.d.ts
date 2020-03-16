@@ -140,6 +140,7 @@ export interface HighwayCodeSafety {
    */
   seriousFault?: boolean;
   faultComments?: FaultComments;
+  selected?: ManoeuvreIndicator;
 }
 /**
  * This interface was referenced by `PartialTestResultCatKSchema`'s JSON-Schema
