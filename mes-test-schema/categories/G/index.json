@@ -1696,6 +1696,9 @@
 				},
 				"faultComments": {
 					"$ref": "#/definitions/faultComments"
+				},
+				"selected": {
+					"$ref": "#/definitions/manoeuvreIndicator"
 				}
 			},
 			"type": "object",

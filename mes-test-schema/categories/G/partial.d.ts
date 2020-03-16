@@ -163,6 +163,7 @@ export interface HighwayCodeSafety {
    */
   seriousFault?: boolean;
   faultComments?: FaultComments;
+  selected?: ManoeuvreIndicator;
 }
 /**
  * This interface was referenced by `PartialTestResultCatGSchema`'s JSON-Schema
