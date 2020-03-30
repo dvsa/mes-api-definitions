@@ -105,6 +105,14 @@ export interface Manoeuvre {
  * via the `definition` "vehicleChecks".
  */
 export interface VehicleChecks {
+  /**
+   * Indicates whether or not a serious fault is marked against vehicle checks
+   */
+  seriousFault?: boolean;
+  /**
+   * Indicates whether or not a dangerous fault is marked against vehicle checks
+   */
+  dangerousFault?: boolean;
   showMeQuestions?: QuestionResult[];
   showMeTellMeComments?: FaultComments;
   tellMeQuestions?: QuestionResult[];
