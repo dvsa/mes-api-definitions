@@ -24,6 +24,14 @@
       "additionalProperties": false,
       "description": "Details of the Show Me and Tell Me questions asked during the test",
       "properties": {
+        "seriousFault": {
+          "description": "Indicates whether or not a serious fault is marked against vehicle checks",
+          "type": "boolean"
+        },
+        "dangerousFault": {
+          "description": "Indicates whether or not a dangerous fault is marked against vehicle checks",
+          "type": "boolean"
+        },
         "showMeQuestions": {
           "items": {
             "$ref": "#/definitions/questionResult"
