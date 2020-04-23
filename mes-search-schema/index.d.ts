@@ -5,25 +5,16 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface SearchResultTestSchema {
-  /**
-   * Search result schema
-   */
-  costCode: string;
-  testDate: string;
-  driverNumber: string;
-  candidateName: Name;
-  applicationReference: number;
-  category: string;
-  activityCode: ActivityCode;
-}
-
+/**
+ * Code representing the result of the test
+ */
 export type ActivityCode =
   | "1"
   | "2"
   | "3"
   | "4"
   | "5"
+  | "6"
   | "11"
   | "20"
   | "21"
@@ -65,12 +56,33 @@ export type ActivityCode =
   | "82"
   | "83";
 
+export interface SearchResultTestSchema {
+  /**
+   * The test center ID
+   */
+  costCode: string;
+  /**
+   * The date and time of the test
+   */
+  testDate: string;
+  /**
+   * The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI
+   */
+  driverNumber: string;
+  candidateName: Name;
+  /**
+   * The application ID
+   */
+  applicationReference: number;
+  /**
+   * Category code for the test report
+   */
+  category: string;
+  activityCode: ActivityCode;
+}
 /**
-* Details of the individual's name
-*
-* This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
-* via the `definition` "name".
-*/
+ * Details of the individual's name
+ */
 export interface Name {
   /**
    * The individual's title
