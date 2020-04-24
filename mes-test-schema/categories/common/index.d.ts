@@ -828,16 +828,6 @@ export interface DrivingFaults {
   positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: DrivingFaultCount;
   awarenessPlanningComments?: FaultComments;
-  rearObservationSignalling?: DrivingFaultCount;
-  rearObservationSignallingComments?: FaultComments;
-  rearObservationChangeDirection?: DrivingFaultCount;
-  rearObservationChangeDirectionComments?: FaultComments;
-  rearObservationChangeSpeed?: DrivingFaultCount;
-  rearObservationChangeSpeedComments?: FaultComments;
-  positionNormalRiding?: DrivingFaultCount;
-  positionNormalRidingComments?: FaultComments;
-  judgementOvertakingFiltering?: DrivingFaultCount;
-  judgementOvertakingFilteringComments?: FaultComments;
 }
 /**
  * The serious faults accumulated during the test
@@ -924,16 +914,6 @@ export interface SeriousFaults {
   positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: SeriousFaultIndicator;
   awarenessPlanningComments?: FaultComments;
-  rearObservationSignalling?: SeriousFaultIndicator;
-  rearObservationSignallingComments?: FaultComments;
-  rearObservationChangeDirection?: SeriousFaultIndicator;
-  rearObservationChangeDirectionComments?: FaultComments;
-  rearObservationChangeSpeed?: SeriousFaultIndicator;
-  rearObservationChangeSpeedComments?: FaultComments;
-  positionNormalRiding?: SeriousFaultIndicator;
-  positionNormalRidingComments?: FaultComments;
-  judgementOvertakingFiltering?: SeriousFaultIndicator;
-  judgementOvertakingFilteringComments?: FaultComments;
 }
 /**
  * The dangerous faults accumulated during the test
@@ -1020,16 +1000,6 @@ export interface DangerousFaults {
   positionNormalStopsComments?: FaultComments;
   awarenessPlanning?: DangerousFaultIndicator;
   awarenessPlanningComments?: FaultComments;
-  rearObservationSignalling?: DangerousFaultIndicator;
-  rearObservationSignallingComments?: FaultComments;
-  rearObservationChangeDirection?: DangerousFaultIndicator;
-  rearObservationChangeDirectionComments?: FaultComments;
-  rearObservationChangeSpeed?: DangerousFaultIndicator;
-  rearObservationChangeSpeedComments?: FaultComments;
-  positionNormalRiding?: DangerousFaultIndicator;
-  positionNormalRidingComments?: FaultComments;
-  judgementOvertakingFiltering?: DangerousFaultIndicator;
-  judgementOvertakingFilteringComments?: FaultComments;
 }
 /**
  * Assessment of the eco friendly manner of driving
