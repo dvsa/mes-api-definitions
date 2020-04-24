@@ -824,6 +824,36 @@
 				},
 				"awarenessPlanningComments": {
 					"$ref": "#/definitions/faultComments"
+				},
+				"rearObservationSignalling": {
+					"$ref": "#/definitions/drivingFaultCount"
+				},
+				"rearObservationSignallingComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"rearObservationChangeDirection": {
+					"$ref": "#/definitions/drivingFaultCount"
+				},
+				"rearObservationChangeDirectionComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"rearObservationChangeSpeed": {
+					"$ref": "#/definitions/drivingFaultCount"
+				},
+				"rearObservationChangeSpeedComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"positionNormalRiding": {
+					"$ref": "#/definitions/drivingFaultCount"
+				},
+				"positionNormalRidingComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"judgementOvertakingFiltering": {
+					"$ref": "#/definitions/drivingFaultCount"
+				},
+				"judgementOvertakingFilteringComments": {
+					"$ref": "#/definitions/faultComments"
 				}
 			},
 			"additionalProperties": false
@@ -1069,6 +1099,36 @@
 				},
 				"awarenessPlanningComments": {
 					"$ref": "#/definitions/faultComments"
+				},
+				"rearObservationSignalling": {
+					"$ref": "#/definitions/seriousFaultIndicator"
+				},
+				"rearObservationSignallingComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"rearObservationChangeDirection": {
+					"$ref": "#/definitions/seriousFaultIndicator"
+				},
+				"rearObservationChangeDirectionComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"rearObservationChangeSpeed": {
+					"$ref": "#/definitions/seriousFaultIndicator"
+				},
+				"rearObservationChangeSpeedComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"positionNormalRiding": {
+					"$ref": "#/definitions/seriousFaultIndicator"
+				},
+				"positionNormalRidingComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"judgementOvertakingFiltering": {
+					"$ref": "#/definitions/seriousFaultIndicator"
+				},
+				"judgementOvertakingFilteringComments": {
+					"$ref": "#/definitions/faultComments"
 				}
 			},
 			"additionalProperties": false
@@ -1313,6 +1373,36 @@
 					"$ref": "#/definitions/dangerousFaultIndicator"
 				},
 				"awarenessPlanningComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"rearObservationSignalling": {
+					"$ref": "#/definitions/dangerousFaultIndicator"
+				},
+				"rearObservationSignallingComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"rearObservationChangeDirection": {
+					"$ref": "#/definitions/dangerousFaultIndicator"
+				},
+				"rearObservationChangeDirectionComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"rearObservationChangeSpeed": {
+					"$ref": "#/definitions/dangerousFaultIndicator"
+				},
+				"rearObservationChangeSpeedComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"positionNormalRiding": {
+					"$ref": "#/definitions/dangerousFaultIndicator"
+				},
+				"positionNormalRidingComments": {
+					"$ref": "#/definitions/faultComments"
+				},
+				"judgementOvertakingFiltering": {
+					"$ref": "#/definitions/dangerousFaultIndicator"
+				},
+				"judgementOvertakingFilteringComments": {
 					"$ref": "#/definitions/faultComments"
 				}
 			},
