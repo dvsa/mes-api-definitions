@@ -777,6 +777,16 @@ export interface DrivingFaults {
   awarenessPlanningComments?: FaultComments;
   bends?: DrivingFaultCount;
   bendsComments?: FaultComments;
+  rearObservationSignalling?: DrivingFaultCount;
+  rearObservationSignallingComments?: FaultComments;
+  rearObservationChangeDirection?: DrivingFaultCount;
+  rearObservationChangeDirectionComments?: FaultComments;
+  rearObservationChangeSpeed?: DrivingFaultCount;
+  rearObservationChangeSpeedComments?: FaultComments;
+  positionNormalRiding?: DrivingFaultCount;
+  positionNormalRidingComments?: FaultComments;
+  judgementOvertakingFiltering?: DrivingFaultCount;
+  judgementOvertakingFilteringComments?: FaultComments;
 }
 /**
  * The serious faults accumulated during the test
@@ -867,6 +877,16 @@ export interface SeriousFaults {
   awarenessPlanningComments?: FaultComments;
   bends?: SeriousFaultIndicator;
   bendsComments?: FaultComments;
+  rearObservationSignalling?: SeriousFaultIndicator;
+  rearObservationSignallingComments?: FaultComments;
+  rearObservationChangeDirection?: SeriousFaultIndicator;
+  rearObservationChangeDirectionComments?: FaultComments;
+  rearObservationChangeSpeed?: SeriousFaultIndicator;
+  rearObservationChangeSpeedComments?: FaultComments;
+  positionNormalRiding?: SeriousFaultIndicator;
+  positionNormalRidingComments?: FaultComments;
+  judgementOvertakingFiltering?: SeriousFaultIndicator;
+  judgementOvertakingFilteringComments?: FaultComments;
 }
 /**
  * The dangerous faults accumulated during the test
@@ -957,6 +977,16 @@ export interface DangerousFaults {
   awarenessPlanningComments?: FaultComments;
   bends?: DangerousFaultIndicator;
   bendsComments?: FaultComments;
+  rearObservationSignalling?: DangerousFaultIndicator;
+  rearObservationSignallingComments?: FaultComments;
+  rearObservationChangeDirection?: DangerousFaultIndicator;
+  rearObservationChangeDirectionComments?: FaultComments;
+  rearObservationChangeSpeed?: DangerousFaultIndicator;
+  rearObservationChangeSpeedComments?: FaultComments;
+  positionNormalRiding?: DangerousFaultIndicator;
+  positionNormalRidingComments?: FaultComments;
+  judgementOvertakingFiltering?: DangerousFaultIndicator;
+  judgementOvertakingFilteringComments?: FaultComments;
 }
 /**
  * Details of the safety and balance questions asked during the test

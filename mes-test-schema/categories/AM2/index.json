@@ -1136,6 +1136,51 @@
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
+				},
+				"rearObservationSignalling": {
+					"description": "The count of the number of driving faults recorded against a test element",
+					"type": "integer"
+				},
+				"rearObservationSignallingComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"rearObservationChangeDirection": {
+					"description": "The count of the number of driving faults recorded against a test element",
+					"type": "integer"
+				},
+				"rearObservationChangeDirectionComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"rearObservationChangeSpeed": {
+					"description": "The count of the number of driving faults recorded against a test element",
+					"type": "integer"
+				},
+				"rearObservationChangeSpeedComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"positionNormalRiding": {
+					"description": "The count of the number of driving faults recorded against a test element",
+					"type": "integer"
+				},
+				"positionNormalRidingComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"judgementOvertakingFiltering": {
+					"description": "The count of the number of driving faults recorded against a test element",
+					"type": "integer"
+				},
+				"judgementOvertakingFilteringComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
 				}
 			},
 			"additionalProperties": false
@@ -1516,6 +1561,51 @@
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
+				},
+				"rearObservationSignalling": {
+					"description": "Indicator for a serious fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"rearObservationSignallingComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"rearObservationChangeDirection": {
+					"description": "Indicator for a serious fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"rearObservationChangeDirectionComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"rearObservationChangeSpeed": {
+					"description": "Indicator for a serious fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"rearObservationChangeSpeedComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"positionNormalRiding": {
+					"description": "Indicator for a serious fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"positionNormalRidingComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"judgementOvertakingFiltering": {
+					"description": "Indicator for a serious fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"judgementOvertakingFilteringComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
 				}
 			},
 			"additionalProperties": false
@@ -1889,6 +1979,51 @@
 					"type": "boolean"
 				},
 				"bendsComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"rearObservationSignalling": {
+					"description": "Indicator for a dangerous fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"rearObservationSignallingComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"rearObservationChangeDirection": {
+					"description": "Indicator for a dangerous fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"rearObservationChangeDirectionComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"rearObservationChangeSpeed": {
+					"description": "Indicator for a dangerous fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"rearObservationChangeSpeedComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"positionNormalRiding": {
+					"description": "Indicator for a dangerous fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"positionNormalRidingComments": {
+					"description": "Comments recorded against a fault",
+					"type": "string",
+					"maxLength": 1000
+				},
+				"judgementOvertakingFiltering": {
+					"description": "Indicator for a dangerous fault being recorded against a test element",
+					"type": "boolean"
+				},
+				"judgementOvertakingFilteringComments": {
 					"description": "Comments recorded against a fault",
 					"type": "string",
 					"maxLength": 1000
@@ -2453,6 +2588,51 @@
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
+						},
+						"rearObservationSignalling": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"rearObservationSignallingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeDirection": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"rearObservationChangeDirectionComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeSpeed": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"rearObservationChangeSpeedComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"positionNormalRiding": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"positionNormalRidingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"judgementOvertakingFiltering": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"judgementOvertakingFilteringComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					},
 					"additionalProperties": false
@@ -2829,6 +3009,51 @@
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
+						},
+						"rearObservationSignalling": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationSignallingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeDirection": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationChangeDirectionComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeSpeed": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationChangeSpeedComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"positionNormalRiding": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"positionNormalRidingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"judgementOvertakingFiltering": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"judgementOvertakingFilteringComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					},
 					"additionalProperties": false
@@ -3202,6 +3427,51 @@
 							"type": "boolean"
 						},
 						"bendsComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationSignalling": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationSignallingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeDirection": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationChangeDirectionComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeSpeed": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationChangeSpeedComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"positionNormalRiding": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"positionNormalRidingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"judgementOvertakingFiltering": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"judgementOvertakingFilteringComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
@@ -4434,6 +4704,51 @@
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
+						},
+						"rearObservationSignalling": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"rearObservationSignallingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeDirection": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"rearObservationChangeDirectionComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeSpeed": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"rearObservationChangeSpeedComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"positionNormalRiding": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"positionNormalRidingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"judgementOvertakingFiltering": {
+							"description": "The count of the number of driving faults recorded against a test element",
+							"type": "integer"
+						},
+						"judgementOvertakingFilteringComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					},
 					"additionalProperties": false
@@ -4810,6 +5125,51 @@
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
+						},
+						"rearObservationSignalling": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationSignallingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeDirection": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationChangeDirectionComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeSpeed": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationChangeSpeedComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"positionNormalRiding": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"positionNormalRidingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"judgementOvertakingFiltering": {
+							"description": "Indicator for a serious fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"judgementOvertakingFilteringComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
 						}
 					},
 					"additionalProperties": false
@@ -5183,6 +5543,51 @@
 							"type": "boolean"
 						},
 						"bendsComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationSignalling": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationSignallingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeDirection": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationChangeDirectionComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"rearObservationChangeSpeed": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"rearObservationChangeSpeedComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"positionNormalRiding": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"positionNormalRidingComments": {
+							"description": "Comments recorded against a fault",
+							"type": "string",
+							"maxLength": 1000
+						},
+						"judgementOvertakingFiltering": {
+							"description": "Indicator for a dangerous fault being recorded against a test element",
+							"type": "boolean"
+						},
+						"judgementOvertakingFilteringComments": {
 							"description": "Comments recorded against a fault",
 							"type": "string",
 							"maxLength": 1000
