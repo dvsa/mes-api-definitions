@@ -156,6 +156,29 @@
           "type": "boolean"
         }
       }
+    },
+    "trainerDetails": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "orditTrainedCandidate": {
+          "description": "Did the candidate receive training from an ORDIT trainer",
+          "type": "boolean"
+        },
+        "trainerRegistrationNumber": {
+          "description": "Trainer registration number",
+          "type": "number",
+          "maxLength": 7
+        },
+        "trainingRecords": {
+          "description": "Training records recorded",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "orditTrainedCandidate",
+        "trainingRecords"
+      ]
     }
   },
   "properties": {
@@ -167,6 +190,9 @@
     },
     "preTestDeclarations": {
       "$ref": "#/definitions/preTestDeclarations"
+    },
+    "trainerDetails": {
+      "$ref": "#/definitions/trainerDetails"
     }
   },
   "additionalProperties": false,
