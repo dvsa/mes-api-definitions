@@ -31,6 +31,7 @@ export interface PartialTestResultADI2Schema {
   testData?: TestData;
   vehicleDetails?: VehicleDetails;
   preTestDeclarations?: PreTestDeclarations;
+  trainerDetails?: TrainerDetails;
 }
 /**
  * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
@@ -42,18 +43,6 @@ export interface TestData {
   manoeuvres?: Manoeuvres[];
   vehicleChecks?: VehicleChecks;
   controlledStop?: ControlledStop;
-  /**
-   * Did the candidate receive training from an ORDIT trainer
-   */
-  orditTrainedCandidate?: "YES" | "NO";
-  /**
-   * Trainer registration number
-   */
-  trainerRegistrationNumber?: number;
-  /**
-   * Training records recorded
-   */
-  trainingRecords?: "YES" | "NO";
 }
 /**
  * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
@@ -185,4 +174,22 @@ export interface PreTestDeclarations {
    * Base 64 encoded binary data representing a PNG image of the candidates signature
    */
   preTestSignature: string;
+}
+/**
+ * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
+ * via the `definition` "trainerDetails".
+ */
+export interface TrainerDetails {
+  /**
+   * Did the candidate receive training from an ORDIT trainer
+   */
+  orditTrainedCandidate: boolean;
+  /**
+   * Trainer registration number
+   */
+  trainerRegistrationNumber?: number;
+  /**
+   * Training records recorded
+   */
+  trainingRecords: boolean;
 }
