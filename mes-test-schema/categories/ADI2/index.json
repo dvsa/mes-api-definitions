@@ -53,6 +53,27 @@
 				},
 				"controlledStop": {
 					"$ref": "#/definitions/controlledStop"
+				},
+				"orditTrainedCandidate": {
+					"description": "Did the candidate receive training from an ORDIT trainer",
+					"type": "string",
+					"enum": [
+						"YES",
+						"NO"
+					]
+				},
+				"trainerRegistrationNumber": {
+					"description": "Trainer registration number",
+					"type": "number",
+					"maxLength": 7
+				},
+				"trainingRecords": {
+					"description": "Training records recorded",
+					"type": "string",
+					"enum": [
+						"YES",
+						"NO"
+					]
 				}
 			},
 			"type": "object"

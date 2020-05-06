@@ -42,6 +42,18 @@ export interface TestData {
   manoeuvres?: Manoeuvres[];
   vehicleChecks?: VehicleChecks;
   controlledStop?: ControlledStop;
+  /**
+   * Did the candidate receive training from an ORDIT trainer
+   */
+  orditTrainedCandidate?: "YES" | "NO";
+  /**
+   * Trainer registration number
+   */
+  trainerRegistrationNumber?: number;
+  /**
+   * Training records recorded
+   */
+  trainingRecords?: "YES" | "NO";
 }
 /**
  * This interface was referenced by `PartialTestResultADI2Schema`'s JSON-Schema
