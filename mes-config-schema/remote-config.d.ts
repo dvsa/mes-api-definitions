@@ -38,6 +38,10 @@ export interface RemoteConfig {
    * The number of milliseconds that we wait before a request times out in the App
    */
   requestTimeout: number;
+  /**
+   * Url for raising an incident
+   */
+  raiseIncidentApiBaseUrl: string;
 }
 /**
  * Journal related configuration properties

@@ -188,6 +188,10 @@
     "requestTimeout": {
       "description": "The number of milliseconds that we wait before a request times out in the App",
       "type": "number"
+    },
+    "raiseIncidentApiBaseUrl": {
+      "description": "Url for raising an incident",
+      "type": "string"
     }
   },
   "required": [
@@ -199,6 +203,7 @@
     "logs",
     "user",
     "requestTimeout",
-    "employeeNameKey"
+    "employeeNameKey",
+    "raiseIncidentApiBaseUrl"
   ]
 }
