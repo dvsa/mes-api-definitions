@@ -10,16 +10,34 @@
           "description": "Combination of questions selected",
           "type": "string"
         },
-        "questions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/question"
-          }
+        "question1": {
+          "$ref": "#/definitions/question"
+        },
+        "question2": {
+          "$ref": "#/definitions/question"
+        },
+        "question3": {
+          "$ref": "#/definitions/question"
+        },
+        "question4": {
+          "$ref": "#/definitions/question"
+        },
+        "question5": {
+          "$ref": "#/definitions/question5"
+        },
+        "totalPercent": {
+          "description": "Overall score for questions",
+          "type": "number"
         }
       },
       "required": [
         "combination",
-        "questions"
+        "question1",
+        "question2",
+        "question3",
+        "question4",
+        "question5",
+        "totalPercent"
       ]
     },
     "examiner": {
@@ -95,6 +113,22 @@
       },
       "additionalProperties": false
     },
+    "answer": {
+      "description": "Answers to the question",
+      "additionalProperties": false,
+      "properties": {
+        "selected": {
+          "type": "boolean"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "selected"
+      ]
+    },
     "question": {
       "type": "object",
       "additionalProperties": false,
@@ -118,11 +152,17 @@
             "type": "string"
           }
         },
-        "answers": {
-          "description": "Answers to the question",
-          "items": {
-            "$ref": "#/definitions/answers"
-          }
+        "answer1": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer2": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer3": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer4": {
+          "$ref": "#/definitions/answer"
         },
         "score": {
           "description": "Score in percent",
@@ -134,7 +174,86 @@
         "subtitle",
         "questionCode",
         "additionalItems",
-        "answers",
+        "answer1",
+        "answer2",
+        "answer3",
+        "answer4",
+        "score"
+      ]
+    },
+    "question5": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "questionCode": {
+          "description": "Short code for Question",
+          "type": "string"
+        },
+        "title": {
+          "description": "Question description",
+          "type": "string"
+        },
+        "subtitle": {
+          "description": "Question sub-description",
+          "type": "string"
+        },
+        "additionalItems": {
+          "description": "Additional questions that might be asked",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "answer1": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer2": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer3": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer4": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer5": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer6": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer7": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer8": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer9": {
+          "$ref": "#/definitions/answer"
+        },
+        "answer10": {
+          "$ref": "#/definitions/answer"
+        },
+        "score": {
+          "description": "Score in percent",
+          "type": "number"
+        }
+      },
+      "required": [
+        "title",
+        "subtitle",
+        "questionCode",
+        "additionalItems",
+        "answer1",
+        "answer2",
+        "answer3",
+        "answer4",
+        "answer5",
+        "answer6",
+        "answer7",
+        "answer8",
+        "answer9",
+        "answer10",
         "score"
       ]
     },
@@ -266,22 +385,6 @@
       "description": "Telephone number of the business the candidate relates to",
       "type": "string",
       "maxLength": 20
-    },
-    "answers": {
-      "type": "object",
-      "properties": {
-        "selected": {
-          "type": "boolean"
-        },
-        "label": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "label",
-        "selected"
-      ]
     }
   },
   "properties": {

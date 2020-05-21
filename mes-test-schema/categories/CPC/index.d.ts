@@ -651,7 +651,15 @@ export interface TestData {
    * Combination of questions selected
    */
   combination: string;
-  questions: Question[];
+  question1: Question;
+  question2: Question;
+  question3: Question;
+  question4: Question;
+  question5: Question5;
+  /**
+   * Overall percentage score of user
+   */
+  totalPercent: number;
 }
 /**
  * This interface was referenced by `TestResultCatCPCSchema`'s JSON-Schema
@@ -674,20 +682,58 @@ export interface Question {
    * Additional questions that might be asked
    */
   additionalItems: string[];
-  /**
-   * Answers to the question
-   */
-  answers: Answers[];
+  answer1: Answer;
+  answer2: Answer;
+  answer3: Answer;
+  answer4: Answer;
   /**
    * Score in percent
    */
   score: number;
 }
 /**
+ * Answers to the question
+ *
  * This interface was referenced by `TestResultCatCPCSchema`'s JSON-Schema
- * via the `definition` "answers".
+ * via the `definition` "answer".
  */
-export interface Answers {
+export interface Answer {
   selected: boolean;
   label: string;
+}
+/**
+ * This interface was referenced by `TestResultCatCPCSchema`'s JSON-Schema
+ * via the `definition` "question5".
+ */
+export interface Question5 {
+  /**
+   * Short code for Question
+   */
+  questionCode: string;
+  /**
+   * Question description
+   */
+  title: string;
+  /**
+   * Question sub-description
+   */
+  subtitle: string;
+  /**
+   * Additional questions that might be asked
+   */
+  additionalItems: string[];
+  answer1: Answer;
+  answer2: Answer;
+  answer3: Answer;
+  answer4: Answer;
+  answer5: Answer;
+  answer6: Answer;
+  answer7: Answer;
+  answer8: Answer;
+  answer9: Answer;
+  answer10: Answer;
+  /**
+   * Score in percent
+   */
+  score: number;
 }
