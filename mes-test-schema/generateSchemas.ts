@@ -25,7 +25,7 @@ if (cliArgument === 'clean') {
   for (let category of categories) {
     deleteFileIfExists(`./categories/${category}/index.json`);
     deleteFileIfExists(`./categories/${category}/partial.d.ts`);
-    // DO NOT DELETE THIS FILE IT HAS BEEN MODIFIED BY HAND 
+    // DO NOT DELETE THIS FILE IT HAS BEEN MODIFIED BY HAND
     // AND WILL NOT BE REGENERATED
     // deleteFileIfExists(`./categories/${category}/index.d.ts`);
   }
@@ -50,9 +50,11 @@ if (cliArgument === 'generate') {
   // dereference and copy across Cat A mod 1 and Cat A mod 2 index.json files
   deReferenceJsonSchema('./category-definitions/AM1/index.json', './categories/AM1/index.json');
   deReferenceJsonSchema('./category-definitions/AM2/index.json', './categories/AM2/index.json');
+  deReferenceJsonSchema('./category-definitions/CPC/index.json', './categories/CPC/index.json');
   // generate Cat A mod 1 and mod 2 typescript files (standalone)
   generateTypescriptInterfaces(`./category-definitions/AM1/index.json`, `./categories/AM1/index.d.ts`);
   generateTypescriptInterfaces(`./category-definitions/AM2/index.json`, `./categories/AM2/index.d.ts`);
+  generateTypescriptInterfaces(`./category-definitions/CPC/index.json`, `./categories/CPC/index.d.ts`);
   // copy common index.json file across for consistency
   copyFile(`./category-definitions/common/index.json`, `./categories/common/index.json`);
   console.log('All categories have been generated');
