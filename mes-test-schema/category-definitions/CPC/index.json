@@ -1,0 +1,366 @@
+{
+  "title": "Test Result Cat CPC Schema",
+  "type": "object",
+  "definitions": {
+    "testData": {
+      "additionalProperties": false,
+      "description": "Data associated with the test",
+      "properties": {
+        "combination": {
+          "description": "Combination of questions selected",
+          "type": "string"
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/question"
+          }
+        }
+      },
+      "required": [
+        "combination",
+        "questions"
+      ]
+    },
+    "examiner": {
+      "$ref": "../common/index.json#/definitions/examiner"
+    },
+    "testCentre": {
+      "$ref": "../common/index.json#/definitions/testCentre"
+    },
+    "name": {
+      "$ref": "../common/index.json#/definitions/name"
+    },
+    "address": {
+      "$ref": "../common/index.json#/definitions/address"
+    },
+    "candidate": {
+      "$ref": "../common/index.json#/definitions/candidate"
+    },
+    "applicationReference": {
+      "$ref": "../common/index.json#/definitions/applicationReference"
+    },
+    "testSlotAttributes": {
+      "$ref": "../common/index.json#/definitions/testSlotAttributes"
+    },
+    "journalData": {
+      "$ref": "../common/index.json#/definitions/journalData"
+    },
+    "signature": {
+      "$ref": "../common/index.json#/definitions/signature"
+    },
+    "communicationMethod": {
+      "$ref": "../common/index.json#/definitions/communicationMethod"
+    },
+    "conductedLanguage": {
+      "$ref": "../common/index.json#/definitions/conductedLanguage"
+    },
+    "communicationPreferences": {
+      "$ref": "../common/index.json#/definitions/communicationPreferences"
+    },
+    "preTestDeclarations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "insuranceDeclarationAccepted": {
+          "description": "Whether or not the candidate has declared that their test vehicle has a valid insurance policy",
+          "type": "boolean"
+        },
+        "residencyDeclarationAccepted": {
+          "description": "Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test",
+          "type": "boolean"
+        },
+        "preTestSignature": {
+          "$ref": "#/definitions/signature"
+        }
+      },
+      "required": [
+        "insuranceDeclarationAccepted",
+        "residencyDeclarationAccepted",
+        "preTestSignature"
+      ]
+    },
+    "accompaniment": {
+      "description": "Indicators for anybody else overseeing the test",
+      "type": "object",
+      "properties": {
+        "supervisor": {
+          "description": "Indicates whether a DVSA supervisor was present during the test",
+          "type": "boolean"
+        },
+        "interpreter": {
+          "description": "Indicates whether an interpreter was present during the test",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "question": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "questionCode": {
+          "description": "Short code for Question",
+          "type": "string"
+        },
+        "title": {
+          "description": "Question description",
+          "type": "string"
+        },
+        "subtitle": {
+          "description": "Question sub-description",
+          "type": "string"
+        },
+        "additionalItems": {
+          "description": "Additional questions that might be asked",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "answers": {
+          "description": "Answers to the question",
+          "items": {
+            "$ref": "#/definitions/answers"
+          }
+        },
+        "score": {
+          "description": "Score in percent",
+          "type": "number"
+        }
+      },
+      "required": [
+        "title",
+        "subtitle",
+        "questionCode",
+        "additionalItems",
+        "answers",
+        "score"
+      ]
+    },
+    "gearboxCategory": {
+      "$ref": "../common/index.json#/definitions/gearboxCategory"
+    },
+    "postTestDeclarations": {
+      "$ref": "../common/index.json#/definitions/postTestDeclarations"
+    },
+    "weatherConditions": {
+      "$ref": "../common/index.json#/definitions/weatherConditions"
+    },
+    "identification": {
+      "$ref": "../common/index.json#/definitions/identification"
+    },
+    "testSummary": {
+      "description": "Recording of other characteristics of the test",
+      "type": "object",
+      "properties": {
+        "candidateDescription": {
+          "description": "Physical description of the candidate",
+          "type": "string",
+          "maxLength": 1000
+        },
+        "debriefWitnessed": {
+          "description": "Indicates whether anybody else (e.g. ADI) was present for the debrief",
+          "type": "boolean"
+        },
+        "identification": {
+          "$ref": "#/definitions/identification"
+        },
+        "weatherConditions": {
+          "description": "Description of the type of weather encountered during the test",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/weatherConditions"
+          }
+        },
+        "D255": {
+          "description": "Indicates whether a D255 form needs to be completed",
+          "type": "boolean"
+        },
+        "additionalInformation": {
+          "description": "Any comments that the DE wants to record about the test",
+          "type": "string"
+        },
+        "assessmentReport": {
+          "description": "Assessment report for the test",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "categoryCode": {
+      "$ref": "../common/index.json#/definitions/categoryCode"
+    },
+    "activityCode": {
+      "$ref": "../common/index.json#/definitions/activityCode"
+    },
+    "gender": {
+      "$ref": "../common/index.json#/definitions/gender"
+    },
+    "rekeyReason": {
+      "$ref": "../common/index.json#/definitions/rekeyReason"
+    },
+    "transfer": {
+      "$ref": "../common/index.json#/definitions/transfer"
+    },
+    "ipadIssue": {
+      "$ref": "../common/index.json#/definitions/ipadIssue"
+    },
+    "other": {
+      "$ref": "../common/index.json#/definitions/other"
+    },
+    "configuration": {
+      "description": "The vehicle configuration",
+      "type": "string",
+      "enum": [
+        "Rigid",
+        "Articulated",
+        "Drawbar"
+      ]
+    },
+    "vehicleDetails": {
+      "description": "Details about the vehicle to be used for the test",
+      "type": "object",
+      "properties": {
+        "registrationNumber": {
+          "description": "The vehicle registration number",
+          "type": "string",
+          "maxLength": 7
+        },
+        "gearboxCategory": {
+          "$ref": "#/definitions/gearboxCategory"
+        },
+        "configuration": {
+          "$ref": "#/definitions/configuration"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "registrationNumber",
+        "gearboxCategory",
+        "configuration"
+      ]
+    },
+    "passCompletion": {
+      "description": "Finalisation of a successful test outcome",
+      "type": "object",
+      "properties": {
+        "passCertificateNumber": {
+          "description": "The PCN issued to the candidate",
+          "type": "string",
+          "maxLength": 7,
+          "minLength": 7
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "passCertificateNumber"
+      ]
+    },
+    "businessName": {
+      "description": "Name of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 100
+    },
+    "businessTelephone": {
+      "description": "Telephone number of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 20
+    },
+    "answers": {
+      "type": "object",
+      "properties": {
+        "selected": {
+          "type": "boolean"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "selected"
+      ]
+    }
+  },
+  "properties": {
+    "version": {
+      "description": "Version number",
+      "type": "string"
+    },
+    "category": {
+      "$ref": "#/definitions/categoryCode"
+    },
+    "journalData": {
+      "$ref": "#/definitions/journalData"
+    },
+    "activityCode": {
+      "$ref": "#/definitions/activityCode"
+    },
+    "communicationPreferences": {
+      "$ref": "#/definitions/communicationPreferences"
+    },
+    "preTestDeclarations": {
+      "$ref": "#/definitions/preTestDeclarations"
+    },
+    "accompaniment": {
+      "$ref": "#/definitions/accompaniment"
+    },
+    "postTestDeclarations": {
+      "$ref": "#/definitions/postTestDeclarations"
+    },
+    "testSummary": {
+      "$ref": "#/definitions/testSummary"
+    },
+    "rekeyReason": {
+      "$ref": "#/definitions/rekeyReason"
+    },
+    "rekey": {
+      "description": "Whether the test was rekeyed or not",
+      "type": "boolean"
+    },
+    "rekeyDate": {
+      "description": "Date the test was rekeyed",
+      "type": "string"
+    },
+    "changeMarker": {
+      "description": "Whether the test was conducted by another examiner",
+      "type": "boolean"
+    },
+    "examinerBooked": {
+      "description": "The examiner who the test was booked to",
+      "type": "number"
+    },
+    "examinerConducted": {
+      "description": "The examiner who conducted the test",
+      "type": "number"
+    },
+    "examinerKeyed": {
+      "description": "The examiner who keyed the test into the iPad",
+      "type": "number"
+    },
+    "passCompletion": {
+      "$ref": "#/definitions/passCompletion"
+    },
+    "vehicleDetails": {
+      "$ref": "#/definitions/vehicleDetails"
+    },
+    "testData": {
+      "$ref": "#/definitions/testData"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "category",
+    "journalData",
+    "activityCode",
+    "rekey",
+    "changeMarker",
+    "examinerBooked",
+    "examinerConducted",
+    "examinerKeyed",
+    "journalData"
+  ]
+}
