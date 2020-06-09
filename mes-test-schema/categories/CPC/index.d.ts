@@ -133,23 +133,6 @@ export type Signature = string;
  */
 export type Identification = "Licence" | "Passport";
 /**
- * Predefined values for the type of weather encountered during the test
- *
- * This interface was referenced by `TestResultCatCPCSchema`'s JSON-Schema
- * via the `definition` "weatherConditions".
- */
-export type WeatherConditions =
-  | "Bright / dry roads"
-  | "Bright / wet roads"
-  | "Raining through test"
-  | "Showers"
-  | "Foggy / misty"
-  | "Dull / wet roads"
-  | "Dull / dry roads"
-  | "Snowing"
-  | "Icy"
-  | "Windy";
-/**
  * The type of gearbox
  *
  * This interface was referenced by `TestResultCatCPCSchema`'s JSON-Schema
@@ -163,6 +146,29 @@ export type GearboxCategory = "Manual" | "Automatic";
  * via the `definition` "configuration".
  */
 export type Configuration = "Rigid" | "Articulated" | "Drawbar";
+/**
+ * Short codes for the CPC questions
+ *
+ * This interface was referenced by `TestResultCatCPCSchema`'s JSON-Schema
+ * via the `definition` "combinationCodes".
+ */
+export type CombinationCodes =
+  | "LGV1"
+  | "LGV2"
+  | "LGV3"
+  | "LGV4"
+  | "LGV5"
+  | "LGV6"
+  | "LGV7"
+  | "LGV8"
+  | "PCV1"
+  | "PCV2"
+  | "PCV3"
+  | "PCV4"
+  | "PCV5"
+  | "PCV6"
+  | "PCV7"
+  | "PCV8";
 /**
  * Name of the business the candidate relates to
  *
@@ -531,10 +537,6 @@ export interface TestSummary {
   debriefWitnessed?: boolean;
   identification?: Identification;
   /**
-   * Description of the type of weather encountered during the test
-   */
-  weatherConditions?: WeatherConditions[];
-  /**
    * Indicates whether a D255 form needs to be completed
    */
   D255?: boolean;
@@ -647,17 +649,14 @@ export interface VehicleDetails {
  * via the `definition` "testData".
  */
 export interface TestData {
-  /**
-   * Combination of questions selected
-   */
-  combination: string;
+  combination: CombinationCodes;
   question1: Question;
   question2: Question;
   question3: Question;
   question4: Question;
   question5: Question5;
   /**
-   * Overall percentage score of user
+   * Overall score for questions
    */
   totalPercent: number;
 }
