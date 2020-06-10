@@ -7,8 +7,26 @@
 			"description": "Data associated with the test",
 			"properties": {
 				"combination": {
-					"description": "Combination of questions selected",
-					"type": "string"
+					"description": "Short codes for the CPC questions",
+					"type": "string",
+					"enum": [
+						"LGV1",
+						"LGV2",
+						"LGV3",
+						"LGV4",
+						"LGV5",
+						"LGV6",
+						"LGV7",
+						"LGV8",
+						"PCV1",
+						"PCV2",
+						"PCV3",
+						"PCV4",
+						"PCV5",
+						"PCV6",
+						"PCV7",
+						"PCV8"
+					]
 				},
 				"question1": {
 					"type": "object",
@@ -633,7 +651,7 @@
 					]
 				},
 				"totalPercent": {
-					"description": "Overall percentage score of user",
+					"description": "Overall score for questions",
 					"type": "number"
 				}
 			},
@@ -1748,22 +1766,6 @@
 			},
 			"additionalProperties": false
 		},
-		"weatherConditions": {
-			"description": "Predefined values for the type of weather encountered during the test",
-			"type": "string",
-			"enum": [
-				"Bright / dry roads",
-				"Bright / wet roads",
-				"Raining through test",
-				"Showers",
-				"Foggy / misty",
-				"Dull / wet roads",
-				"Dull / dry roads",
-				"Snowing",
-				"Icy",
-				"Windy"
-			]
-		},
 		"identification": {
 			"description": "Indicates which form of ID was provided by the candidate",
 			"type": "string",
@@ -1792,26 +1794,6 @@
 						"Licence",
 						"Passport"
 					]
-				},
-				"weatherConditions": {
-					"description": "Description of the type of weather encountered during the test",
-					"type": "array",
-					"items": {
-						"description": "Predefined values for the type of weather encountered during the test",
-						"type": "string",
-						"enum": [
-							"Bright / dry roads",
-							"Bright / wet roads",
-							"Raining through test",
-							"Showers",
-							"Foggy / misty",
-							"Dull / wet roads",
-							"Dull / dry roads",
-							"Snowing",
-							"Icy",
-							"Windy"
-						]
-					}
 				},
 				"D255": {
 					"description": "Indicates whether a D255 form needs to be completed",
@@ -2107,6 +2089,28 @@
 			"description": "Telephone number of the business the candidate relates to",
 			"type": "string",
 			"maxLength": 20
+		},
+		"combinationCodes": {
+			"description": "Short codes for the CPC questions",
+			"type": "string",
+			"enum": [
+				"LGV1",
+				"LGV2",
+				"LGV3",
+				"LGV4",
+				"LGV5",
+				"LGV6",
+				"LGV7",
+				"LGV8",
+				"PCV1",
+				"PCV2",
+				"PCV3",
+				"PCV4",
+				"PCV5",
+				"PCV6",
+				"PCV7",
+				"PCV8"
+			]
 		}
 	},
 	"properties": {
@@ -2615,26 +2619,6 @@
 						"Passport"
 					]
 				},
-				"weatherConditions": {
-					"description": "Description of the type of weather encountered during the test",
-					"type": "array",
-					"items": {
-						"description": "Predefined values for the type of weather encountered during the test",
-						"type": "string",
-						"enum": [
-							"Bright / dry roads",
-							"Bright / wet roads",
-							"Raining through test",
-							"Showers",
-							"Foggy / misty",
-							"Dull / wet roads",
-							"Dull / dry roads",
-							"Snowing",
-							"Icy",
-							"Windy"
-						]
-					}
-				},
 				"D255": {
 					"description": "Indicates whether a D255 form needs to be completed",
 					"type": "boolean"
@@ -2789,8 +2773,26 @@
 			"description": "Data associated with the test",
 			"properties": {
 				"combination": {
-					"description": "Combination of questions selected",
-					"type": "string"
+					"description": "Short codes for the CPC questions",
+					"type": "string",
+					"enum": [
+						"LGV1",
+						"LGV2",
+						"LGV3",
+						"LGV4",
+						"LGV5",
+						"LGV6",
+						"LGV7",
+						"LGV8",
+						"PCV1",
+						"PCV2",
+						"PCV3",
+						"PCV4",
+						"PCV5",
+						"PCV6",
+						"PCV7",
+						"PCV8"
+					]
 				},
 				"question1": {
 					"type": "object",
@@ -3415,7 +3417,7 @@
 					]
 				},
 				"totalPercent": {
-					"description": "Overall percentage score of user",
+					"description": "Overall score for questions",
 					"type": "number"
 				}
 			},

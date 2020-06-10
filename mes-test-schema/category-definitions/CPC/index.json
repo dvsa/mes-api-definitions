@@ -7,8 +7,7 @@
       "description": "Data associated with the test",
       "properties": {
         "combination": {
-          "description": "Combination of questions selected",
-          "type": "string"
+          "$ref": "#/definitions/combinationCodes"
         },
         "question1": {
           "$ref": "#/definitions/question"
@@ -263,9 +262,6 @@
     "postTestDeclarations": {
       "$ref": "../common/index.json#/definitions/postTestDeclarations"
     },
-    "weatherConditions": {
-      "$ref": "../common/index.json#/definitions/weatherConditions"
-    },
     "identification": {
       "$ref": "../common/index.json#/definitions/identification"
     },
@@ -284,13 +280,6 @@
         },
         "identification": {
           "$ref": "#/definitions/identification"
-        },
-        "weatherConditions": {
-          "description": "Description of the type of weather encountered during the test",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/weatherConditions"
-          }
         },
         "D255": {
           "description": "Indicates whether a D255 form needs to be completed",
@@ -385,6 +374,28 @@
       "description": "Telephone number of the business the candidate relates to",
       "type": "string",
       "maxLength": 20
+    },
+    "combinationCodes": {
+      "description": "Short codes for the CPC questions",
+      "type": "string",
+      "enum": [
+        "LGV1",
+        "LGV2",
+        "LGV3",
+        "LGV4",
+        "LGV5",
+        "LGV6",
+        "LGV7",
+        "LGV8",
+        "PCV1",
+        "PCV2",
+        "PCV3",
+        "PCV4",
+        "PCV5",
+        "PCV6",
+        "PCV7",
+        "PCV8"
+      ]
     }
   },
   "properties": {
