@@ -639,7 +639,7 @@ export interface VehicleDetails {
    * The vehicle registration number
    */
   registrationNumber: string;
-  gearboxCategory: GearboxCategory;
+  gearboxCategory?: GearboxCategory;
   configuration: Configuration;
 }
 /**
