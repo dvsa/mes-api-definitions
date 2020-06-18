@@ -342,11 +342,7 @@
           "$ref": "#/definitions/configuration"
         }
       },
-      "additionalProperties": false,
-      "required": [
-        "registrationNumber",
-        "configuration"
-      ]
+      "additionalProperties": false
     },
     "passCompletion": {
       "description": "Finalisation of a successful test outcome",
