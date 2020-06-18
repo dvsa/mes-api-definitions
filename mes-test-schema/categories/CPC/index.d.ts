@@ -638,9 +638,9 @@ export interface VehicleDetails {
   /**
    * The vehicle registration number
    */
-  registrationNumber: string;
+  registrationNumber?: string;
   gearboxCategory?: GearboxCategory;
-  configuration: Configuration;
+  configuration?: Configuration;
 }
 /**
  * Data associated with the test
