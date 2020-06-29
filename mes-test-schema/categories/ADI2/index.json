@@ -45,8 +45,7 @@
 					},
 					"type": "array",
 					"minItems": 2,
-					"maxItems": 2,
-					"uniqueItems": true
+					"maxItems": 2
 				},
 				"vehicleChecks": {
 					"$ref": "#/definitions/vehicleChecks"
@@ -1760,11 +1759,7 @@
 					"description": "Training records recorded",
 					"type": "boolean"
 				}
-			},
-			"required": [
-				"orditTrainedCandidate",
-				"trainingRecords"
-			]
+			}
 		}
 	},
 	"properties": {

@@ -187,7 +187,7 @@ export interface TrainerDetails {
   /**
    * Did the candidate receive training from an ORDIT trainer
    */
-  orditTrainedCandidate: boolean;
+  orditTrainedCandidate?: boolean;
   /**
    * Trainer registration number
    */
@@ -195,5 +195,5 @@ export interface TrainerDetails {
   /**
    * Training records recorded
    */
-  trainingRecords: boolean;
+  trainingRecords?: boolean;
 }
