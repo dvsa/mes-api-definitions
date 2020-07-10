@@ -1777,6 +1777,10 @@
 			"description": "Date the test was rekeyed",
 			"type": "string"
 		},
+		"delegatedTest": {
+			"description": "Whether the test was completed by a delegated examiner or not",
+			"type": "boolean"
+		},
 		"changeMarker": {
 			"description": "Whether the test was conducted by another examiner",
 			"type": "boolean"
@@ -1810,6 +1814,7 @@
 		"journalData",
 		"activityCode",
 		"rekey",
+		"delegatedTest",
 		"changeMarker",
 		"examinerBooked",
 		"examinerConducted",
