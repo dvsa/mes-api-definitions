@@ -209,7 +209,7 @@ export interface TestResultCatCPCSchema {
   /**
    * Whether the test was completed by a delegated examiner or not
    */
-  delegatedTest: boolean;
+  delegatedTest?: boolean;
   /**
    * Whether the test was conducted by another examiner
    */
