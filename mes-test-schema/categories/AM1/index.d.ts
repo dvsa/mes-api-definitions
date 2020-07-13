@@ -264,10 +264,6 @@ export interface TestResultCatAM1Schema {
    */
   rekeyDate?: string;
   /**
-   * Whether the test was completed by a delegated examiner or not
-   */
-  delegatedTest: boolean;
-  /**
    * Whether the test was conducted by another examiner
    */
   changeMarker: boolean;
