@@ -8,7 +8,7 @@
 /**
  * Role of the user who uses the the App
  */
-export type ExaminerRole = "LDTM" | "DE";
+export type ExaminerRole = "LDTM" | "DE" | "DLG";
 
 /**
  * JSON Schema definition for remote application configuration
