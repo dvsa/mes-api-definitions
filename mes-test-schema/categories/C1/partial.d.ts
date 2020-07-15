@@ -109,6 +109,10 @@ export interface VehicleChecks {
   showMeQuestions?: QuestionResult[];
   showMeTellMeComments?: FaultComments;
   tellMeQuestions?: QuestionResult[];
+  /**
+   * Indicates whether the vehicle checks has been completed
+   */
+  vehicleChecksCompleted?: boolean;
 }
 /**
  * Result of a vehicle checks question
