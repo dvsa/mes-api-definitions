@@ -45,6 +45,10 @@
             "$ref": "#/definitions/questionResult"
           },
           "type": "array"
+        },
+        "vehicleChecksCompleted": {
+          "description" : "Indicates whether the vehicle checks has been completed",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -153,4 +157,4 @@
   "required": [
     "journalData"
   ]
-} 
+}
