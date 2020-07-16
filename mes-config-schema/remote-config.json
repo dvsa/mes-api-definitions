@@ -5,7 +5,8 @@
       "type": "string",
       "enum": [
         "LDTM",
-        "DE"
+        "DE",
+        "DLG"
       ]
     },
     "examinerRoleDescription": {
@@ -150,7 +151,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "id": "https://example.com/arrays.schema.json",
   "title": "Remote Config",
-  "type": "object", 
+  "type": "object",
   "additionalProperties": false,
   "description": "JSON Schema definition for remote application configuration",
   "properties": {
