@@ -488,6 +488,10 @@
 				},
 				"preTestSignature": {
 					"$ref": "#/definitions/signature"
+				},
+				"candidateDeclarationSigned": {
+					"description": "Whether or not the candidate signature had been recorded for delegated tests",
+					"type": "boolean"
 				}
 			},
 			"required": [

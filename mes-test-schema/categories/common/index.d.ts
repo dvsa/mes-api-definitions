@@ -569,6 +569,10 @@ export interface PreTestDeclarations {
    */
   residencyDeclarationAccepted: boolean;
   preTestSignature: Signature;
+  /**
+   * Whether or not the candidate signature had been recorded for delegated tests
+   */
+  candidateDeclarationSigned?: boolean;
 }
 /**
  * Indicators for anybody else overseeing the test
