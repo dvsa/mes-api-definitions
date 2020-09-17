@@ -227,11 +227,11 @@ export interface TestResultCatAM2Schema {
   /**
    * The examiner who the test was booked to
    */
-  examinerBooked: number;
+  examinerBooked: number | string;
   /**
    * The examiner who conducted the test
    */
-  examinerConducted: number;
+  examinerConducted: number | string;
   /**
    * The examiner who keyed the test into the iPad
    */
