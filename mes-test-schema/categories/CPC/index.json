@@ -2727,17 +2727,11 @@
 		},
 		"examinerBooked": {
 			"description": "The examiner who the test was booked to",
-			"type": [
-				"number",
-				"string"
-			]
+			"type": "number"
 		},
 		"examinerConducted": {
 			"description": "The examiner who conducted the test",
-			"type": [
-				"number",
-				"string"
-			]
+			"type": "number"
 		},
 		"examinerKeyed": {
 			"description": "The examiner who keyed the test into the iPad",
