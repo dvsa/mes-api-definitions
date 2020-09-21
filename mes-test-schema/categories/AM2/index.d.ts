@@ -263,7 +263,7 @@ export interface JournalData {
   /**
    * Details of the test centre
    */
-  testCentre: {
+  testCentre?: {
     /**
      * Identifer for the test centre
      */
