@@ -52,6 +52,10 @@ export interface Journal {
    */
   searchBookingUrl: string;
   /**
+   * Url for getting a delegated examiner booked test
+   */
+  delegatedExaminerSearchBookingUrl: string;
+  /**
    * A time interval in milliseconds that triggers an automatic journal refresh
    */
   autoRefreshInterval: number;
