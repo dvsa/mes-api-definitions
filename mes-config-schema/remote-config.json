@@ -57,6 +57,10 @@
           "description": "Url for getting a booked test from the journal",
           "type": "string"
         },
+        "delegatedExaminerSearchBookingUrl": {
+          "description": "Url for getting a delegated examiner booked test",
+          "type": "string"
+        },
         "autoRefreshInterval": {
           "description": "A time interval in milliseconds that triggers an automatic journal refresh",
           "type": "number"
@@ -103,6 +107,7 @@
       "required": [
         "journalUrl",
         "searchBookingUrl",
+        "delegatedExaminerSearchBookingUrl",
         "autoRefreshInterval",
         "numberOfDaysToView",
         "daysToCacheJournalData",
