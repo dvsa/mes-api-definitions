@@ -25,9 +25,10 @@ NOTE: The category specific index.d.ts files were initially generated but have b
 # Updating a schema
 
 Always make your edits to the **json schema files** (except for the category `index.json` files, these are auto-generated) and not the generated TypeScript definition files (ending in .d.ts). The general process for updating a schema is:-
-1. Make edits to the relevant json schema file
-2. Generate the new TypeScript definitions using `npm run generate` - _Ensure you are in the correct directory_
-3. If necessary, update the `index.d.ts`
-4. Bump the version of the package using `npm version {major|minor|patch}` - _Ensure you are in the correct directory_
-5. Raise a Pull Request on Github and await approvals
-6. Publish the new package to npm using `npm publish` - _You must be logged in and have the correct permissions to publish to the @dvsa npm org_
+1. Navigate into the relevent schema (ie. mes-test-schema)
+2. Make edits to the relevant json schema file
+3. Generate the new TypeScript definitions using `npm run generate` - _Ensure you are in the correct directory_
+4. If necessary, update the `index.d.ts`
+5. Bump the version of the package using `npm version {major|minor|patch}` - _Ensure you are in the correct directory_
+6. Raise a Pull Request on Github and await approvals
+7. Publish the new package to npm using `npm publish` - _You must be logged in and have the correct permissions to publish to the @dvsa npm org_
