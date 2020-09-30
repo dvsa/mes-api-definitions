@@ -315,7 +315,7 @@ export interface TestResultCommonSchema {
  */
 export interface JournalData {
   examiner: Examiner;
-  testCentre?: TestCentre;
+  testCentre: TestCentre;
   testSlotAttributes: TestSlotAttributes;
   candidate: Candidate;
   applicationReference: ApplicationReference;

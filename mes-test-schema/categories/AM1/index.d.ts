@@ -297,7 +297,7 @@ export interface TestResultCatAM1Schema {
  */
 export interface JournalData {
   examiner: Examiner;
-  testCentre?: TestCentre;
+  testCentre: TestCentre;
   testSlotAttributes: TestSlotAttributes;
   candidate: Candidate;
   applicationReference: ApplicationReference;
