@@ -1312,7 +1312,6 @@
 			"additionalProperties": false,
 			"required": [
 				"examiner",
-				"testCentre",
 				"testSlotAttributes",
 				"candidate",
 				"applicationReference"
@@ -2454,7 +2453,6 @@
 			"additionalProperties": false,
 			"required": [
 				"examiner",
-				"testCentre",
 				"testSlotAttributes",
 				"candidate",
 				"applicationReference"
