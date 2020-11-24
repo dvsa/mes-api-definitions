@@ -86,22 +86,6 @@
       },
       "type": "object"
     },
-    "safetyQuestions": {
-      "additionalProperties": false,
-      "description": "Details of the safety questions asked during the test",
-      "properties": {
-        "questions": {
-          "items": {
-            "$ref": "#/definitions/safetyQuestionResult"
-          },
-          "type": "array"
-        },
-        "faultComments": {
-          "$ref": "#/definitions/faultComments"
-        }
-      },
-      "type": "object"
-    },
     "vehicleDetails": {
       "additionalProperties": false,
       "type": "object",
@@ -170,9 +154,6 @@
         },
         "pcvDoorExercise": {
           "$ref": "#/definitions/pcvDoorExercise"
-        },
-        "safetyQuestions": {
-          "$ref": "#/definitions/safetyQuestions"
         }
       },
       "additionalProperties": false
