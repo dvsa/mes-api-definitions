@@ -72,9 +72,6 @@
     "questionResult": {
       "$ref": "../common/index.json#/definitions/questionResult"
     },
-    "safetyQuestionResult": {
-      "$ref": "../common/index.json#/definitions/safetyQuestionResult"
-    },
     "vehicleChecks": {
       "additionalProperties": false,
       "description": "Details of the Show Me and Tell Me questions asked during the test",
