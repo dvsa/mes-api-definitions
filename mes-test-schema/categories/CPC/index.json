@@ -1312,6 +1312,7 @@
 			"additionalProperties": false,
 			"required": [
 				"examiner",
+				"testCentre",
 				"testSlotAttributes",
 				"candidate",
 				"applicationReference"

@@ -65,9 +65,6 @@
     "questionResult": {
       "$ref": "../common/index.json#/definitions/questionResult"
     },
-    "safetyQuestionResult": {
-      "$ref": "../common/index.json#/definitions/safetyQuestionResult"
-    },
     "vehicleChecks": {
       "additionalProperties": false,
       "description": "Details of the Show Me and Tell Me questions asked during the test",
@@ -90,22 +87,6 @@
         "vehicleChecksCompleted": {
           "description" : "Indicates whether the vehicle checks has been completed",
           "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
-    "safetyQuestions": {
-      "additionalProperties": false,
-      "description": "Details of the safety questions asked during the test",
-      "properties": {
-        "questions": {
-          "items": {
-            "$ref": "#/definitions/safetyQuestionResult"
-          },
-          "type": "array"
-        },
-        "faultComments": {
-          "$ref": "#/definitions/faultComments"
         }
       },
       "type": "object"
@@ -178,9 +159,6 @@
         },
         "pcvDoorExercise": {
           "$ref": "#/definitions/pcvDoorExercise"
-        },
-        "safetyQuestions": {
-          "$ref": "#/definitions/safetyQuestions"
         }
       },
       "additionalProperties": false
