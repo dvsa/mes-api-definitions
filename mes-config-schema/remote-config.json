@@ -202,7 +202,6 @@
     "role",
     "journal",
     "tests",
-    "logs",
     "user",
     "requestTimeout",
     "employeeNameKey"
