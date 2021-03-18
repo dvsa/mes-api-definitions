@@ -56,6 +56,10 @@ export interface Journal {
    */
   delegatedExaminerSearchBookingUrl: string;
   /**
+   * Url for getting team journals
+   */
+  teamJournalUrl?: string;
+  /**
    * A time interval in milliseconds that triggers an automatic journal refresh
    */
   autoRefreshInterval: number;
