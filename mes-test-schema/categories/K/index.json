@@ -562,6 +562,19 @@
 				}
 			}
 		},
+		"safetyQuestionResult": {
+			"description": "Result of a safety question",
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"description": {
+					"$ref": "#/definitions/questionDescription"
+				},
+				"outcome": {
+					"$ref": "#/definitions/questionOutcome"
+				}
+			}
+		},
 		"manoeuvreIndicator": {
 			"description": "Indicator for a manoeuvre being performed during the test",
 			"type": "boolean"

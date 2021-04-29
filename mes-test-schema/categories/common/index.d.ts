@@ -1107,3 +1107,13 @@ export interface QuestionResult {
   description?: QuestionDescription;
   outcome?: QuestionOutcome;
 }
+/**
+ * Result of a safety question
+ *
+ * This interface was referenced by `TestResultCommonSchema`'s JSON-Schema
+ * via the `definition` "safetyQuestionResult".
+ */
+export interface SafetyQuestionResult {
+  description?: QuestionDescription;
+  outcome?: QuestionOutcome;
+}
