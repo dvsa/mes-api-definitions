@@ -1778,6 +1778,10 @@
 			"description": "Version number",
 			"type": "string"
 		},
+		"appVersion": {
+			"description": "App version number",
+			"type": "string"
+		},
 		"category": {
 			"$ref": "#/definitions/categoryCode"
 		},

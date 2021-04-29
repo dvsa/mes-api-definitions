@@ -252,6 +252,10 @@ export interface TestResultCatAM1Schema {
    * Version number
    */
   version: string;
+  /**
+   * App version number
+   */
+  appVersion?: string;
   category: CategoryCode;
   journalData: JournalData;
   activityCode: ActivityCode;
