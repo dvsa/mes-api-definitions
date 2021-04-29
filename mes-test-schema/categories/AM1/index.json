@@ -1794,6 +1794,10 @@
 			"description": "Version number",
 			"type": "string"
 		},
+		"appVersion": {
+			"description": "App version number",
+			"type": "string"
+		},
 		"category": {
 			"description": "Category code for the test report",
 			"type": "string",
