@@ -64,6 +64,7 @@ export interface TestData {
   manoeuvres?: Manoeuvres;
   vehicleChecks?: VehicleChecks;
   pcvDoorExercise?: PcvDoorExercise;
+  safetyQuestions?: SafetyQuestions;
   uncoupleRecouple?: UncoupleRecouple;
 }
 /**
@@ -171,6 +172,32 @@ export interface PcvDoorExercise {
   drivingFaultComments?: FaultComments;
   seriousFaultComments?: FaultComments;
   dangerousFaultComments?: FaultComments;
+}
+/**
+ * Details of the safety questions asked during the test
+ *
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
+ * via the `definition` "safetyQuestions".
+ */
+export interface SafetyQuestions {
+  questions?: SafetyQuestionResult[];
+  faultComments?: FaultComments;
+}
+/**
+ * Result of a safety question
+ *
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
+ * via the `definition` "safetyQuestionResult".
+ */
+export interface SafetyQuestionResult {
+  /**
+   * Description of the question that was asked
+   */
+  description?: string;
+  /**
+   * Outcome of the question that was asked
+   */
+  outcome?: "P" | "DF" | "S" | "D";
 }
 /**
  * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
