@@ -382,7 +382,7 @@
       "additionalProperties": false,
       "required": [
         "examiner",
-        "testCentre",        
+        "testCentre",
         "testSlotAttributes",
         "candidate",
         "applicationReference"
@@ -1651,6 +1651,10 @@
   "properties": {
     "version": {
       "description": "Version number",
+      "type": "string"
+    },
+    "appVersion": {
+      "description": "App version number",
       "type": "string"
     },
     "category": {

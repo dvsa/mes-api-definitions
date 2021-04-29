@@ -195,6 +195,10 @@ export interface TestResultCatCPCSchema {
    * Version number
    */
   version: string;
+  /**
+   * App version number
+   */
+  appVersion?: string;
   category: CategoryCode;
   journalData: JournalData;
   activityCode: ActivityCode;

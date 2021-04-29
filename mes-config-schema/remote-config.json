@@ -61,6 +61,10 @@
           "description": "Url for getting a delegated examiner booked test",
           "type": "string"
         },
+        "teamJournalUrl": {
+          "description": "Url for getting team journals",
+          "type": "string"
+        },
         "autoRefreshInterval": {
           "description": "A time interval in milliseconds that triggers an automatic journal refresh",
           "type": "number"
@@ -202,7 +206,6 @@
     "role",
     "journal",
     "tests",
-    "logs",
     "user",
     "requestTimeout",
     "employeeNameKey"
