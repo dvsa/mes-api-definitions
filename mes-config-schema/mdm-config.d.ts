@@ -46,6 +46,7 @@ export interface MdmConfig {
    */
   logsAutoSendInterval: number;
   authentication: Authentication;
+  sentry?: Sentry;
 }
 /**
  * Authentication related configuration properties
@@ -75,4 +76,17 @@ export interface Authentication {
    * Key for the employee Id
    */
   employeeIdKey: string;
+}
+/**
+ * Sentry error logging service configuration properties
+ */
+export interface Sentry {
+  /**
+   * Sentry application specific data source name (DSN)
+   */
+  dsn: string;
+  /**
+   * dev / uat / prod
+   */
+  environment: "dev" | "uat" | "prod";
 }

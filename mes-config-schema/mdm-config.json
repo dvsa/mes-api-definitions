@@ -38,12 +38,36 @@
         "logoutUrl",
         "employeeIdKey"
       ]
-    }  
+    },
+    "sentry": {
+      "description": "Sentry error logging service configuration properties",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dsn": {
+          "description": "Sentry application specific data source name (DSN)",
+          "type": "string"
+        },
+        "environment": {
+          "description": "dev / uat / prod",
+          "type": "string",
+          "enum": [
+            "dev",
+            "uat",
+            "prod"
+          ]
+        }
+      },
+      "required": [
+        "dsn",
+        "environment"
+      ]
+    }
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
   "id": "https://example.com/arrays.schema.json",
   "title": "Mdm Config",
-  "type": "object", 
+  "type": "object",
   "additionalProperties": false,
   "description": "JSON Schema definition for MDM configuration",
   "properties": {
@@ -85,6 +109,9 @@
     },
     "authentication": {
       "$ref": "#/definitions/authentication"
+    },
+    "sentry": {
+      "$ref": "#/definitions/sentry"
     }
   },
   "required": [
