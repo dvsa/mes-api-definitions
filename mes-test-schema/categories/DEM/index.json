@@ -445,61 +445,6 @@
 			"description": "Indicator for a manoeuvre being performed during the test",
 			"type": "boolean"
 		},
-		"uncoupleRecouple": {
-			"additionalProperties": false,
-			"properties": {
-				"fault": {
-					"description": "The possible outcomes of any manoeuvre performed during the test",
-					"enum": [
-						"DF",
-						"S",
-						"D"
-					],
-					"type": "string"
-				},
-				"faultComments": {
-					"description": "Comments recorded against a fault",
-					"type": "string",
-					"maxLength": 1000
-				},
-				"selected": {
-					"description": "Indicator for a manoeuvre being performed during the test",
-					"type": "boolean"
-				}
-			},
-			"type": "object"
-		},
-		"testData": {
-			"description": "Data associated with the test",
-			"type": "object",
-			"properties": {
-				"uncoupleRecouple": {
-					"additionalProperties": false,
-					"properties": {
-						"fault": {
-							"description": "The possible outcomes of any manoeuvre performed during the test",
-							"enum": [
-								"DF",
-								"S",
-								"D"
-							],
-							"type": "string"
-						},
-						"faultComments": {
-							"description": "Comments recorded against a fault",
-							"type": "string",
-							"maxLength": 1000
-						},
-						"selected": {
-							"description": "Indicator for a manoeuvre being performed during the test",
-							"type": "boolean"
-						}
-					},
-					"type": "object"
-				}
-			},
-			"additionalProperties": false
-		},
 		"passCompletion": {
 			"description": "Finalisation of a successful test outcome",
 			"type": "object",
@@ -1163,37 +1108,6 @@
 				"D255": {
 					"description": "Indicates whether a D255 form needs to be completed",
 					"type": "boolean"
-				}
-			},
-			"additionalProperties": false
-		},
-		"testData": {
-			"description": "Data associated with the test",
-			"type": "object",
-			"properties": {
-				"uncoupleRecouple": {
-					"additionalProperties": false,
-					"properties": {
-						"fault": {
-							"description": "The possible outcomes of any manoeuvre performed during the test",
-							"enum": [
-								"DF",
-								"S",
-								"D"
-							],
-							"type": "string"
-						},
-						"faultComments": {
-							"description": "Comments recorded against a fault",
-							"type": "string",
-							"maxLength": 1000
-						},
-						"selected": {
-							"description": "Indicator for a manoeuvre being performed during the test",
-							"type": "boolean"
-						}
-					},
-					"type": "object"
 				}
 			},
 			"additionalProperties": false

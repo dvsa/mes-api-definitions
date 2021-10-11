@@ -23,31 +23,6 @@
     "manoeuvreIndicator": {
       "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
     },
-    "uncoupleRecouple": {
-      "additionalProperties": false,
-      "properties": {
-        "fault": {
-          "$ref": "#/definitions/manoeuvreOutcome"
-        },
-        "faultComments": {
-          "$ref": "#/definitions/faultComments"
-        },
-        "selected": {
-          "$ref": "#/definitions/manoeuvreIndicator"
-        }
-      },
-      "type": "object"
-    },
-    "testData": {
-      "description": "Data associated with the test",
-      "type": "object",
-      "properties": {
-        "uncoupleRecouple": {
-          "$ref": "#/definitions/uncoupleRecouple"
-        }
-      },
-      "additionalProperties": false
-    },
     "passCompletion": {
       "description": "Finalisation of a successful test outcome",
       "type": "object",
@@ -168,9 +143,6 @@
     },
     "testSummary": {
       "$ref": "#/definitions/testSummary"
-    },
-    "testData": {
-      "$ref": "#/definitions/testData"
     }
   },
   "additionalProperties": false,

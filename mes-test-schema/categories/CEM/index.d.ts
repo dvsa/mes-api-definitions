@@ -181,7 +181,6 @@ export interface TestResultCatCEMSchema {
   vehicleDetails?: VehicleDetails;
   communicationPreferences?: CommunicationPreferences;
   testSummary?: TestSummary;
-  testData?: TestData;
 }
 /**
  * Data brought through from the journal
@@ -489,22 +488,4 @@ export interface TestSummary {
    * Indicates whether a D255 form needs to be completed
    */
   D255?: boolean;
-}
-/**
- * Data associated with the test
- *
- * This interface was referenced by `TestResultCatCEMSchema`'s JSON-Schema
- * via the `definition` "testData".
- */
-export interface TestData {
-  uncoupleRecouple?: UncoupleRecouple;
-}
-/**
- * This interface was referenced by `TestResultCatCEMSchema`'s JSON-Schema
- * via the `definition` "uncoupleRecouple".
- */
-export interface UncoupleRecouple {
-  fault?: ManoeuvreOutcome;
-  faultComments?: FaultComments;
-  selected?: ManoeuvreIndicator;
 }
