@@ -1,0 +1,188 @@
+{
+  "title": "Test Result Cat DEM Schema",
+  "type": "object",
+  "definitions": {
+    "gearboxCategory": {
+      "$ref": "../common/index.json#/definitions/gearboxCategory"
+    },
+    "journalData": {
+      "$ref": "../common/index.json#/definitions/journalData"
+    },
+    "activityCode": {
+      "$ref": "../common/index.json#/definitions/activityCode"
+    },
+    "rekeyReason": {
+      "$ref": "../common/index.json#/definitions/rekeyReason"
+    },
+    "manoeuvreOutcome": {
+      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
+    },
+    "faultComments": {
+      "$ref": "../common/index.json#/definitions/faultComments"
+    },
+    "manoeuvreIndicator": {
+      "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
+    },
+    "uncoupleRecouple": {
+      "additionalProperties": false,
+      "properties": {
+        "fault": {
+          "$ref": "#/definitions/manoeuvreOutcome"
+        },
+        "faultComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "selected": {
+          "$ref": "#/definitions/manoeuvreIndicator"
+        }
+      },
+      "type": "object"
+    },
+    "testData": {
+      "description": "Data associated with the test",
+      "type": "object",
+      "properties": {
+        "uncoupleRecouple": {
+          "$ref": "#/definitions/uncoupleRecouple"
+        }
+      },
+      "additionalProperties": false
+    },
+    "passCompletion": {
+      "description": "Finalisation of a successful test outcome",
+      "type": "object",
+      "properties": {
+        "passCertificateNumber": {
+          "description": "The PCN issued to the candidate",
+          "type": "string",
+          "maxLength": 8,
+          "minLength": 8
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "passCertificateNumber"
+      ]
+    },
+    "vehicleDetails": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "gearboxCategory": {
+          "$ref": "#/definitions/gearboxCategory"
+        }
+      }
+    },
+    "categoryCode": {
+      "$ref": "../common/index.json#/definitions/categoryCode"
+    },
+    "communicationPreferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "conductedLanguage": {
+          "description": "The language in which a candidate agrees to perform a test",
+          "type": "string",
+          "enum": [
+            "English",
+            "Cymraeg",
+            "Not provided"
+          ]
+        }
+      },
+      "required": [
+        "conductedLanguage"
+      ]
+    },
+    "testSummary": {
+      "description": "Recording of other characteristics of the test",
+      "type": "object",
+      "properties": {
+        "D255": {
+          "description": "Indicates whether a D255 form needs to be completed",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "version": {
+      "description": "Version number",
+      "type": "string"
+    },
+    "appVersion": {
+      "description": "App version number",
+      "type": "string"
+    },
+    "category": {
+      "$ref": "#/definitions/categoryCode"
+    },
+    "journalData": {
+      "$ref": "#/definitions/journalData"
+    },
+    "activityCode": {
+      "$ref": "#/definitions/activityCode"
+    },
+    "rekeyReason": {
+      "$ref": "#/definitions/rekeyReason"
+    },
+    "rekey": {
+      "description": "Whether the test was rekeyed or not",
+      "type": "boolean"
+    },
+    "rekeyDate": {
+      "description": "Date the test was rekeyed",
+      "type": "string"
+    },
+    "changeMarker": {
+      "description": "Whether the test was conducted by another examiner",
+      "type": "boolean"
+    },
+    "examinerBooked": {
+      "description": "The examiner who the test was booked to",
+      "type": [
+        "number",
+        "string"
+      ]
+    },
+    "examinerConducted": {
+      "description": "The examiner who conducted the test",
+      "type": [
+        "number",
+        "string"
+      ]
+    },
+    "examinerKeyed": {
+      "description": "The examiner who keyed the test into the iPad",
+      "type": "number"
+    },
+    "passCompletion": {
+      "$ref": "#/definitions/passCompletion"
+    },
+    "vehicleDetails": {
+      "$ref": "#/definitions/vehicleDetails"
+    },
+    "communicationPreferences": {
+      "$ref": "#/definitions/communicationPreferences"
+    },
+    "testSummary": {
+      "$ref": "#/definitions/testSummary"
+    },
+    "testData": {
+      "$ref": "#/definitions/testData"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "category",
+    "journalData",
+    "activityCode",
+    "rekey",
+    "changeMarker",
+    "examinerBooked",
+    "examinerConducted",
+    "examinerKeyed"
+  ]
+}

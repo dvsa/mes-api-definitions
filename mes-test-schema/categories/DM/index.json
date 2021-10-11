@@ -1,0 +1,1094 @@
+{
+	"title": "Test Result Cat DM Schema",
+	"type": "object",
+	"definitions": {
+		"gearboxCategory": {
+			"description": "The type of gearbox",
+			"type": "string",
+			"enum": [
+				"Manual",
+				"Automatic"
+			]
+		},
+		"journalData": {
+			"description": "Data brought through from the journal",
+			"type": "object",
+			"properties": {
+				"examiner": {
+					"description": "The examiner details",
+					"type": "object",
+					"properties": {
+						"staffNumber": {
+							"description": "The examiner's DSA staff number",
+							"type": "string",
+							"maxLength": 10
+						},
+						"individualId": {
+							"description": "The individual ID of the examiner",
+							"type": "number"
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+						"staffNumber"
+					]
+				},
+				"testCentre": {
+					"description": "Details of the test centre",
+					"type": "object",
+					"properties": {
+						"centreId": {
+							"description": "Identifer for the test centre",
+							"type": "integer"
+						},
+						"costCode": {
+							"description": "Cost centre code for the test centre",
+							"type": "string",
+							"maxLength": 6
+						},
+						"centreName": {
+							"description": "Name of the test centre",
+							"type": "string",
+							"maxLength": 50
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+						"centreId",
+						"costCode"
+					]
+				},
+				"testSlotAttributes": {
+					"description": "The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.",
+					"type": "object",
+					"properties": {
+						"slotId": {
+							"description": "Unique identifier for the journal test slot",
+							"type": "integer"
+						},
+						"start": {
+							"description": "Start time of the test slot",
+							"type": "string",
+							"minLength": 19,
+							"maxLength": 19
+						},
+						"vehicleTypeCode": {
+							"description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
+							"type": "string",
+							"minLength": 1,
+							"maxLength": 2
+						},
+						"welshTest": {
+							"description": "Whether the test is to be conducted using the welsh language",
+							"type": "boolean"
+						},
+						"specialNeedsCode": {
+							"description": "Special needs code",
+							"type": "string",
+							"enum": [
+								"NONE",
+								"YES",
+								"EXTRA"
+							]
+						},
+						"specialNeeds": {
+							"description": "Whether the candidate has any special needs that require the D255 form to be completed",
+							"type": "boolean"
+						},
+						"specialNeedsArray": {
+							"description": "The special needs",
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"extendedTest": {
+							"description": "Whether this is an extended test",
+							"type": "boolean"
+						},
+						"examinerVisiting": {
+							"description": "Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre",
+							"type": "boolean"
+						},
+						"entitlementCheck": {
+							"description": "Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)",
+							"type": "boolean"
+						},
+						"previousCancellation": {
+							"description": "The details of any previous test cancellations",
+							"type": "array",
+							"items": {
+								"description": "The reason for the previous test cancellation",
+								"type": "string",
+								"enum": [
+									"Act of nature",
+									"DSA"
+								],
+								"maxLength": 15
+							}
+						},
+						"slotType": {
+							"description": "A description of the types of test intended to be conducted in this slot (e.g. Standard Test / Extended Special Needs Test)",
+							"type": "string"
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+						"slotId",
+						"start",
+						"vehicleTypeCode",
+						"welshTest",
+						"specialNeeds",
+						"extendedTest"
+					]
+				},
+				"candidate": {
+					"description": "Details of the candidate booked into the test slot",
+					"type": "object",
+					"properties": {
+						"candidateId": {
+							"description": "The id of the test candidate",
+							"type": "integer"
+						},
+						"candidateName": {
+							"description": "Details of the individual's name",
+							"type": "object",
+							"properties": {
+								"title": {
+									"description": "The individual's title",
+									"type": "string",
+									"maxLength": 7
+								},
+								"firstName": {
+									"description": "The individual's forename",
+									"type": "string",
+									"maxLength": 50
+								},
+								"secondName": {
+									"description": "The individual's second name",
+									"type": "string",
+									"maxLength": 50
+								},
+								"thirdName": {
+									"description": "The individual's third name",
+									"type": "string",
+									"maxLength": 50
+								},
+								"lastName": {
+									"description": "The individual's surname",
+									"type": "string",
+									"maxLength": 50
+								}
+							},
+							"additionalProperties": false
+						},
+						"driverNumber": {
+							"description": "The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI",
+							"type": "string",
+							"maxLength": 24
+						},
+						"dateOfBirth": {
+							"description": "The candidate's date of birth, formatted as an ISO 8601 date (YYYY-MM-DD)",
+							"type": "string",
+							"minLength": 10,
+							"maxLength": 10
+						},
+						"gender": {
+							"description": "The gender of an individual, limited to 'M' or 'F' as per TARS master data",
+							"type": "string",
+							"enum": [
+								"M",
+								"F"
+							]
+						},
+						"candidateAddress": {
+							"description": "Details of the address",
+							"type": "object",
+							"properties": {
+								"addressLine1": {
+									"description": "First line of address",
+									"type": "string",
+									"maxLength": 255
+								},
+								"addressLine2": {
+									"description": "Second line of address",
+									"type": "string",
+									"maxLength": 100
+								},
+								"addressLine3": {
+									"description": "Third line of address",
+									"type": "string",
+									"maxLength": 100
+								},
+								"addressLine4": {
+									"description": "Fourth line of address",
+									"type": "string",
+									"maxLength": 100
+								},
+								"addressLine5": {
+									"description": "Fifth line of address",
+									"type": "string",
+									"maxLength": 255
+								},
+								"postcode": {
+									"description": "The address postcode",
+									"type": "string",
+									"maxLength": 255
+								}
+							},
+							"additionalProperties": false
+						},
+						"primaryTelephone": {
+							"description": "The candidate's primary telephone number, if any (and consent to leave voicemail has been given)",
+							"type": "string",
+							"maxLength": 20
+						},
+						"secondaryTelephone": {
+							"description": "The candidate's secondary telephone number, if any (and consent to leave voicemail has been given)",
+							"type": "string",
+							"maxLength": 20
+						},
+						"mobileTelephone": {
+							"description": "The candidate's mobile telephone number, if any (and consent to leave voicemail has been given)",
+							"type": "string",
+							"maxLength": 30
+						},
+						"emailAddress": {
+							"description": "The candidate's email address, if any",
+							"type": "string",
+							"maxLength": 100
+						},
+						"prn": {
+							"description": "The candidate's ADI PRN (potential register number), if an ADI test",
+							"type": "integer"
+						},
+						"previousADITests": {
+							"description": "The number of previous test attempts, if an ADI test",
+							"type": "integer"
+						},
+						"ethnicityCode": {
+							"description": "A character between A and G representing different categories of ethnicity",
+							"type": "string",
+							"minLength": 1,
+							"maxLength": 1
+						}
+					},
+					"additionalProperties": false
+				},
+				"applicationReference": {
+					"description": "The full application identifier, including applicationId, bookingSequence and checkDigit",
+					"type": "object",
+					"properties": {
+						"applicationId": {
+							"description": "Unique identifier for each test application",
+							"type": "integer"
+						},
+						"bookingSequence": {
+							"description": "Booking sequence number of the test application",
+							"type": "integer"
+						},
+						"checkDigit": {
+							"description": "Reference checksum for the test application",
+							"type": "integer"
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+						"applicationId",
+						"bookingSequence",
+						"checkDigit"
+					]
+				}
+			},
+			"additionalProperties": false,
+			"required": [
+				"examiner",
+				"testCentre",
+				"testSlotAttributes",
+				"candidate",
+				"applicationReference"
+			]
+		},
+		"activityCode": {
+			"description": "Code representing the result of the test",
+			"type": "string",
+			"enum": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"5",
+				"6",
+				"11",
+				"20",
+				"21",
+				"22",
+				"23",
+				"24",
+				"25",
+				"26",
+				"27",
+				"28",
+				"32",
+				"33",
+				"34",
+				"35",
+				"36",
+				"37",
+				"38",
+				"40",
+				"41",
+				"51",
+				"52",
+				"55",
+				"58",
+				"59",
+				"60",
+				"61",
+				"62",
+				"63",
+				"64",
+				"66",
+				"67",
+				"68",
+				"69",
+				"70",
+				"71",
+				"73",
+				"74",
+				"75",
+				"76",
+				"77",
+				"78",
+				"79",
+				"80",
+				"81",
+				"82",
+				"83"
+			]
+		},
+		"rekeyReason": {
+			"description": "Recording of the rekey reason",
+			"type": "object",
+			"properties": {
+				"transfer": {
+					"description": "Recording of if a rekey was due to a transfer",
+					"type": "object",
+					"properties": {
+						"selected": {
+							"description": "If this option was selected",
+							"type": "boolean"
+						}
+					},
+					"additionalProperties": false
+				},
+				"ipadIssue": {
+					"description": "Recording of if a rekey was due to a iPad issue",
+					"type": "object",
+					"properties": {
+						"selected": {
+							"description": "If this option was selected",
+							"type": "boolean"
+						},
+						"technicalFault": {
+							"description": "If the iPad was not used due to a technical fault",
+							"type": "boolean"
+						},
+						"lost": {
+							"description": "If the iPad was not used as it has been lost",
+							"type": "boolean"
+						},
+						"stolen": {
+							"description": "If the iPad was not used as it has been stolen",
+							"type": "boolean"
+						},
+						"broken": {
+							"description": "If the iPad was not used as it is broken",
+							"type": "boolean"
+						}
+					},
+					"additionalProperties": false
+				},
+				"other": {
+					"description": "Recording of if a rekey was due to a different reason",
+					"type": "object",
+					"properties": {
+						"selected": {
+							"description": "If this option was selected",
+							"type": "boolean"
+						},
+						"reason": {
+							"description": "The reason this option was selected",
+							"type": "string"
+						}
+					},
+					"additionalProperties": false
+				}
+			},
+			"additionalProperties": false
+		},
+		"passCompletion": {
+			"description": "Finalisation of a successful test outcome",
+			"type": "object",
+			"properties": {
+				"passCertificateNumber": {
+					"description": "The PCN issued to the candidate",
+					"type": "string",
+					"maxLength": 8,
+					"minLength": 8
+				}
+			},
+			"additionalProperties": false,
+			"required": [
+				"passCertificateNumber"
+			]
+		},
+		"vehicleDetails": {
+			"additionalProperties": false,
+			"type": "object",
+			"properties": {
+				"gearboxCategory": {
+					"description": "The type of gearbox",
+					"type": "string",
+					"enum": [
+						"Manual",
+						"Automatic"
+					]
+				}
+			}
+		},
+		"categoryCode": {
+			"description": "Category code for the test report",
+			"type": "string",
+			"enum": [
+				"A",
+				"A1",
+				"A2",
+				"ADI2",
+				"ADI3",
+				"AM",
+				"B",
+				"B1",
+				"B+E",
+				"C",
+				"C1",
+				"C1+E",
+				"CCPC",
+				"C+E",
+				"D",
+				"D1",
+				"D1+E",
+				"DCPC",
+				"D+E",
+				"EUA1M1",
+				"EUA1M2",
+				"EUA2M1",
+				"EUA2M2",
+				"EUAM1",
+				"EUAM2",
+				"EUAMM1",
+				"EUAMM2",
+				"F",
+				"G",
+				"H",
+				"K",
+				"SC"
+			]
+		},
+		"communicationPreferences": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"conductedLanguage": {
+					"description": "The language in which a candidate agrees to perform a test",
+					"type": "string",
+					"enum": [
+						"English",
+						"Cymraeg",
+						"Not provided"
+					]
+				}
+			},
+			"required": [
+				"conductedLanguage"
+			]
+		},
+		"testSummary": {
+			"description": "Recording of other characteristics of the test",
+			"type": "object",
+			"properties": {
+				"D255": {
+					"description": "Indicates whether a D255 form needs to be completed",
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"properties": {
+		"version": {
+			"description": "Version number",
+			"type": "string"
+		},
+		"appVersion": {
+			"description": "App version number",
+			"type": "string"
+		},
+		"category": {
+			"description": "Category code for the test report",
+			"type": "string",
+			"enum": [
+				"A",
+				"A1",
+				"A2",
+				"ADI2",
+				"ADI3",
+				"AM",
+				"B",
+				"B1",
+				"B+E",
+				"C",
+				"C1",
+				"C1+E",
+				"CCPC",
+				"C+E",
+				"D",
+				"D1",
+				"D1+E",
+				"DCPC",
+				"D+E",
+				"EUA1M1",
+				"EUA1M2",
+				"EUA2M1",
+				"EUA2M2",
+				"EUAM1",
+				"EUAM2",
+				"EUAMM1",
+				"EUAMM2",
+				"F",
+				"G",
+				"H",
+				"K",
+				"SC"
+			]
+		},
+		"journalData": {
+			"description": "Data brought through from the journal",
+			"type": "object",
+			"properties": {
+				"examiner": {
+					"description": "The examiner details",
+					"type": "object",
+					"properties": {
+						"staffNumber": {
+							"description": "The examiner's DSA staff number",
+							"type": "string",
+							"maxLength": 10
+						},
+						"individualId": {
+							"description": "The individual ID of the examiner",
+							"type": "number"
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+						"staffNumber"
+					]
+				},
+				"testCentre": {
+					"description": "Details of the test centre",
+					"type": "object",
+					"properties": {
+						"centreId": {
+							"description": "Identifer for the test centre",
+							"type": "integer"
+						},
+						"costCode": {
+							"description": "Cost centre code for the test centre",
+							"type": "string",
+							"maxLength": 6
+						},
+						"centreName": {
+							"description": "Name of the test centre",
+							"type": "string",
+							"maxLength": 50
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+						"centreId",
+						"costCode"
+					]
+				},
+				"testSlotAttributes": {
+					"description": "The additional attributes of the test slot such as Slot Id, Category, Start Time, etc.",
+					"type": "object",
+					"properties": {
+						"slotId": {
+							"description": "Unique identifier for the journal test slot",
+							"type": "integer"
+						},
+						"start": {
+							"description": "Start time of the test slot",
+							"type": "string",
+							"minLength": 19,
+							"maxLength": 19
+						},
+						"vehicleTypeCode": {
+							"description": "A short alpha (and sometimes numeric) code describing the vehicle type in vehicle slot type",
+							"type": "string",
+							"minLength": 1,
+							"maxLength": 2
+						},
+						"welshTest": {
+							"description": "Whether the test is to be conducted using the welsh language",
+							"type": "boolean"
+						},
+						"specialNeedsCode": {
+							"description": "Special needs code",
+							"type": "string",
+							"enum": [
+								"NONE",
+								"YES",
+								"EXTRA"
+							]
+						},
+						"specialNeeds": {
+							"description": "Whether the candidate has any special needs that require the D255 form to be completed",
+							"type": "boolean"
+						},
+						"specialNeedsArray": {
+							"description": "The special needs",
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"extendedTest": {
+							"description": "Whether this is an extended test",
+							"type": "boolean"
+						},
+						"examinerVisiting": {
+							"description": "Whether the examiner conducting the test slot is visiting a test centre that's not their home test centre",
+							"type": "boolean"
+						},
+						"entitlementCheck": {
+							"description": "Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)",
+							"type": "boolean"
+						},
+						"previousCancellation": {
+							"description": "The details of any previous test cancellations",
+							"type": "array",
+							"items": {
+								"description": "The reason for the previous test cancellation",
+								"type": "string",
+								"enum": [
+									"Act of nature",
+									"DSA"
+								],
+								"maxLength": 15
+							}
+						},
+						"slotType": {
+							"description": "A description of the types of test intended to be conducted in this slot (e.g. Standard Test / Extended Special Needs Test)",
+							"type": "string"
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+						"slotId",
+						"start",
+						"vehicleTypeCode",
+						"welshTest",
+						"specialNeeds",
+						"extendedTest"
+					]
+				},
+				"candidate": {
+					"description": "Details of the candidate booked into the test slot",
+					"type": "object",
+					"properties": {
+						"candidateId": {
+							"description": "The id of the test candidate",
+							"type": "integer"
+						},
+						"candidateName": {
+							"description": "Details of the individual's name",
+							"type": "object",
+							"properties": {
+								"title": {
+									"description": "The individual's title",
+									"type": "string",
+									"maxLength": 7
+								},
+								"firstName": {
+									"description": "The individual's forename",
+									"type": "string",
+									"maxLength": 50
+								},
+								"secondName": {
+									"description": "The individual's second name",
+									"type": "string",
+									"maxLength": 50
+								},
+								"thirdName": {
+									"description": "The individual's third name",
+									"type": "string",
+									"maxLength": 50
+								},
+								"lastName": {
+									"description": "The individual's surname",
+									"type": "string",
+									"maxLength": 50
+								}
+							},
+							"additionalProperties": false
+						},
+						"driverNumber": {
+							"description": "The candidate's driver number, typically (though not always) 16 characters if UK, or 8 digits if NI",
+							"type": "string",
+							"maxLength": 24
+						},
+						"dateOfBirth": {
+							"description": "The candidate's date of birth, formatted as an ISO 8601 date (YYYY-MM-DD)",
+							"type": "string",
+							"minLength": 10,
+							"maxLength": 10
+						},
+						"gender": {
+							"description": "The gender of an individual, limited to 'M' or 'F' as per TARS master data",
+							"type": "string",
+							"enum": [
+								"M",
+								"F"
+							]
+						},
+						"candidateAddress": {
+							"description": "Details of the address",
+							"type": "object",
+							"properties": {
+								"addressLine1": {
+									"description": "First line of address",
+									"type": "string",
+									"maxLength": 255
+								},
+								"addressLine2": {
+									"description": "Second line of address",
+									"type": "string",
+									"maxLength": 100
+								},
+								"addressLine3": {
+									"description": "Third line of address",
+									"type": "string",
+									"maxLength": 100
+								},
+								"addressLine4": {
+									"description": "Fourth line of address",
+									"type": "string",
+									"maxLength": 100
+								},
+								"addressLine5": {
+									"description": "Fifth line of address",
+									"type": "string",
+									"maxLength": 255
+								},
+								"postcode": {
+									"description": "The address postcode",
+									"type": "string",
+									"maxLength": 255
+								}
+							},
+							"additionalProperties": false
+						},
+						"primaryTelephone": {
+							"description": "The candidate's primary telephone number, if any (and consent to leave voicemail has been given)",
+							"type": "string",
+							"maxLength": 20
+						},
+						"secondaryTelephone": {
+							"description": "The candidate's secondary telephone number, if any (and consent to leave voicemail has been given)",
+							"type": "string",
+							"maxLength": 20
+						},
+						"mobileTelephone": {
+							"description": "The candidate's mobile telephone number, if any (and consent to leave voicemail has been given)",
+							"type": "string",
+							"maxLength": 30
+						},
+						"emailAddress": {
+							"description": "The candidate's email address, if any",
+							"type": "string",
+							"maxLength": 100
+						},
+						"prn": {
+							"description": "The candidate's ADI PRN (potential register number), if an ADI test",
+							"type": "integer"
+						},
+						"previousADITests": {
+							"description": "The number of previous test attempts, if an ADI test",
+							"type": "integer"
+						},
+						"ethnicityCode": {
+							"description": "A character between A and G representing different categories of ethnicity",
+							"type": "string",
+							"minLength": 1,
+							"maxLength": 1
+						}
+					},
+					"additionalProperties": false
+				},
+				"applicationReference": {
+					"description": "The full application identifier, including applicationId, bookingSequence and checkDigit",
+					"type": "object",
+					"properties": {
+						"applicationId": {
+							"description": "Unique identifier for each test application",
+							"type": "integer"
+						},
+						"bookingSequence": {
+							"description": "Booking sequence number of the test application",
+							"type": "integer"
+						},
+						"checkDigit": {
+							"description": "Reference checksum for the test application",
+							"type": "integer"
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+						"applicationId",
+						"bookingSequence",
+						"checkDigit"
+					]
+				}
+			},
+			"additionalProperties": false,
+			"required": [
+				"examiner",
+				"testCentre",
+				"testSlotAttributes",
+				"candidate",
+				"applicationReference"
+			]
+		},
+		"activityCode": {
+			"description": "Code representing the result of the test",
+			"type": "string",
+			"enum": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"5",
+				"6",
+				"11",
+				"20",
+				"21",
+				"22",
+				"23",
+				"24",
+				"25",
+				"26",
+				"27",
+				"28",
+				"32",
+				"33",
+				"34",
+				"35",
+				"36",
+				"37",
+				"38",
+				"40",
+				"41",
+				"51",
+				"52",
+				"55",
+				"58",
+				"59",
+				"60",
+				"61",
+				"62",
+				"63",
+				"64",
+				"66",
+				"67",
+				"68",
+				"69",
+				"70",
+				"71",
+				"73",
+				"74",
+				"75",
+				"76",
+				"77",
+				"78",
+				"79",
+				"80",
+				"81",
+				"82",
+				"83"
+			]
+		},
+		"rekeyReason": {
+			"description": "Recording of the rekey reason",
+			"type": "object",
+			"properties": {
+				"transfer": {
+					"description": "Recording of if a rekey was due to a transfer",
+					"type": "object",
+					"properties": {
+						"selected": {
+							"description": "If this option was selected",
+							"type": "boolean"
+						}
+					},
+					"additionalProperties": false
+				},
+				"ipadIssue": {
+					"description": "Recording of if a rekey was due to a iPad issue",
+					"type": "object",
+					"properties": {
+						"selected": {
+							"description": "If this option was selected",
+							"type": "boolean"
+						},
+						"technicalFault": {
+							"description": "If the iPad was not used due to a technical fault",
+							"type": "boolean"
+						},
+						"lost": {
+							"description": "If the iPad was not used as it has been lost",
+							"type": "boolean"
+						},
+						"stolen": {
+							"description": "If the iPad was not used as it has been stolen",
+							"type": "boolean"
+						},
+						"broken": {
+							"description": "If the iPad was not used as it is broken",
+							"type": "boolean"
+						}
+					},
+					"additionalProperties": false
+				},
+				"other": {
+					"description": "Recording of if a rekey was due to a different reason",
+					"type": "object",
+					"properties": {
+						"selected": {
+							"description": "If this option was selected",
+							"type": "boolean"
+						},
+						"reason": {
+							"description": "The reason this option was selected",
+							"type": "string"
+						}
+					},
+					"additionalProperties": false
+				}
+			},
+			"additionalProperties": false
+		},
+		"rekey": {
+			"description": "Whether the test was rekeyed or not",
+			"type": "boolean"
+		},
+		"rekeyDate": {
+			"description": "Date the test was rekeyed",
+			"type": "string"
+		},
+		"changeMarker": {
+			"description": "Whether the test was conducted by another examiner",
+			"type": "boolean"
+		},
+		"examinerBooked": {
+			"description": "The examiner who the test was booked to",
+			"type": [
+				"number",
+				"string"
+			]
+		},
+		"examinerConducted": {
+			"description": "The examiner who conducted the test",
+			"type": [
+				"number",
+				"string"
+			]
+		},
+		"examinerKeyed": {
+			"description": "The examiner who keyed the test into the iPad",
+			"type": "number"
+		},
+		"passCompletion": {
+			"description": "Finalisation of a successful test outcome",
+			"type": "object",
+			"properties": {
+				"passCertificateNumber": {
+					"description": "The PCN issued to the candidate",
+					"type": "string",
+					"maxLength": 8,
+					"minLength": 8
+				}
+			},
+			"additionalProperties": false,
+			"required": [
+				"passCertificateNumber"
+			]
+		},
+		"vehicleDetails": {
+			"additionalProperties": false,
+			"type": "object",
+			"properties": {
+				"gearboxCategory": {
+					"description": "The type of gearbox",
+					"type": "string",
+					"enum": [
+						"Manual",
+						"Automatic"
+					]
+				}
+			}
+		},
+		"communicationPreferences": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"conductedLanguage": {
+					"description": "The language in which a candidate agrees to perform a test",
+					"type": "string",
+					"enum": [
+						"English",
+						"Cymraeg",
+						"Not provided"
+					]
+				}
+			},
+			"required": [
+				"conductedLanguage"
+			]
+		},
+		"testSummary": {
+			"description": "Recording of other characteristics of the test",
+			"type": "object",
+			"properties": {
+				"D255": {
+					"description": "Indicates whether a D255 form needs to be completed",
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"additionalProperties": false,
+	"required": [
+		"version",
+		"category",
+		"journalData",
+		"activityCode",
+		"rekey",
+		"changeMarker",
+		"examinerBooked",
+		"examinerConducted",
+		"examinerKeyed"
+	]
+}
