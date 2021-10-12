@@ -118,27 +118,6 @@ export type ActivityCode =
  * via the `definition` "gearboxCategory".
  */
 export type GearboxCategory = "Manual" | "Automatic";
-/**
- * The possible outcomes of any manoeuvre performed during the test
- *
- * This interface was referenced by `TestResultCatDEMSchema`'s JSON-Schema
- * via the `definition` "manoeuvreOutcome".
- */
-export type ManoeuvreOutcome = "DF" | "S" | "D";
-/**
- * Comments recorded against a fault
- *
- * This interface was referenced by `TestResultCatDEMSchema`'s JSON-Schema
- * via the `definition` "faultComments".
- */
-export type FaultComments = string;
-/**
- * Indicator for a manoeuvre being performed during the test
- *
- * This interface was referenced by `TestResultCatDEMSchema`'s JSON-Schema
- * via the `definition` "manoeuvreIndicator".
- */
-export type ManoeuvreIndicator = boolean;
 
 export interface TestResultCatDEMSchema {
   /**

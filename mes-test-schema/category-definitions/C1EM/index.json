@@ -14,15 +14,6 @@
     "rekeyReason": {
       "$ref": "../common/index.json#/definitions/rekeyReason"
     },
-    "manoeuvreOutcome": {
-      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
-    },
-    "faultComments": {
-      "$ref": "../common/index.json#/definitions/faultComments"
-    },
-    "manoeuvreIndicator": {
-      "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
-    },
     "passCompletion": {
       "description": "Finalisation of a successful test outcome",
       "type": "object",

@@ -427,24 +427,6 @@
 			},
 			"additionalProperties": false
 		},
-		"manoeuvreOutcome": {
-			"description": "The possible outcomes of any manoeuvre performed during the test",
-			"enum": [
-				"DF",
-				"S",
-				"D"
-			],
-			"type": "string"
-		},
-		"faultComments": {
-			"description": "Comments recorded against a fault",
-			"type": "string",
-			"maxLength": 1000
-		},
-		"manoeuvreIndicator": {
-			"description": "Indicator for a manoeuvre being performed during the test",
-			"type": "boolean"
-		},
 		"passCompletion": {
 			"description": "Finalisation of a successful test outcome",
 			"type": "object",
