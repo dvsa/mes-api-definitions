@@ -277,6 +277,10 @@ export interface Application {
    */
   entitlementCheck?: boolean;
   /**
+   * Indicates whether the examiner needs to check the candidates entitlement based on new legislation around booking vocational categories
+   */
+  categoryEntitlementCheck?: boolean;
+  /**
    * The number of seats in the vehicle, if captured
    */
   vehicleSeats?: number;
