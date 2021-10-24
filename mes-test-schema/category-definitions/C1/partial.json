@@ -49,6 +49,10 @@
         "vehicleChecksCompleted": {
           "description" : "Indicates whether the vehicle checks has been completed",
           "type": "boolean"
+        },
+        "fullLicenceHeld": {
+          "description" : "Indicates whether the candidate has a full licence",
+          "type": "boolean"
         }
       },
       "type": "object"

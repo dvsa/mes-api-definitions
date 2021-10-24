@@ -130,6 +130,10 @@ export interface VehicleChecks {
    * Indicates whether the vehicle checks has been completed
    */
   vehicleChecksCompleted?: boolean;
+  /**
+   * Indicates whether the candidate has a full licence
+   */
+  fullLicenceHeld?: boolean;
 }
 /**
  * Result of a vehicle checks question
