@@ -200,3 +200,13 @@ export interface VehicleDetails {
    */
   vehicleWidth?: number;
 }
+/**
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * via the `definition` "preTestDeclarations".
+ */
+export interface PreTestDeclarations {
+  /**
+   * Pass certificate number from the `a` part of the vocational test
+   */
+  manoeuvrePassCertificateNumber?: string;
+}
