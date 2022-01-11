@@ -85,6 +85,10 @@
         "modeOfTransport": {
           "$ref": "#/definitions/modeOfTransport"
         },
+        "trueLikenessToPhoto": {
+          "description": "Physical appearance resembles a true likeness to provided ID",
+          "type": "boolean"
+        },
         "candidateDescription": {
           "description": "Physical description of the candidate",
           "type": "string",

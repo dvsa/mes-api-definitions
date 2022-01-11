@@ -638,6 +638,10 @@ export interface TestSummary {
   routeNumber?: number;
   independentDriving?: IndependentDriving;
   /**
+   * Physical appearance resembles a true likeness to provided ID
+   */
+  trueLikenessToPhoto?: boolean;
+  /**
    * Physical description of the candidate
    */
   candidateDescription?: string;
