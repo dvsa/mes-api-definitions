@@ -6,7 +6,7 @@
 
 // Always follow the order of the properties that are in partial.d.ts
 import { PartialTestResultCatC1ESchema } from './partial';
-import { TestResultCommonSchema } from '../common/index';
+import { PreTestDeclarations as CommonPreTestDeclarations, TestResultCommonSchema } from '../common/index';
 import { TestData as PartialCatC1ETestData } from './partial';
 import { TestData as CommonTestData } from '../common';
 import { TestRequirements as PartialCatC1ETestRequirements } from './partial';
@@ -20,6 +20,7 @@ import { Candidate as CommonCandidate } from '../common/index';
 import { VehicleDetails as PartialCatC1EVehicleDetails } from './partial';
 import { VehicleDetails as CommonVehicleDetails } from '../common/index';
 import { UncoupleRecouple as PartialCatC1EUncoupleRecouple } from './partial';
+import { PreTestDeclarations as PartialPreTestDeclarations } from './partial';
 
 export declare namespace CatC1EUniqueTypes {
   type TestResult = PartialTestResultCatC1ESchema & TestResultCommonSchema;
@@ -39,4 +40,6 @@ export declare namespace CatC1EUniqueTypes {
   type VehicleDetails = PartialCatC1EVehicleDetails & CommonVehicleDetails;
 
   type UncoupleRecouple = PartialCatC1EUncoupleRecouple;
+
+  type PreTestDeclarations = PartialPreTestDeclarations & CommonPreTestDeclarations;
 }
