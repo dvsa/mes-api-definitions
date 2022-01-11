@@ -1388,6 +1388,10 @@
 					"type": "integer",
 					"const": 88
 				},
+				"trueLikenessToPhoto": {
+					"description": "Physical appearance resembles a true likeness to provided ID",
+					"type": "boolean"
+				},
 				"candidateDescription": {
 					"description": "Physical description of the candidate",
 					"type": "string",
@@ -2320,6 +2324,10 @@
 					"description": "Number of the route that was taken during the test",
 					"type": "integer",
 					"const": 88
+				},
+				"trueLikenessToPhoto": {
+					"description": "Physical appearance resembles a true likeness to provided ID",
+					"type": "boolean"
 				},
 				"candidateDescription": {
 					"description": "Physical description of the candidate",

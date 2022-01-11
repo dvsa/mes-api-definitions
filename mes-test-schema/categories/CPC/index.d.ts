@@ -554,6 +554,10 @@ export interface PostTestDeclarations {
  */
 export interface TestSummary {
   /**
+   * Physical appearance resembles a true likeness to provided ID
+   */
+  trueLikenessToPhoto?: boolean;
+  /**
    * Physical description of the candidate
    */
   candidateDescription?: string;
