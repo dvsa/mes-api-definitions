@@ -8,9 +8,16 @@ const prettyJs = require('pretty-js');
 const json2ts = require('json-schema-to-typescript');
 const derefSchema = require('json-schema-deref-sync');
 
-const categories = ['ADI2', 'B', 'BE', 'C', 'CE', 'C1', 'C1E', 'D', 'DE', 'D1', 'D1E', 'F', 'G', 'H', 'K'];
+const categories = [
+    'ADI2',
+    'B',
+    'BE',
+    'C', 'CE', 'C1', 'C1E', 'CM', 'C1M', 'CEM', 'C1EM',
+    'D', 'DE', 'D1', 'D1E', 'DM', 'D1M', 'DEM', 'D1EM',
+    'F', 'G', 'H', 'K',
+];
 // standalone categories are categories that don't merge with the common schema
-const standaloneCategories = ['AM1', 'AM2', 'CPC', 'CM', 'C1M', 'DM', 'D1M', 'CEM', 'C1EM', 'DEM', 'D1EM'];
+const standaloneCategories = ['AM1', 'AM2', 'CPC'];
 
 // Json styling config
 const options = {
@@ -51,13 +58,13 @@ if (cliArgument === 'generate') {
     }
 
     for (let category of standaloneCategories) {
-        // dereference and copy across Cat index.json files
+        // dereference and copy across Cat partial.json files
         deReferenceJsonSchema(`./category-definitions/${category}/index.json`, `./categories/${category}/index.json`);
         // generate Cat typescript files (standalone)
         generateTypescriptInterfaces(`./category-definitions/${category}/index.json`, `./categories/${category}/index.d.ts`);
     }
 
-    // copy common index.json file across for consistency
+    // copy common partial.json file across for consistency
     copyFile(`./category-definitions/common/index.json`, `./categories/common/index.json`);
     console.log('All categories have been generated');
 }

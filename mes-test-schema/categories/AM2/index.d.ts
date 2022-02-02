@@ -471,11 +471,11 @@ export interface CommunicationPreferences {
   /**
    * The email address that the candidate agrees their results can be sent to
    */
-  updatedEmail: string;
+  updatedEmail?: string;
   /**
    * The method of communication by which the candidate agrees to receive their results
    */
-  communicationMethod: "Email" | "Post" | "Support Centre" | "Not provided";
+  communicationMethod?: "Email" | "Post" | "Support Centre" | "Not provided";
   /**
    * The language in which a candidate agrees to perform a test
    */

@@ -1371,8 +1371,6 @@
 				}
 			},
 			"required": [
-				"updatedEmail",
-				"communicationMethod",
 				"conductedLanguage"
 			]
 		},
@@ -2572,8 +2570,6 @@
 				}
 			},
 			"required": [
-				"updatedEmail",
-				"communicationMethod",
 				"conductedLanguage"
 			]
 		},

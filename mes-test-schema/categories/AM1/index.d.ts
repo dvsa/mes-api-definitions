@@ -545,8 +545,8 @@ export interface CommunicationPreferences {
   /**
    * The email address that the candidate agrees their results can be sent to
    */
-  updatedEmail: string;
-  communicationMethod: CommunicationMethod;
+  updatedEmail?: string;
+  communicationMethod?: CommunicationMethod;
   conductedLanguage: ConductedLanguage;
 }
 /**

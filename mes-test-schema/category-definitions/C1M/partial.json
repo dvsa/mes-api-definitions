@@ -1,0 +1,116 @@
+{
+  "title": "Partial Test Result Cat C1M Schema",
+  "type": "object",
+  "definitions": {
+    "uncoupleRecouple": {
+      "additionalProperties": false,
+      "properties": {
+        "fault": {
+          "$ref": "#/definitions/manoeuvreOutcome"
+        },
+        "faultComments": {
+          "$ref": "#/definitions/faultComments"
+        },
+        "selected": {
+          "$ref": "#/definitions/manoeuvreIndicator"
+        }
+      },
+      "type": "object"
+    },
+    "faultComments": {
+      "$ref": "../common/index.json#/definitions/faultComments"
+    },
+    "manoeuvre": {
+      "$ref": "../common/index.json#/definitions/manoeuvre"
+    },
+    "manoeuvreOutcome": {
+      "$ref": "../common/index.json#/definitions/manoeuvreOutcome"
+    },
+    "manoeuvreIndicator": {
+      "$ref": "../common/index.json#/definitions/manoeuvreIndicator"
+    },
+    "manoeuvres": {
+      "additionalProperties": false,
+      "description": "The manoeuvres that were carried out during the test and any faults recorded against them",
+      "type": "object",
+      "properties": {
+        "reverseManoeuvre": {
+          "$ref": "#/definitions/manoeuvre"
+        }
+      }
+    },
+    "vehicleDetails": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "vehicleLength": {
+          "description": "Indicates the length of the vehicle",
+          "type": "number"
+        },
+        "vehicleWidth": {
+          "description": "Indicates the width of the vehicle",
+          "type": "number"
+        },
+        "numberOfSeats": {
+          "description": "Indicates the number of seats in the vehicle",
+          "type": "number"
+        },
+        "registrationNumber": {
+          "description": "The vehicle registration number",
+          "type": "string",
+          "maxLength": 7
+        }
+      }
+    },
+    "address": {
+      "$ref": "../common/index.json#/definitions/address"
+    },
+    "businessName": {
+      "description": "Name of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 100
+    },
+    "businessTelephone": {
+      "description": "Telephone number of the business the candidate relates to",
+      "type": "string",
+      "maxLength": 20
+    },
+    "candidate": {
+      "properties": {
+        "businessAddress": {
+          "$ref": "#/definitions/address"
+        },
+        "businessName": {
+          "$ref": "#/definitions/businessName"
+        },
+        "businessTelephone": {
+          "$ref": "#/definitions/businessTelephone"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "testData": {
+      "description": "Data associated with the test",
+      "type": "object",
+      "properties": {
+        "manoeuvres": {
+          "$ref": "#/definitions/manoeuvres"
+        },
+        "uncoupleRecouple": {
+          "$ref": "#/definitions/uncoupleRecouple"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "testData": {
+      "$ref": "#/definitions/testData"
+    },
+    "vehicleDetails": {
+      "$ref": "#/definitions/vehicleDetails"
+    }
+  },
+  "additionalProperties": false
+}

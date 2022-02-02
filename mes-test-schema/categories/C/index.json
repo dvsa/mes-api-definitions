@@ -460,8 +460,6 @@
 				}
 			},
 			"required": [
-				"updatedEmail",
-				"communicationMethod",
 				"conductedLanguage"
 			]
 		},
