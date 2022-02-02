@@ -462,7 +462,6 @@
 				}
 			},
 			"required": [
-				"communicationMethod",
 				"conductedLanguage"
 			]
 		},
@@ -4051,7 +4050,6 @@
 				}
 			},
 			"required": [
-				"communicationMethod",
 				"conductedLanguage"
 			]
 		},

@@ -444,7 +444,6 @@
         }
       },
       "required": [
-        "communicationMethod",
         "conductedLanguage"
       ]
     },

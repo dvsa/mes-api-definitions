@@ -9,10 +9,10 @@ import { CatCMUniqueTypes } from './CM';
 import { CatC1MUniqueTypes } from './C1M';
 import { CatCEMUniqueTypes } from './CEM';
 import { CatC1EMUniqueTypes } from './C1EM';
-import { TestResultCatDMSchema } from './DM';
-import { TestResultCatD1MSchema } from './D1M';
-import { TestResultCatDEMSchema } from './DEM';
-import { TestResultCatD1EMSchema } from './D1EM';
+import { CatDMUniqueTypes } from './DM';
+import { CatD1MUniqueTypes } from './D1M';
+import { CatDEMUniqueTypes } from './DEM';
+import { CatD1EMUniqueTypes } from './D1EM';
 import { CatDUniqueTypes } from './D';
 import { CatDEUniqueTypes } from './DE';
 import { CatD1UniqueTypes } from './D1';
@@ -41,10 +41,10 @@ export type TestResultSchemasUnion =
   | CatDEUniqueTypes.TestResult
   | CatD1UniqueTypes.TestResult
   | CatD1EUniqueTypes.TestResult
-  | TestResultCatDMSchema
-  | TestResultCatD1MSchema
-  | TestResultCatDEMSchema
-  | TestResultCatD1EMSchema
+  | CatDMUniqueTypes.TestResult
+  | CatD1MUniqueTypes.TestResult
+  | CatDEMUniqueTypes.TestResult
+  | CatD1EMUniqueTypes.TestResult
   | TestResultCatAM1Schema
   | TestResultCatAM2Schema
   | CatFUniqueTypes.TestResult
