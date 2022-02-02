@@ -444,7 +444,6 @@
         }
       },
       "required": [
-        "updatedEmail",
         "communicationMethod",
         "conductedLanguage"
       ]

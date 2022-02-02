@@ -1,5 +1,5 @@
 {
-	"title": "Test Result Cat CM Schema",
+	"title": "Test Result Cat C1M Schema",
 	"type": "object",
 	"definitions": {
 		"code78Present": {
@@ -35,6 +35,9 @@
 				},
 				"testRequirements": {
 					"$ref": "#/definitions/testRequirements"
+				},
+				"manoeuvres": {
+					"$ref": "#/definitions/manoeuvres"
 				},
 				"uncoupleRecouple": {
 					"$ref": "#/definitions/uncoupleRecouple"
@@ -456,7 +459,6 @@
 				}
 			},
 			"required": [
-				"updatedEmail",
 				"communicationMethod",
 				"conductedLanguage"
 			]

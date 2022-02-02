@@ -36,6 +36,9 @@
 				"testRequirements": {
 					"$ref": "#/definitions/testRequirements"
 				},
+				"manoeuvres": {
+					"$ref": "#/definitions/manoeuvres"
+				},
 				"uncoupleRecouple": {
 					"$ref": "#/definitions/uncoupleRecouple"
 				}
@@ -456,7 +459,6 @@
 				}
 			},
 			"required": [
-				"updatedEmail",
 				"communicationMethod",
 				"conductedLanguage"
 			]

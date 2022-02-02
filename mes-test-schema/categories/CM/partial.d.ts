@@ -52,7 +52,30 @@ export interface PartialTestResultCatCMSchema {
  * via the `definition` "testData".
  */
 export interface TestData {
+  manoeuvres?: Manoeuvres;
   uncoupleRecouple?: UncoupleRecouple;
+}
+/**
+ * The manoeuvres that were carried out during the test and any faults recorded against them
+ *
+ * This interface was referenced by `PartialTestResultCatCMSchema`'s JSON-Schema
+ * via the `definition` "manoeuvres".
+ */
+export interface Manoeuvres {
+  reverseManoeuvre?: Manoeuvre;
+}
+/**
+ * Data needs capturing for a manoeuvre competency
+ *
+ * This interface was referenced by `PartialTestResultCatCMSchema`'s JSON-Schema
+ * via the `definition` "manoeuvre".
+ */
+export interface Manoeuvre {
+  controlFault?: ManoeuvreOutcome;
+  controlFaultComments?: FaultComments;
+  observationFault?: ManoeuvreOutcome;
+  observationFaultComments?: FaultComments;
+  selected?: ManoeuvreIndicator;
 }
 /**
  * This interface was referenced by `PartialTestResultCatCMSchema`'s JSON-Schema
@@ -84,28 +107,6 @@ export interface VehicleDetails {
    * The vehicle registration number
    */
   registrationNumber?: string;
-}
-/**
- * Data needs capturing for a manoeuvre competency
- *
- * This interface was referenced by `PartialTestResultCatCMSchema`'s JSON-Schema
- * via the `definition` "manoeuvre".
- */
-export interface Manoeuvre {
-  controlFault?: ManoeuvreOutcome;
-  controlFaultComments?: FaultComments;
-  observationFault?: ManoeuvreOutcome;
-  observationFaultComments?: FaultComments;
-  selected?: ManoeuvreIndicator;
-}
-/**
- * The manoeuvres that were carried out during the test and any faults recorded against them
- *
- * This interface was referenced by `PartialTestResultCatCMSchema`'s JSON-Schema
- * via the `definition` "manoeuvres".
- */
-export interface Manoeuvres {
-  reverseManoeuvre?: Manoeuvre;
 }
 /**
  * Details of the address

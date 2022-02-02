@@ -1,5 +1,5 @@
 {
-  "title": "Partial Test Result Cat CM Schema",
+  "title": "Partial Test Result Cat C1EM Schema",
   "type": "object",
   "definitions": {
     "uncoupleRecouple": {
@@ -94,6 +94,9 @@
       "description": "Data associated with the test",
       "type": "object",
       "properties": {
+        "manoeuvres": {
+          "$ref": "#/definitions/manoeuvres"
+        },
         "uncoupleRecouple": {
           "$ref": "#/definitions/uncoupleRecouple"
         }

@@ -466,7 +466,6 @@
 				}
 			},
 			"required": [
-				"updatedEmail",
 				"communicationMethod",
 				"conductedLanguage"
 			]

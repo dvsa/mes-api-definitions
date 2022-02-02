@@ -1,5 +1,5 @@
 {
-  "title": "Partial Test Result Cat CEM Schema",
+  "title": "Partial Test Result Cat DEM Schema",
   "type": "object",
   "definitions": {
     "uncoupleRecouple": {

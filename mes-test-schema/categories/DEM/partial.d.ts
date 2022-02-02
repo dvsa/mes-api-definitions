@@ -8,47 +8,47 @@
 /**
  * The possible outcomes of any manoeuvre performed during the test
  *
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "manoeuvreOutcome".
  */
 export type ManoeuvreOutcome = "DF" | "S" | "D";
 /**
  * Comments recorded against a fault
  *
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "faultComments".
  */
 export type FaultComments = string;
 /**
  * Indicator for a manoeuvre being performed during the test
  *
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "manoeuvreIndicator".
  */
 export type ManoeuvreIndicator = boolean;
 /**
  * Name of the business the candidate relates to
  *
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "businessName".
  */
 export type BusinessName = string;
 /**
  * Telephone number of the business the candidate relates to
  *
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "businessTelephone".
  */
 export type BusinessTelephone = string;
 
-export interface PartialTestResultCatC1EMSchema {
+export interface PartialTestResultCatDEMSchema {
   testData?: TestData;
   vehicleDetails?: VehicleDetails;
 }
 /**
  * Data associated with the test
  *
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "testData".
  */
 export interface TestData {
@@ -58,7 +58,7 @@ export interface TestData {
 /**
  * The manoeuvres that were carried out during the test and any faults recorded against them
  *
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "manoeuvres".
  */
 export interface Manoeuvres {
@@ -67,7 +67,7 @@ export interface Manoeuvres {
 /**
  * Data needs capturing for a manoeuvre competency
  *
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "manoeuvre".
  */
 export interface Manoeuvre {
@@ -78,7 +78,7 @@ export interface Manoeuvre {
   selected?: ManoeuvreIndicator;
 }
 /**
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "uncoupleRecouple".
  */
 export interface UncoupleRecouple {
@@ -87,7 +87,7 @@ export interface UncoupleRecouple {
   selected?: ManoeuvreIndicator;
 }
 /**
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "vehicleDetails".
  */
 export interface VehicleDetails {
@@ -111,7 +111,7 @@ export interface VehicleDetails {
 /**
  * Details of the address
  *
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "address".
  */
 export interface Address {
@@ -141,7 +141,7 @@ export interface Address {
   postcode?: string;
 }
 /**
- * This interface was referenced by `PartialTestResultCatC1EMSchema`'s JSON-Schema
+ * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema
  * via the `definition` "candidate".
  */
 export interface Candidate {
