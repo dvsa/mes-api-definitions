@@ -100,6 +100,10 @@ export interface VehicleDetails {
    */
   vehicleWidth?: number;
   /**
+   * Indicates the height of the vehicle
+   */
+  vehicleHeight?: number;
+  /**
    * Indicates the number of seats in the vehicle
    */
   numberOfSeats?: number;
