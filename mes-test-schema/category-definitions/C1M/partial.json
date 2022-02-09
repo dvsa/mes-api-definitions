@@ -51,6 +51,10 @@
           "description": "Indicates the width of the vehicle",
           "type": "number"
         },
+        "vehicleHeight": {
+          "description": "Indicates the height of the vehicle",
+          "type": "number"
+        },
         "numberOfSeats": {
           "description": "Indicates the number of seats in the vehicle",
           "type": "number"
