@@ -740,7 +740,7 @@ export interface PassCompletion {
   /**
    * Indicates whether the candidate submitted their provisional driving licence
    */
-  provisionalLicenceProvided: boolean;
+  provisionalLicenceProvided?: boolean;
   /**
    * The PCN issued to the candidate
    */

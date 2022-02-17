@@ -1698,7 +1698,6 @@
 			},
 			"additionalProperties": false,
 			"required": [
-				"provisionalLicenceProvided",
 				"passCertificateNumber"
 			]
 		},
