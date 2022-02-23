@@ -40,6 +40,13 @@ export type BusinessName = string;
  * via the `definition` "businessTelephone".
  */
 export type BusinessTelephone = string;
+/**
+ * Indicate presence of code 78 (automatic) on candidates license
+ *
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * via the `definition` "code78Present".
+ */
+export type Code78Present = boolean;
 
 export interface PartialTestResultCatC1Schema {
   testData?: TestData;
@@ -199,6 +206,13 @@ export interface VehicleDetails {
    * Indicates the width of the vehicle
    */
   vehicleWidth?: number;
+}
+/**
+ * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema
+ * via the `definition` "passCompletion".
+ */
+export interface PassCompletion {
+  code78Present?: Code78Present;
 }
 /**
  * This interface was referenced by `PartialTestResultCatC1Schema`'s JSON-Schema

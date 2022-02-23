@@ -274,3 +274,10 @@ export interface VehicleDetails {
    */
   vehicleWidth?: number;
 }
+/**
+ * This interface was referenced by `PartialTestResultCatD1ESchema`'s JSON-Schema
+ * via the `definition` "passCompletion".
+ */
+export interface PassCompletion {
+  code78Present?: Code78Present;
+}

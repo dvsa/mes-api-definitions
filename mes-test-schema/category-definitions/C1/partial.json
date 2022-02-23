@@ -2,6 +2,17 @@
   "title": "Partial Test Result Cat C1 Schema",
   "type": "object",
   "definitions": {
+    "passCompletion": {
+      "properties": {
+        "code78Present": {
+          "$ref": "#/definitions/code78Present"
+        }
+      },
+      "additionalProperties": false
+    },
+    "code78Present": {
+      "$ref": "../common/index.json#/definitions/code78Present"
+    },
     "faultComments": {
       "$ref": "../common/index.json#/definitions/faultComments"
     },
