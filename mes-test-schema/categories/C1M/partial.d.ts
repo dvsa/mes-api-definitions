@@ -113,6 +113,22 @@ export interface VehicleDetails {
   registrationNumber?: string;
 }
 /**
+ * This interface was referenced by `PartialTestResultCatC1MSchema`'s JSON-Schema
+ * via the `definition` "journalData".
+ */
+export interface JournalData {
+  candidate: Candidate;
+}
+/**
+ * This interface was referenced by `PartialTestResultCatC1MSchema`'s JSON-Schema
+ * via the `definition` "candidate".
+ */
+export interface Candidate {
+  businessAddress?: Address;
+  businessName?: BusinessName;
+  businessTelephone?: BusinessTelephone;
+}
+/**
  * Details of the address
  *
  * This interface was referenced by `PartialTestResultCatC1MSchema`'s JSON-Schema
@@ -143,13 +159,4 @@ export interface Address {
    * The address postcode
    */
   postcode?: string;
-}
-/**
- * This interface was referenced by `PartialTestResultCatC1MSchema`'s JSON-Schema
- * via the `definition` "candidate".
- */
-export interface Candidate {
-  businessAddress?: Address;
-  businessName?: BusinessName;
-  businessTelephone?: BusinessTelephone;
 }

@@ -400,7 +400,8 @@
 				"testCentre",
 				"testSlotAttributes",
 				"candidate",
-				"applicationReference"
+				"applicationReference",
+				"candidate"
 			]
 		},
 		"eyesightTest": {

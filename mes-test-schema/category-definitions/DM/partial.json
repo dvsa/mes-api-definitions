@@ -66,6 +66,17 @@
         }
       }
     },
+    "journalData": {
+      "properties": {
+        "candidate": {
+          "$ref": "#/definitions/candidate"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "candidate"
+      ]
+    },
     "address": {
       "$ref": "../common/index.json#/definitions/address"
     },
