@@ -43,6 +43,18 @@
     "faultComments": {
       "$ref": "../common/index.json#/definitions/faultComments"
     },
+    "preTestDeclarations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "manoeuvrePassCertificateNumber": {
+          "description": "Pass certificate number from the `a` part of the vocational test",
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 8
+        }
+      }
+    },
     "manoeuvre": {
       "$ref": "../common/index.json#/definitions/manoeuvre"
     },
