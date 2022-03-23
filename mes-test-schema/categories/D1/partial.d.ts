@@ -271,3 +271,13 @@ export interface VehicleDetails {
 export interface PassCompletion {
   code78Present?: Code78Present;
 }
+/**
+ * This interface was referenced by `PartialTestResultCatD1Schema`'s JSON-Schema
+ * via the `definition` "preTestDeclarations".
+ */
+export interface PreTestDeclarations {
+  /**
+   * Pass certificate number from the `a` part of the vocational test
+   */
+  manoeuvrePassCertificateNumber?: string;
+}

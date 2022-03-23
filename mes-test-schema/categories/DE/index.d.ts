@@ -6,7 +6,7 @@
 
 // Always follow the order of the properties that are in partial.d.ts
 import { PartialTestResultCatDESchema } from './partial';
-import { TestResultCommonSchema } from '../common/index';
+import { PreTestDeclarations as CommonPreTestDeclarations, TestResultCommonSchema } from '../common/index';
 import { TestData as PartialCatDETestData } from './partial';
 import { TestData as CommonTestData } from '../common';
 import { TestRequirements as PartialCatDETestRequirements } from './partial';
@@ -24,6 +24,7 @@ import { PassCompletion as CommonPassCompletion } from '../common/index';
 import { UncoupleRecouple as PartialCatDEEUncoupleRecouple } from './partial';
 import { SafetyQuestions as PartialSafetyQuestions } from './partial';
 import { PcvDoorExercise as PartialPcvDoorExercise } from './partial';
+import { PreTestDeclarations as PartialPreTestDeclarations } from '../DE/partial';
 
 export declare namespace CatDEUniqueTypes {
   type TestResult = PartialTestResultCatDESchema & TestResultCommonSchema;
@@ -45,6 +46,8 @@ export declare namespace CatDEUniqueTypes {
   type PassCompletion = PartialPassCompletion & CommonPassCompletion;
 
   type UncoupleRecouple = PartialCatDEEUncoupleRecouple;
+
+  type PreTestDeclarations = PartialPreTestDeclarations & CommonPreTestDeclarations;
 
   type SafetyQuestions = PartialSafetyQuestions;
 
