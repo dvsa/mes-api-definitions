@@ -85,6 +85,10 @@ export interface SearchResultTestSchema {
    */
   category: string;
   activityCode: ActivityCode;
+  /**
+   * The PCN issued to the candidate
+   */
+  passCertificateNumber?: string;
 }
 /**
  * Details of the individual's name

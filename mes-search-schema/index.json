@@ -37,6 +37,10 @@
     },
     "activityCode": {
       "$ref": "#/definitions/activityCode"
+    },
+    "passCertificateNumber": {
+      "description": "The PCN issued to the candidate",
+      "type": "string"
     }
   },
   "definitions": {
