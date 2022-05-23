@@ -679,7 +679,7 @@ export interface VehicleDetails {
  * via the `definition` "testData".
  */
 export interface TestData {
-  combination: CombinationCodes;
+  combination?: CombinationCodes;
   question1: Question;
   question2: Question;
   question3: Question;
@@ -718,7 +718,7 @@ export interface Question {
   /**
    * Score in percent
    */
-  score: number;
+  score?: number;
 }
 /**
  * Answers to the question
@@ -764,5 +764,5 @@ export interface Question5 {
   /**
    * Score in percent
    */
-  score: number;
+  score?: number;
 }
