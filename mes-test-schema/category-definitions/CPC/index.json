@@ -30,7 +30,6 @@
         }
       },
       "required": [
-        "combination",
         "question1",
         "question2",
         "question3",
@@ -180,8 +179,7 @@
         "answer1",
         "answer2",
         "answer3",
-        "answer4",
-        "score"
+        "answer4"
       ]
     },
     "question5": {
@@ -256,8 +254,7 @@
         "answer7",
         "answer8",
         "answer9",
-        "answer10",
-        "score"
+        "answer10"
       ]
     },
     "gearboxCategory": {
