@@ -698,23 +698,23 @@ export interface Question {
   /**
    * Short code for Question
    */
-  questionCode: string;
+  questionCode?: string;
   /**
    * Question description
    */
-  title: string;
+  title?: string;
   /**
    * Question sub-description
    */
-  subtitle: string;
+  subtitle?: string;
   /**
    * Additional questions that might be asked
    */
-  additionalItems: string[];
-  answer1: Answer;
-  answer2: Answer;
-  answer3: Answer;
-  answer4: Answer;
+  additionalItems?: string[];
+  answer1?: Answer;
+  answer2?: Answer;
+  answer3?: Answer;
+  answer4?: Answer;
   /**
    * Score in percent
    */
@@ -738,29 +738,29 @@ export interface Question5 {
   /**
    * Short code for Question
    */
-  questionCode: string;
+  questionCode?: string;
   /**
    * Question description
    */
-  title: string;
+  title?: string;
   /**
    * Question sub-description
    */
-  subtitle: string;
+  subtitle?: string;
   /**
    * Additional questions that might be asked
    */
-  additionalItems: string[];
-  answer1: Answer;
-  answer2: Answer;
-  answer3: Answer;
-  answer4: Answer;
-  answer5: Answer;
-  answer6: Answer;
-  answer7: Answer;
-  answer8: Answer;
-  answer9: Answer;
-  answer10: Answer;
+  additionalItems?: string[];
+  answer1?: Answer;
+  answer2?: Answer;
+  answer3?: Answer;
+  answer4?: Answer;
+  answer5?: Answer;
+  answer6?: Answer;
+  answer7?: Answer;
+  answer8?: Answer;
+  answer9?: Answer;
+  answer10?: Answer;
   /**
    * Score in percent
    */

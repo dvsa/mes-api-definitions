@@ -119,17 +119,7 @@
 							"description": "Score in percent",
 							"type": "number"
 						}
-					},
-					"required": [
-						"title",
-						"subtitle",
-						"questionCode",
-						"additionalItems",
-						"answer1",
-						"answer2",
-						"answer3",
-						"answer4"
-					]
+					}
 				},
 				"question2": {
 					"type": "object",
@@ -222,17 +212,7 @@
 							"description": "Score in percent",
 							"type": "number"
 						}
-					},
-					"required": [
-						"title",
-						"subtitle",
-						"questionCode",
-						"additionalItems",
-						"answer1",
-						"answer2",
-						"answer3",
-						"answer4"
-					]
+					}
 				},
 				"question3": {
 					"type": "object",
@@ -325,17 +305,7 @@
 							"description": "Score in percent",
 							"type": "number"
 						}
-					},
-					"required": [
-						"title",
-						"subtitle",
-						"questionCode",
-						"additionalItems",
-						"answer1",
-						"answer2",
-						"answer3",
-						"answer4"
-					]
+					}
 				},
 				"question4": {
 					"type": "object",
@@ -428,17 +398,7 @@
 							"description": "Score in percent",
 							"type": "number"
 						}
-					},
-					"required": [
-						"title",
-						"subtitle",
-						"questionCode",
-						"additionalItems",
-						"answer1",
-						"answer2",
-						"answer3",
-						"answer4"
-					]
+					}
 				},
 				"question5": {
 					"type": "object",
@@ -627,23 +587,7 @@
 							"description": "Score in percent",
 							"type": "number"
 						}
-					},
-					"required": [
-						"title",
-						"subtitle",
-						"questionCode",
-						"additionalItems",
-						"answer1",
-						"answer2",
-						"answer3",
-						"answer4",
-						"answer5",
-						"answer6",
-						"answer7",
-						"answer8",
-						"answer9",
-						"answer10"
-					]
+					}
 				},
 				"totalPercent": {
 					"description": "Overall score for questions",
@@ -1517,17 +1461,7 @@
 					"description": "Score in percent",
 					"type": "number"
 				}
-			},
-			"required": [
-				"title",
-				"subtitle",
-				"questionCode",
-				"additionalItems",
-				"answer1",
-				"answer2",
-				"answer3",
-				"answer4"
-			]
+			}
 		},
 		"question5": {
 			"type": "object",
@@ -1716,23 +1650,7 @@
 					"description": "Score in percent",
 					"type": "number"
 				}
-			},
-			"required": [
-				"title",
-				"subtitle",
-				"questionCode",
-				"additionalItems",
-				"answer1",
-				"answer2",
-				"answer3",
-				"answer4",
-				"answer5",
-				"answer6",
-				"answer7",
-				"answer8",
-				"answer9",
-				"answer10"
-			]
+			}
 		},
 		"gearboxCategory": {
 			"description": "The type of gearbox",
@@ -2921,17 +2839,7 @@
 							"description": "Score in percent",
 							"type": "number"
 						}
-					},
-					"required": [
-						"title",
-						"subtitle",
-						"questionCode",
-						"additionalItems",
-						"answer1",
-						"answer2",
-						"answer3",
-						"answer4"
-					]
+					}
 				},
 				"question2": {
 					"type": "object",
@@ -3024,17 +2932,7 @@
 							"description": "Score in percent",
 							"type": "number"
 						}
-					},
-					"required": [
-						"title",
-						"subtitle",
-						"questionCode",
-						"additionalItems",
-						"answer1",
-						"answer2",
-						"answer3",
-						"answer4"
-					]
+					}
 				},
 				"question3": {
 					"type": "object",
@@ -3127,17 +3025,7 @@
 							"description": "Score in percent",
 							"type": "number"
 						}
-					},
-					"required": [
-						"title",
-						"subtitle",
-						"questionCode",
-						"additionalItems",
-						"answer1",
-						"answer2",
-						"answer3",
-						"answer4"
-					]
+					}
 				},
 				"question4": {
 					"type": "object",
@@ -3230,17 +3118,7 @@
 							"description": "Score in percent",
 							"type": "number"
 						}
-					},
-					"required": [
-						"title",
-						"subtitle",
-						"questionCode",
-						"additionalItems",
-						"answer1",
-						"answer2",
-						"answer3",
-						"answer4"
-					]
+					}
 				},
 				"question5": {
 					"type": "object",
@@ -3429,23 +3307,7 @@
 							"description": "Score in percent",
 							"type": "number"
 						}
-					},
-					"required": [
-						"title",
-						"subtitle",
-						"questionCode",
-						"additionalItems",
-						"answer1",
-						"answer2",
-						"answer3",
-						"answer4",
-						"answer5",
-						"answer6",
-						"answer7",
-						"answer8",
-						"answer9",
-						"answer10"
-					]
+					}
 				},
 				"totalPercent": {
 					"description": "Overall score for questions",
