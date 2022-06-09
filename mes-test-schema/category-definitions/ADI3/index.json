@@ -43,13 +43,18 @@
             },
             "q4": {
               "$ref": "#/definitions/question"
+            },
+            "score": {
+              "description": "Overall score for questions",
+              "type": "number"
             }
           },
           "required": [
             "q1",
             "q2",
             "q3",
-            "q4"
+            "q4",
+            "score"
           ]
         },
         "riskManagement": {
@@ -70,6 +75,10 @@
             },
             "q5": {
               "$ref": "#/definitions/question"
+            },
+            "score": {
+              "description": "Overall score for questions",
+              "type": "number"
             }
           },
           "required": [
@@ -77,7 +86,8 @@
             "q2",
             "q3",
             "q4",
-            "q5"
+            "q5",
+            "score"
           ]
         },
         "teachingLearningStrategies": {
@@ -107,6 +117,10 @@
             },
             "q8": {
               "$ref": "#/definitions/question"
+            },
+            "score": {
+              "description": "Overall score for questions",
+              "type": "number"
             }
           },
           "required": [
@@ -125,7 +139,8 @@
         "lessonAndTheme",
         "lessonPlanning",
         "riskManagement",
-        "teachingLearningStrategies"
+        "teachingLearningStrategies",
+        "candidateReview"
       ]
     },
     "examiner": {
@@ -172,21 +187,12 @@
           "description": "Whether or not the candidate has declared that their test vehicle has a valid insurance policy",
           "type": "boolean"
         },
-        "residencyDeclarationAccepted": {
-          "description": "Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test",
-          "type": "boolean"
-        },
         "preTestSignature": {
           "$ref": "#/definitions/signature"
-        },
-        "candidateDeclarationSigned": {
-          "description": "Whether or not the candidate signature had been recorded for delegated tests",
-          "type": "boolean"
         }
       },
       "required": [
         "insuranceDeclarationAccepted",
-        "residencyDeclarationAccepted",
         "preTestSignature"
       ]
     },
@@ -201,22 +207,17 @@
         "interpreter": {
           "description": "Indicates whether an interpreter was present during the test",
           "type": "boolean"
+        },
+        "instructor": {
+          "description": "Indicates whether an instructor was present during the test",
+          "type": "boolean"
+        },
+        "other": {
+          "description": "Indicates whether another type of person was present during the test",
+          "type": "boolean"
         }
       },
       "additionalProperties": false
-    },
-    "answer": {
-      "description": "Answers to the question",
-      "additionalProperties": false,
-      "properties": {
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "value",
-        "selected"
-      ]
     },
     "question": {
       "type": "object",
@@ -281,7 +282,13 @@
       "$ref": "../common/index.json#/definitions/postTestDeclarations"
     },
     "identification": {
-      "$ref": "../common/index.json#/definitions/identification"
+      "description": "Indicates which form of ID was provided by the candidate",
+      "type": "string",
+      "enum": [
+        "Photocard",
+        "Passport",
+        "TraineeLicence"
+      ]
     },
     "testSummary": {
       "description": "Recording of other characteristics of the test",
@@ -303,16 +310,11 @@
         "identification": {
           "$ref": "#/definitions/identification"
         },
-        "D255": {
-          "description": "Indicates whether a D255 form needs to be completed",
-          "type": "boolean"
+        "weatherConditions": {
+          "$ref": "../common/index.json#/definitions/weatherConditions"
         },
         "additionalInformation": {
           "description": "Any comments that the DE wants to record about the test",
-          "type": "string"
-        },
-        "assessmentReport": {
-          "description": "Assessment report for the test",
           "type": "string"
         }
       },
@@ -339,18 +341,10 @@
     "other": {
       "$ref": "../common/index.json#/definitions/other"
     },
-    "configuration": {
-      "description": "The vehicle configuration",
-      "type": "string",
-      "enum": [
-        "Rigid",
-        "Articulated",
-        "Drawbar"
-      ]
-    },
     "vehicleDetails": {
       "description": "Details about the vehicle to be used for the test",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "registrationNumber": {
           "description": "The vehicle registration number",
@@ -360,11 +354,38 @@
         "gearboxCategory": {
           "$ref": "#/definitions/gearboxCategory"
         },
-        "configuration": {
-          "$ref": "#/definitions/configuration"
+        "dualControls": {
+          "type": "boolean"
         }
       },
-      "additionalProperties": false
+      "required": [
+        "registrationNumber",
+        "gearboxCategory",
+        "dualControls"
+      ]
+    },
+    "trainerDetails": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "orditTrainer": {
+          "type": "boolean"
+        },
+        "pdiLogbook": {
+          "type": "boolean"
+        },
+        "traileeLicence": {
+          "type": "boolean"
+        },
+        "trainerPrn": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "orditTrainer",
+        "pdiLogbook",
+        "traileeLicence"
+      ]
     },
     "passCompletion": {
       "description": "Finalisation of a successful test outcome",
@@ -468,6 +489,9 @@
     },
     "vehicleDetails": {
       "$ref": "#/definitions/vehicleDetails"
+    },
+    "trainerDetails": {
+      "$ref": "#/definitions/trainerDetails"
     },
     "testData": {
       "$ref": "#/definitions/testData"
