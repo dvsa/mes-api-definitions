@@ -17,7 +17,7 @@ const categories = [
     'F', 'G', 'H', 'K',
 ];
 // standalone categories are categories that don't merge with the common schema
-const standaloneCategories = ['AM1', 'AM2', 'CPC', 'ADI3'];
+const standaloneCategories = ['AM1', 'AM2', 'CPC'];
 
 // Json styling config
 const options = {
