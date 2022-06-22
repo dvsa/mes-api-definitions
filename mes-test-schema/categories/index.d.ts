@@ -1,4 +1,5 @@
 import { CatADI2UniqueTypes } from './ADI2';
+import { TestResultCatADI3Schema } from './ADI3';
 import { CatBUniqueTypes } from './B';
 import { CatBEUniqueTypes } from './BE';
 import { CatCUniqueTypes } from './C';
@@ -51,4 +52,5 @@ export type TestResultSchemasUnion =
   | CatGUniqueTypes.TestResult
   | CatHUniqueTypes.TestResult
   | CatKUniqueTypes.TestResult
-  | TestResultCatCPCSchema;
+  | TestResultCatCPCSchema
+  | TestResultCatADI3Schema;

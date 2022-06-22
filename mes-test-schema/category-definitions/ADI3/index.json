@@ -7,141 +7,21 @@
       "description": "Data associated with the test",
       "properties": {
         "lessonAndTheme": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "student": {
-              "$ref": "#/definitions/studentQuestion"
-            },
-            "lessonTheme": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/lessonTheme"
-              }
-            },
-            "other": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "student",
-            "lessonTheme"
-          ]
+          "$ref": "#/definitions/lessonAndTheme"
         },
         "lessonPlanning": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "q1": {
-              "$ref": "#/definitions/question"
-            },
-            "q2": {
-              "$ref": "#/definitions/question"
-            },
-            "q3": {
-              "$ref": "#/definitions/question"
-            },
-            "q4": {
-              "$ref": "#/definitions/question"
-            },
-            "score": {
-              "description": "Overall score for questions",
-              "type": "number"
-            }
-          },
-          "required": [
-            "q1",
-            "q2",
-            "q3",
-            "q4",
-            "score"
-          ]
+          "$ref": "#/definitions/lessonPlanning"
         },
         "riskManagement": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "q1": {
-              "$ref": "#/definitions/question"
-            },
-            "q2": {
-              "$ref": "#/definitions/question"
-            },
-            "q3": {
-              "$ref": "#/definitions/question"
-            },
-            "q4": {
-              "$ref": "#/definitions/question"
-            },
-            "q5": {
-              "$ref": "#/definitions/question"
-            },
-            "score": {
-              "description": "Overall score for questions",
-              "type": "number"
-            }
-          },
-          "required": [
-            "q1",
-            "q2",
-            "q3",
-            "q4",
-            "q5",
-            "score"
-          ]
+          "$ref": "#/definitions/riskManagement"
         },
         "teachingLearningStrategies": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "q1": {
-              "$ref": "#/definitions/question"
-            },
-            "q2": {
-              "$ref": "#/definitions/question"
-            },
-            "q3": {
-              "$ref": "#/definitions/question"
-            },
-            "q4": {
-              "$ref": "#/definitions/question"
-            },
-            "q5": {
-              "$ref": "#/definitions/question"
-            },
-            "q6": {
-              "$ref": "#/definitions/question"
-            },
-            "q7": {
-              "$ref": "#/definitions/question"
-            },
-            "q8": {
-              "$ref": "#/definitions/question"
-            },
-            "score": {
-              "description": "Overall score for questions",
-              "type": "number"
-            }
-          },
-          "required": [
-            "q1",
-            "q2",
-            "q3",
-            "q4",
-            "q5",
-            "q6",
-            "q7",
-            "q8"
-          ]
+          "$ref": "#/definitions/teachingLearningStrategies"
+        },
+        "review": {
+          "$ref": "#/definitions/review"
         }
-      },
-      "required": [
-        "lessonAndTheme",
-        "lessonPlanning",
-        "riskManagement",
-        "teachingLearningStrategies",
-        "candidateReview"
-      ]
+      }
     },
     "examiner": {
       "$ref": "../common/index.json#/definitions/examiner"
@@ -224,55 +104,44 @@
       "additionalProperties": false,
       "properties": {
         "title": {
+          "description": "Question title",
           "type": "string"
         },
-        "result": {
-          "type": "string",
-          "enum": [
-            "0",
-            "1",
-            "2",
-            "3"
-          ]
+        "score": {
+          "description": "Score given for the question",
+          "type": "number"
         }
       }
     },
-    "studentQuestion": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "result": {
-          "type": "string",
-          "enum": [
-            "beginner",
-            "partlyTrained",
-            "trained",
-            "flhNew",
-            "flhExperienced"
-          ]
-        }
-      }
+    "studentLevel": {
+      "description": "Question description",
+      "type": "string",
+      "enum": [
+        "beginner",
+        "partlyTrained",
+        "trained",
+        "flhNew",
+        "flhExperienced"
+      ]
     },
     "lessonTheme": {
       "description": "List of themes for the lesson",
       "type": "string",
       "enum": [
-        "Junctions",
-        "Town&CityDriving",
-        "InteractionWithOtherRoadUsers",
-        "DualCarriagewayFasterRoads",
-        "DefensiveDriving",
-        "EffectiveUseOfMirrors",
-        "IndependentDriving",
-        "RuralRoads",
-        "Motorways",
-        "EcoSafeDriving",
-        "RecapAManoeuvre",
-        "Commentary",
-        "RecapEmergencyStop"
+        "junctions",
+        "townCityDriving",
+        "interactionWithOtherRoadUsers",
+        "dualCarriagewayFasterRoads",
+        "defensiveDriving",
+        "effectiveUseOfMirrors",
+        "independentDriving",
+        "ruralRoads",
+        "motorways",
+        "ecoSafeDriving",
+        "recapAManoeuvre",
+        "commentary",
+        "recapEmergencyStop",
+        "other"
       ]
     },
     "gearboxCategory": {
@@ -311,7 +180,11 @@
           "$ref": "#/definitions/identification"
         },
         "weatherConditions": {
-          "$ref": "../common/index.json#/definitions/weatherConditions"
+          "description": "Description of the type of weather encountered during the test",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/weatherConditions"
+          }
         },
         "additionalInformation": {
           "description": "Any comments that the DE wants to record about the test",
@@ -319,6 +192,13 @@
         }
       },
       "additionalProperties": false
+    },
+    "weatherConditions": {
+      "description": "Description of the type of weather encountered during the test",
+      "type": "array",
+      "items": {
+        "$ref": "../common/index.json#/definitions/weatherConditions"
+      }
     },
     "categoryCode": {
       "$ref": "../common/index.json#/definitions/categoryCode"
@@ -355,6 +235,7 @@
           "$ref": "#/definitions/gearboxCategory"
         },
         "dualControls": {
+          "description": "Indicates whether or not the vehicle has dual controls fitted",
           "type": "boolean"
         }
       },
@@ -368,24 +249,24 @@
       "additionalProperties": false,
       "type": "object",
       "properties": {
-        "orditTrainer": {
+        "orditTrainedCandidate": {
+          "description": "Did the candidate receive training from an ORDIT trainer",
           "type": "boolean"
         },
         "pdiLogbook": {
+          "description": "Does the PDI have a logbook",
           "type": "boolean"
         },
-        "traileeLicence": {
+        "traineeLicence": {
+          "description": "Does the trainee have a licence",
           "type": "boolean"
         },
-        "trainerPrn": {
-          "type": "string"
+        "trainerRegistrationNumber": {
+          "description": "Trainer registration number (PRN)",
+          "type": "number",
+          "maxLength": 7
         }
-      },
-      "required": [
-        "orditTrainer",
-        "pdiLogbook",
-        "traileeLicence"
-      ]
+      }
     },
     "passCompletion": {
       "description": "Finalisation of a successful test outcome",
@@ -412,6 +293,125 @@
       "description": "Telephone number of the business the candidate relates to",
       "type": "string",
       "maxLength": 20
+    },
+    "lessonAndTheme": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "studentLevel": {
+          "$ref": "#/definitions/studentLevel"
+        },
+        "lessonTheme": {
+          "type": "array",
+          "description": "List of lesson themes",
+          "items": {
+            "$ref": "#/definitions/lessonTheme"
+          }
+        },
+        "other": {
+          "description": "Other description",
+          "type": "string"
+        }
+      }
+    },
+    "lessonPlanning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "q1": {
+          "$ref": "#/definitions/question"
+        },
+        "q2": {
+          "$ref": "#/definitions/question"
+        },
+        "q3": {
+          "$ref": "#/definitions/question"
+        },
+        "q4": {
+          "$ref": "#/definitions/question"
+        },
+        "score": {
+          "description": "Overall score for questions",
+          "type": "number"
+        }
+      }
+    },
+    "riskManagement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "q1": {
+          "$ref": "#/definitions/question"
+        },
+        "q2": {
+          "$ref": "#/definitions/question"
+        },
+        "q3": {
+          "$ref": "#/definitions/question"
+        },
+        "q4": {
+          "$ref": "#/definitions/question"
+        },
+        "q5": {
+          "$ref": "#/definitions/question"
+        },
+        "score": {
+          "description": "Overall score for questions",
+          "type": "number"
+        }
+      }
+    },
+    "teachingLearningStrategies": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "q1": {
+          "$ref": "#/definitions/question"
+        },
+        "q2": {
+          "$ref": "#/definitions/question"
+        },
+        "q3": {
+          "$ref": "#/definitions/question"
+        },
+        "q4": {
+          "$ref": "#/definitions/question"
+        },
+        "q5": {
+          "$ref": "#/definitions/question"
+        },
+        "q6": {
+          "$ref": "#/definitions/question"
+        },
+        "q7": {
+          "$ref": "#/definitions/question"
+        },
+        "q8": {
+          "$ref": "#/definitions/question"
+        },
+        "score": {
+          "description": "Overall score for questions",
+          "type": "number"
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "immediateDanger": {
+          "description": "Whether at any point there was an incident/behavior that put someone in potential danger",
+          "type": "boolean"
+        },
+        "seekFurtherDevelopment": {
+          "description": "Whether advice was given to seek further development to the candidate",
+          "type": "boolean"
+        },
+        "feedback": {
+          "description": "Feedback offered to candidate",
+          "type": "string"
+        }
+      }
     }
   },
   "properties": {
