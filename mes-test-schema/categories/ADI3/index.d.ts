@@ -147,12 +147,12 @@ export type Signature = string;
  */
 export type Identification = "Photocard" | "Passport" | "TraineeLicence";
 /**
- * Description of the type of weather encountered during the test
+ * Predefined values for the type of weather encountered during the test
  *
  * This interface was referenced by `TestResultCatADI3Schema`'s JSON-Schema
  * via the `definition` "weatherConditions".
  */
-export type WeatherConditions = (
+export type WeatherConditions =
   | "Bright / dry roads"
   | "Bright / wet roads"
   | "Raining through test"
@@ -162,7 +162,7 @@ export type WeatherConditions = (
   | "Dull / dry roads"
   | "Snowing"
   | "Icy"
-  | "Windy")[];
+  | "Windy";
 /**
  * The type of gearbox
  *

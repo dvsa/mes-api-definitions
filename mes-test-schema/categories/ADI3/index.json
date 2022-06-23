@@ -1199,24 +1199,20 @@
 					"description": "Description of the type of weather encountered during the test",
 					"type": "array",
 					"items": {
-						"description": "Description of the type of weather encountered during the test",
-						"type": "array",
-						"items": {
-							"description": "Predefined values for the type of weather encountered during the test",
-							"type": "string",
-							"enum": [
-								"Bright / dry roads",
-								"Bright / wet roads",
-								"Raining through test",
-								"Showers",
-								"Foggy / misty",
-								"Dull / wet roads",
-								"Dull / dry roads",
-								"Snowing",
-								"Icy",
-								"Windy"
-							]
-						}
+						"description": "Predefined values for the type of weather encountered during the test",
+						"type": "string",
+						"enum": [
+							"Bright / dry roads",
+							"Bright / wet roads",
+							"Raining through test",
+							"Showers",
+							"Foggy / misty",
+							"Dull / wet roads",
+							"Dull / dry roads",
+							"Snowing",
+							"Icy",
+							"Windy"
+						]
 					}
 				},
 				"additionalInformation": {
@@ -1227,24 +1223,20 @@
 			"additionalProperties": false
 		},
 		"weatherConditions": {
-			"description": "Description of the type of weather encountered during the test",
-			"type": "array",
-			"items": {
-				"description": "Predefined values for the type of weather encountered during the test",
-				"type": "string",
-				"enum": [
-					"Bright / dry roads",
-					"Bright / wet roads",
-					"Raining through test",
-					"Showers",
-					"Foggy / misty",
-					"Dull / wet roads",
-					"Dull / dry roads",
-					"Snowing",
-					"Icy",
-					"Windy"
-				]
-			}
+			"description": "Predefined values for the type of weather encountered during the test",
+			"type": "string",
+			"enum": [
+				"Bright / dry roads",
+				"Bright / wet roads",
+				"Raining through test",
+				"Showers",
+				"Foggy / misty",
+				"Dull / wet roads",
+				"Dull / dry roads",
+				"Snowing",
+				"Icy",
+				"Windy"
+			]
 		},
 		"categoryCode": {
 			"description": "Category code for the test report",
@@ -2415,24 +2407,20 @@
 					"description": "Description of the type of weather encountered during the test",
 					"type": "array",
 					"items": {
-						"description": "Description of the type of weather encountered during the test",
-						"type": "array",
-						"items": {
-							"description": "Predefined values for the type of weather encountered during the test",
-							"type": "string",
-							"enum": [
-								"Bright / dry roads",
-								"Bright / wet roads",
-								"Raining through test",
-								"Showers",
-								"Foggy / misty",
-								"Dull / wet roads",
-								"Dull / dry roads",
-								"Snowing",
-								"Icy",
-								"Windy"
-							]
-						}
+						"description": "Predefined values for the type of weather encountered during the test",
+						"type": "string",
+						"enum": [
+							"Bright / dry roads",
+							"Bright / wet roads",
+							"Raining through test",
+							"Showers",
+							"Foggy / misty",
+							"Dull / wet roads",
+							"Dull / dry roads",
+							"Snowing",
+							"Icy",
+							"Windy"
+						]
 					}
 				},
 				"additionalInformation": {

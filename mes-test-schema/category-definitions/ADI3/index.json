@@ -194,11 +194,7 @@
       "additionalProperties": false
     },
     "weatherConditions": {
-      "description": "Description of the type of weather encountered during the test",
-      "type": "array",
-      "items": {
-        "$ref": "../common/index.json#/definitions/weatherConditions"
-      }
+      "$ref": "../common/index.json#/definitions/weatherConditions"
     },
     "categoryCode": {
       "$ref": "../common/index.json#/definitions/categoryCode"
