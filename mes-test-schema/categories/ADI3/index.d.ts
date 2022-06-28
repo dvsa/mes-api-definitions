@@ -140,30 +140,6 @@ export type ConductedLanguage = "English" | "Cymraeg" | "Not provided";
  */
 export type Signature = string;
 /**
- * Indicates which form of ID was provided by the candidate
- *
- * This interface was referenced by `TestResultCatADI3Schema`'s JSON-Schema
- * via the `definition` "identification".
- */
-export type Identification = "Photocard" | "Passport" | "TraineeLicence";
-/**
- * Predefined values for the type of weather encountered during the test
- *
- * This interface was referenced by `TestResultCatADI3Schema`'s JSON-Schema
- * via the `definition` "weatherConditions".
- */
-export type WeatherConditions =
-  | "Bright / dry roads"
-  | "Bright / wet roads"
-  | "Raining through test"
-  | "Showers"
-  | "Foggy / misty"
-  | "Dull / wet roads"
-  | "Dull / dry roads"
-  | "Snowing"
-  | "Icy"
-  | "Windy";
-/**
  * The type of gearbox
  *
  * This interface was referenced by `TestResultCatADI3Schema`'s JSON-Schema
@@ -521,6 +497,10 @@ export interface PreTestDeclarations {
    * Whether or not the candidate has declared that their test vehicle has a valid insurance policy
    */
   insuranceDeclarationAccepted: boolean;
+  /**
+   * Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test
+   */
+  residencyDeclarationAccepted: boolean;
   preTestSignature: Signature;
 }
 /**
@@ -570,22 +550,9 @@ export interface PostTestDeclarations {
  */
 export interface TestSummary {
   /**
-   * Physical appearance resembles a true likeness to provided ID
-   */
-  trueLikenessToPhoto?: boolean;
-  /**
-   * Physical description of the candidate
-   */
-  candidateDescription?: string;
-  /**
    * Indicates whether anybody else (e.g. ADI) was present for the debrief
    */
   debriefWitnessed?: boolean;
-  identification?: Identification;
-  /**
-   * Description of the type of weather encountered during the test
-   */
-  weatherConditions?: WeatherConditions[];
   /**
    * Any comments that the DE wants to record about the test
    */
@@ -680,12 +647,12 @@ export interface VehicleDetails {
   /**
    * The vehicle registration number
    */
-  registrationNumber: string;
-  gearboxCategory: GearboxCategory;
+  registrationNumber?: string;
+  gearboxCategory?: GearboxCategory;
   /**
    * Indicates whether or not the vehicle has dual controls fitted
    */
-  dualControls: boolean;
+  dualControls?: boolean;
 }
 /**
  * This interface was referenced by `TestResultCatADI3Schema`'s JSON-Schema
@@ -731,7 +698,7 @@ export interface LessonAndTheme {
   /**
    * List of lesson themes
    */
-  lessonTheme?: LessonTheme[];
+  lessonThemes?: LessonTheme[];
   /**
    * Other description
    */
@@ -811,6 +778,10 @@ export interface Review {
    * Whether advice was given to seek further development to the candidate
    */
   seekFurtherDevelopment?: boolean;
+  /**
+   * Reason for no advice given to candidate
+   */
+  reasonForNoAdviceGiven?: string;
   /**
    * Feedback offered to candidate
    */

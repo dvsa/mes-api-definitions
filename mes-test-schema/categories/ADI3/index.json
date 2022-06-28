@@ -21,7 +21,7 @@
 								"flhExperienced"
 							]
 						},
-						"lessonTheme": {
+						"lessonThemes": {
 							"type": "array",
 							"description": "List of lesson themes",
 							"items": {
@@ -330,6 +330,10 @@
 						"seekFurtherDevelopment": {
 							"description": "Whether advice was given to seek further development to the candidate",
 							"type": "boolean"
+						},
+						"reasonForNoAdviceGiven": {
+							"description": "Reason for no advice given to candidate",
+							"type": "string"
 						},
 						"feedback": {
 							"description": "Feedback offered to candidate",
@@ -1056,6 +1060,10 @@
 					"description": "Whether or not the candidate has declared that their test vehicle has a valid insurance policy",
 					"type": "boolean"
 				},
+				"residencyDeclarationAccepted": {
+					"description": "Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test",
+					"type": "boolean"
+				},
 				"preTestSignature": {
 					"description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
 					"type": "string"
@@ -1063,6 +1071,7 @@
 			},
 			"required": [
 				"insuranceDeclarationAccepted",
+				"residencyDeclarationAccepted",
 				"preTestSignature"
 			]
 		},
@@ -1160,60 +1169,13 @@
 			},
 			"additionalProperties": false
 		},
-		"identification": {
-			"description": "Indicates which form of ID was provided by the candidate",
-			"type": "string",
-			"enum": [
-				"Photocard",
-				"Passport",
-				"TraineeLicence"
-			]
-		},
 		"testSummary": {
 			"description": "Recording of other characteristics of the test",
 			"type": "object",
 			"properties": {
-				"trueLikenessToPhoto": {
-					"description": "Physical appearance resembles a true likeness to provided ID",
-					"type": "boolean"
-				},
-				"candidateDescription": {
-					"description": "Physical description of the candidate",
-					"type": "string",
-					"maxLength": 1000
-				},
 				"debriefWitnessed": {
 					"description": "Indicates whether anybody else (e.g. ADI) was present for the debrief",
 					"type": "boolean"
-				},
-				"identification": {
-					"description": "Indicates which form of ID was provided by the candidate",
-					"type": "string",
-					"enum": [
-						"Photocard",
-						"Passport",
-						"TraineeLicence"
-					]
-				},
-				"weatherConditions": {
-					"description": "Description of the type of weather encountered during the test",
-					"type": "array",
-					"items": {
-						"description": "Predefined values for the type of weather encountered during the test",
-						"type": "string",
-						"enum": [
-							"Bright / dry roads",
-							"Bright / wet roads",
-							"Raining through test",
-							"Showers",
-							"Foggy / misty",
-							"Dull / wet roads",
-							"Dull / dry roads",
-							"Snowing",
-							"Icy",
-							"Windy"
-						]
-					}
 				},
 				"additionalInformation": {
 					"description": "Any comments that the DE wants to record about the test",
@@ -1221,22 +1183,6 @@
 				}
 			},
 			"additionalProperties": false
-		},
-		"weatherConditions": {
-			"description": "Predefined values for the type of weather encountered during the test",
-			"type": "string",
-			"enum": [
-				"Bright / dry roads",
-				"Bright / wet roads",
-				"Raining through test",
-				"Showers",
-				"Foggy / misty",
-				"Dull / wet roads",
-				"Dull / dry roads",
-				"Snowing",
-				"Icy",
-				"Windy"
-			]
 		},
 		"categoryCode": {
 			"description": "Category code for the test report",
@@ -1485,12 +1431,7 @@
 					"description": "Indicates whether or not the vehicle has dual controls fitted",
 					"type": "boolean"
 				}
-			},
-			"required": [
-				"registrationNumber",
-				"gearboxCategory",
-				"dualControls"
-			]
+			}
 		},
 		"trainerDetails": {
 			"additionalProperties": false,
@@ -1556,7 +1497,7 @@
 						"flhExperienced"
 					]
 				},
-				"lessonTheme": {
+				"lessonThemes": {
 					"type": "array",
 					"description": "List of lesson themes",
 					"items": {
@@ -1865,6 +1806,10 @@
 				"seekFurtherDevelopment": {
 					"description": "Whether advice was given to seek further development to the candidate",
 					"type": "boolean"
+				},
+				"reasonForNoAdviceGiven": {
+					"description": "Reason for no advice given to candidate",
+					"type": "string"
 				},
 				"feedback": {
 					"description": "Feedback offered to candidate",
@@ -2326,6 +2271,10 @@
 					"description": "Whether or not the candidate has declared that their test vehicle has a valid insurance policy",
 					"type": "boolean"
 				},
+				"residencyDeclarationAccepted": {
+					"description": "Whether or not the candidate has declared that they have lived in the UK for a period acceptable for taking the test",
+					"type": "boolean"
+				},
 				"preTestSignature": {
 					"description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
 					"type": "string"
@@ -2333,6 +2282,7 @@
 			},
 			"required": [
 				"insuranceDeclarationAccepted",
+				"residencyDeclarationAccepted",
 				"preTestSignature"
 			]
 		},
@@ -2381,47 +2331,9 @@
 			"description": "Recording of other characteristics of the test",
 			"type": "object",
 			"properties": {
-				"trueLikenessToPhoto": {
-					"description": "Physical appearance resembles a true likeness to provided ID",
-					"type": "boolean"
-				},
-				"candidateDescription": {
-					"description": "Physical description of the candidate",
-					"type": "string",
-					"maxLength": 1000
-				},
 				"debriefWitnessed": {
 					"description": "Indicates whether anybody else (e.g. ADI) was present for the debrief",
 					"type": "boolean"
-				},
-				"identification": {
-					"description": "Indicates which form of ID was provided by the candidate",
-					"type": "string",
-					"enum": [
-						"Photocard",
-						"Passport",
-						"TraineeLicence"
-					]
-				},
-				"weatherConditions": {
-					"description": "Description of the type of weather encountered during the test",
-					"type": "array",
-					"items": {
-						"description": "Predefined values for the type of weather encountered during the test",
-						"type": "string",
-						"enum": [
-							"Bright / dry roads",
-							"Bright / wet roads",
-							"Raining through test",
-							"Showers",
-							"Foggy / misty",
-							"Dull / wet roads",
-							"Dull / dry roads",
-							"Snowing",
-							"Icy",
-							"Windy"
-						]
-					}
 				},
 				"additionalInformation": {
 					"description": "Any comments that the DE wants to record about the test",
@@ -2562,12 +2474,7 @@
 					"description": "Indicates whether or not the vehicle has dual controls fitted",
 					"type": "boolean"
 				}
-			},
-			"required": [
-				"registrationNumber",
-				"gearboxCategory",
-				"dualControls"
-			]
+			}
 		},
 		"trainerDetails": {
 			"additionalProperties": false,
@@ -2611,7 +2518,7 @@
 								"flhExperienced"
 							]
 						},
-						"lessonTheme": {
+						"lessonThemes": {
 							"type": "array",
 							"description": "List of lesson themes",
 							"items": {
@@ -2920,6 +2827,10 @@
 						"seekFurtherDevelopment": {
 							"description": "Whether advice was given to seek further development to the candidate",
 							"type": "boolean"
+						},
+						"reasonForNoAdviceGiven": {
+							"description": "Reason for no advice given to candidate",
+							"type": "string"
 						},
 						"feedback": {
 							"description": "Feedback offered to candidate",
