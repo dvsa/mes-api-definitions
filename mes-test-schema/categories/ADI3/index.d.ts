@@ -515,13 +515,9 @@ export interface Accompaniment {
    */
   supervisor?: boolean;
   /**
-   * Indicates whether an interpreter was present during the test
+   * Indicates whether a trainer was present during the test
    */
-  interpreter?: boolean;
-  /**
-   * Indicates whether an instructor was present during the test
-   */
-  instructor?: boolean;
+  trainer?: boolean;
   /**
    * Indicates whether another type of person was present during the test
    */

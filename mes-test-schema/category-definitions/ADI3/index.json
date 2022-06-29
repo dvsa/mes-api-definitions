@@ -89,12 +89,8 @@
           "description": "Indicates whether a DVSA supervisor was present during the test",
           "type": "boolean"
         },
-        "interpreter": {
-          "description": "Indicates whether an interpreter was present during the test",
-          "type": "boolean"
-        },
-        "instructor": {
-          "description": "Indicates whether an instructor was present during the test",
+        "trainer": {
+          "description": "Indicates whether a trainer was present during the test",
           "type": "boolean"
         },
         "other": {
