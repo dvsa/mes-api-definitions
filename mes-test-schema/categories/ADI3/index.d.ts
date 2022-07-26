@@ -782,4 +782,8 @@ export interface Review {
    * Feedback offered to candidate
    */
   feedback?: string;
+  /**
+   * ADI3 have different levels of passes represented in grade form
+   */
+  grade?: string;
 }
