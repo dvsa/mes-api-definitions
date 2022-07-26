@@ -375,6 +375,10 @@
         "feedback": {
           "description": "Feedback offered to candidate",
           "type": "string"
+        },
+        "grade": {
+          "description": "ADI3 have different levels of passes represented in grade form",
+          "type": "string"
         }
       }
     }
