@@ -1467,10 +1467,7 @@
 					"minLength": 8
 				}
 			},
-			"additionalProperties": false,
-			"required": [
-				"passCertificateNumber"
-			]
+			"additionalProperties": false
 		},
 		"businessName": {
 			"description": "Name of the business the candidate relates to",
@@ -2447,10 +2444,7 @@
 					"minLength": 8
 				}
 			},
-			"additionalProperties": false,
-			"required": [
-				"passCertificateNumber"
-			]
+			"additionalProperties": false
 		},
 		"vehicleDetails": {
 			"description": "Details about the vehicle to be used for the test",

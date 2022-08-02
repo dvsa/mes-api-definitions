@@ -631,7 +631,7 @@ export interface PassCompletion {
   /**
    * The PCN issued to the candidate
    */
-  passCertificateNumber: string;
+  passCertificateNumber?: string;
 }
 /**
  * Details about the vehicle to be used for the test
