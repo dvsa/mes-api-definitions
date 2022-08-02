@@ -89,6 +89,10 @@ export interface SearchResultTestSchema {
    * The PCN issued to the candidate
    */
   passCertificateNumber?: string;
+  /**
+   * ADI3 grade assigned for a pass outcome
+   */
+  grade?: string;
 }
 /**
  * Details of the individual's name
