@@ -240,10 +240,7 @@
           "minLength": 8
         }
       },
-      "additionalProperties": false,
-      "required": [
-        "passCertificateNumber"
-      ]
+      "additionalProperties": false
     },
     "businessName": {
       "description": "Name of the business the candidate relates to",
