@@ -41,6 +41,10 @@
     "passCertificateNumber": {
       "description": "The PCN issued to the candidate",
       "type": "string"
+    },
+    "grade": {
+      "description": "ADI3 grade assigned for a pass outcome",
+      "type": "string"
     }
   },
   "definitions": {
