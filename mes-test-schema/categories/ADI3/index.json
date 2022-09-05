@@ -1177,6 +1177,10 @@
 					"description": "Indicates whether anybody else (e.g. ADI) was present for the debrief",
 					"type": "boolean"
 				},
+				"D255": {
+					"description": "Indicates whether a D255 form needs to be completed",
+					"type": "boolean"
+				},
 				"additionalInformation": {
 					"description": "Any comments that the DE wants to record about the test",
 					"type": "string"
@@ -2330,6 +2334,10 @@
 			"properties": {
 				"debriefWitnessed": {
 					"description": "Indicates whether anybody else (e.g. ADI) was present for the debrief",
+					"type": "boolean"
+				},
+				"D255": {
+					"description": "Indicates whether a D255 form needs to be completed",
 					"type": "boolean"
 				},
 				"additionalInformation": {
