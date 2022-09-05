@@ -550,6 +550,10 @@ export interface TestSummary {
    */
   debriefWitnessed?: boolean;
   /**
+   * Indicates whether a D255 form needs to be completed
+   */
+  D255?: boolean;
+  /**
    * Any comments that the DE wants to record about the test
    */
   additionalInformation?: string;
