@@ -1,6 +1,6 @@
 {
   "name": "@dvsa/mes-journal-schema",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "JSON Schema of examiner journal data sourced from TARS",
   "types": "index.d.ts",
   "scripts": {
