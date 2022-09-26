@@ -344,6 +344,14 @@
 							"type": "string"
 						}
 					}
+				},
+				"testDuration": {
+					"description": "Duration of test - specifically needed for Standards Checks",
+					"type": "string"
+				},
+				"totalScore": {
+					"description": "Overall score for questions",
+					"type": "number"
 				}
 			}
 		},
@@ -2843,6 +2851,14 @@
 							"type": "string"
 						}
 					}
+				},
+				"testDuration": {
+					"description": "Duration of test - specifically needed for Standards Checks",
+					"type": "string"
+				},
+				"totalScore": {
+					"description": "Overall score for questions",
+					"type": "number"
 				}
 			}
 		}

@@ -20,6 +20,14 @@
         },
         "review": {
           "$ref": "#/definitions/review"
+        },
+        "testDuration": {
+          "description": "Duration of test - specifically needed for Standards Checks",
+          "type": "string"
+        },
+        "totalScore": {
+          "description": "Overall score for questions",
+          "type": "number"
         }
       }
     },

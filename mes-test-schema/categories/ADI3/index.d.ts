@@ -688,6 +688,14 @@ export interface TestData {
   riskManagement?: RiskManagement;
   teachingLearningStrategies?: TeachingLearningStrategies;
   review?: Review;
+  /**
+   * Duration of test - specifically needed for Standards Checks
+   */
+  testDuration?: string;
+  /**
+   * Overall score for questions
+   */
+  totalScore?: number;
 }
 /**
  * This interface was referenced by `TestResultCatADI3Schema`'s JSON-Schema
