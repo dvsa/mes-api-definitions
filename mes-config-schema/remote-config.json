@@ -155,6 +155,30 @@
       "required": [
         "findUserUrl"
       ]
+    },
+    "driver": {
+      "description": "Driver related configuration properties",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "photographUrl": {
+          "description": "Url which is used for finding a driver photograph",
+          "type": "string"
+        },
+        "signatureUrl": {
+          "description": "Url which is used for finding a driver signature",
+          "type": "string"
+        },
+        "enhancedUrl": {
+          "description": "Url which is used for finding enhanced driver data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "photographUrl",
+        "signatureUrl",
+        "enhancedUrl"
+      ]
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
@@ -195,6 +219,9 @@
     "user": {
       "$ref": "#/definitions/user"
     },
+    "driver": {
+      "$ref": "#/definitions/driver"
+    },
     "requestTimeout": {
       "description": "The number of milliseconds that we wait before a request times out in the App",
       "type": "number"
@@ -207,6 +234,7 @@
     "journal",
     "tests",
     "user",
+    "driver",
     "requestTimeout",
     "employeeNameKey"
   ]

@@ -34,6 +34,7 @@ export interface RemoteConfig {
   journal: Journal;
   tests: Tests;
   user: User;
+  driver: Driver;
   /**
    * The number of milliseconds that we wait before a request times out in the App
    */
@@ -134,4 +135,21 @@ export interface User {
    * Url which is used for finding a user
    */
   findUserUrl: string;
+}
+/**
+ * Driver related configuration properties
+ */
+export interface Driver {
+  /**
+   * Url which is used for finding a driver photograph
+   */
+  photographUrl: string;
+  /**
+   * Url which is used for finding a driver signature
+   */
+  signatureUrl: string;
+  /**
+   * Url which is used for finding enhanced driver data
+   */
+  enhancedUrl: string;
 }
