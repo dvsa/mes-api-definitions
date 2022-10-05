@@ -344,6 +344,18 @@
 							"type": "string"
 						}
 					}
+				},
+				"startTime": {
+					"description": "Start time of test",
+					"type": "string"
+				},
+				"endTime": {
+					"description": "End time of test",
+					"type": "string"
+				},
+				"totalScore": {
+					"description": "Overall score for questions",
+					"type": "number"
 				}
 			}
 		},
@@ -1071,12 +1083,17 @@
 				"preTestSignature": {
 					"description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
 					"type": "string"
+				},
+				"validCertificate": {
+					"description": "Whether there candidate held/presented a valid certificate",
+					"type": "boolean"
 				}
 			},
 			"required": [
 				"insuranceDeclarationAccepted",
 				"residencyDeclarationAccepted",
-				"preTestSignature"
+				"preTestSignature",
+				"validCertificate"
 			]
 		},
 		"accompaniment": {
@@ -2283,12 +2300,17 @@
 				"preTestSignature": {
 					"description": "Base 64 encoded binary data representing a PNG image of the candidates signature",
 					"type": "string"
+				},
+				"validCertificate": {
+					"description": "Whether there candidate held/presented a valid certificate",
+					"type": "boolean"
 				}
 			},
 			"required": [
 				"insuranceDeclarationAccepted",
 				"residencyDeclarationAccepted",
-				"preTestSignature"
+				"preTestSignature",
+				"validCertificate"
 			]
 		},
 		"accompaniment": {
@@ -2843,6 +2865,18 @@
 							"type": "string"
 						}
 					}
+				},
+				"startTime": {
+					"description": "Start time of test",
+					"type": "string"
+				},
+				"endTime": {
+					"description": "End time of test",
+					"type": "string"
+				},
+				"totalScore": {
+					"description": "Overall score for questions",
+					"type": "number"
 				}
 			}
 		}

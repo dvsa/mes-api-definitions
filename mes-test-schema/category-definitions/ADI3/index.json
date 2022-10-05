@@ -20,6 +20,18 @@
         },
         "review": {
           "$ref": "#/definitions/review"
+        },
+        "startTime": {
+          "description": "Start time of test",
+          "type": "string"
+        },
+        "endTime": {
+          "description": "End time of test",
+          "type": "string"
+        },
+        "totalScore": {
+          "description": "Overall score for questions",
+          "type": "number"
         }
       }
     },
@@ -73,12 +85,17 @@
         },
         "preTestSignature": {
           "$ref": "#/definitions/signature"
+        },
+        "validCertificate": {
+          "description": "Whether there candidate held/presented a valid certificate",
+          "type": "boolean"
         }
       },
       "required": [
         "insuranceDeclarationAccepted",
         "residencyDeclarationAccepted",
-        "preTestSignature"
+        "preTestSignature",
+        "validCertificate"
       ]
     },
     "accompaniment": {

@@ -502,6 +502,10 @@ export interface PreTestDeclarations {
    */
   residencyDeclarationAccepted: boolean;
   preTestSignature: Signature;
+  /**
+   * Whether there candidate held/presented a valid certificate
+   */
+  validCertificate: boolean;
 }
 /**
  * Indicators for anybody else overseeing the test
@@ -688,6 +692,18 @@ export interface TestData {
   riskManagement?: RiskManagement;
   teachingLearningStrategies?: TeachingLearningStrategies;
   review?: Review;
+  /**
+   * Start time of test
+   */
+  startTime?: string;
+  /**
+   * End time of test
+   */
+  endTime?: string;
+  /**
+   * Overall score for questions
+   */
+  totalScore?: number;
 }
 /**
  * This interface was referenced by `TestResultCatADI3Schema`'s JSON-Schema
