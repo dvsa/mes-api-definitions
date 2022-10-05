@@ -21,8 +21,12 @@
         "review": {
           "$ref": "#/definitions/review"
         },
-        "testDuration": {
-          "description": "Duration of test - specifically needed for Standards Checks",
+        "startTime": {
+          "description": "Start time of test",
+          "type": "string"
+        },
+        "endTime": {
+          "description": "End time of test",
           "type": "string"
         },
         "totalScore": {
@@ -81,12 +85,17 @@
         },
         "preTestSignature": {
           "$ref": "#/definitions/signature"
+        },
+        "validCertificate": {
+          "description": "Whether there candidate held/presented a valid certificate",
+          "type": "boolean"
         }
       },
       "required": [
         "insuranceDeclarationAccepted",
         "residencyDeclarationAccepted",
-        "preTestSignature"
+        "preTestSignature",
+        "validCertificate"
       ]
     },
     "accompaniment": {

@@ -502,6 +502,10 @@ export interface PreTestDeclarations {
    */
   residencyDeclarationAccepted: boolean;
   preTestSignature: Signature;
+  /**
+   * Whether there candidate held/presented a valid certificate
+   */
+  validCertificate: boolean;
 }
 /**
  * Indicators for anybody else overseeing the test
@@ -689,9 +693,13 @@ export interface TestData {
   teachingLearningStrategies?: TeachingLearningStrategies;
   review?: Review;
   /**
-   * Duration of test - specifically needed for Standards Checks
+   * Start time of test
    */
-  testDuration?: string;
+  startTime?: string;
+  /**
+   * End time of test
+   */
+  endTime?: string;
   /**
    * Overall score for questions
    */
