@@ -149,7 +149,7 @@ export interface Driver {
    */
   signatureUrl: string;
   /**
-   * Url which is used for finding enhanced driver data
+   * Url which is used for finding standard driver data
    */
-  enhancedUrl: string;
+  standardUrl: string;
 }

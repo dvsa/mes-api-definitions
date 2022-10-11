@@ -169,15 +169,15 @@
           "description": "Url which is used for finding a driver signature",
           "type": "string"
         },
-        "enhancedUrl": {
-          "description": "Url which is used for finding enhanced driver data",
+        "standardUrl": {
+          "description": "Url which is used for finding standard driver data",
           "type": "string"
         }
       },
       "required": [
         "photographUrl",
         "signatureUrl",
-        "enhancedUrl"
+        "standardUrl"
       ]
     }
   },
