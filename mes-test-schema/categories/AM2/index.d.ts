@@ -1060,6 +1060,18 @@ export interface Eco {
    * Indicates that advice was given on the Planning aspect of eco driving
    */
   adviceGivenPlanning?: boolean;
+  /**
+   * Fault that relates to the Eco selection
+   */
+  ecoRelatedFault?: string;
+  /**
+   * Reason for Eco capture
+   */
+  ecoCaptureReason?: string;
+  /**
+   * Whether the candidate exemplified efficient driving
+   */
+  fuelEfficientDriving?: boolean;
 }
 /**
  * This interface was referenced by `TestResultCatAM2Schema`'s JSON-Schema
