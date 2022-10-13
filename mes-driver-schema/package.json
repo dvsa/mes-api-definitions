@@ -1,0 +1,22 @@
+{
+  "name": "@dvsa/mes-driver-schema",
+  "version": "0.0.1",
+  "description": "JSON Schema of candidate driver data sourced from DVLA",
+  "types": "index.d.ts",
+  "scripts": {
+    "generate": "json2ts -i index.json -o index.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvsa/mes-api-definitions.git"
+  },
+  "author": "DVSA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dvsa/mes-api-definitions/issues"
+  },
+  "homepage": "https://github.com/dvsa/mes-api-definitions",
+  "devDependencies": {
+    "json-schema-to-typescript": "^11.0.2"
+  }
+}

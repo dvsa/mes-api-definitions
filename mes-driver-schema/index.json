@@ -1,0 +1,592 @@
+{
+  "title": "Driver licence schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "driverPhotograph",
+    "driverSignature",
+    "driverStandard"
+  ],
+  "properties": {
+    "driverPhotograph": {
+      "$ref": "#/definitions/driverPhotograph"
+    },
+    "driverSignature": {
+      "$ref": "#/definitions/driverSignature"
+    },
+    "driverStandard": {
+      "$ref": "#/definitions/driverStandard"
+    }
+  },
+  "definitions": {
+    "driverPhotograph": {
+      "description": "Driver photograph wrapper",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "photograph"
+      ],
+      "properties": {
+        "photograph": {
+          "$ref": "#/definitions/photograph"
+        }
+      }
+    },
+    "driverSignature": {
+      "description": "Driver signature wrapper",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signature"
+      ],
+      "properties": {
+        "signature": {
+          "$ref": "#/definitions/signature"
+        }
+      }
+    },
+    "photograph": {
+      "description": "Image data pertaining to the photograph",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "image",
+        "imageFormat"
+      ],
+      "properties": {
+        "image": {
+          "description": "Image string representing the signature",
+          "type": "string"
+        },
+        "imageFormat": {
+          "description": "Image format of the signature",
+          "type": "string"
+        }
+      }
+    },
+    "signature": {
+      "description": "Image data pertaining to the signature",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "image",
+        "imageFormat"
+      ],
+      "properties": {
+        "image": {
+          "description": "Image string representing the photo",
+          "type": "string"
+        },
+        "imageFormat": {
+          "description": "Image format of the photo",
+          "type": "string"
+        }
+      }
+    },
+    "driverStandard": {
+      "description": "Standard candidate data",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "driver",
+        "licence",
+        "entitlement",
+        "token"
+      ],
+      "properties": {
+        "driver": {
+          "$ref": "#/definitions/driver"
+        },
+        "licence": {
+          "$ref": "#/definitions/licence"
+        },
+        "entitlement": {
+          "description": "Entitlements of the candidate",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/entitlement"
+          }
+        },
+        "token": {
+          "$ref": "#/definitions/token"
+        }
+      }
+    },
+    "address": {
+      "description": "Candidate address",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "unstructuredAddress": {
+          "$ref": "#/definitions/unstructuredAddress"
+        },
+        "structuredAddress": {
+          "$ref": "#/definitions/structuredAddress"
+        }
+      }
+    },
+    "unstructuredAddress": {
+      "description": "Unstructured subsection of address",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "line1",
+        "line2",
+        "line3",
+        "line4",
+        "line5",
+        "postcode",
+        "county",
+        "language",
+        "dps",
+        "mailsort"
+      ],
+      "properties": {
+        "line1": {
+          "description": "Candidate address line 1",
+          "type": "string"
+        },
+        "line2": {
+          "description": "Candidate address line 2",
+          "type": "string"
+        },
+        "line3": {
+          "description": "Candidate address line 3",
+          "type": "string"
+        },
+        "line4": {
+          "description": "Candidate address line 4",
+          "type": "string"
+        },
+        "line5": {
+          "description": "Candidate address line 5",
+          "type": "string"
+        },
+        "postcode": {
+          "description": "Candidate postcode",
+          "type": "string"
+        },
+        "county": {
+          "description": "Candidate county",
+          "type": "string"
+        },
+        "language": {
+          "description": "Candidate language",
+          "type": "string"
+        },
+        "dps": {
+          "description": "Candidate dps",
+          "type": "string"
+        },
+        "mailsort": {
+          "description": "Candidate mail sort",
+          "type": "string"
+        }
+      }
+    },
+    "structuredAddress": {
+      "description": "Unstructured subsection of address",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "poBoxNumber",
+        "organisationName",
+        "departmentName",
+        "subBuildingName",
+        "buildingName",
+        "buildingNumber",
+        "dependentThoroughfareName",
+        "thoroughfareName",
+        "doubleDependentLocality",
+        "dependentLocality",
+        "postTown",
+        "postcode",
+        "country",
+        "language",
+        "dps",
+        "uprn",
+        "udprn",
+        "mailsort"
+      ],
+      "properties": {
+        "poBoxNumber": {
+          "description": "PO box number",
+          "type": "string"
+        },
+        "organisationName": {
+          "description": "Org name",
+          "type": "string"
+        },
+        "departmentName": {
+          "description": "Department name",
+          "type": "string"
+        },
+        "subBuildingName": {
+          "description": "Sub building name",
+          "type": "string"
+        },
+        "buildingName": {
+          "description": "Building name",
+          "type": "string"
+        },
+        "buildingNumber": {
+          "description": "Building number",
+          "type": "string"
+        },
+        "dependentThoroughfareName": {
+          "description": "Dependent thoroughfare name",
+          "type": "string"
+        },
+        "thoroughfareName": {
+          "description": "Thoroughfare name name",
+          "type": "string"
+        },
+        "doubleDependentLocality": {
+          "description": "Double dependent locality",
+          "type": "string"
+        },
+        "dependentLocality": {
+          "description": "Dependent locality",
+          "type": "string"
+        },
+        "postTown": {
+          "description": "Post-town",
+          "type": "string"
+        },
+        "postcode": {
+          "description": "Postcode",
+          "type": "string"
+        },
+        "country": {
+          "description": "Country",
+          "type": "string"
+        },
+        "language": {
+          "description": "Language",
+          "type": "string"
+        },
+        "dps": {
+          "description": "DPS",
+          "type": "string"
+        },
+        "uprn": {
+          "description": "UPRN",
+          "type": "string"
+        },
+        "udprn": {
+          "description": "UDPRN",
+          "type": "string"
+        },
+        "mailsort": {
+          "description": "Mail sort",
+          "type": "string"
+        }
+      }
+    },
+    "licence": {
+      "description": "Basic licence info",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "type"
+      ],
+      "properties": {
+        "status": {
+          "description": "Status of licence",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of licence",
+          "type": "string"
+        }
+      }
+    },
+    "driver": {
+      "description": "Basic driver info",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lastName",
+        "firstNames",
+        "drivingLicenceNumber",
+        "title",
+        "nameFormat",
+        "fullModeOfAddress",
+        "gender",
+        "dateOfBirth",
+        "placeOfBirth",
+        "address",
+        "imagesExist"
+      ],
+      "properties": {
+        "lastName": {
+          "description": "Last name of candidate",
+          "type": "string"
+        },
+        "firstNames": {
+          "description": "First name(s) of candidate",
+          "type": "string"
+        },
+        "drivingLicenceNumber": {
+          "description": "Driving licence number of candidate",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title of candidate",
+          "type": "string"
+        },
+        "nameFormat": {
+          "description": "Format of the candidates name",
+          "type": "string"
+        },
+        "fullModeOfAddress": {
+          "description": "Full mode of address",
+          "type": "string"
+        },
+        "gender": {
+          "description": "Gender of candidate",
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "description": "Date of birth",
+          "type": "string"
+        },
+        "placeOfBirth": {
+          "description": "Place of birth",
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/definitions/address"
+        },
+        "imagesExist": {
+          "description": "Does image exist",
+          "type": "boolean"
+        }
+      }
+    },
+    "entitlement": {
+      "description": "Basic driver info",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "categoryCode",
+        "categoryLegalLiteral",
+        "categoryShortLiteral",
+        "categoryType",
+        "fromDate",
+        "expiryDate",
+        "categoryStatus",
+        "restrictions"
+      ],
+      "properties": {
+        "categoryCode": {
+          "description": "Category code",
+          "type": "string"
+        },
+        "categoryLegalLiteral": {
+          "description": "Category legal literal",
+          "type": "string"
+        },
+        "categoryShortLiteral": {
+          "description": "Category short literal",
+          "type": "string"
+        },
+        "categoryType": {
+          "description": "Category type",
+          "type": "string"
+        },
+        "fromDate": {
+          "description": "From date",
+          "type": "string"
+        },
+        "expiryDate": {
+          "description": "Expiry date",
+          "type": "string"
+        },
+        "categoryStatus": {
+          "description": "Category status",
+          "type": "string"
+        },
+        "restrictions": {
+          "description": "Restrictions on licence",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/restriction"
+          }
+        }
+      }
+    },
+    "restriction": {
+      "description": "Restriction",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "restrictionCode",
+        "restrictionLiteral"
+      ],
+      "properties": {
+        "restrictionCode": {
+          "description": "Restriction Code",
+          "type": "string"
+        },
+        "restrictionLiteral": {
+          "description": "Restriction Literal",
+          "type": "string"
+        }
+      }
+    },
+    "token": {
+      "description": "Token",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "validFromDate",
+        "validToDate",
+        "type",
+        "drivingLicenceNumber",
+        "issueNumber",
+        "entitlements",
+        "isProvisional"
+      ],
+      "properties": {
+        "validFromDate": {
+          "description": "Card valid from date",
+          "type": "string"
+        },
+        "validToDate": {
+          "description": "Card valid to date",
+          "type": "string"
+        },
+        "type": {
+          "description": "Card type",
+          "type": "string"
+        },
+        "drivingLicenceNumber": {
+          "description": "Driving licence number on card",
+          "type": "string"
+        },
+        "issueNumber": {
+          "description": "Issue number of card",
+          "type": "string"
+        },
+        "entitlements": {
+          "description": "Token entitlements on card",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/tokenEntitlement"
+          }
+        },
+        "isProvisional": {
+          "description": "Is provisional card",
+          "type": "string"
+        }
+      }
+    },
+    "categoryRestrictions": {
+      "description": "Category restrictions",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "categoryRestrictionCode",
+        "categoryRestrictionLiteral"
+      ],
+      "properties": {
+        "categoryRestrictionCode": {
+          "description": "Category restriction code",
+          "type": "string"
+        },
+        "categoryRestrictionLiteral": {
+          "description": "Category restriction literal",
+          "type": "string"
+        }
+      }
+    },
+    "groupRestrictions": {
+      "description": "Group restrictions",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "groupRestrictionCode",
+        "groupRestrictionLiteral"
+      ],
+      "properties": {
+        "groupRestrictionCode": {
+          "description": "Group restriction code",
+          "type": "string"
+        },
+        "groupRestrictionLiteral": {
+          "description": "Group restriction literal",
+          "type": "string"
+        }
+      }
+    },
+    "tokenEntitlement": {
+      "description": "Token entitlement",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "category": {
+          "description": "Category",
+          "type": "string"
+        },
+        "categoryLegalLiteral": {
+          "description": "Category legal literal",
+          "type": "string"
+        },
+        "categoryShortLiteral": {
+          "description": "Category short literal",
+          "type": "string"
+        },
+        "categoryType": {
+          "description": "Category type",
+          "type": "string"
+        },
+
+        "categoryFromDate": {
+          "description": "Category legal literal",
+          "type": "string"
+        },
+        "categoryExpiryDate": {
+          "description": "Category short literal",
+          "type": "string"
+        },
+        "categoryRestrictions": {
+          "description": "Category restrictions",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/categoryRestrictions"
+          }
+        },
+        "group": {
+          "description": "Group",
+          "type": "string"
+        },
+        "groupShortLiteral": {
+          "description": "Category legal literal",
+          "type": "string"
+        },
+        "groupLegalLiteral": {
+          "description": "Category short literal",
+          "type": "string"
+        },
+        "groupType": {
+          "description": "Group",
+          "type": "string"
+        },
+        "groupFromDate": {
+          "description": "Category legal literal",
+          "type": "string"
+        },
+        "groupExpiryDate": {
+          "description": "Category short literal",
+          "type": "string"
+        },
+        "groupRestrictions": {
+          "$ref": "#/definitions/groupRestrictions"
+        }
+      }
+    }
+  }
+}
