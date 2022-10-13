@@ -5,10 +5,16 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface CandidateLicenceSchema {
-  candidatePhotograph: Photograph;
-  candidateSignature: Signature;
-  candidateStandard: Standard;
+export interface DriverLicenceSchema {
+  driverPhotograph: DriverPhotograph;
+  driverSignature: DriverSignature;
+  driverStandard: DriverStandard;
+}
+/**
+ * Driver photograph wrapper
+ */
+export interface DriverPhotograph {
+  photograph: Photograph;
 }
 /**
  * Image data pertaining to the photograph
@@ -22,6 +28,12 @@ export interface Photograph {
    * Image format of the signature
    */
   imageFormat: string;
+}
+/**
+ * Driver signature wrapper
+ */
+export interface DriverSignature {
+  signature: Signature;
 }
 /**
  * Image data pertaining to the signature
@@ -39,7 +51,7 @@ export interface Signature {
 /**
  * Standard candidate data
  */
-export interface Standard {
+export interface DriverStandard {
   driver: Driver;
   licence: Licence;
   /**

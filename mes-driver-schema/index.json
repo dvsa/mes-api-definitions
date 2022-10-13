@@ -1,24 +1,50 @@
 {
-  "title": "Candidate licence schema",
+  "title": "Driver licence schema",
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "candidatePhotograph",
-    "candidateSignature",
-    "candidateStandard"
+    "driverPhotograph",
+    "driverSignature",
+    "driverStandard"
   ],
   "properties": {
-    "candidatePhotograph": {
-      "$ref": "#/definitions/photograph"
+    "driverPhotograph": {
+      "$ref": "#/definitions/driverPhotograph"
     },
-    "candidateSignature": {
-      "$ref": "#/definitions/signature"
+    "driverSignature": {
+      "$ref": "#/definitions/driverSignature"
     },
-    "candidateStandard": {
-      "$ref": "#/definitions/standard"
+    "driverStandard": {
+      "$ref": "#/definitions/driverStandard"
     }
   },
   "definitions": {
+    "driverPhotograph": {
+      "description": "Driver photograph wrapper",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "photograph"
+      ],
+      "properties": {
+        "photograph": {
+          "$ref": "#/definitions/photograph"
+        }
+      }
+    },
+    "driverSignature": {
+      "description": "Driver signature wrapper",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signature"
+      ],
+      "properties": {
+        "signature": {
+          "$ref": "#/definitions/signature"
+        }
+      }
+    },
     "photograph": {
       "description": "Image data pertaining to the photograph",
       "type": "object",
@@ -57,7 +83,7 @@
         }
       }
     },
-    "standard": {
+    "driverStandard": {
       "description": "Standard candidate data",
       "type": "object",
       "additionalProperties": false,
