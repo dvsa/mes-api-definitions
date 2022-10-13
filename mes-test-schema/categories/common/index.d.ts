@@ -1050,6 +1050,18 @@ export interface Eco {
    * Indicates that advice was given on the Planning aspect of eco driving
    */
   adviceGivenPlanning?: boolean;
+  /**
+   * Fault that relates to the Eco selection
+   */
+  ecoRelatedFault?: string;
+  /**
+   * Reason for Eco capture
+   */
+  ecoCaptureReason?: string;
+  /**
+   * Whether the candidate exemplified efficient driving
+   */
+  fuelEfficientDriving?: boolean;
 }
 /**
  * Indicates whether the examiner had to take physical or verbal action during the test

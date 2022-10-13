@@ -1326,6 +1326,18 @@
 				"adviceGivenPlanning": {
 					"description": "Indicates that advice was given on the Planning aspect of eco driving",
 					"type": "boolean"
+				},
+				"ecoRelatedFault": {
+					"description": "Fault that relates to the Eco selection",
+					"type": "string"
+				},
+				"ecoCaptureReason": {
+					"description": "Reason for Eco capture",
+					"type": "string"
+				},
+				"fuelEfficientDriving": {
+					"description": "Whether the candidate exemplified efficient driving",
+					"type": "boolean"
 				}
 			},
 			"additionalProperties": false
