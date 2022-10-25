@@ -179,6 +179,20 @@
         "signatureUrl",
         "standardUrl"
       ]
+    },
+    "vehicle": {
+      "description": "Vehicle related configuration properties",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "taxMotUrl": {
+          "description": "Url which is used for retrieving Tax and MOT data about a vehicle",
+          "type": "string"
+        }
+      },
+      "required": [
+        "taxMotUrl"
+      ]
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
@@ -222,6 +236,9 @@
     "driver": {
       "$ref": "#/definitions/driver"
     },
+    "vehicle": {
+      "$ref": "#/definitions/vehicle"
+    },
     "requestTimeout": {
       "description": "The number of milliseconds that we wait before a request times out in the App",
       "type": "number"
@@ -234,7 +251,6 @@
     "journal",
     "tests",
     "user",
-    "driver",
     "requestTimeout",
     "employeeNameKey"
   ]

@@ -34,7 +34,8 @@ export interface RemoteConfig {
   journal: Journal;
   tests: Tests;
   user: User;
-  driver: Driver;
+  driver?: Driver;
+  vehicle?: Vehicle;
   /**
    * The number of milliseconds that we wait before a request times out in the App
    */
@@ -152,4 +153,13 @@ export interface Driver {
    * Url which is used for finding standard driver data
    */
   standardUrl: string;
+}
+/**
+ * Vehicle related configuration properties
+ */
+export interface Vehicle {
+  /**
+   * Url which is used for retrieving Tax and MOT data about a vehicle
+   */
+  taxMotUrl: string;
 }
