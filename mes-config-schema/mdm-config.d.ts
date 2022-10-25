@@ -34,6 +34,10 @@ export interface MdmConfig {
    */
   logoutClearsTestPersistence?: boolean;
   /**
+   * Api key for tax/mot get
+   */
+  taxMotApiKey?: string;
+  /**
    * Api key for logs post
    */
   logsPostApiKey: string;

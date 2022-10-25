@@ -95,6 +95,10 @@
       "description": "Flag whether the logout clears test presistence or no",
       "type": "boolean"
     },
+    "taxMotApiKey": {
+      "description": "Api key for tax/mot get",
+      "type": "string"
+    },
     "logsPostApiKey": {
       "description": "Api key for logs post",
       "type": "string"
