@@ -94,8 +94,7 @@
       "required": [
         "insuranceDeclarationAccepted",
         "residencyDeclarationAccepted",
-        "preTestSignature",
-        "validCertificate"
+        "preTestSignature"
       ]
     },
     "accompaniment": {
