@@ -505,7 +505,7 @@ export interface PreTestDeclarations {
   /**
    * Whether there candidate held/presented a valid certificate
    */
-  validCertificate: boolean;
+  validCertificate?: boolean;
 }
 /**
  * Indicators for anybody else overseeing the test
