@@ -1673,6 +1673,10 @@
 					"type": "string",
 					"maxLength": 7
 				},
+				"motStatus": {
+					"description": "The mot status of the vehicle",
+					"type": "string"
+				},
 				"gearboxCategory": {
 					"$ref": "#/definitions/gearboxCategory"
 				},
