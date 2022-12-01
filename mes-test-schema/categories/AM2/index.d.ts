@@ -651,12 +651,16 @@ export interface PassCompletion {
  * via the `definition` "vehicleDetails".
  */
 export interface VehicleDetails {
-  schoolBike?: SchoolBike;
-  gearboxCategory?: GearboxCategory;
   /**
    * The vehicle registration number
    */
   registrationNumber?: string;
+  /**
+   * The mot status of the vehicle
+   */
+  motStatus?: string;
+  schoolBike?: SchoolBike;
+  gearboxCategory?: GearboxCategory;
 }
 /**
  * Data associated with the test

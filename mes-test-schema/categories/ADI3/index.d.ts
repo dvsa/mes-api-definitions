@@ -652,6 +652,10 @@ export interface VehicleDetails {
    * The vehicle registration number
    */
   registrationNumber?: string;
+  /**
+   * The mot status of the vehicle
+   */
+  motStatus?: string;
   gearboxCategory?: GearboxCategory;
   /**
    * Indicates whether or not the vehicle has dual controls fitted
