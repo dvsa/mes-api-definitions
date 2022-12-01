@@ -6,11 +6,7 @@
 
 // Always follow the order of the properties that are in partial.d.ts
 import { PartialTestResultCatD1MSchema } from './partial';
-import {
-  JournalData as CommonJournalData,
-  TestResultCommonSchema,
-  VehicleDetails as CommonVehicleDetails
-} from '../common';
+import { JournalData as CommonJournalData, TestResultCommonSchema } from '../common';
 import { TestData as PartialCatD1MTestData } from './partial';
 import { TestData as CommonTestData } from '../common';
 import { Manoeuvres as PartialCatDManoeuvres } from './partial';
@@ -30,5 +26,5 @@ export declare namespace CatD1MUniqueTypes {
 
   type Candidate = PartialCatD1MCandidate & CommonCandidate;
 
-  type VehicleDetails = PartialCatD1MVehicleDetails & CommonVehicleDetails;
+  type VehicleDetails = PartialCatD1MVehicleDetails;
 }
