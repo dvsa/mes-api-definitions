@@ -111,6 +111,10 @@ export interface VehicleDetails {
    * The vehicle registration number
    */
   registrationNumber?: string;
+  /**
+   * The mot status of the vehicle
+   */
+  motStatus?: string;
 }
 /**
  * This interface was referenced by `PartialTestResultCatD1MSchema`'s JSON-Schema

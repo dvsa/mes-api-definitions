@@ -26,5 +26,5 @@ export declare namespace CatCMUniqueTypes {
 
   type Candidate = PartialCatCMCandidate & CommonCandidate;
 
-  type VehicleDetails = PartialCatCMVehicleDetails ;
+  type VehicleDetails = PartialCatCMVehicleDetails;
 }
