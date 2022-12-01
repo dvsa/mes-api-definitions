@@ -2096,6 +2096,15 @@
 			"additionalProperties": false,
 			"type": "object",
 			"properties": {
+				"registrationNumber": {
+					"description": "The vehicle registration number",
+					"type": "string",
+					"maxLength": 7
+				},
+				"motStatus": {
+					"description": "The mot status of the vehicle",
+					"type": "string"
+				},
 				"schoolBike": {
 					"description": "Indicates whether the bike belongs to a driving school",
 					"type": "boolean"
@@ -2107,11 +2116,6 @@
 						"Manual",
 						"Automatic"
 					]
-				},
-				"registrationNumber": {
-					"description": "The vehicle registration number",
-					"type": "string",
-					"maxLength": 7
 				}
 			}
 		},
@@ -4341,6 +4345,15 @@
 			"additionalProperties": false,
 			"type": "object",
 			"properties": {
+				"registrationNumber": {
+					"description": "The vehicle registration number",
+					"type": "string",
+					"maxLength": 7
+				},
+				"motStatus": {
+					"description": "The mot status of the vehicle",
+					"type": "string"
+				},
 				"schoolBike": {
 					"description": "Indicates whether the bike belongs to a driving school",
 					"type": "boolean"
@@ -4352,11 +4365,6 @@
 						"Manual",
 						"Automatic"
 					]
-				},
-				"registrationNumber": {
-					"description": "The vehicle registration number",
-					"type": "string",
-					"maxLength": 7
 				}
 			}
 		},

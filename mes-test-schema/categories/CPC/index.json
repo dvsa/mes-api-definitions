@@ -1969,6 +1969,10 @@
 					"type": "string",
 					"maxLength": 7
 				},
+				"motStatus": {
+					"description": "The mot status of the vehicle",
+					"type": "string"
+				},
 				"gearboxCategory": {
 					"description": "The type of gearbox",
 					"type": "string",
@@ -2701,6 +2705,10 @@
 					"description": "The vehicle registration number",
 					"type": "string",
 					"maxLength": 7
+				},
+				"motStatus": {
+					"description": "The mot status of the vehicle",
+					"type": "string"
 				},
 				"gearboxCategory": {
 					"description": "The type of gearbox",
