@@ -775,6 +775,14 @@
 					"description": "Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)",
 					"type": "boolean"
 				},
+				"fitMarker": {
+					"description": "Indicates whether the candidate has previously had a fraud marker set against them",
+					"type": "boolean"
+				},
+				"categoryEntitlementCheck": {
+					"description": "Indicates whether the examiner needs to check the candidates entitlement based on new legislation around booking vocational categories",
+					"type": "boolean"
+				},
 				"previousCancellation": {
 					"description": "The details of any previous test cancellations",
 					"type": "array",
@@ -905,6 +913,14 @@
 						},
 						"entitlementCheck": {
 							"description": "Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)",
+							"type": "boolean"
+						},
+						"fitMarker": {
+							"description": "Indicates whether the candidate has previously had a fraud marker set against them",
+							"type": "boolean"
+						},
+						"categoryEntitlementCheck": {
+							"description": "Indicates whether the examiner needs to check the candidates entitlement based on new legislation around booking vocational categories",
 							"type": "boolean"
 						},
 						"previousCancellation": {
@@ -1960,6 +1976,14 @@
 						},
 						"entitlementCheck": {
 							"description": "Indicates whether the examiner needs to check the candidates entitlement evidence(e.g. test application has not been checked with DVLA)",
+							"type": "boolean"
+						},
+						"fitMarker": {
+							"description": "Indicates whether the candidate has previously had a fraud marker set against them",
+							"type": "boolean"
+						},
+						"categoryEntitlementCheck": {
+							"description": "Indicates whether the examiner needs to check the candidates entitlement based on new legislation around booking vocational categories",
 							"type": "boolean"
 						},
 						"previousCancellation": {

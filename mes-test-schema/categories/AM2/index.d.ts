@@ -334,6 +334,14 @@ export interface JournalData {
      */
     entitlementCheck?: boolean;
     /**
+     * Indicates whether the candidate has previously had a fraud marker set against them
+     */
+    fitMarker?: boolean;
+    /**
+     * Indicates whether the examiner needs to check the candidates entitlement based on new legislation around booking vocational categories
+     */
+    categoryEntitlementCheck?: boolean;
+    /**
      * The details of any previous test cancellations
      */
     previousCancellation?: ("Act of nature" | "DSA")[];
