@@ -277,6 +277,10 @@ export interface Application {
    */
   entitlementCheck?: boolean;
   /**
+   * Indicates whether the candidate has previously had a fraud marker set against them
+   */
+  fitMarker?: boolean;
+  /**
    * Indicates whether the examiner needs to check the candidates entitlement based on new legislation around booking vocational categories
    */
   categoryEntitlementCheck?: boolean;
