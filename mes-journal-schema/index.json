@@ -6,7 +6,6 @@
       "additionalProperties": false,
       "properties": {
         "staffNumber": {
-          "$id": "#/properties/staffNumber",
           "description": "The examiner's DSA staff number",
           "type": "string",
           "maxLength": 10
