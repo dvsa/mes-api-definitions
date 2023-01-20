@@ -515,8 +515,6 @@
       ]
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "id": "https://example.com/arrays.schema.json",
   "title": "Examiner Work Schedule",
   "type": "object",
   "additionalProperties": false,
@@ -533,7 +531,6 @@
       }
     },
     "personalCommitments": {
-      "$id": "#/properties/personalCommitments",
       "description": "A collection of the examiner's personal commitment(s)",
       "type": "array",
       "items": {
@@ -548,7 +545,6 @@
       }
     },
     "advanceTestSlots": {
-      "$id": "#/properties/advanceTestSlots",
       "description": "A collection of an examiner's future test slots",
       "type": "array",
       "items": {
@@ -556,7 +552,6 @@
       }
     },
     "deployments": {
-      "$id": "#/properties/deployments",
       "description": "A collection of temporary secondments of the examiner to an alternative test centre",
       "type": "array",
       "items": {
