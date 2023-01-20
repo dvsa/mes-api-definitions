@@ -1,4 +1,5 @@
 {
+  "$id": "https://github.com/dvsa/mes-api-definitions/tree/develop/mes-journal-schema/index.json#",
   "definitions": {
     "examiner": {
       "description": "The examiner details",
