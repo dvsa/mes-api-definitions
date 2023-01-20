@@ -292,7 +292,6 @@
       ]
     },
     "application": {
-      "$id": "#/properties/testSlot/properties/booking/properties/application",
       "description": "Details of the test application",
       "type": "object",
       "additionalProperties": false,
@@ -382,7 +381,6 @@
       ]
     },
     "candidate": {
-      "$id": "#/properties/testSlot/properties/booking/properties/candidate",
       "description": "Details of the candidate booked into the test slot",
       "type": "object",
       "additionalProperties": false,
