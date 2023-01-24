@@ -32,13 +32,15 @@
         },
         "to": {
           "description": "Date till the permission is active",
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "required": [
         "testCategory",
-        "from",
-        "to"
+        "from"
       ]
     },
     "journal": {
