@@ -32,10 +32,7 @@
         },
         "to": {
           "description": "Date till the permission is active",
-          "type": [
-            "null",
-            "string"
-          ]
+          "type": "string"
         }
       },
       "required": [
