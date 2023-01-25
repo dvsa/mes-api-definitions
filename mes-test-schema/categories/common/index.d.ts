@@ -124,7 +124,8 @@ export type ActivityCode =
   | "80"
   | "81"
   | "82"
-  | "83";
+  | "83"
+  | "88";
 /**
  * The method of communication by which the candidate agrees to receive their results
  *

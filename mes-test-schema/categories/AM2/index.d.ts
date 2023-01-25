@@ -110,7 +110,8 @@ export type ActivityCode =
   | "80"
   | "81"
   | "82"
-  | "83";
+  | "83"
+  | "88";
 /**
  * Base 64 encoded binary data representing a PNG image of the candidates signature
  *
