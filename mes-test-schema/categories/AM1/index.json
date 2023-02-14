@@ -779,6 +779,10 @@
 					"description": "Indicates whether the candidate has previously had a fraud marker set against them",
 					"type": "boolean"
 				},
+				"fitCaseNumber": {
+					"description": "The integrity case number associated to the candidate",
+					"type": "string"
+				},
 				"categoryEntitlementCheck": {
 					"description": "Indicates whether the examiner needs to check the candidates entitlement based on new legislation around booking vocational categories",
 					"type": "boolean"
@@ -918,6 +922,10 @@
 						"fitMarker": {
 							"description": "Indicates whether the candidate has previously had a fraud marker set against them",
 							"type": "boolean"
+						},
+						"fitCaseNumber": {
+							"description": "The integrity case number associated to the candidate",
+							"type": "string"
 						},
 						"categoryEntitlementCheck": {
 							"description": "Indicates whether the examiner needs to check the candidates entitlement based on new legislation around booking vocational categories",
@@ -1982,6 +1990,10 @@
 						"fitMarker": {
 							"description": "Indicates whether the candidate has previously had a fraud marker set against them",
 							"type": "boolean"
+						},
+						"fitCaseNumber": {
+							"description": "The integrity case number associated to the candidate",
+							"type": "string"
 						},
 						"categoryEntitlementCheck": {
 							"description": "Indicates whether the examiner needs to check the candidates entitlement based on new legislation around booking vocational categories",
