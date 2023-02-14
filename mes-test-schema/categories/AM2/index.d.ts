@@ -339,6 +339,10 @@ export interface JournalData {
      */
     fitMarker?: boolean;
     /**
+     * The integrity case number associated to the candidate
+     */
+    fitCaseNumber?: string;
+    /**
      * Indicates whether the examiner needs to check the candidates entitlement based on new legislation around booking vocational categories
      */
     categoryEntitlementCheck?: boolean;
