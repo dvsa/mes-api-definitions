@@ -193,6 +193,20 @@
       "required": [
         "taxMotUrl"
       ]
+    },
+    "refData": {
+      "description": "Reference data configuration properties",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "testCentreUrl": {
+          "description": "Url which is used for retrieving test centre details from TARS",
+          "type": "string"
+        }
+      },
+      "required": [
+        "testCentreUrl"
+      ]
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
@@ -238,6 +252,9 @@
     },
     "vehicle": {
       "$ref": "#/definitions/vehicle"
+    },
+    "refData": {
+      "$ref": "#/definitions/refData"
     },
     "requestTimeout": {
       "description": "The number of milliseconds that we wait before a request times out in the App",

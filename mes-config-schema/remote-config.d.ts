@@ -36,6 +36,7 @@ export interface RemoteConfig {
   user: User;
   driver?: Driver;
   vehicle?: Vehicle;
+  refData?: RefData;
   /**
    * The number of milliseconds that we wait before a request times out in the App
    */
@@ -162,4 +163,13 @@ export interface Vehicle {
    * Url which is used for retrieving Tax and MOT data about a vehicle
    */
   taxMotUrl: string;
+}
+/**
+ * Reference data configuration properties
+ */
+export interface RefData {
+  /**
+   * Url which is used for retrieving test centre details from TARS
+   */
+  testCentreUrl: string;
 }
