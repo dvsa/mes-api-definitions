@@ -1,0 +1,71 @@
+name: Publish package
+
+on:
+  workflow_dispatch:
+    inputs:
+      directory:
+        description: 'Directory (one of): mes-config-schema, mes-driver-schema, mes-journal-schema, mes-search-schema, mes-test-schema'
+        required: true
+      release-type:
+        description: 'Release type (one of): patch, minor, major, none'
+        required: true
+
+env:
+  CI_COMMIT_EMAIL: username@users.noreply.github.com
+  CI_COMMIT_AUTHOR: Continuous Integration
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ github.event.inputs.directory }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Read .nvmrc
+        id: nvm
+        run: |
+          echo ::set-output name=NVMRC::$(cat .nvmrc)
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ steps.nvm.outputs.NVMRC }}
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Git configuration
+        run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "${{ env.CI_COMMIT_EMAIL }}"
+
+      - name: Bump version
+        if: startsWith(github.event.inputs.release-type, 'none') != true
+        run: |
+          echo "NEW_VERSION=$(npm --no-git-tag-version version $RELEASE_TYPE)" >> $GITHUB_ENV
+        env:
+          RELEASE_TYPE: ${{ github.event.inputs.release-type }}
+
+      - name: Commit package.json changes
+        if: startsWith(github.event.inputs.release-type, 'none') != true
+        run: |
+          git add "package.json"
+          git add "package-lock.json"
+          git commit -m "chore: release ${{ env.NEW_VERSION }}"
+
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.DES_ACCESS_TOKEN }}
+
+      - name: Push changes to repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin
