@@ -188,10 +188,15 @@
         "taxMotUrl": {
           "description": "Url which is used for retrieving Tax and MOT data about a vehicle",
           "type": "string"
+        },
+        "motUrl": {
+          "description": "Url which is used for retrieving MOT data about a vehicle",
+          "type": "string"
         }
       },
       "required": [
-        "taxMotUrl"
+        "taxMotUrl",
+        "motUrl"
       ]
     },
     "refData": {

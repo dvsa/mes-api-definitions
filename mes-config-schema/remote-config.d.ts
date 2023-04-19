@@ -163,6 +163,10 @@ export interface Vehicle {
    * Url which is used for retrieving Tax and MOT data about a vehicle
    */
   taxMotUrl: string;
+  /**
+   * Url which is used for retrieving MOT data about a vehicle
+   */
+  motUrl: string;
 }
 /**
  * Reference data configuration properties
