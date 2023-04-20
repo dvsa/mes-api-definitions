@@ -57,14 +57,12 @@ jobs:
 
       - name: Get schema version
         run: |
-#          echo "PACKAGE_JSON=$(jq -c . < package.json)" >> $GITHUB_ENV
-#          echo ${{ PACKAGE_JSON }}
-          echo ::set-output name=VERSION::$(fromJson(env.PACKAGE_JSON).version)
-          echo ${{ steps.nvm.outputs.VERSION }}
+          echo "PACKAGE_JSON=$(jq -c . < package.json)" >> $GITHUB_ENV
+          echo ${{ PACKAGE_JSON }}
 
       - name: Update repos
         run: |
-          echo ${{ steps.nvm.outputs.VERSION }}
+#          echo ${{ steps.nvm.outputs.VERSION }}
 #          turbolift init --name bump-schema-${{ steps.nvm.outputs.VERSION }}
 #          cd bump-schema-${{ steps.nvm.outputs.VERSION }}
 #          echo "@dvsa/mes-driver-service" >> repos.txt
