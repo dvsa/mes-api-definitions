@@ -6,10 +6,6 @@ on:
       directory:
         description: 'Directory (one of): mes-config-schema, mes-driver-schema, mes-journal-schema, mes-search-schema, mes-test-schema'
         required: true
-      release-type:
-        description: 'Release type (one of): patch, minor, major, none'
-        required: true
-
 env:
   CI_COMMIT_EMAIL: username@users.noreply.github.com
   CI_COMMIT_AUTHOR: Continuous Integration
@@ -45,32 +41,29 @@ jobs:
         run: |
           npm ci
 
-      - name: Git configuration
-        run: |
-          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-          git config --global user.email "${{ env.CI_COMMIT_EMAIL }}"
+#      - name: Git configuration
+#        run: |
+#          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+#          git config --global user.email "${{ env.CI_COMMIT_EMAIL }}"
+#
+#      - name: Publish
+#        run: |
+#          npm publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{ secrets.DES_ACCESS_TOKEN }}
 
-      - name: Bump version
-        if: startsWith(github.event.inputs.release-type, 'none') != true
-        run: |
-          echo "NEW_VERSION=$(npm --no-git-tag-version version $RELEASE_TYPE)" >> $GITHUB_ENV
-        env:
-          RELEASE_TYPE: ${{ github.event.inputs.release-type }}
+      - name: Get schema version
+      - run: echo "PACKAGE_JSON=$(jq -c . < package.json)" >> $GITHUB_ENV
+      - run: |
+          echo ::set-output name=VERSION::$(fromJson(env.PACKAGE_JSON).version)
 
-      - name: Commit package.json changes
-        if: startsWith(github.event.inputs.release-type, 'none') != true
+      - name: Update repos
         run: |
-          git add "package.json"
-          git add "package-lock.json"
-          git commit -m "chore: release ${{ env.NEW_VERSION }}"
+          turbolift init --name bump-schema-${{ steps.nvm.outputs.VERSION }}
+          cd bump-schema-${{ steps.nvm.outputs.VERSION }}
+          echo "@dvsa/mes-driver-service" >> repos.txt
+          turbolift clone --no-fork
+          turbolift foreach "npm i @dvsa/mes-driver-schema@latest -D"
+          turbolift commit --message "Driver service schema bump"
+          turbolift create-prs
 
-      - name: Publish
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.DES_ACCESS_TOKEN }}
-
-      - name: Push changes to repository
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git push origin
