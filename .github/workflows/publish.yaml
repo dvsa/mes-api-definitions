@@ -19,7 +19,8 @@ jobs:
 
     defaults:
       run:
-        working-directory: ${{ github.event.inputs.directory }}
+#        working-directory: ${{ github.event.inputs.directory }}
+        working-directory: mes-driver-schema
 
     steps:
       - name: Checkout
