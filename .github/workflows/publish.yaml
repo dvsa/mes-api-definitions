@@ -1,11 +1,14 @@
 name: Publish package
 
 on:
-  workflow_dispatch:
-    inputs:
-      directory:
-        description: 'Directory (one of): mes-config-schema, mes-driver-schema, mes-journal-schema, mes-search-schema, mes-test-schema'
-        required: true
+  push:
+    branches:
+      - develop
+#  workflow_dispatch:
+#    inputs:
+#      directory:
+#        description: 'Directory (one of): mes-config-schema, mes-driver-schema, mes-journal-schema, mes-search-schema, mes-test-schema'
+#        required: true
 env:
   CI_COMMIT_EMAIL: username@users.noreply.github.com
   CI_COMMIT_AUTHOR: Continuous Integration
@@ -59,11 +62,12 @@ jobs:
 
       - name: Update repos
         run: |
-          turbolift init --name bump-schema-${{ steps.nvm.outputs.VERSION }}
-          cd bump-schema-${{ steps.nvm.outputs.VERSION }}
-          echo "@dvsa/mes-driver-service" >> repos.txt
-          turbolift clone --no-fork
-          turbolift foreach "npm i @dvsa/mes-driver-schema@latest -D"
-          turbolift commit --message "Driver service schema bump"
-          turbolift create-prs
+          echo ${{ steps.nvm.outputs.VERSION }}
+#          turbolift init --name bump-schema-${{ steps.nvm.outputs.VERSION }}
+#          cd bump-schema-${{ steps.nvm.outputs.VERSION }}
+#          echo "@dvsa/mes-driver-service" >> repos.txt
+#          turbolift clone --no-fork
+#          turbolift foreach "npm i @dvsa/mes-driver-schema@latest -D"
+#          turbolift commit --message "Driver service schema bump"
+#          turbolift create-prs
 
