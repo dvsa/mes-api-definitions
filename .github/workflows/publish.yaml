@@ -61,13 +61,11 @@ jobs:
 
       - name: Update repos
         run: |
-          echo ${{ fromJson(env.PACKAGE_JSON).version }}
-#          echo ${{ steps.nvm.outputs.VERSION }}
-#          turbolift init --name bump-schema-${{ steps.nvm.outputs.VERSION }}
-#          cd bump-schema-${{ steps.nvm.outputs.VERSION }}
-#          echo "@dvsa/mes-driver-service" >> repos.txt
-#          turbolift clone --no-fork
-#          turbolift foreach "npm i @dvsa/mes-driver-schema@latest -D"
-#          turbolift commit --message "Driver service schema bump"
-#          turbolift create-prs
+          turbolift init --name bump-schema-${{ fromJson(env.PACKAGE_JSON).version }}
+          cd bump-schema-${{ fromJson(env.PACKAGE_JSON).version }}
+          echo "@dvsa/mes-driver-service" >> repos.txt
+          turbolift clone --no-fork
+          turbolift foreach "npm i @dvsa/mes-driver-schema@latest -D"
+          turbolift commit --message "Schema bump"
+          turbolift create-prs
 
