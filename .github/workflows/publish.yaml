@@ -55,12 +55,13 @@ jobs:
 #        env:
 #          NODE_AUTH_TOKEN: ${{ secrets.DES_ACCESS_TOKEN }}
 
-#      - name: Get schema version
-      - run: echo "PACKAGE_JSON=$(jq -c . < package.json)" >> $GITHUB_ENV
-      - run: echo '${{ fromJson(env.PACKAGE_JSON).version }}'
+      - name: Get schema version
+        run: |
+          echo "PACKAGE_JSON=$(jq -c . < package.json)" >> $GITHUB_ENV        
 
       - name: Update repos
         run: |
+          echo ${{ fromJson(env.PACKAGE_JSON).version }}
 #          echo ${{ steps.nvm.outputs.VERSION }}
 #          turbolift init --name bump-schema-${{ steps.nvm.outputs.VERSION }}
 #          cd bump-schema-${{ steps.nvm.outputs.VERSION }}
