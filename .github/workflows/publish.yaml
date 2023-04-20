@@ -55,10 +55,9 @@ jobs:
 #        env:
 #          NODE_AUTH_TOKEN: ${{ secrets.DES_ACCESS_TOKEN }}
 
-      - name: Get schema version
-        run: |
-          echo "PACKAGE_JSON=$(jq -c . < package.json)" >> $GITHUB_ENV
-          echo ${{ PACKAGE_JSON }}
+#      - name: Get schema version
+      - run: echo "PACKAGE_JSON=$(jq -c . < package.json)" >> $GITHUB_ENV
+      - run: echo '${{ fromJson(env.PACKAGE_JSON).version }}'
 
       - name: Update repos
         run: |
