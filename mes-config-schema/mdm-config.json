@@ -92,7 +92,7 @@
       "type": "boolean"
     },
     "logoutClearsTestPersistence": {
-      "description": "Flag whether the logout clears test presistence or no",
+      "description": "Flag whether the logout clears test persistence or no",
       "type": "boolean"
     },
     "taxMotApiKey": {

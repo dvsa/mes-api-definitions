@@ -106,6 +106,10 @@
         "enableLogoutButton": {
           "description": "Flag which enables logout button",
           "type": "boolean"
+        },
+        "enablePracticeModeAnalytics": {
+          "description": "Flag which enables practice mode analytics",
+          "type": "boolean"
         }
       },
       "required": [
@@ -120,7 +124,8 @@
         "testPermissionPeriods",
         "enableTestReportPracticeMode",
         "enableEndToEndPracticeMode",
-        "enableLogoutButton"
+        "enableLogoutButton",
+        "enablePracticeModeAnalytics"
       ]
     },
     "tests": {
