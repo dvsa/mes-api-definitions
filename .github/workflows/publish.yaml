@@ -83,11 +83,11 @@ jobs:
       - name: Add repos
         run: |
           echo "@dvsa/mes-driver-service" >> repos.txt
-          echo repos.txt
+          echo "$(<repos.txt)"
 
       - name: Clone
         run: |
-          turbolift clone --no-fork
+          turbolift clone
 
 #          turbolift foreach "npm i @dvsa/mes-driver-schema@latest -D"
 #          turbolift commit --message "Schema bump"
