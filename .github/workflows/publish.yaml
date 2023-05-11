@@ -57,10 +57,10 @@ jobs:
         run: |
           echo "test"
 
-#      - name: Git configuration
-#        run: |
-#          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-#          git config --global user.email "${{ env.CI_COMMIT_EMAIL }}"
+      - name: Git configuration
+        run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "${{ env.CI_COMMIT_EMAIL }}"
 #
 #      - name: Publish
 #        run: |
@@ -74,30 +74,11 @@ jobs:
 
       - name: Testing
         run: |
-          turbolift init --name final-test  
-          cd final-test
+          turbolift init --name bump-schema-${{ fromJson(env.PACKAGE_JSON).version }}
+          cd bump-schema-${{ fromJson(env.PACKAGE_JSON).version }}
           echo "dvsa/mes-driver-service" >> repos.txt
           turbolift clone --no-fork
           turbolift foreach "npm i @dvsa/mes-driver-schema@latest -D"
           turbolift commit --message "Driver service schema bump"
           turbolift create-prs
 
-#      - name: Init turbolift
-#        run: |
-#          turbolift init --name bump-schema-${{ fromJson(env.PACKAGE_JSON).version }}
-#
-#      - name: CD into folder
-#        run: |
-#          cd bump-schema-${{ fromJson(env.PACKAGE_JSON).version }}
-#
-#      - name: Add repos
-#        run: |
-#          echo "dvsa/mes-driver-service" >> repos.txt
-#          echo "$(<repos.txt)"
-#
-#      - name: Clone
-#        run: |
-#          turbolift clone --no-fork
-#          turbolift foreach "npm i @dvsa/mes-driver-schema@latest -D"
-#          turbolift commit --message "Schema bump"
-#          turbolift create-prs
