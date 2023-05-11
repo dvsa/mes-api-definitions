@@ -51,9 +51,9 @@ jobs:
         run: |
           npm ci
 
-      - name: Echo test
-        run: |
-          echo "test"   
+#      - name: Echo test
+#        run: |
+#          echo "test"
 
 #      - name: Git configuration
 #        run: |
