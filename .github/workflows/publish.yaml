@@ -72,21 +72,32 @@ jobs:
         run: |
           echo "PACKAGE_JSON=$(jq -c . < package.json)" >> $GITHUB_ENV        
 
-      - name: Init turbolift
+      - name: Testing
         run: |
-          turbolift init --name bump-schema-${{ fromJson(env.PACKAGE_JSON).version }}
-
-      - name: CD into folder
-        run: |
-          cd bump-schema-${{ fromJson(env.PACKAGE_JSON).version }}
-
-      - name: Add repos
-        run: |
+          turbolift init --name final-test  
+          cd final-test
           echo "dvsa/mes-driver-service" >> repos.txt
-
-      - name: Clone
-        run: |
           turbolift clone --no-fork
           turbolift foreach "npm i @dvsa/mes-driver-schema@latest -D"
-          turbolift commit --message "Schema bump"
+          turbolift commit --message "Driver service schema bump"
           turbolift create-prs
+
+#      - name: Init turbolift
+#        run: |
+#          turbolift init --name bump-schema-${{ fromJson(env.PACKAGE_JSON).version }}
+#
+#      - name: CD into folder
+#        run: |
+#          cd bump-schema-${{ fromJson(env.PACKAGE_JSON).version }}
+#
+#      - name: Add repos
+#        run: |
+#          echo "dvsa/mes-driver-service" >> repos.txt
+#          echo "$(<repos.txt)"
+#
+#      - name: Clone
+#        run: |
+#          turbolift clone --no-fork
+#          turbolift foreach "npm i @dvsa/mes-driver-schema@latest -D"
+#          turbolift commit --message "Schema bump"
+#          turbolift create-prs
