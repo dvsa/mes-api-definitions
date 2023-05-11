@@ -12,6 +12,7 @@ env:
   CI_COMMIT_EMAIL: username@users.noreply.github.com
   CI_COMMIT_AUTHOR: Continuous Integration
   DES_ACCESS_TOKEN: ${{ secrets.DES_ACCESS_TOKEN }}
+  GH_TOKEN: ${{ secrets.DES_ACCESS_TOKEN }}
 
 jobs:
   release:
