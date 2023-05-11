@@ -36,7 +36,7 @@ jobs:
 
       - name: Install turboscanner
         run: |
-          brew install skyscanner/tools/turbolift
+          brew install skyscanner/tools/turbolift   
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -50,6 +50,10 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
+
+      - name: Echo test
+        run: |
+          echo "test"   
 
 #      - name: Git configuration
 #        run: |
