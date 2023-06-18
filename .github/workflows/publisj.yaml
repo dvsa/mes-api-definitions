@@ -1,0 +1,17 @@
+name: Publish package
+
+on:
+  workflow_dispatch:
+    inputs:
+      directory:
+        description: 'Directory (one of): mes-config-schema, mes-driver-schema, mes-journal-schema, mes-search-schema, mes-test-schema'
+        required: true
+
+jobs:
+  publish:
+    uses: dvsa/des-workflow-actions/.github/workflows/publish-package.yaml@main
+    with:
+      WORKING_DIRECTORY: ${{ inputs.directory }}
+      PACKAGE_NAME: @dvsa/${{ inputs.directory }}
+    secrets:
+      ACCESS_TOKEN: ${{ secrets.DES_ACCESS_TOKEN }}
