@@ -12,6 +12,6 @@ jobs:
     uses: dvsa/des-workflow-actions/.github/workflows/publish-package.yaml@main
     with:
       WORKING_DIRECTORY: ${{ inputs.directory }}
-      PACKAGE_NAME: @dvsa/${{ inputs.directory }}
+      PACKAGE_NAME: ${{ format('{0}/{1}', '@dvsa', inputs.directory) }}
     secrets:
       ACCESS_TOKEN: ${{ secrets.DES_ACCESS_TOKEN }}
