@@ -31,4 +31,4 @@ Always make your edits to the **json schema files** (except for the category `in
 4. If necessary, update the `index.d.ts`
 5. Bump the version of the package using `npm version {major|minor|patch}` - _Ensure you are in the correct directory_
 6. Raise a Pull Request on Github and await approvals
-7. After merging into `develop`, we can now use GitHub actions to publish a given package for us - this can be found via the `Actions` tab, then click the workflow on the left i.e. `Publish package` - You will then be presented with a `Run worfklow` option in which you can specify which of the schemas to publish.
+7. After merging into `develop`, we can now use GitHub actions to publish a given package for us - this can be found via the `Actions` tab, then click the workflow on the left i.e. `Publish package` - You will then be presented with a `Run workflow` option in which you can specify which of the schemas to publish.
