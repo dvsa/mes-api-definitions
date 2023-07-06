@@ -1709,14 +1709,6 @@
 					"description": "The mot status of the vehicle",
 					"type": "string"
 				},
-				"motEvidenceProvided": {
-					"description": "Marker stating if alternative MOT evidence was provided",
-					"type": "boolean"
-				},
-				"motEvidence": {
-					"description": "Alternative MOT evidence",
-					"type": "string"
-				},
 				"gearboxCategory": {
 					"description": "The type of gearbox",
 					"type": "string",
@@ -2548,14 +2540,6 @@
 				},
 				"motStatus": {
 					"description": "The mot status of the vehicle",
-					"type": "string"
-				},
-				"motEvidenceProvided": {
-					"description": "Marker stating if alternative MOT evidence was provided",
-					"type": "boolean"
-				},
-				"motEvidence": {
-					"description": "Alternative MOT evidence",
 					"type": "string"
 				},
 				"gearboxCategory": {
