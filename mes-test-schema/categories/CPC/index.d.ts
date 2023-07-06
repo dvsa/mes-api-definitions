@@ -686,6 +686,14 @@ export interface VehicleDetails {
    * The mot status of the vehicle
    */
   motStatus?: string;
+  /**
+   * Marker stating if alternative MOT evidence was provided
+   */
+  motEvidenceProvided?: boolean;
+  /**
+   * Alternative MOT evidence
+   */
+  motEvidence?: string;
   gearboxCategory?: GearboxCategory;
   configuration?: Configuration;
 }

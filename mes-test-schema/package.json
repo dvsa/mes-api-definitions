@@ -1,11 +1,10 @@
 {
   "name": "@dvsa/mes-test-schema",
-  "version": "3.41.1",
+  "version": "3.42.3",
   "description": "Domain model for data associated with tests administered by the Mobile Examiners Service",
   "scripts": {
     "generate": "ts-node generateSchemas.ts generate",
-    "clean": "ts-node generateSchemas.ts clean",
-    "test": "json2ts -i categories/BE/index.json -o categories/BE/partial.d.ts --unreachableDefinitions"
+    "clean": "ts-node generateSchemas.ts clean"
   },
   "repository": {
     "type": "git",
