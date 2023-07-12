@@ -1697,6 +1697,25 @@
 					"description": "Alternative MOT evidence",
 					"type": "string"
 				},
+				"make": {
+					"description": "The make of the vehicle",
+					"type": "string"
+				},
+				"model": {
+					"description": "The model of the vehicle",
+					"type": "string"
+				},
+				"testExpiryDate": {
+					"description": "The test expiry date of the vehicle",
+					"type": "string"
+				},
+				"previouslySearchedRegNumbers": {
+					"description": "Previously searched for registration numbers",
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
 				"gearboxCategory": {
 					"$ref": "#/definitions/gearboxCategory"
 				}
