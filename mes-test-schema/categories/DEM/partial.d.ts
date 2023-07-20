@@ -123,6 +123,22 @@ export interface VehicleDetails {
    * Alternative MOT evidence
    */
   motEvidence?: string;
+  /**
+   * The make of the vehicle
+   */
+  make?: string;
+  /**
+   * The model of the vehicle
+   */
+  model?: string;
+  /**
+   * The test expiry date of the vehicle
+   */
+  testExpiryDate?: string;
+  /**
+   * Previously searched for registration numbers
+   */
+  previouslySearchedRegNumbers?: string[];
 }
 /**
  * This interface was referenced by `PartialTestResultCatDEMSchema`'s JSON-Schema

@@ -4,8 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       directory:
-        description: 'Directory (one of): mes-config-schema, mes-driver-schema, mes-journal-schema, mes-search-schema, mes-test-schema'
+        description: Directory of schema
         required: true
+        type: choice
+        options:
+          - mes-config-schema
+          - mes-driver-schema
+          - mes-journal-schema
+          - mes-search-schema
+          - mes-test-schema
 
 jobs:
   publish:
