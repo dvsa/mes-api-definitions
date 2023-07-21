@@ -221,6 +221,10 @@
   "additionalProperties": false,
   "description": "JSON Schema definition for remote application configuration",
   "properties": {
+    "liveAppVersion": {
+      "description": "Current live app version available",
+      "type": "string"
+    },
     "googleAnalyticsId": {
       "description": "Google analytics id must be included in your tracking code to tell Analytics which account and property to send data to",
       "type": "string"
