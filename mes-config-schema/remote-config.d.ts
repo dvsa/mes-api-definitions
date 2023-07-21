@@ -15,6 +15,10 @@ export type ExaminerRole = "LDTM" | "DE" | "DLG";
  */
 export interface RemoteConfig {
   /**
+   * Current live app version available
+   */
+  liveAppVersion?: string;
+  /**
    * Google analytics id must be included in your tracking code to tell Analytics which account and property to send data to
    */
   googleAnalyticsId: string;
