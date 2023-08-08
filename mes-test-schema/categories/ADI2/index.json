@@ -499,8 +499,6 @@
 			"required": [
 				"insuranceDeclarationAccepted",
 				"residencyDeclarationAccepted",
-				"preTestSignature",
-				"insuranceDeclarationAccepted",
 				"preTestSignature"
 			]
 		},

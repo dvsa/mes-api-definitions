@@ -421,8 +421,7 @@
 				"testCentre",
 				"testSlotAttributes",
 				"candidate",
-				"applicationReference",
-				"candidate"
+				"applicationReference"
 			]
 		},
 		"eyesightTest": {
@@ -1973,7 +1972,6 @@
 		"changeMarker",
 		"examinerBooked",
 		"examinerConducted",
-		"examinerKeyed",
-		"journalData"
+		"examinerKeyed"
 	]
 }

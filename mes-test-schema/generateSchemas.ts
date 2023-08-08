@@ -103,7 +103,11 @@ function removeRefs(obj: any): any {
     const removeRefsFields = (obj: any) => {
         Object.keys(obj).forEach((key) => {
             const value = obj[key];
+            // Remove duplicates in arrays
+            if (Array.isArray(value) && value.length) obj[key] = Array.from(new Set(value));
+            // delete $ref's from output
             if (key === '$ref' && Object.keys(obj).length > 1) delete obj[key];
+            // deep find fields
             if (typeof value === 'object') removeRefsFields(value);
         });
         return obj;
