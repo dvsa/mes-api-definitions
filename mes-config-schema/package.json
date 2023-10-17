@@ -1,6 +1,6 @@
 {
   "name": "@dvsa/mes-config-schema",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "JSON Schema of the configuration for the App",
   "scripts": {
     "generate-remote-config": "json2ts -i remote-config.json -o remote-config.d.ts",
