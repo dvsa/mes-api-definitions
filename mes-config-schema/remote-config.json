@@ -221,6 +221,10 @@
   "additionalProperties": false,
   "description": "JSON Schema definition for remote application configuration",
   "properties": {
+    "allowSingleAppMode": {
+      "description": "Flag which allows the toggling of single app mode",
+      "type": "boolean"
+    },
     "liveAppVersion": {
       "description": "Current live app version available",
       "type": "string"

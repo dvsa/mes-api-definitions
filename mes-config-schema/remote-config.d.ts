@@ -15,6 +15,10 @@ export type ExaminerRole = "LDTM" | "DE" | "DLG";
  */
 export interface RemoteConfig {
   /**
+   * Flag which allows the toggling of single app mode
+   */
+  allowSingleAppMode?: boolean;
+  /**
    * Current live app version available
    */
   liveAppVersion?: string;
