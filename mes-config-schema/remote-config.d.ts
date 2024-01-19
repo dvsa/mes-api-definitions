@@ -137,6 +137,10 @@ export interface Tests {
    */
   testSubmissionUrl: string;
   /**
+   * Url for searching for tests via examiner records
+   */
+  examinerRecordsUrl: string;
+  /**
    * A time interval in milliseconds that the test submission retries
    */
   autoSendInterval: number;
