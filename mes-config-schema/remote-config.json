@@ -148,7 +148,8 @@
       },
       "required": [
         "testSubmissionUrl",
-        "autoSendInterval"
+        "autoSendInterval",
+        "examinerRecordsUrl"
       ]
     },
     "user": {
