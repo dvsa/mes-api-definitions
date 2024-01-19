@@ -22,7 +22,7 @@ NOTE: The category specific index.d.ts files were initially generated but have b
       to create the category specific namespaces. These files should not be deleted nor regenerated
       but any new types should be added manually.
 
-# Updating a schema
+# Updating mes-test-schema
 
 Always make your edits to the **json schema files** (except for the category `index.json` files, these are auto-generated) and not the generated TypeScript definition files (ending in .d.ts). The general process for updating a schema is:-
 1. Navigate into the relevent schema (ie. mes-test-schema)
@@ -32,3 +32,13 @@ Always make your edits to the **json schema files** (except for the category `in
 5. Bump the version of the package using `npm version {major|minor|patch}` - _Ensure you are in the correct directory_
 6. Raise a Pull Request on Github and await approvals
 7. After merging into `develop`, we can now use GitHub actions to publish a given package for us - this can be found via the `Actions` tab, then click the workflow on the left i.e. `Publish package` - You will then be presented with a `Run worfklow` option in which you can specify which of the schemas to publish.
+
+# Updating mes-config-schema
+
+Always make your edits to the **json schema files** (except for the category `index.json` files, these are auto-generated) and not the generated TypeScript definition files (ending in .d.ts). The general process for updating a schema is:-
+1. Navigate into "mes-config-schema" directory
+2. Make edits to the relevant json schema file
+3. Generate the new TypeScript definitions using `npm run generate-remote-config` - _Ensure you are in the "mes-config-schema" directory_
+4. Bump the version of the package using `npm version {major|minor|patch}` - _e.g "npm version minor" to move from 1.1.1 to 1.2.0_
+5. Raise a Pull Request on Github and await approvals
+6. After merging into `develop`, we can now use GitHub actions to publish a given package for us - this can be found via the `Actions` tab, then click the workflow on the left i.e. `Publish package` - You will then be presented with a `Run worfklow` option in which you can specify which of the schemas to publish.
