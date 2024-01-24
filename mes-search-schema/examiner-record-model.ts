@@ -1,7 +1,9 @@
 import {TestCategory} from "../mes-test-schema/category-definitions/common/test-category";
 import {IndependentDriving, QuestionResult, TestCentre} from "../mes-test-schema/categories/common";
 import {Circuit} from "../mes-test-schema/categories/AM1";
-
+/**
+ * Model for data used in Examiner Records
+ */
 export interface ExaminerRecordModel {
     appRef: number;
     testCategory: TestCategory;
