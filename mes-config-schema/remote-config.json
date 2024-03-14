@@ -235,7 +235,11 @@
       "type": "string"
     },
     "googleAnalyticsId": {
-      "description": "Google analytics id must be included in your tracking code to tell Analytics which account and property to send data to",
+      "description": "Google Analytics id must be included in your tracking code to tell Analytics which account and property to send data to",
+      "type": "string"
+    },
+    "googleAnalyticsKey": {
+      "description": "Google Analytics key to identify the DVSA DES account. Needed to allow tracking of activity",
       "type": "string"
     },
     "approvedDeviceIdentifiers": {

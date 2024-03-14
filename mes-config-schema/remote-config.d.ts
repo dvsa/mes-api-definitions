@@ -23,9 +23,13 @@ export interface RemoteConfig {
    */
   liveAppVersion?: string;
   /**
-   * Google analytics id must be included in your tracking code to tell Analytics which account and property to send data to
+   * Google Analytics id must be included in your tracking code to tell Analytics which account and property to send data to
    */
   googleAnalyticsId: string;
+  /**
+   * Google Analytics key to identify the DVSA DES account. Needed to allow tracking of activity
+   */
+  googleAnalyticsKey?: string;
   /**
    * A collection of device ids that the App can be used on
    */
